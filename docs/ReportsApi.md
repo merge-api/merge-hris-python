@@ -21,52 +21,6 @@ Creates a `Report` object with the given values.
 
 ### Example
 
-* Api Key Authentication (cookieAuth):
-```python
-from __future__ import print_function
-import time
-import MergeHRISClient
-from MergeHRISClient.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://app.merge.dev/api/hris/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
-
-# Configure Bearer authorization (Token): tokenAuth
-configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with MergeHRISClient.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = MergeHRISClient.ReportsApi(api_client)
-    report = MergeHRISClient.Report() # Report |  (optional)
-
-    try:
-        api_response = api_instance.reports_create(report=report)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ReportsApi->reports_create: %s\n" % e)
-```
-
 * Bearer (Token) Authentication (tokenAuth):
 ```python
 from __future__ import print_function
@@ -84,16 +38,6 @@ configuration = MergeHRISClient.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
 
 # Configure Bearer authorization (Token): tokenAuth
 configuration = MergeHRISClient.Configuration(
@@ -125,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 
@@ -148,51 +92,6 @@ Deletes a `Report` object with the given `id`.
 
 ### Example
 
-* Api Key Authentication (cookieAuth):
-```python
-from __future__ import print_function
-import time
-import MergeHRISClient
-from MergeHRISClient.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://app.merge.dev/api/hris/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
-
-# Configure Bearer authorization (Token): tokenAuth
-configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with MergeHRISClient.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = MergeHRISClient.ReportsApi(api_client)
-    id = 'id_example' # str | 
-
-    try:
-        api_instance.reports_destroy(id)
-    except ApiException as e:
-        print("Exception when calling ReportsApi->reports_destroy: %s\n" % e)
-```
-
 * Bearer (Token) Authentication (tokenAuth):
 ```python
 from __future__ import print_function
@@ -210,16 +109,6 @@ configuration = MergeHRISClient.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
 
 # Configure Bearer authorization (Token): tokenAuth
 configuration = MergeHRISClient.Configuration(
@@ -250,7 +139,7 @@ void (empty response body)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 
@@ -273,54 +162,6 @@ Returns a list of `Report` objects.
 
 ### Example
 
-* Api Key Authentication (cookieAuth):
-```python
-from __future__ import print_function
-import time
-import MergeHRISClient
-from MergeHRISClient.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://app.merge.dev/api/hris/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
-
-# Configure Bearer authorization (Token): tokenAuth
-configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with MergeHRISClient.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = MergeHRISClient.ReportsApi(api_client)
-    cursor = 56 # int | The pagination cursor value. (optional)
-linked_account_id = 'linked_account_id_example' # str | If provided, will only return objects associated with the given `linked_account_id`. (optional)
-origin_id = 'origin_id_example' # str | The API provider's ID for the given object. (optional)
-
-    try:
-        api_response = api_instance.reports_list(cursor=cursor, linked_account_id=linked_account_id, origin_id=origin_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ReportsApi->reports_list: %s\n" % e)
-```
-
 * Bearer (Token) Authentication (tokenAuth):
 ```python
 from __future__ import print_function
@@ -338,16 +179,6 @@ configuration = MergeHRISClient.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
 
 # Configure Bearer authorization (Token): tokenAuth
 configuration = MergeHRISClient.Configuration(
@@ -383,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 
@@ -406,53 +237,6 @@ Updates a `Report` object with the given `id`.
 
 ### Example
 
-* Api Key Authentication (cookieAuth):
-```python
-from __future__ import print_function
-import time
-import MergeHRISClient
-from MergeHRISClient.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://app.merge.dev/api/hris/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
-
-# Configure Bearer authorization (Token): tokenAuth
-configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with MergeHRISClient.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = MergeHRISClient.ReportsApi(api_client)
-    id = 'id_example' # str | 
-patched_report = MergeHRISClient.PatchedReport() # PatchedReport |  (optional)
-
-    try:
-        api_response = api_instance.reports_partial_update(id, patched_report=patched_report)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ReportsApi->reports_partial_update: %s\n" % e)
-```
-
 * Bearer (Token) Authentication (tokenAuth):
 ```python
 from __future__ import print_function
@@ -470,16 +254,6 @@ configuration = MergeHRISClient.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
 
 # Configure Bearer authorization (Token): tokenAuth
 configuration = MergeHRISClient.Configuration(
@@ -513,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 
@@ -536,52 +310,6 @@ Returns a `Report` object with the given `id`.
 
 ### Example
 
-* Api Key Authentication (cookieAuth):
-```python
-from __future__ import print_function
-import time
-import MergeHRISClient
-from MergeHRISClient.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://app.merge.dev/api/hris/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
-
-# Configure Bearer authorization (Token): tokenAuth
-configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with MergeHRISClient.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = MergeHRISClient.ReportsApi(api_client)
-    id = 'id_example' # str | 
-
-    try:
-        api_response = api_instance.reports_retrieve(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ReportsApi->reports_retrieve: %s\n" % e)
-```
-
 * Bearer (Token) Authentication (tokenAuth):
 ```python
 from __future__ import print_function
@@ -599,16 +327,6 @@ configuration = MergeHRISClient.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
 
 # Configure Bearer authorization (Token): tokenAuth
 configuration = MergeHRISClient.Configuration(
@@ -640,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 
@@ -661,53 +379,6 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (cookieAuth):
-```python
-from __future__ import print_function
-import time
-import MergeHRISClient
-from MergeHRISClient.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://app.merge.dev/api/hris/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
-
-# Configure Bearer authorization (Token): tokenAuth
-configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with MergeHRISClient.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = MergeHRISClient.ReportsApi(api_client)
-    id = 'id_example' # str | 
-report = MergeHRISClient.Report() # Report |  (optional)
-
-    try:
-        api_response = api_instance.reports_update(id, report=report)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ReportsApi->reports_update: %s\n" % e)
-```
-
 * Bearer (Token) Authentication (tokenAuth):
 ```python
 from __future__ import print_function
@@ -725,16 +396,6 @@ configuration = MergeHRISClient.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
-    api_key = {
-        'Session': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Session'] = 'Bearer'
 
 # Configure Bearer authorization (Token): tokenAuth
 configuration = MergeHRISClient.Configuration(
@@ -768,7 +429,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+[tokenAuth](../README.md#tokenAuth)
 
 ### HTTP request headers
 

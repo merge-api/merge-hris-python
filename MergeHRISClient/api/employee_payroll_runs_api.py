@@ -133,7 +133,7 @@ class EmployeePayrollRunsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employee-payroll-runs', 'POST',
@@ -243,7 +243,7 @@ class EmployeePayrollRunsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employee-payroll-runs/{id}', 'DELETE',
@@ -363,7 +363,7 @@ class EmployeePayrollRunsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employee-payroll-runs', 'GET',
@@ -486,7 +486,7 @@ class EmployeePayrollRunsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employee-payroll-runs/{id}', 'PATCH',
@@ -600,7 +600,7 @@ class EmployeePayrollRunsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employee-payroll-runs/{id}', 'GET',
@@ -721,7 +721,7 @@ class EmployeePayrollRunsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employee-payroll-runs/{id}', 'PUT',

@@ -133,7 +133,7 @@ class EarningsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/earnings', 'POST',
@@ -243,7 +243,7 @@ class EarningsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/earnings/{id}', 'DELETE',
@@ -363,7 +363,7 @@ class EarningsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/earnings', 'GET',
@@ -486,7 +486,7 @@ class EarningsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/earnings/{id}', 'PATCH',
@@ -600,7 +600,7 @@ class EarningsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/earnings/{id}', 'GET',
@@ -721,7 +721,7 @@ class EarningsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/earnings/{id}', 'PUT',

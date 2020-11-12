@@ -133,7 +133,7 @@ class EmploymentsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employments', 'POST',
@@ -243,7 +243,7 @@ class EmploymentsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employments/{id}', 'DELETE',
@@ -363,7 +363,7 @@ class EmploymentsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employments', 'GET',
@@ -486,7 +486,7 @@ class EmploymentsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employments/{id}', 'PATCH',
@@ -600,7 +600,7 @@ class EmploymentsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employments/{id}', 'GET',
@@ -721,7 +721,7 @@ class EmploymentsApi(object):
             ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['cookieAuth', 'tokenAuth']  # noqa: E501
+        auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/employments/{id}', 'PUT',
