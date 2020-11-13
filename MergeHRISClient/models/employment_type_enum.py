@@ -29,8 +29,8 @@ class EmploymentTypeEnum(object):
     """
     allowed enum values
     """
-    FULL_TIME = "FULL TIME"
-    PART_TIME = "PART TIME"
+    FULL_TIME = "FULL_TIME"
+    PART_TIME = "PART_TIME"
     INTERN = "INTERN"
     CONTRACTOR = "CONTRACTOR"
     FREELANCE = "FREELANCE"

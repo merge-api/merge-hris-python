@@ -31,7 +31,7 @@ class MaritalStatusEnum(object):
     """
     SINGLE = "SINGLE"
     MARRIED = "MARRIED"
-    CIVIL_PARTNERSHIP = "CIVIL PARTNERSHIP"
+    CIVIL_PARTNERSHIP = "CIVIL_PARTNERSHIP"
 
     allowable_values = [SINGLE, MARRIED, CIVIL_PARTNERSHIP]  # noqa: E501
 

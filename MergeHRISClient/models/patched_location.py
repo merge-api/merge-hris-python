@@ -44,8 +44,7 @@ class PatchedLocation(object):
         'city': 'str',
         'state': 'OneOfStateEnumBlankEnumNullEnum',
         'zip_code': 'str',
-        'country': 'OneOfCountryEnumBlankEnumNullEnum',
-        'linked_account_id': 'str'
+        'country': 'OneOfCountryEnumBlankEnumNullEnum'
     }
 
     attribute_map = {
@@ -59,11 +58,10 @@ class PatchedLocation(object):
         'city': 'city',
         'state': 'state',
         'zip_code': 'zip_code',
-        'country': 'country',
-        'linked_account_id': 'linked_account_id'
+        'country': 'country'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, phone_number=None, street_1=None, street_2=None, city=None, state=None, zip_code=None, country=None, linked_account_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, phone_number=None, street_1=None, street_2=None, city=None, state=None, zip_code=None, country=None, local_vars_configuration=None):  # noqa: E501
         """PatchedLocation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,7 +78,6 @@ class PatchedLocation(object):
         self._state = None
         self._zip_code = None
         self._country = None
-        self._linked_account_id = None
         self.discriminator = None
 
         if id is not None:
@@ -97,7 +94,6 @@ class PatchedLocation(object):
         self.state = state
         self.zip_code = zip_code
         self.country = country
-        self.linked_account_id = linked_account_id
 
     @property
     def id(self):
@@ -351,27 +347,6 @@ class PatchedLocation(object):
         """
 
         self._country = country
-
-    @property
-    def linked_account_id(self):
-        """Gets the linked_account_id of this PatchedLocation.  # noqa: E501
-
-
-        :return: The linked_account_id of this PatchedLocation.  # noqa: E501
-        :rtype: str
-        """
-        return self._linked_account_id
-
-    @linked_account_id.setter
-    def linked_account_id(self, linked_account_id):
-        """Sets the linked_account_id of this PatchedLocation.
-
-
-        :param linked_account_id: The linked_account_id of this PatchedLocation.  # noqa: E501
-        :type: str
-        """
-
-        self._linked_account_id = linked_account_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -1,6 +1,6 @@
 # PatchedEmployee
 
-# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
+# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company. ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **work_email** | **str** | The employee&#39;s work email. | [optional] 
 **personal_email** | **str** | The employee&#39;s personal email. | [optional] 
 **mobile_phone_number** | **str** | The employee&#39;s mobile phone number. | [optional] 
-**employments** | [**list[Employment]**](Employment.md) |  | [optional] [readonly] 
+**employments** | **list[str]** |  | [optional] [readonly] 
 **home_location** | **str** | The employee&#39;s home address. | [optional] 
 **work_location** | **str** | The employee&#39;s work address. | [optional] 
 **manager** | **str** | The employeee ID of the employee&#39;s manager. | [optional] 
@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **termination_date** | **datetime** | The date the employee was terminated. | [optional] 
 **avatar** | **str** | The URL of the employee&#39;s avatar image. | [optional] 
 **about** | **str** | A description of the employee. | [optional] 
+**documents** | **list[str]** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

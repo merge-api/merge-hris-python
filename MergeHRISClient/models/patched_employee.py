@@ -45,7 +45,7 @@ class PatchedEmployee(object):
         'work_email': 'str',
         'personal_email': 'str',
         'mobile_phone_number': 'str',
-        'employments': 'list[Employment]',
+        'employments': 'list[str]',
         'home_location': 'str',
         'work_location': 'str',
         'manager': 'str',
@@ -59,7 +59,8 @@ class PatchedEmployee(object):
         'employment_status': 'OneOfEmploymentStatusEnumBlankEnumNullEnum',
         'termination_date': 'datetime',
         'avatar': 'str',
-        'about': 'str'
+        'about': 'str',
+        'documents': 'list[str]'
     }
 
     attribute_map = {
@@ -88,10 +89,11 @@ class PatchedEmployee(object):
         'employment_status': 'employment_status',
         'termination_date': 'termination_date',
         'avatar': 'avatar',
-        'about': 'about'
+        'about': 'about',
+        'documents': 'documents'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_date=None, employment_status=None, termination_date=None, avatar=None, about=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_date=None, employment_status=None, termination_date=None, avatar=None, about=None, documents=None, local_vars_configuration=None):  # noqa: E501
         """PatchedEmployee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -123,6 +125,7 @@ class PatchedEmployee(object):
         self._termination_date = None
         self._avatar = None
         self._about = None
+        self._documents = None
         self.discriminator = None
 
         if id is not None:
@@ -155,6 +158,8 @@ class PatchedEmployee(object):
         self.termination_date = termination_date
         self.avatar = avatar
         self.about = about
+        if documents is not None:
+            self.documents = documents
 
     @property
     def id(self):
@@ -421,7 +426,7 @@ class PatchedEmployee(object):
 
 
         :return: The employments of this PatchedEmployee.  # noqa: E501
-        :rtype: list[Employment]
+        :rtype: list[str]
         """
         return self._employments
 
@@ -431,7 +436,7 @@ class PatchedEmployee(object):
 
 
         :param employments: The employments of this PatchedEmployee.  # noqa: E501
-        :type: list[Employment]
+        :type: list[str]
         """
 
         self._employments = employments
@@ -763,6 +768,27 @@ class PatchedEmployee(object):
         """
 
         self._about = about
+
+    @property
+    def documents(self):
+        """Gets the documents of this PatchedEmployee.  # noqa: E501
+
+
+        :return: The documents of this PatchedEmployee.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._documents
+
+    @documents.setter
+    def documents(self, documents):
+        """Sets the documents of this PatchedEmployee.
+
+
+        :param documents: The documents of this PatchedEmployee.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._documents = documents
 
     def to_dict(self):
         """Returns the model properties as a dict"""

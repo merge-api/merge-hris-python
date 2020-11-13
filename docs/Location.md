@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **state** | [**OneOfStateEnumBlankEnumNullEnum**](OneOfStateEnumBlankEnumNullEnum.md) | The location&#39;s state. | [optional] 
 **zip_code** | **str** | The location&#39;s zip code. | [optional] 
 **country** | [**OneOfCountryEnumBlankEnumNullEnum**](OneOfCountryEnumBlankEnumNullEnum.md) | The location&#39;s country. | [optional] 
-**linked_account_id** | **str** |  | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

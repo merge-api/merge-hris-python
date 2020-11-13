@@ -30,7 +30,7 @@ class FisaStatusEnum(object):
     allowed enum values
     """
     EXEMPT = "EXEMPT"
-    SALARIED_NONEXEMPT = "SALARIED NONEXEMPT"
+    SALARIED_NONEXEMPT = "SALARIED_NONEXEMPT"
     NONEXEMPT = "NONEXEMPT"
     OWNER = "OWNER"
 
