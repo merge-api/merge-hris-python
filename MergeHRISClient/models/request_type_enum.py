@@ -32,7 +32,7 @@ class RequestTypeEnum(object):
     VACATION = "VACATION"
     SICK = "SICK"
     PERSONAL = "PERSONAL"
-    JURY_DUTY = "JURY DUTY"
+    JURY_DUTY = "JURY_DUTY"
 
     allowable_values = [VACATION, SICK, PERSONAL, JURY_DUTY]  # noqa: E501
 
