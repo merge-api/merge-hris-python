@@ -35,12 +35,10 @@ class PatchedTimeOff(object):
     """
     openapi_types = {
         'id': 'str',
-        'origin_id': 'str',
-        'created_at': 'datetime',
-        'modified_at': 'datetime',
+        'remote_id': 'str',
         'employee': 'str',
         'approver': 'str',
-        'status': 'OneOfStatusEnumBlankEnumNullEnum',
+        'status': 'OneOfTimeOffStatusEnumBlankEnumNullEnum',
         'employee_note': 'str',
         'units': 'OneOfUnitsEnumBlankEnumNullEnum',
         'amount': 'float',
@@ -49,9 +47,7 @@ class PatchedTimeOff(object):
 
     attribute_map = {
         'id': 'id',
-        'origin_id': 'origin_id',
-        'created_at': 'created_at',
-        'modified_at': 'modified_at',
+        'remote_id': 'remote_id',
         'employee': 'employee',
         'approver': 'approver',
         'status': 'status',
@@ -61,16 +57,14 @@ class PatchedTimeOff(object):
         'request_type': 'request_type'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, employee=None, approver=None, status=None, employee_note=None, units=None, amount=None, request_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, employee=None, approver=None, status=None, employee_note=None, units=None, amount=None, request_type=None, local_vars_configuration=None):  # noqa: E501
         """PatchedTimeOff - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._origin_id = None
-        self._created_at = None
-        self._modified_at = None
+        self._remote_id = None
         self._employee = None
         self._approver = None
         self._status = None
@@ -82,11 +76,7 @@ class PatchedTimeOff(object):
 
         if id is not None:
             self.id = id
-        self.origin_id = origin_id
-        if created_at is not None:
-            self.created_at = created_at
-        if modified_at is not None:
-            self.modified_at = modified_at
+        self.remote_id = remote_id
         self.employee = employee
         self.approver = approver
         self.status = status
@@ -117,69 +107,27 @@ class PatchedTimeOff(object):
         self._id = id
 
     @property
-    def origin_id(self):
-        """Gets the origin_id of this PatchedTimeOff.  # noqa: E501
+    def remote_id(self):
+        """Gets the remote_id of this PatchedTimeOff.  # noqa: E501
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :return: The origin_id of this PatchedTimeOff.  # noqa: E501
+        :return: The remote_id of this PatchedTimeOff.  # noqa: E501
         :rtype: str
         """
-        return self._origin_id
+        return self._remote_id
 
-    @origin_id.setter
-    def origin_id(self, origin_id):
-        """Sets the origin_id of this PatchedTimeOff.
+    @remote_id.setter
+    def remote_id(self, remote_id):
+        """Sets the remote_id of this PatchedTimeOff.
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :param origin_id: The origin_id of this PatchedTimeOff.  # noqa: E501
+        :param remote_id: The remote_id of this PatchedTimeOff.  # noqa: E501
         :type: str
         """
 
-        self._origin_id = origin_id
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this PatchedTimeOff.  # noqa: E501
-
-
-        :return: The created_at of this PatchedTimeOff.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this PatchedTimeOff.
-
-
-        :param created_at: The created_at of this PatchedTimeOff.  # noqa: E501
-        :type: datetime
-        """
-
-        self._created_at = created_at
-
-    @property
-    def modified_at(self):
-        """Gets the modified_at of this PatchedTimeOff.  # noqa: E501
-
-
-        :return: The modified_at of this PatchedTimeOff.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._modified_at
-
-    @modified_at.setter
-    def modified_at(self, modified_at):
-        """Sets the modified_at of this PatchedTimeOff.
-
-
-        :param modified_at: The modified_at of this PatchedTimeOff.  # noqa: E501
-        :type: datetime
-        """
-
-        self._modified_at = modified_at
+        self._remote_id = remote_id
 
     @property
     def employee(self):
@@ -234,7 +182,7 @@ class PatchedTimeOff(object):
         The status of this time off request.  # noqa: E501
 
         :return: The status of this PatchedTimeOff.  # noqa: E501
-        :rtype: OneOfStatusEnumBlankEnumNullEnum
+        :rtype: OneOfTimeOffStatusEnumBlankEnumNullEnum
         """
         return self._status
 
@@ -245,7 +193,7 @@ class PatchedTimeOff(object):
         The status of this time off request.  # noqa: E501
 
         :param status: The status of this PatchedTimeOff.  # noqa: E501
-        :type: OneOfStatusEnumBlankEnumNullEnum
+        :type: OneOfTimeOffStatusEnumBlankEnumNullEnum
         """
 
         self._status = status

@@ -35,34 +35,28 @@ class PatchedCompany(object):
     """
     openapi_types = {
         'id': 'str',
-        'origin_id': 'str',
-        'created_at': 'datetime',
-        'modified_at': 'datetime',
+        'remote_id': 'str',
         'legal_name': 'str',
         'display_name': 'str',
-        'ei_ns': 'list[str]'
+        'ei_ns': 'list[PatchedEIN]'
     }
 
     attribute_map = {
         'id': 'id',
-        'origin_id': 'origin_id',
-        'created_at': 'created_at',
-        'modified_at': 'modified_at',
+        'remote_id': 'remote_id',
         'legal_name': 'legal_name',
         'display_name': 'display_name',
         'ei_ns': 'EINs'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, legal_name=None, display_name=None, ei_ns=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, legal_name=None, display_name=None, ei_ns=None, local_vars_configuration=None):  # noqa: E501
         """PatchedCompany - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._origin_id = None
-        self._created_at = None
-        self._modified_at = None
+        self._remote_id = None
         self._legal_name = None
         self._display_name = None
         self._ei_ns = None
@@ -70,11 +64,7 @@ class PatchedCompany(object):
 
         if id is not None:
             self.id = id
-        self.origin_id = origin_id
-        if created_at is not None:
-            self.created_at = created_at
-        if modified_at is not None:
-            self.modified_at = modified_at
+        self.remote_id = remote_id
         self.legal_name = legal_name
         self.display_name = display_name
         if ei_ns is not None:
@@ -102,69 +92,27 @@ class PatchedCompany(object):
         self._id = id
 
     @property
-    def origin_id(self):
-        """Gets the origin_id of this PatchedCompany.  # noqa: E501
+    def remote_id(self):
+        """Gets the remote_id of this PatchedCompany.  # noqa: E501
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :return: The origin_id of this PatchedCompany.  # noqa: E501
+        :return: The remote_id of this PatchedCompany.  # noqa: E501
         :rtype: str
         """
-        return self._origin_id
+        return self._remote_id
 
-    @origin_id.setter
-    def origin_id(self, origin_id):
-        """Sets the origin_id of this PatchedCompany.
+    @remote_id.setter
+    def remote_id(self, remote_id):
+        """Sets the remote_id of this PatchedCompany.
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :param origin_id: The origin_id of this PatchedCompany.  # noqa: E501
+        :param remote_id: The remote_id of this PatchedCompany.  # noqa: E501
         :type: str
         """
 
-        self._origin_id = origin_id
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this PatchedCompany.  # noqa: E501
-
-
-        :return: The created_at of this PatchedCompany.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this PatchedCompany.
-
-
-        :param created_at: The created_at of this PatchedCompany.  # noqa: E501
-        :type: datetime
-        """
-
-        self._created_at = created_at
-
-    @property
-    def modified_at(self):
-        """Gets the modified_at of this PatchedCompany.  # noqa: E501
-
-
-        :return: The modified_at of this PatchedCompany.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._modified_at
-
-    @modified_at.setter
-    def modified_at(self, modified_at):
-        """Sets the modified_at of this PatchedCompany.
-
-
-        :param modified_at: The modified_at of this PatchedCompany.  # noqa: E501
-        :type: datetime
-        """
-
-        self._modified_at = modified_at
+        self._remote_id = remote_id
 
     @property
     def legal_name(self):
@@ -218,7 +166,7 @@ class PatchedCompany(object):
 
 
         :return: The ei_ns of this PatchedCompany.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[PatchedEIN]
         """
         return self._ei_ns
 
@@ -228,7 +176,7 @@ class PatchedCompany(object):
 
 
         :param ei_ns: The ei_ns of this PatchedCompany.  # noqa: E501
-        :type: list[str]
+        :type: list[PatchedEIN]
         """
 
         self._ei_ns = ei_ns

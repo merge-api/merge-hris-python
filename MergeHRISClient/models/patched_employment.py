@@ -35,67 +35,57 @@ class PatchedEmployment(object):
     """
     openapi_types = {
         'id': 'str',
-        'origin_id': 'str',
-        'created_at': 'datetime',
-        'modified_at': 'datetime',
+        'remote_id': 'str',
         'job_title': 'str',
         'pay_rate': 'float',
         'pay_period': 'OneOfPayPeriodEnumBlankEnumNullEnum',
         'pay_frequency': 'OneOfPayFrequencyEnumBlankEnumNullEnum',
         'pay_currency': 'OneOfPayCurrencyEnumBlankEnumNullEnum',
-        'fisa_status': 'OneOfFisaStatusEnumBlankEnumNullEnum',
+        'flsa_status': 'OneOfFlsaStatusEnumBlankEnumNullEnum',
         'effective_date': 'datetime',
         'employment_type': 'OneOfEmploymentTypeEnumBlankEnumNullEnum'
     }
 
     attribute_map = {
         'id': 'id',
-        'origin_id': 'origin_id',
-        'created_at': 'created_at',
-        'modified_at': 'modified_at',
+        'remote_id': 'remote_id',
         'job_title': 'job_title',
         'pay_rate': 'pay_rate',
         'pay_period': 'pay_period',
         'pay_frequency': 'pay_frequency',
         'pay_currency': 'pay_currency',
-        'fisa_status': 'fisa_status',
+        'flsa_status': 'flsa_status',
         'effective_date': 'effective_date',
         'employment_type': 'employment_type'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, job_title=None, pay_rate=None, pay_period=None, pay_frequency=None, pay_currency=None, fisa_status=None, effective_date=None, employment_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, job_title=None, pay_rate=None, pay_period=None, pay_frequency=None, pay_currency=None, flsa_status=None, effective_date=None, employment_type=None, local_vars_configuration=None):  # noqa: E501
         """PatchedEmployment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._origin_id = None
-        self._created_at = None
-        self._modified_at = None
+        self._remote_id = None
         self._job_title = None
         self._pay_rate = None
         self._pay_period = None
         self._pay_frequency = None
         self._pay_currency = None
-        self._fisa_status = None
+        self._flsa_status = None
         self._effective_date = None
         self._employment_type = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
-        self.origin_id = origin_id
-        if created_at is not None:
-            self.created_at = created_at
-        if modified_at is not None:
-            self.modified_at = modified_at
+        self.remote_id = remote_id
         self.job_title = job_title
         self.pay_rate = pay_rate
         self.pay_period = pay_period
         self.pay_frequency = pay_frequency
         self.pay_currency = pay_currency
-        self.fisa_status = fisa_status
+        self.flsa_status = flsa_status
         self.effective_date = effective_date
         self.employment_type = employment_type
 
@@ -121,69 +111,27 @@ class PatchedEmployment(object):
         self._id = id
 
     @property
-    def origin_id(self):
-        """Gets the origin_id of this PatchedEmployment.  # noqa: E501
+    def remote_id(self):
+        """Gets the remote_id of this PatchedEmployment.  # noqa: E501
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :return: The origin_id of this PatchedEmployment.  # noqa: E501
+        :return: The remote_id of this PatchedEmployment.  # noqa: E501
         :rtype: str
         """
-        return self._origin_id
+        return self._remote_id
 
-    @origin_id.setter
-    def origin_id(self, origin_id):
-        """Sets the origin_id of this PatchedEmployment.
+    @remote_id.setter
+    def remote_id(self, remote_id):
+        """Sets the remote_id of this PatchedEmployment.
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :param origin_id: The origin_id of this PatchedEmployment.  # noqa: E501
+        :param remote_id: The remote_id of this PatchedEmployment.  # noqa: E501
         :type: str
         """
 
-        self._origin_id = origin_id
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this PatchedEmployment.  # noqa: E501
-
-
-        :return: The created_at of this PatchedEmployment.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this PatchedEmployment.
-
-
-        :param created_at: The created_at of this PatchedEmployment.  # noqa: E501
-        :type: datetime
-        """
-
-        self._created_at = created_at
-
-    @property
-    def modified_at(self):
-        """Gets the modified_at of this PatchedEmployment.  # noqa: E501
-
-
-        :return: The modified_at of this PatchedEmployment.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._modified_at
-
-    @modified_at.setter
-    def modified_at(self, modified_at):
-        """Sets the modified_at of this PatchedEmployment.
-
-
-        :param modified_at: The modified_at of this PatchedEmployment.  # noqa: E501
-        :type: datetime
-        """
-
-        self._modified_at = modified_at
+        self._remote_id = remote_id
 
     @property
     def job_title(self):
@@ -235,7 +183,7 @@ class PatchedEmployment(object):
     def pay_period(self):
         """Gets the pay_period of this PatchedEmployment.  # noqa: E501
 
-        The time period this pay rate encompasses  # noqa: E501
+        The time period this pay rate encompasses.  # noqa: E501
 
         :return: The pay_period of this PatchedEmployment.  # noqa: E501
         :rtype: OneOfPayPeriodEnumBlankEnumNullEnum
@@ -246,7 +194,7 @@ class PatchedEmployment(object):
     def pay_period(self, pay_period):
         """Sets the pay_period of this PatchedEmployment.
 
-        The time period this pay rate encompasses  # noqa: E501
+        The time period this pay rate encompasses.  # noqa: E501
 
         :param pay_period: The pay_period of this PatchedEmployment.  # noqa: E501
         :type: OneOfPayPeriodEnumBlankEnumNullEnum
@@ -301,27 +249,27 @@ class PatchedEmployment(object):
         self._pay_currency = pay_currency
 
     @property
-    def fisa_status(self):
-        """Gets the fisa_status of this PatchedEmployment.  # noqa: E501
+    def flsa_status(self):
+        """Gets the flsa_status of this PatchedEmployment.  # noqa: E501
 
-        The position's FISA status.  # noqa: E501
+        The position's FLSA status.  # noqa: E501
 
-        :return: The fisa_status of this PatchedEmployment.  # noqa: E501
-        :rtype: OneOfFisaStatusEnumBlankEnumNullEnum
+        :return: The flsa_status of this PatchedEmployment.  # noqa: E501
+        :rtype: OneOfFlsaStatusEnumBlankEnumNullEnum
         """
-        return self._fisa_status
+        return self._flsa_status
 
-    @fisa_status.setter
-    def fisa_status(self, fisa_status):
-        """Sets the fisa_status of this PatchedEmployment.
+    @flsa_status.setter
+    def flsa_status(self, flsa_status):
+        """Sets the flsa_status of this PatchedEmployment.
 
-        The position's FISA status.  # noqa: E501
+        The position's FLSA status.  # noqa: E501
 
-        :param fisa_status: The fisa_status of this PatchedEmployment.  # noqa: E501
-        :type: OneOfFisaStatusEnumBlankEnumNullEnum
+        :param flsa_status: The flsa_status of this PatchedEmployment.  # noqa: E501
+        :type: OneOfFlsaStatusEnumBlankEnumNullEnum
         """
 
-        self._fisa_status = fisa_status
+        self._flsa_status = flsa_status
 
     @property
     def effective_date(self):

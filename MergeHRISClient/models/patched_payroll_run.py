@@ -35,9 +35,7 @@ class PatchedPayrollRun(object):
     """
     openapi_types = {
         'id': 'str',
-        'origin_id': 'str',
-        'created_at': 'datetime',
-        'modified_at': 'datetime',
+        'remote_id': 'str',
         'run_state': 'OneOfRunStateEnumBlankEnumNullEnum',
         'run_type': 'OneOfRunTypeEnumBlankEnumNullEnum',
         'start_date': 'datetime',
@@ -47,9 +45,7 @@ class PatchedPayrollRun(object):
 
     attribute_map = {
         'id': 'id',
-        'origin_id': 'origin_id',
-        'created_at': 'created_at',
-        'modified_at': 'modified_at',
+        'remote_id': 'remote_id',
         'run_state': 'run_state',
         'run_type': 'run_type',
         'start_date': 'start_date',
@@ -57,16 +53,14 @@ class PatchedPayrollRun(object):
         'check_date': 'check_date'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, run_state=None, run_type=None, start_date=None, end_date=None, check_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, run_state=None, run_type=None, start_date=None, end_date=None, check_date=None, local_vars_configuration=None):  # noqa: E501
         """PatchedPayrollRun - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._origin_id = None
-        self._created_at = None
-        self._modified_at = None
+        self._remote_id = None
         self._run_state = None
         self._run_type = None
         self._start_date = None
@@ -76,11 +70,7 @@ class PatchedPayrollRun(object):
 
         if id is not None:
             self.id = id
-        self.origin_id = origin_id
-        if created_at is not None:
-            self.created_at = created_at
-        if modified_at is not None:
-            self.modified_at = modified_at
+        self.remote_id = remote_id
         self.run_state = run_state
         self.run_type = run_type
         self.start_date = start_date
@@ -109,69 +99,27 @@ class PatchedPayrollRun(object):
         self._id = id
 
     @property
-    def origin_id(self):
-        """Gets the origin_id of this PatchedPayrollRun.  # noqa: E501
+    def remote_id(self):
+        """Gets the remote_id of this PatchedPayrollRun.  # noqa: E501
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :return: The origin_id of this PatchedPayrollRun.  # noqa: E501
+        :return: The remote_id of this PatchedPayrollRun.  # noqa: E501
         :rtype: str
         """
-        return self._origin_id
+        return self._remote_id
 
-    @origin_id.setter
-    def origin_id(self, origin_id):
-        """Sets the origin_id of this PatchedPayrollRun.
+    @remote_id.setter
+    def remote_id(self, remote_id):
+        """Sets the remote_id of this PatchedPayrollRun.
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :param origin_id: The origin_id of this PatchedPayrollRun.  # noqa: E501
+        :param remote_id: The remote_id of this PatchedPayrollRun.  # noqa: E501
         :type: str
         """
 
-        self._origin_id = origin_id
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this PatchedPayrollRun.  # noqa: E501
-
-
-        :return: The created_at of this PatchedPayrollRun.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this PatchedPayrollRun.
-
-
-        :param created_at: The created_at of this PatchedPayrollRun.  # noqa: E501
-        :type: datetime
-        """
-
-        self._created_at = created_at
-
-    @property
-    def modified_at(self):
-        """Gets the modified_at of this PatchedPayrollRun.  # noqa: E501
-
-
-        :return: The modified_at of this PatchedPayrollRun.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._modified_at
-
-    @modified_at.setter
-    def modified_at(self, modified_at):
-        """Sets the modified_at of this PatchedPayrollRun.
-
-
-        :param modified_at: The modified_at of this PatchedPayrollRun.  # noqa: E501
-        :type: datetime
-        """
-
-        self._modified_at = modified_at
+        self._remote_id = remote_id
 
     @property
     def run_state(self):
@@ -246,7 +194,7 @@ class PatchedPayrollRun(object):
     def end_date(self):
         """Gets the end_date of this PatchedPayrollRun.  # noqa: E501
 
-        he day and time the payroll run ended.  # noqa: E501
+        The day and time the payroll run ended.  # noqa: E501
 
         :return: The end_date of this PatchedPayrollRun.  # noqa: E501
         :rtype: datetime
@@ -257,7 +205,7 @@ class PatchedPayrollRun(object):
     def end_date(self, end_date):
         """Sets the end_date of this PatchedPayrollRun.
 
-        he day and time the payroll run ended.  # noqa: E501
+        The day and time the payroll run ended.  # noqa: E501
 
         :param end_date: The end_date of this PatchedPayrollRun.  # noqa: E501
         :type: datetime
@@ -269,7 +217,7 @@ class PatchedPayrollRun(object):
     def check_date(self):
         """Gets the check_date of this PatchedPayrollRun.  # noqa: E501
 
-        he day and time the payroll run was checked.  # noqa: E501
+        The day and time the payroll run was checked.  # noqa: E501
 
         :return: The check_date of this PatchedPayrollRun.  # noqa: E501
         :rtype: datetime
@@ -280,7 +228,7 @@ class PatchedPayrollRun(object):
     def check_date(self, check_date):
         """Sets the check_date of this PatchedPayrollRun.
 
-        he day and time the payroll run was checked.  # noqa: E501
+        The day and time the payroll run was checked.  # noqa: E501
 
         :param check_date: The check_date of this PatchedPayrollRun.  # noqa: E501
         :type: datetime

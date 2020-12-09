@@ -5,12 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
-**origin_id** | **str** | The third-party API ID of the matching object. | [optional] 
-**created_at** | **datetime** |  | [readonly] 
-**modified_at** | **datetime** |  | [readonly] 
+**remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **employee** | **str** | The employee requesting time off. | [optional] 
 **approver** | **str** | The employee approving the time off request. | [optional] 
-**status** | [**OneOfStatusEnumBlankEnumNullEnum**](OneOfStatusEnumBlankEnumNullEnum.md) | The status of this time off request. | [optional] 
+**status** | [**OneOfTimeOffStatusEnumBlankEnumNullEnum**](OneOfTimeOffStatusEnumBlankEnumNullEnum.md) | The status of this time off request. | [optional] 
 **employee_note** | **str** | The status of this time off request. | [optional] 
 **units** | [**OneOfUnitsEnumBlankEnumNullEnum**](OneOfUnitsEnumBlankEnumNullEnum.md) | The unit of time requested. | [optional] 
 **amount** | **float** | The number of time off units requested. | [optional] 
