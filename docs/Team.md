@@ -5,9 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
-**origin_id** | **str** | The third-party API ID of the matching object. | [optional] 
-**created_at** | **datetime** |  | [readonly] 
-**modified_at** | **datetime** |  | [readonly] 
+**remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **name** | **str** | The team&#39;s name. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

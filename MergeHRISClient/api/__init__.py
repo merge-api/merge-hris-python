@@ -14,6 +14,7 @@ from MergeHRISClient.api.employments_api import EmploymentsApi
 from MergeHRISClient.api.locations_api import LocationsApi
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
 from MergeHRISClient.api.reports_api import ReportsApi
+from MergeHRISClient.api.tasks_api import TasksApi
 from MergeHRISClient.api.taxes_api import TaxesApi
 from MergeHRISClient.api.teams_api import TeamsApi
 from MergeHRISClient.api.time_off_api import TimeOffApi

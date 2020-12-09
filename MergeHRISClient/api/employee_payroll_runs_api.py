@@ -47,6 +47,8 @@ class EmployeePayrollRunsApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str x_link_token: Token identifying the end user.
+        :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param EmployeePayrollRun employee_payroll_run:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -72,6 +74,8 @@ class EmployeePayrollRunsApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str x_link_token: Token identifying the end user.
+        :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param EmployeePayrollRun employee_payroll_run:
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -90,6 +94,8 @@ class EmployeePayrollRunsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'x_link_token',
+            'run_async',
             'employee_payroll_run'
         ]
         all_params.extend(
@@ -115,8 +121,12 @@ class EmployeePayrollRunsApi(object):
         path_params = {}
 
         query_params = []
+        if 'run_async' in local_var_params and local_var_params['run_async'] is not None:  # noqa: E501
+            query_params.append(('run_async', local_var_params['run_async']))  # noqa: E501
 
         header_params = {}
+        if 'x_link_token' in local_var_params:
+            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -162,6 +172,8 @@ class EmployeePayrollRunsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
+        :param str x_link_token: Token identifying the end user.
+        :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -169,7 +181,7 @@ class EmployeePayrollRunsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: None
+        :return: AsyncTaskExecution
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -187,6 +199,8 @@ class EmployeePayrollRunsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
+        :param str x_link_token: Token identifying the end user.
+        :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -196,7 +210,7 @@ class EmployeePayrollRunsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: None
+        :return: tuple(AsyncTaskExecution, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -204,7 +218,9 @@ class EmployeePayrollRunsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_link_token',
+            'run_async'
         ]
         all_params.extend(
             [
@@ -235,13 +251,21 @@ class EmployeePayrollRunsApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'run_async' in local_var_params and local_var_params['run_async'] is not None:  # noqa: E501
+            query_params.append(('run_async', local_var_params['run_async']))  # noqa: E501
 
         header_params = {}
+        if 'x_link_token' in local_var_params:
+            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['tokenAuth']  # noqa: E501
 
@@ -253,7 +277,7 @@ class EmployeePayrollRunsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='AsyncTaskExecution',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -271,9 +295,11 @@ class EmployeePayrollRunsApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str x_link_token: Token identifying the end user.
         :param int cursor: The pagination cursor value.
+        :param str expand: Which relations should be returned in expanded form.
         :param str linked_account_id: If provided, will only return objects associated with the given `linked_account_id`.
-        :param str origin_id: The API provider's ID for the given object.
+        :param str remote_id: The API provider's ID for the given object.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -298,9 +324,11 @@ class EmployeePayrollRunsApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str x_link_token: Token identifying the end user.
         :param int cursor: The pagination cursor value.
+        :param str expand: Which relations should be returned in expanded form.
         :param str linked_account_id: If provided, will only return objects associated with the given `linked_account_id`.
-        :param str origin_id: The API provider's ID for the given object.
+        :param str remote_id: The API provider's ID for the given object.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -318,9 +346,11 @@ class EmployeePayrollRunsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'x_link_token',
             'cursor',
+            'expand',
             'linked_account_id',
-            'origin_id'
+            'remote_id'
         ]
         all_params.extend(
             [
@@ -347,12 +377,16 @@ class EmployeePayrollRunsApi(object):
         query_params = []
         if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
+        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
+            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
         if 'linked_account_id' in local_var_params and local_var_params['linked_account_id'] is not None:  # noqa: E501
             query_params.append(('linked_account_id', local_var_params['linked_account_id']))  # noqa: E501
-        if 'origin_id' in local_var_params and local_var_params['origin_id'] is not None:  # noqa: E501
-            query_params.append(('origin_id', local_var_params['origin_id']))  # noqa: E501
+        if 'remote_id' in local_var_params and local_var_params['remote_id'] is not None:  # noqa: E501
+            query_params.append(('remote_id', local_var_params['remote_id']))  # noqa: E501
 
         header_params = {}
+        if 'x_link_token' in local_var_params:
+            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -392,6 +426,8 @@ class EmployeePayrollRunsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
+        :param str x_link_token: Token identifying the end user.
+        :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param PatchedEmployeePayrollRun patched_employee_payroll_run:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -418,6 +454,8 @@ class EmployeePayrollRunsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
+        :param str x_link_token: Token identifying the end user.
+        :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param PatchedEmployeePayrollRun patched_employee_payroll_run:
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -437,6 +475,8 @@ class EmployeePayrollRunsApi(object):
 
         all_params = [
             'id',
+            'x_link_token',
+            'run_async',
             'patched_employee_payroll_run'
         ]
         all_params.extend(
@@ -468,8 +508,12 @@ class EmployeePayrollRunsApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'run_async' in local_var_params and local_var_params['run_async'] is not None:  # noqa: E501
+            query_params.append(('run_async', local_var_params['run_async']))  # noqa: E501
 
         header_params = {}
+        if 'x_link_token' in local_var_params:
+            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -515,6 +559,8 @@ class EmployeePayrollRunsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
+        :param str x_link_token: Token identifying the end user.
+        :param str expand: Which relations should be returned in expanded form.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -540,6 +586,8 @@ class EmployeePayrollRunsApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
+        :param str x_link_token: Token identifying the end user.
+        :param str expand: Which relations should be returned in expanded form.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -557,7 +605,9 @@ class EmployeePayrollRunsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_link_token',
+            'expand'
         ]
         all_params.extend(
             [
@@ -588,8 +638,12 @@ class EmployeePayrollRunsApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
+            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
 
         header_params = {}
+        if 'x_link_token' in local_var_params:
+            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}

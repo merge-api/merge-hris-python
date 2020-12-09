@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **employee_payroll_runs_create**
-> EmployeePayrollRun employee_payroll_runs_create(employee_payroll_run=employee_payroll_run)
+> EmployeePayrollRun employee_payroll_runs_create(x_link_token=x_link_token, run_async=run_async, employee_payroll_run=employee_payroll_run)
 
 
 
@@ -48,10 +48,12 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EmployeePayrollRunsApi(api_client)
-    employee_payroll_run = MergeHRISClient.EmployeePayrollRun() # EmployeePayrollRun |  (optional)
+    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+employee_payroll_run = MergeHRISClient.EmployeePayrollRun() # EmployeePayrollRun |  (optional)
 
     try:
-        api_response = api_instance.employee_payroll_runs_create(employee_payroll_run=employee_payroll_run)
+        api_response = api_instance.employee_payroll_runs_create(x_link_token=x_link_token, run_async=run_async, employee_payroll_run=employee_payroll_run)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_create: %s\n" % e)
@@ -61,6 +63,8 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **employee_payroll_run** | [**EmployeePayrollRun**](EmployeePayrollRun.md)|  | [optional] 
 
 ### Return type
@@ -79,12 +83,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**201** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **employee_payroll_runs_destroy**
-> employee_payroll_runs_destroy(id)
+> AsyncTaskExecution employee_payroll_runs_destroy(id, x_link_token=x_link_token, run_async=run_async)
 
 
 
@@ -120,9 +125,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EmployeePayrollRunsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     try:
-        api_instance.employee_payroll_runs_destroy(id)
+        api_response = api_instance.employee_payroll_runs_destroy(id, x_link_token=x_link_token, run_async=run_async)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_destroy: %s\n" % e)
 ```
@@ -132,10 +140,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**AsyncTaskExecution**](AsyncTaskExecution.md)
 
 ### Authorization
 
@@ -144,17 +154,18 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No response body |  -  |
+**204** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **employee_payroll_runs_list**
-> PaginatedEmployeePayrollRunList employee_payroll_runs_list(cursor=cursor, linked_account_id=linked_account_id, origin_id=origin_id)
+> PaginatedEmployeePayrollRunList employee_payroll_runs_list(x_link_token=x_link_token, cursor=cursor, expand=expand, linked_account_id=linked_account_id, remote_id=remote_id)
 
 
 
@@ -189,12 +200,14 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EmployeePayrollRunsApi(api_client)
-    cursor = 56 # int | The pagination cursor value. (optional)
+    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+cursor = 56 # int | The pagination cursor value. (optional)
+expand = 'expand_example' # str | Which relations should be returned in expanded form. (optional)
 linked_account_id = 'linked_account_id_example' # str | If provided, will only return objects associated with the given `linked_account_id`. (optional)
-origin_id = 'origin_id_example' # str | The API provider's ID for the given object. (optional)
+remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
 
     try:
-        api_response = api_instance.employee_payroll_runs_list(cursor=cursor, linked_account_id=linked_account_id, origin_id=origin_id)
+        api_response = api_instance.employee_payroll_runs_list(x_link_token=x_link_token, cursor=cursor, expand=expand, linked_account_id=linked_account_id, remote_id=remote_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_list: %s\n" % e)
@@ -204,9 +217,11 @@ origin_id = 'origin_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
  **cursor** | **int**| The pagination cursor value. | [optional] 
+ **expand** | **str**| Which relations should be returned in expanded form. | [optional] 
  **linked_account_id** | **str**| If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;. | [optional] 
- **origin_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
+ **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
 
 ### Return type
 
@@ -229,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **employee_payroll_runs_partial_update**
-> EmployeePayrollRun employee_payroll_runs_partial_update(id, patched_employee_payroll_run=patched_employee_payroll_run)
+> EmployeePayrollRun employee_payroll_runs_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_employee_payroll_run=patched_employee_payroll_run)
 
 
 
@@ -265,10 +280,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EmployeePayrollRunsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 patched_employee_payroll_run = MergeHRISClient.PatchedEmployeePayrollRun() # PatchedEmployeePayrollRun |  (optional)
 
     try:
-        api_response = api_instance.employee_payroll_runs_partial_update(id, patched_employee_payroll_run=patched_employee_payroll_run)
+        api_response = api_instance.employee_payroll_runs_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_employee_payroll_run=patched_employee_payroll_run)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_partial_update: %s\n" % e)
@@ -279,6 +296,8 @@ patched_employee_payroll_run = MergeHRISClient.PatchedEmployeePayrollRun() # Pat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **patched_employee_payroll_run** | [**PatchedEmployeePayrollRun**](PatchedEmployeePayrollRun.md)|  | [optional] 
 
 ### Return type
@@ -298,11 +317,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **employee_payroll_runs_retrieve**
-> EmployeePayrollRun employee_payroll_runs_retrieve(id)
+> EmployeePayrollRun employee_payroll_runs_retrieve(id, x_link_token=x_link_token, expand=expand)
 
 
 
@@ -338,9 +358,11 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EmployeePayrollRunsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+expand = 'expand_example' # str | Which relations should be returned in expanded form. (optional)
 
     try:
-        api_response = api_instance.employee_payroll_runs_retrieve(id)
+        api_response = api_instance.employee_payroll_runs_retrieve(id, x_link_token=x_link_token, expand=expand)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_retrieve: %s\n" % e)
@@ -351,6 +373,8 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **expand** | **str**| Which relations should be returned in expanded form. | [optional] 
 
 ### Return type
 

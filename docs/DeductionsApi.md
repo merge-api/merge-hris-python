@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **deductions_create**
-> Deduction deductions_create(deduction=deduction)
+> Deduction deductions_create(x_link_token=x_link_token, run_async=run_async, deduction=deduction)
 
 
 
@@ -48,10 +48,12 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.DeductionsApi(api_client)
-    deduction = MergeHRISClient.Deduction() # Deduction |  (optional)
+    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+deduction = MergeHRISClient.Deduction() # Deduction |  (optional)
 
     try:
-        api_response = api_instance.deductions_create(deduction=deduction)
+        api_response = api_instance.deductions_create(x_link_token=x_link_token, run_async=run_async, deduction=deduction)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeductionsApi->deductions_create: %s\n" % e)
@@ -61,6 +63,8 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **deduction** | [**Deduction**](Deduction.md)|  | [optional] 
 
 ### Return type
@@ -79,12 +83,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**201** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deductions_destroy**
-> deductions_destroy(id)
+> AsyncTaskExecution deductions_destroy(id, x_link_token=x_link_token, run_async=run_async)
 
 
 
@@ -120,9 +125,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.DeductionsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     try:
-        api_instance.deductions_destroy(id)
+        api_response = api_instance.deductions_destroy(id, x_link_token=x_link_token, run_async=run_async)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeductionsApi->deductions_destroy: %s\n" % e)
 ```
@@ -132,10 +140,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**AsyncTaskExecution**](AsyncTaskExecution.md)
 
 ### Authorization
 
@@ -144,17 +154,18 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No response body |  -  |
+**204** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deductions_list**
-> PaginatedDeductionList deductions_list(cursor=cursor, linked_account_id=linked_account_id, origin_id=origin_id)
+> PaginatedDeductionList deductions_list(x_link_token=x_link_token, cursor=cursor, linked_account_id=linked_account_id, remote_id=remote_id)
 
 
 
@@ -189,12 +200,13 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.DeductionsApi(api_client)
-    cursor = 56 # int | The pagination cursor value. (optional)
+    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+cursor = 56 # int | The pagination cursor value. (optional)
 linked_account_id = 'linked_account_id_example' # str | If provided, will only return objects associated with the given `linked_account_id`. (optional)
-origin_id = 'origin_id_example' # str | The API provider's ID for the given object. (optional)
+remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
 
     try:
-        api_response = api_instance.deductions_list(cursor=cursor, linked_account_id=linked_account_id, origin_id=origin_id)
+        api_response = api_instance.deductions_list(x_link_token=x_link_token, cursor=cursor, linked_account_id=linked_account_id, remote_id=remote_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeductionsApi->deductions_list: %s\n" % e)
@@ -204,9 +216,10 @@ origin_id = 'origin_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
  **cursor** | **int**| The pagination cursor value. | [optional] 
  **linked_account_id** | **str**| If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;. | [optional] 
- **origin_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
+ **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
 
 ### Return type
 
@@ -229,7 +242,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deductions_partial_update**
-> Deduction deductions_partial_update(id, patched_deduction=patched_deduction)
+> Deduction deductions_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_deduction=patched_deduction)
 
 
 
@@ -265,10 +278,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.DeductionsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 patched_deduction = MergeHRISClient.PatchedDeduction() # PatchedDeduction |  (optional)
 
     try:
-        api_response = api_instance.deductions_partial_update(id, patched_deduction=patched_deduction)
+        api_response = api_instance.deductions_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_deduction=patched_deduction)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeductionsApi->deductions_partial_update: %s\n" % e)
@@ -279,6 +294,8 @@ patched_deduction = MergeHRISClient.PatchedDeduction() # PatchedDeduction |  (op
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **patched_deduction** | [**PatchedDeduction**](PatchedDeduction.md)|  | [optional] 
 
 ### Return type
@@ -298,11 +315,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deductions_retrieve**
-> Deduction deductions_retrieve(id)
+> Deduction deductions_retrieve(id, x_link_token=x_link_token)
 
 
 
@@ -338,9 +356,10 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.DeductionsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
 
     try:
-        api_response = api_instance.deductions_retrieve(id)
+        api_response = api_instance.deductions_retrieve(id, x_link_token=x_link_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeductionsApi->deductions_retrieve: %s\n" % e)
@@ -351,6 +370,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
 
 ### Return type
 

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **reports_create**
-> Report reports_create(report=report)
+> Report reports_create(x_link_token=x_link_token, run_async=run_async, report=report)
 
 
 
@@ -48,10 +48,12 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.ReportsApi(api_client)
-    report = MergeHRISClient.Report() # Report |  (optional)
+    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+report = MergeHRISClient.Report() # Report |  (optional)
 
     try:
-        api_response = api_instance.reports_create(report=report)
+        api_response = api_instance.reports_create(x_link_token=x_link_token, run_async=run_async, report=report)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ReportsApi->reports_create: %s\n" % e)
@@ -61,6 +63,8 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **report** | [**Report**](Report.md)|  | [optional] 
 
 ### Return type
@@ -79,12 +83,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**201** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reports_destroy**
-> reports_destroy(id)
+> AsyncTaskExecution reports_destroy(id, x_link_token=x_link_token, run_async=run_async)
 
 
 
@@ -120,9 +125,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.ReportsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     try:
-        api_instance.reports_destroy(id)
+        api_response = api_instance.reports_destroy(id, x_link_token=x_link_token, run_async=run_async)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ReportsApi->reports_destroy: %s\n" % e)
 ```
@@ -132,10 +140,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**AsyncTaskExecution**](AsyncTaskExecution.md)
 
 ### Authorization
 
@@ -144,17 +154,18 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No response body |  -  |
+**204** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reports_list**
-> PaginatedReportList reports_list(cursor=cursor, linked_account_id=linked_account_id, origin_id=origin_id)
+> PaginatedReportList reports_list(x_link_token=x_link_token, cursor=cursor, linked_account_id=linked_account_id, remote_id=remote_id)
 
 
 
@@ -189,12 +200,13 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.ReportsApi(api_client)
-    cursor = 56 # int | The pagination cursor value. (optional)
+    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+cursor = 56 # int | The pagination cursor value. (optional)
 linked_account_id = 'linked_account_id_example' # str | If provided, will only return objects associated with the given `linked_account_id`. (optional)
-origin_id = 'origin_id_example' # str | The API provider's ID for the given object. (optional)
+remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
 
     try:
-        api_response = api_instance.reports_list(cursor=cursor, linked_account_id=linked_account_id, origin_id=origin_id)
+        api_response = api_instance.reports_list(x_link_token=x_link_token, cursor=cursor, linked_account_id=linked_account_id, remote_id=remote_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ReportsApi->reports_list: %s\n" % e)
@@ -204,9 +216,10 @@ origin_id = 'origin_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
  **cursor** | **int**| The pagination cursor value. | [optional] 
  **linked_account_id** | **str**| If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;. | [optional] 
- **origin_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
+ **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
 
 ### Return type
 
@@ -229,7 +242,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reports_partial_update**
-> Report reports_partial_update(id, patched_report=patched_report)
+> Report reports_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_report=patched_report)
 
 
 
@@ -265,10 +278,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.ReportsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 patched_report = MergeHRISClient.PatchedReport() # PatchedReport |  (optional)
 
     try:
-        api_response = api_instance.reports_partial_update(id, patched_report=patched_report)
+        api_response = api_instance.reports_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_report=patched_report)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ReportsApi->reports_partial_update: %s\n" % e)
@@ -279,6 +294,8 @@ patched_report = MergeHRISClient.PatchedReport() # PatchedReport |  (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **patched_report** | [**PatchedReport**](PatchedReport.md)|  | [optional] 
 
 ### Return type
@@ -298,11 +315,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reports_retrieve**
-> Report reports_retrieve(id)
+> Report reports_retrieve(id, x_link_token=x_link_token)
 
 
 
@@ -338,9 +356,10 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.ReportsApi(api_client)
     id = 'id_example' # str | 
+x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
 
     try:
-        api_response = api_instance.reports_retrieve(id)
+        api_response = api_instance.reports_retrieve(id, x_link_token=x_link_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ReportsApi->reports_retrieve: %s\n" % e)
@@ -351,6 +370,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
+ **x_link_token** | **str**| Token identifying the end user. | [optional] 
 
 ### Return type
 

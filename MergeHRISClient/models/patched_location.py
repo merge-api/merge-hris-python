@@ -35,9 +35,7 @@ class PatchedLocation(object):
     """
     openapi_types = {
         'id': 'str',
-        'origin_id': 'str',
-        'created_at': 'datetime',
-        'modified_at': 'datetime',
+        'remote_id': 'str',
         'phone_number': 'str',
         'street_1': 'str',
         'street_2': 'str',
@@ -49,9 +47,7 @@ class PatchedLocation(object):
 
     attribute_map = {
         'id': 'id',
-        'origin_id': 'origin_id',
-        'created_at': 'created_at',
-        'modified_at': 'modified_at',
+        'remote_id': 'remote_id',
         'phone_number': 'phone_number',
         'street_1': 'street_1',
         'street_2': 'street_2',
@@ -61,16 +57,14 @@ class PatchedLocation(object):
         'country': 'country'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, phone_number=None, street_1=None, street_2=None, city=None, state=None, zip_code=None, country=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, phone_number=None, street_1=None, street_2=None, city=None, state=None, zip_code=None, country=None, local_vars_configuration=None):  # noqa: E501
         """PatchedLocation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._origin_id = None
-        self._created_at = None
-        self._modified_at = None
+        self._remote_id = None
         self._phone_number = None
         self._street_1 = None
         self._street_2 = None
@@ -82,11 +76,7 @@ class PatchedLocation(object):
 
         if id is not None:
             self.id = id
-        self.origin_id = origin_id
-        if created_at is not None:
-            self.created_at = created_at
-        if modified_at is not None:
-            self.modified_at = modified_at
+        self.remote_id = remote_id
         self.phone_number = phone_number
         self.street_1 = street_1
         self.street_2 = street_2
@@ -117,69 +107,27 @@ class PatchedLocation(object):
         self._id = id
 
     @property
-    def origin_id(self):
-        """Gets the origin_id of this PatchedLocation.  # noqa: E501
+    def remote_id(self):
+        """Gets the remote_id of this PatchedLocation.  # noqa: E501
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :return: The origin_id of this PatchedLocation.  # noqa: E501
+        :return: The remote_id of this PatchedLocation.  # noqa: E501
         :rtype: str
         """
-        return self._origin_id
+        return self._remote_id
 
-    @origin_id.setter
-    def origin_id(self, origin_id):
-        """Sets the origin_id of this PatchedLocation.
+    @remote_id.setter
+    def remote_id(self, remote_id):
+        """Sets the remote_id of this PatchedLocation.
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :param origin_id: The origin_id of this PatchedLocation.  # noqa: E501
+        :param remote_id: The remote_id of this PatchedLocation.  # noqa: E501
         :type: str
         """
 
-        self._origin_id = origin_id
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this PatchedLocation.  # noqa: E501
-
-
-        :return: The created_at of this PatchedLocation.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this PatchedLocation.
-
-
-        :param created_at: The created_at of this PatchedLocation.  # noqa: E501
-        :type: datetime
-        """
-
-        self._created_at = created_at
-
-    @property
-    def modified_at(self):
-        """Gets the modified_at of this PatchedLocation.  # noqa: E501
-
-
-        :return: The modified_at of this PatchedLocation.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._modified_at
-
-    @modified_at.setter
-    def modified_at(self, modified_at):
-        """Sets the modified_at of this PatchedLocation.
-
-
-        :param modified_at: The modified_at of this PatchedLocation.  # noqa: E501
-        :type: datetime
-        """
-
-        self._modified_at = modified_at
+        self._remote_id = remote_id
 
     @property
     def phone_number(self):

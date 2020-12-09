@@ -5,11 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
-**origin_id** | **str** | The third-party API ID of the matching object. | [optional] 
-**created_at** | **datetime** |  | [readonly] 
-**modified_at** | **datetime** |  | [readonly] 
+**remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **employee** | **str** | The employee on the plan. | [optional] 
-**provider_name** | **str** | The name of the benfit&#39;s provider. | [optional] 
+**provider_name** | **str** | The name of the benefit provider. | [optional] 
 **benefit_plan_type** | [**OneOfBenefitPlanTypeEnumBlankEnumNullEnum**](OneOfBenefitPlanTypeEnumBlankEnumNullEnum.md) | The type of benefit plan | [optional] 
 **employee_contribution** | **float** | The employee&#39;s contribution. | [optional] 
 **company_contribution** | **float** | The company&#39;s contribution. | [optional] 

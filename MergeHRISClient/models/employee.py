@@ -35,9 +35,7 @@ class Employee(object):
     """
     openapi_types = {
         'id': 'str',
-        'origin_id': 'str',
-        'created_at': 'datetime',
-        'modified_at': 'datetime',
+        'remote_id': 'str',
         'company': 'str',
         'first_name': 'str',
         'last_name': 'str',
@@ -55,9 +53,9 @@ class Employee(object):
         'ethnicity': 'OneOfEthnicityEnumBlankEnumNullEnum',
         'marital_status': 'OneOfMaritalStatusEnumBlankEnumNullEnum',
         'date_of_birth': 'datetime',
-        'hire_date': 'datetime',
+        'hire_dates': 'list[HireDate]',
         'employment_status': 'OneOfEmploymentStatusEnumBlankEnumNullEnum',
-        'termination_date': 'datetime',
+        'termination_dates': 'list[TerminationDate]',
         'avatar': 'str',
         'about': 'str',
         'documents': 'list[str]'
@@ -65,9 +63,7 @@ class Employee(object):
 
     attribute_map = {
         'id': 'id',
-        'origin_id': 'origin_id',
-        'created_at': 'created_at',
-        'modified_at': 'modified_at',
+        'remote_id': 'remote_id',
         'company': 'company',
         'first_name': 'first_name',
         'last_name': 'last_name',
@@ -85,24 +81,22 @@ class Employee(object):
         'ethnicity': 'ethnicity',
         'marital_status': 'marital_status',
         'date_of_birth': 'date_of_birth',
-        'hire_date': 'hire_date',
+        'hire_dates': 'hire_dates',
         'employment_status': 'employment_status',
-        'termination_date': 'termination_date',
+        'termination_dates': 'termination_dates',
         'avatar': 'avatar',
         'about': 'about',
         'documents': 'documents'
     }
 
-    def __init__(self, id=None, origin_id=None, created_at=None, modified_at=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_date=None, employment_status=None, termination_date=None, avatar=None, about=None, documents=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_dates=None, employment_status=None, termination_dates=None, avatar=None, about=None, documents=None, local_vars_configuration=None):  # noqa: E501
         """Employee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._origin_id = None
-        self._created_at = None
-        self._modified_at = None
+        self._remote_id = None
         self._company = None
         self._first_name = None
         self._last_name = None
@@ -120,18 +114,16 @@ class Employee(object):
         self._ethnicity = None
         self._marital_status = None
         self._date_of_birth = None
-        self._hire_date = None
+        self._hire_dates = None
         self._employment_status = None
-        self._termination_date = None
+        self._termination_dates = None
         self._avatar = None
         self._about = None
         self._documents = None
         self.discriminator = None
 
         self.id = id
-        self.origin_id = origin_id
-        self.created_at = created_at
-        self.modified_at = modified_at
+        self.remote_id = remote_id
         self.company = company
         self.first_name = first_name
         self.last_name = last_name
@@ -149,9 +141,9 @@ class Employee(object):
         self.ethnicity = ethnicity
         self.marital_status = marital_status
         self.date_of_birth = date_of_birth
-        self.hire_date = hire_date
+        self.hire_dates = hire_dates
         self.employment_status = employment_status
-        self.termination_date = termination_date
+        self.termination_dates = termination_dates
         self.avatar = avatar
         self.about = about
         self.documents = documents
@@ -180,79 +172,33 @@ class Employee(object):
         self._id = id
 
     @property
-    def origin_id(self):
-        """Gets the origin_id of this Employee.  # noqa: E501
+    def remote_id(self):
+        """Gets the remote_id of this Employee.  # noqa: E501
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :return: The origin_id of this Employee.  # noqa: E501
+        :return: The remote_id of this Employee.  # noqa: E501
         :rtype: str
         """
-        return self._origin_id
+        return self._remote_id
 
-    @origin_id.setter
-    def origin_id(self, origin_id):
-        """Sets the origin_id of this Employee.
+    @remote_id.setter
+    def remote_id(self, remote_id):
+        """Sets the remote_id of this Employee.
 
         The third-party API ID of the matching object.  # noqa: E501
 
-        :param origin_id: The origin_id of this Employee.  # noqa: E501
+        :param remote_id: The remote_id of this Employee.  # noqa: E501
         :type: str
         """
 
-        self._origin_id = origin_id
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this Employee.  # noqa: E501
-
-
-        :return: The created_at of this Employee.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this Employee.
-
-
-        :param created_at: The created_at of this Employee.  # noqa: E501
-        :type: datetime
-        """
-        if self.local_vars_configuration.client_side_validation and created_at is None:  # noqa: E501
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
-
-        self._created_at = created_at
-
-    @property
-    def modified_at(self):
-        """Gets the modified_at of this Employee.  # noqa: E501
-
-
-        :return: The modified_at of this Employee.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._modified_at
-
-    @modified_at.setter
-    def modified_at(self, modified_at):
-        """Sets the modified_at of this Employee.
-
-
-        :param modified_at: The modified_at of this Employee.  # noqa: E501
-        :type: datetime
-        """
-        if self.local_vars_configuration.client_side_validation and modified_at is None:  # noqa: E501
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
-
-        self._modified_at = modified_at
+        self._remote_id = remote_id
 
     @property
     def company(self):
         """Gets the company of this Employee.  # noqa: E501
 
-        The ID of the Employee's company'.  # noqa: E501
+        The ID of the Employee's company.  # noqa: E501
 
         :return: The company of this Employee.  # noqa: E501
         :rtype: str
@@ -263,7 +209,7 @@ class Employee(object):
     def company(self, company):
         """Sets the company of this Employee.
 
-        The ID of the Employee's company'.  # noqa: E501
+        The ID of the Employee's company.  # noqa: E501
 
         :param company: The company of this Employee.  # noqa: E501
         :type: str
@@ -655,27 +601,27 @@ class Employee(object):
         self._date_of_birth = date_of_birth
 
     @property
-    def hire_date(self):
-        """Gets the hire_date of this Employee.  # noqa: E501
+    def hire_dates(self):
+        """Gets the hire_dates of this Employee.  # noqa: E501
 
-        The date the employee was hired.  # noqa: E501
 
-        :return: The hire_date of this Employee.  # noqa: E501
-        :rtype: datetime
+        :return: The hire_dates of this Employee.  # noqa: E501
+        :rtype: list[HireDate]
         """
-        return self._hire_date
+        return self._hire_dates
 
-    @hire_date.setter
-    def hire_date(self, hire_date):
-        """Sets the hire_date of this Employee.
+    @hire_dates.setter
+    def hire_dates(self, hire_dates):
+        """Sets the hire_dates of this Employee.
 
-        The date the employee was hired.  # noqa: E501
 
-        :param hire_date: The hire_date of this Employee.  # noqa: E501
-        :type: datetime
+        :param hire_dates: The hire_dates of this Employee.  # noqa: E501
+        :type: list[HireDate]
         """
+        if self.local_vars_configuration.client_side_validation and hire_dates is None:  # noqa: E501
+            raise ValueError("Invalid value for `hire_dates`, must not be `None`")  # noqa: E501
 
-        self._hire_date = hire_date
+        self._hire_dates = hire_dates
 
     @property
     def employment_status(self):
@@ -701,27 +647,27 @@ class Employee(object):
         self._employment_status = employment_status
 
     @property
-    def termination_date(self):
-        """Gets the termination_date of this Employee.  # noqa: E501
+    def termination_dates(self):
+        """Gets the termination_dates of this Employee.  # noqa: E501
 
-        The date the employee was terminated.  # noqa: E501
 
-        :return: The termination_date of this Employee.  # noqa: E501
-        :rtype: datetime
+        :return: The termination_dates of this Employee.  # noqa: E501
+        :rtype: list[TerminationDate]
         """
-        return self._termination_date
+        return self._termination_dates
 
-    @termination_date.setter
-    def termination_date(self, termination_date):
-        """Sets the termination_date of this Employee.
+    @termination_dates.setter
+    def termination_dates(self, termination_dates):
+        """Sets the termination_dates of this Employee.
 
-        The date the employee was terminated.  # noqa: E501
 
-        :param termination_date: The termination_date of this Employee.  # noqa: E501
-        :type: datetime
+        :param termination_dates: The termination_dates of this Employee.  # noqa: E501
+        :type: list[TerminationDate]
         """
+        if self.local_vars_configuration.client_side_validation and termination_dates is None:  # noqa: E501
+            raise ValueError("Invalid value for `termination_dates`, must not be `None`")  # noqa: E501
 
-        self._termination_date = termination_date
+        self._termination_dates = termination_dates
 
     @property
     def avatar(self):

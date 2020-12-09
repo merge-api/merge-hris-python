@@ -65,19 +65,19 @@ configuration = MergeHRISClient.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (Token): tokenAuth
-configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
+configuration = configuration.access_token = 'YOUR_BEARER_TOKEN'
 
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.BenefitsApi(api_client)
-    benefit = MergeHRISClient.Benefit() # Benefit |  (optional)
+    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+benefit = MergeHRISClient.Benefit() # Benefit |  (optional)
 
     try:
-        api_response = api_instance.benefits_create(benefit=benefit)
+        api_response = api_instance.benefits_create(x_link_token=x_link_token, run_async=run_async, benefit=benefit)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BenefitsApi->benefits_create: %s\n" % e)
@@ -156,6 +156,8 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reports_partial_update**](docs/ReportsApi.md#reports_partial_update) | **PATCH** /reports/{id} | 
 *ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
 *ReportsApi* | [**reports_update**](docs/ReportsApi.md#reports_update) | **PUT** /reports/{id} | 
+*TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
+*TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{task_id} | 
 *TaxesApi* | [**taxes_create**](docs/TaxesApi.md#taxes_create) | **POST** /taxes | 
 *TaxesApi* | [**taxes_destroy**](docs/TaxesApi.md#taxes_destroy) | **DELETE** /taxes/{id} | 
 *TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
@@ -178,6 +180,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AsyncTaskExecution](docs/AsyncTaskExecution.md)
+ - [AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
  - [Benefit](docs/Benefit.md)
  - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [BlankEnum](docs/BlankEnum.md)
@@ -185,6 +189,7 @@ Class | Method | HTTP request | Description
  - [CountryEnum](docs/CountryEnum.md)
  - [Deduction](docs/Deduction.md)
  - [Document](docs/Document.md)
+ - [EIN](docs/EIN.md)
  - [Earning](docs/Earning.md)
  - [Employee](docs/Employee.md)
  - [EmployeePayrollRun](docs/EmployeePayrollRun.md)
@@ -192,11 +197,13 @@ Class | Method | HTTP request | Description
  - [EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
  - [EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
  - [EthnicityEnum](docs/EthnicityEnum.md)
- - [FisaStatusEnum](docs/FisaStatusEnum.md)
+ - [FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [GenderEnum](docs/GenderEnum.md)
+ - [HireDate](docs/HireDate.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
  - [NullEnum](docs/NullEnum.md)
+ - [PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
  - [PaginatedDeductionList](docs/PaginatedDeductionList.md)
@@ -215,6 +222,7 @@ Class | Method | HTTP request | Description
  - [PatchedCompany](docs/PatchedCompany.md)
  - [PatchedDeduction](docs/PatchedDeduction.md)
  - [PatchedDocument](docs/PatchedDocument.md)
+ - [PatchedEIN](docs/PatchedEIN.md)
  - [PatchedEarning](docs/PatchedEarning.md)
  - [PatchedEmployee](docs/PatchedEmployee.md)
  - [PatchedEmployeePayrollRun](docs/PatchedEmployeePayrollRun.md)
@@ -234,10 +242,11 @@ Class | Method | HTTP request | Description
  - [RunStateEnum](docs/RunStateEnum.md)
  - [RunTypeEnum](docs/RunTypeEnum.md)
  - [StateEnum](docs/StateEnum.md)
- - [StatusEnum](docs/StatusEnum.md)
  - [Tax](docs/Tax.md)
  - [Team](docs/Team.md)
+ - [TerminationDate](docs/TerminationDate.md)
  - [TimeOff](docs/TimeOff.md)
+ - [TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
  - [TypeEnum](docs/TypeEnum.md)
  - [UnitsEnum](docs/UnitsEnum.md)
 
