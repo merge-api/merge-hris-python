@@ -83,7 +83,8 @@ class EmployeePayrollRun(object):
         self._taxes = None
         self.discriminator = None
 
-        self.id = id
+        if id is not None:
+            self.id = id
         self.remote_id = remote_id
         self.employee = employee
         self.payroll_run = payroll_run
@@ -92,9 +93,12 @@ class EmployeePayrollRun(object):
         self.start_date = start_date
         self.end_date = end_date
         self.check_date = check_date
-        self.earnings = earnings
-        self.deductions = deductions
-        self.taxes = taxes
+        if earnings is not None:
+            self.earnings = earnings
+        if deductions is not None:
+            self.deductions = deductions
+        if taxes is not None:
+            self.taxes = taxes
 
     @property
     def id(self):
@@ -114,8 +118,6 @@ class EmployeePayrollRun(object):
         :param id: The id of this EmployeePayrollRun.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -321,8 +323,6 @@ class EmployeePayrollRun(object):
         :param earnings: The earnings of this EmployeePayrollRun.  # noqa: E501
         :type: list[Earning]
         """
-        if self.local_vars_configuration.client_side_validation and earnings is None:  # noqa: E501
-            raise ValueError("Invalid value for `earnings`, must not be `None`")  # noqa: E501
 
         self._earnings = earnings
 
@@ -344,8 +344,6 @@ class EmployeePayrollRun(object):
         :param deductions: The deductions of this EmployeePayrollRun.  # noqa: E501
         :type: list[Deduction]
         """
-        if self.local_vars_configuration.client_side_validation and deductions is None:  # noqa: E501
-            raise ValueError("Invalid value for `deductions`, must not be `None`")  # noqa: E501
 
         self._deductions = deductions
 
@@ -367,8 +365,6 @@ class EmployeePayrollRun(object):
         :param taxes: The taxes of this EmployeePayrollRun.  # noqa: E501
         :type: list[Tax]
         """
-        if self.local_vars_configuration.client_side_validation and taxes is None:  # noqa: E501
-            raise ValueError("Invalid value for `taxes`, must not be `None`")  # noqa: E501
 
         self._taxes = taxes
 

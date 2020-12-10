@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [readonly] 
+**id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **legal_name** | **str** | The company&#39;s legal name. | [optional] 
 **display_name** | **str** | The company&#39;s display name. | [optional] 

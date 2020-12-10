@@ -68,7 +68,8 @@ class PayrollRun(object):
         self._check_date = None
         self.discriminator = None
 
-        self.id = id
+        if id is not None:
+            self.id = id
         self.remote_id = remote_id
         self.run_state = run_state
         self.run_type = run_type
@@ -94,8 +95,6 @@ class PayrollRun(object):
         :param id: The id of this PayrollRun.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
