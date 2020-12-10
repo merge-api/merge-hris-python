@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [readonly] 
+**id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **phone_number** | **str** | The location&#39;s phone number. | [optional] 
 **street_1** | **str** | Line 1 of the location&#39;s street address. | [optional] 

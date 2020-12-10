@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [readonly] 
+**id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **job_title** | **str** | The position&#39;s title. | [optional] 
 **pay_rate** | **float** | The position&#39;s pay rate in dollars. | [optional] 

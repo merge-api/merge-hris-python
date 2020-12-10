@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [readonly] 
+**id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **run_state** | [**OneOfRunStateEnumBlankEnumNullEnum**](OneOfRunStateEnumBlankEnumNullEnum.md) | The state of the payroll run | [optional] 
 **run_type** | [**OneOfRunTypeEnumBlankEnumNullEnum**](OneOfRunTypeEnumBlankEnumNullEnum.md) | The type of the payroll run | [optional] 

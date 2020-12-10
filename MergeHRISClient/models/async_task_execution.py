@@ -53,7 +53,8 @@ class AsyncTaskExecution(object):
         self._status = None
         self.discriminator = None
 
-        self.id = id
+        if id is not None:
+            self.id = id
         self.status = status
 
     @property
@@ -74,8 +75,6 @@ class AsyncTaskExecution(object):
         :param id: The id of this AsyncTaskExecution.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

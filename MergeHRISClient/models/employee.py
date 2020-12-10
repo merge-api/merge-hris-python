@@ -122,7 +122,8 @@ class Employee(object):
         self._documents = None
         self.discriminator = None
 
-        self.id = id
+        if id is not None:
+            self.id = id
         self.remote_id = remote_id
         self.company = company
         self.first_name = first_name
@@ -131,7 +132,8 @@ class Employee(object):
         self.work_email = work_email
         self.personal_email = personal_email
         self.mobile_phone_number = mobile_phone_number
-        self.employments = employments
+        if employments is not None:
+            self.employments = employments
         self.home_location = home_location
         self.work_location = work_location
         self.manager = manager
@@ -141,12 +143,15 @@ class Employee(object):
         self.ethnicity = ethnicity
         self.marital_status = marital_status
         self.date_of_birth = date_of_birth
-        self.hire_dates = hire_dates
+        if hire_dates is not None:
+            self.hire_dates = hire_dates
         self.employment_status = employment_status
-        self.termination_dates = termination_dates
+        if termination_dates is not None:
+            self.termination_dates = termination_dates
         self.avatar = avatar
         self.about = about
-        self.documents = documents
+        if documents is not None:
+            self.documents = documents
 
     @property
     def id(self):
@@ -166,8 +171,6 @@ class Employee(object):
         :param id: The id of this Employee.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -385,8 +388,6 @@ class Employee(object):
         :param employments: The employments of this Employee.  # noqa: E501
         :type: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and employments is None:  # noqa: E501
-            raise ValueError("Invalid value for `employments`, must not be `None`")  # noqa: E501
 
         self._employments = employments
 
@@ -618,8 +619,6 @@ class Employee(object):
         :param hire_dates: The hire_dates of this Employee.  # noqa: E501
         :type: list[HireDate]
         """
-        if self.local_vars_configuration.client_side_validation and hire_dates is None:  # noqa: E501
-            raise ValueError("Invalid value for `hire_dates`, must not be `None`")  # noqa: E501
 
         self._hire_dates = hire_dates
 
@@ -664,8 +663,6 @@ class Employee(object):
         :param termination_dates: The termination_dates of this Employee.  # noqa: E501
         :type: list[TerminationDate]
         """
-        if self.local_vars_configuration.client_side_validation and termination_dates is None:  # noqa: E501
-            raise ValueError("Invalid value for `termination_dates`, must not be `None`")  # noqa: E501
 
         self._termination_dates = termination_dates
 
@@ -736,8 +733,6 @@ class Employee(object):
         :param documents: The documents of this Employee.  # noqa: E501
         :type: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and documents is None:  # noqa: E501
-            raise ValueError("Invalid value for `documents`, must not be `None`")  # noqa: E501
 
         self._documents = documents
 

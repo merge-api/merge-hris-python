@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [readonly] 
+**id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **employee** | **str** | The employee on the plan. | [optional] 
 **provider_name** | **str** | The name of the benefit provider. | [optional] 

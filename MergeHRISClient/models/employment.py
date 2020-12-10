@@ -77,7 +77,8 @@ class Employment(object):
         self._employment_type = None
         self.discriminator = None
 
-        self.id = id
+        if id is not None:
+            self.id = id
         self.remote_id = remote_id
         self.job_title = job_title
         self.pay_rate = pay_rate
@@ -106,8 +107,6 @@ class Employment(object):
         :param id: The id of this Employment.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
