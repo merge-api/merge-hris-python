@@ -53,11 +53,10 @@ class PatchedEmployee(object):
         'ethnicity': 'OneOfEthnicityEnumBlankEnumNullEnum',
         'marital_status': 'OneOfMaritalStatusEnumBlankEnumNullEnum',
         'date_of_birth': 'datetime',
-        'hire_dates': 'list[HireDate]',
+        'hire_dates': 'list[datetime]',
         'employment_status': 'OneOfEmploymentStatusEnumBlankEnumNullEnum',
-        'termination_dates': 'list[TerminationDate]',
+        'termination_dates': 'list[datetime]',
         'avatar': 'str',
-        'about': 'str',
         'documents': 'list[str]'
     }
 
@@ -85,11 +84,10 @@ class PatchedEmployee(object):
         'employment_status': 'employment_status',
         'termination_dates': 'termination_dates',
         'avatar': 'avatar',
-        'about': 'about',
         'documents': 'documents'
     }
 
-    def __init__(self, id=None, remote_id=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_dates=None, employment_status=None, termination_dates=None, avatar=None, about=None, documents=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_dates=None, employment_status=None, termination_dates=None, avatar=None, documents=None, local_vars_configuration=None):  # noqa: E501
         """PatchedEmployee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -118,7 +116,6 @@ class PatchedEmployee(object):
         self._employment_status = None
         self._termination_dates = None
         self._avatar = None
-        self._about = None
         self._documents = None
         self.discriminator = None
 
@@ -143,13 +140,10 @@ class PatchedEmployee(object):
         self.ethnicity = ethnicity
         self.marital_status = marital_status
         self.date_of_birth = date_of_birth
-        if hire_dates is not None:
-            self.hire_dates = hire_dates
+        self.hire_dates = hire_dates
         self.employment_status = employment_status
-        if termination_dates is not None:
-            self.termination_dates = termination_dates
+        self.termination_dates = termination_dates
         self.avatar = avatar
-        self.about = about
         if documents is not None:
             self.documents = documents
 
@@ -504,8 +498,8 @@ class PatchedEmployee(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                ssn is not None and len(ssn) > 9):
-            raise ValueError("Invalid value for `ssn`, length must be less than or equal to `9`")  # noqa: E501
+                ssn is not None and len(ssn) > 100):
+            raise ValueError("Invalid value for `ssn`, length must be less than or equal to `100`")  # noqa: E501
 
         self._ssn = ssn
 
@@ -605,9 +599,10 @@ class PatchedEmployee(object):
     def hire_dates(self):
         """Gets the hire_dates of this PatchedEmployee.  # noqa: E501
 
+        A list of the employee's hire dates.  # noqa: E501
 
         :return: The hire_dates of this PatchedEmployee.  # noqa: E501
-        :rtype: list[HireDate]
+        :rtype: list[datetime]
         """
         return self._hire_dates
 
@@ -615,9 +610,10 @@ class PatchedEmployee(object):
     def hire_dates(self, hire_dates):
         """Sets the hire_dates of this PatchedEmployee.
 
+        A list of the employee's hire dates.  # noqa: E501
 
         :param hire_dates: The hire_dates of this PatchedEmployee.  # noqa: E501
-        :type: list[HireDate]
+        :type: list[datetime]
         """
 
         self._hire_dates = hire_dates
@@ -649,9 +645,10 @@ class PatchedEmployee(object):
     def termination_dates(self):
         """Gets the termination_dates of this PatchedEmployee.  # noqa: E501
 
+        A list of the employee's termination dates.  # noqa: E501
 
         :return: The termination_dates of this PatchedEmployee.  # noqa: E501
-        :rtype: list[TerminationDate]
+        :rtype: list[datetime]
         """
         return self._termination_dates
 
@@ -659,9 +656,10 @@ class PatchedEmployee(object):
     def termination_dates(self, termination_dates):
         """Sets the termination_dates of this PatchedEmployee.
 
+        A list of the employee's termination dates.  # noqa: E501
 
         :param termination_dates: The termination_dates of this PatchedEmployee.  # noqa: E501
-        :type: list[TerminationDate]
+        :type: list[datetime]
         """
 
         self._termination_dates = termination_dates
@@ -687,33 +685,10 @@ class PatchedEmployee(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                avatar is not None and len(avatar) > 200):
-            raise ValueError("Invalid value for `avatar`, length must be less than or equal to `200`")  # noqa: E501
+                avatar is not None and len(avatar) > 700):
+            raise ValueError("Invalid value for `avatar`, length must be less than or equal to `700`")  # noqa: E501
 
         self._avatar = avatar
-
-    @property
-    def about(self):
-        """Gets the about of this PatchedEmployee.  # noqa: E501
-
-        A description of the employee.  # noqa: E501
-
-        :return: The about of this PatchedEmployee.  # noqa: E501
-        :rtype: str
-        """
-        return self._about
-
-    @about.setter
-    def about(self, about):
-        """Sets the about of this PatchedEmployee.
-
-        A description of the employee.  # noqa: E501
-
-        :param about: The about of this PatchedEmployee.  # noqa: E501
-        :type: str
-        """
-
-        self._about = about
 
     @property
     def documents(self):

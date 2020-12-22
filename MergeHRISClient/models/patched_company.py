@@ -38,7 +38,7 @@ class PatchedCompany(object):
         'remote_id': 'str',
         'legal_name': 'str',
         'display_name': 'str',
-        'ei_ns': 'list[PatchedEIN]'
+        'ei_ns': 'list[str]'
     }
 
     attribute_map = {
@@ -67,8 +67,7 @@ class PatchedCompany(object):
         self.remote_id = remote_id
         self.legal_name = legal_name
         self.display_name = display_name
-        if ei_ns is not None:
-            self.ei_ns = ei_ns
+        self.ei_ns = ei_ns
 
     @property
     def id(self):
@@ -164,9 +163,10 @@ class PatchedCompany(object):
     def ei_ns(self):
         """Gets the ei_ns of this PatchedCompany.  # noqa: E501
 
+        The company's Employer Identification Numbers.  # noqa: E501
 
         :return: The ei_ns of this PatchedCompany.  # noqa: E501
-        :rtype: list[PatchedEIN]
+        :rtype: list[str]
         """
         return self._ei_ns
 
@@ -174,9 +174,10 @@ class PatchedCompany(object):
     def ei_ns(self, ei_ns):
         """Sets the ei_ns of this PatchedCompany.
 
+        The company's Employer Identification Numbers.  # noqa: E501
 
         :param ei_ns: The ei_ns of this PatchedCompany.  # noqa: E501
-        :type: list[PatchedEIN]
+        :type: list[str]
         """
 
         self._ei_ns = ei_ns

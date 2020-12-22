@@ -65,7 +65,7 @@ configuration = MergeHRISClient.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (Token): tokenAuth
-configuration = configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 
 
 # Enter a context with an instance of the API client
@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *CompaniesApi* | [**companies_partial_update**](docs/CompaniesApi.md#companies_partial_update) | **PATCH** /companies/{id} | 
 *CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
 *CompaniesApi* | [**companies_update**](docs/CompaniesApi.md#companies_update) | **PUT** /companies/{id} | 
+*CreateLinkTokenApi* | [**create_link_token_create**](docs/CreateLinkTokenApi.md#create_link_token_create) | **POST** /create-link-token | 
 *DeductionsApi* | [**deductions_create**](docs/DeductionsApi.md#deductions_create) | **POST** /deductions | 
 *DeductionsApi* | [**deductions_destroy**](docs/DeductionsApi.md#deductions_destroy) | **DELETE** /deductions/{id} | 
 *DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
@@ -150,6 +151,7 @@ Class | Method | HTTP request | Description
 *PayrollRunsApi* | [**payroll_runs_partial_update**](docs/PayrollRunsApi.md#payroll_runs_partial_update) | **PATCH** /payroll-runs/{id} | 
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *PayrollRunsApi* | [**payroll_runs_update**](docs/PayrollRunsApi.md#payroll_runs_update) | **PUT** /payroll-runs/{id} | 
+*PrivateTokenApi* | [**private_token_retrieve**](docs/PrivateTokenApi.md#private_token_retrieve) | **GET** /private-token/{public_token} | 
 *ReportsApi* | [**reports_create**](docs/ReportsApi.md#reports_create) | **POST** /reports | 
 *ReportsApi* | [**reports_destroy**](docs/ReportsApi.md#reports_destroy) | **DELETE** /reports/{id} | 
 *ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
@@ -189,7 +191,6 @@ Class | Method | HTTP request | Description
  - [CountryEnum](docs/CountryEnum.md)
  - [Deduction](docs/Deduction.md)
  - [Document](docs/Document.md)
- - [EIN](docs/EIN.md)
  - [Earning](docs/Earning.md)
  - [Employee](docs/Employee.md)
  - [EmployeePayrollRun](docs/EmployeePayrollRun.md)
@@ -199,7 +200,6 @@ Class | Method | HTTP request | Description
  - [EthnicityEnum](docs/EthnicityEnum.md)
  - [FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [GenderEnum](docs/GenderEnum.md)
- - [HireDate](docs/HireDate.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
  - [NullEnum](docs/NullEnum.md)
@@ -222,7 +222,6 @@ Class | Method | HTTP request | Description
  - [PatchedCompany](docs/PatchedCompany.md)
  - [PatchedDeduction](docs/PatchedDeduction.md)
  - [PatchedDocument](docs/PatchedDocument.md)
- - [PatchedEIN](docs/PatchedEIN.md)
  - [PatchedEarning](docs/PatchedEarning.md)
  - [PatchedEmployee](docs/PatchedEmployee.md)
  - [PatchedEmployeePayrollRun](docs/PatchedEmployeePayrollRun.md)
@@ -244,7 +243,6 @@ Class | Method | HTTP request | Description
  - [StateEnum](docs/StateEnum.md)
  - [Tax](docs/Tax.md)
  - [Team](docs/Team.md)
- - [TerminationDate](docs/TerminationDate.md)
  - [TimeOff](docs/TimeOff.md)
  - [TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
  - [TypeEnum](docs/TypeEnum.md)

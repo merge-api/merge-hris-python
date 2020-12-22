@@ -48,8 +48,13 @@ class TasksApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_link_token: Token identifying the end user.
+        :param str created_after: If provided, will only return objects created after this datetime.
+        :param str created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
         :param str linked_account_id: If provided, will only return objects associated with the given `linked_account_id`.
+        :param str modified_after: If provided, will only return objects modified after this datetime.
+        :param str modified_before: If provided, will only return objects modified before this datetime.
+        :param int page_size: Number of results to return per page.
         :param str remote_id: The API provider's ID for the given object.
         :param str status: The status of the task.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -77,8 +82,13 @@ class TasksApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_link_token: Token identifying the end user.
+        :param str created_after: If provided, will only return objects created after this datetime.
+        :param str created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
         :param str linked_account_id: If provided, will only return objects associated with the given `linked_account_id`.
+        :param str modified_after: If provided, will only return objects modified after this datetime.
+        :param str modified_before: If provided, will only return objects modified before this datetime.
+        :param int page_size: Number of results to return per page.
         :param str remote_id: The API provider's ID for the given object.
         :param str status: The status of the task.
         :param _return_http_data_only: response data without head status code
@@ -99,8 +109,13 @@ class TasksApi(object):
 
         all_params = [
             'x_link_token',
+            'created_after',
+            'created_before',
             'cursor',
             'linked_account_id',
+            'modified_after',
+            'modified_before',
+            'page_size',
             'remote_id',
             'status'
         ]
@@ -127,10 +142,20 @@ class TasksApi(object):
         path_params = {}
 
         query_params = []
+        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
+            query_params.append(('created_after', local_var_params['created_after']))  # noqa: E501
+        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
+            query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
         if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
         if 'linked_account_id' in local_var_params and local_var_params['linked_account_id'] is not None:  # noqa: E501
             query_params.append(('linked_account_id', local_var_params['linked_account_id']))  # noqa: E501
+        if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
+            query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
+        if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501
+            query_params.append(('modified_before', local_var_params['modified_before']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
         if 'remote_id' in local_var_params and local_var_params['remote_id'] is not None:  # noqa: E501
             query_params.append(('remote_id', local_var_params['remote_id']))  # noqa: E501
         if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501

@@ -24,7 +24,6 @@ from MergeHRISClient.models.company import Company
 from MergeHRISClient.models.country_enum import CountryEnum
 from MergeHRISClient.models.deduction import Deduction
 from MergeHRISClient.models.document import Document
-from MergeHRISClient.models.ein import EIN
 from MergeHRISClient.models.earning import Earning
 from MergeHRISClient.models.employee import Employee
 from MergeHRISClient.models.employee_payroll_run import EmployeePayrollRun
@@ -34,7 +33,6 @@ from MergeHRISClient.models.employment_type_enum import EmploymentTypeEnum
 from MergeHRISClient.models.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.models.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.models.gender_enum import GenderEnum
-from MergeHRISClient.models.hire_date import HireDate
 from MergeHRISClient.models.location import Location
 from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
 from MergeHRISClient.models.null_enum import NullEnum
@@ -57,7 +55,6 @@ from MergeHRISClient.models.patched_benefit import PatchedBenefit
 from MergeHRISClient.models.patched_company import PatchedCompany
 from MergeHRISClient.models.patched_deduction import PatchedDeduction
 from MergeHRISClient.models.patched_document import PatchedDocument
-from MergeHRISClient.models.patched_ein import PatchedEIN
 from MergeHRISClient.models.patched_earning import PatchedEarning
 from MergeHRISClient.models.patched_employee import PatchedEmployee
 from MergeHRISClient.models.patched_employee_payroll_run import PatchedEmployeePayrollRun
@@ -79,7 +76,6 @@ from MergeHRISClient.models.run_type_enum import RunTypeEnum
 from MergeHRISClient.models.state_enum import StateEnum
 from MergeHRISClient.models.tax import Tax
 from MergeHRISClient.models.team import Team
-from MergeHRISClient.models.termination_date import TerminationDate
 from MergeHRISClient.models.time_off import TimeOff
 from MergeHRISClient.models.time_off_status_enum import TimeOffStatusEnum
 from MergeHRISClient.models.type_enum import TypeEnum
