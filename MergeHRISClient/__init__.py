@@ -20,6 +20,7 @@ __version__ = "1.0.0"
 # import apis into sdk package
 from MergeHRISClient.api.benefits_api import BenefitsApi
 from MergeHRISClient.api.companies_api import CompaniesApi
+from MergeHRISClient.api.create_link_token_api import CreateLinkTokenApi
 from MergeHRISClient.api.deductions_api import DeductionsApi
 from MergeHRISClient.api.documents_api import DocumentsApi
 from MergeHRISClient.api.earnings_api import EarningsApi
@@ -28,6 +29,7 @@ from MergeHRISClient.api.employees_api import EmployeesApi
 from MergeHRISClient.api.employments_api import EmploymentsApi
 from MergeHRISClient.api.locations_api import LocationsApi
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
+from MergeHRISClient.api.private_token_api import PrivateTokenApi
 from MergeHRISClient.api.reports_api import ReportsApi
 from MergeHRISClient.api.tasks_api import TasksApi
 from MergeHRISClient.api.taxes_api import TaxesApi
@@ -52,7 +54,6 @@ from MergeHRISClient.models.company import Company
 from MergeHRISClient.models.country_enum import CountryEnum
 from MergeHRISClient.models.deduction import Deduction
 from MergeHRISClient.models.document import Document
-from MergeHRISClient.models.ein import EIN
 from MergeHRISClient.models.earning import Earning
 from MergeHRISClient.models.employee import Employee
 from MergeHRISClient.models.employee_payroll_run import EmployeePayrollRun
@@ -62,7 +63,6 @@ from MergeHRISClient.models.employment_type_enum import EmploymentTypeEnum
 from MergeHRISClient.models.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.models.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.models.gender_enum import GenderEnum
-from MergeHRISClient.models.hire_date import HireDate
 from MergeHRISClient.models.location import Location
 from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
 from MergeHRISClient.models.null_enum import NullEnum
@@ -85,7 +85,6 @@ from MergeHRISClient.models.patched_benefit import PatchedBenefit
 from MergeHRISClient.models.patched_company import PatchedCompany
 from MergeHRISClient.models.patched_deduction import PatchedDeduction
 from MergeHRISClient.models.patched_document import PatchedDocument
-from MergeHRISClient.models.patched_ein import PatchedEIN
 from MergeHRISClient.models.patched_earning import PatchedEarning
 from MergeHRISClient.models.patched_employee import PatchedEmployee
 from MergeHRISClient.models.patched_employee_payroll_run import PatchedEmployeePayrollRun
@@ -107,7 +106,6 @@ from MergeHRISClient.models.run_type_enum import RunTypeEnum
 from MergeHRISClient.models.state_enum import StateEnum
 from MergeHRISClient.models.tax import Tax
 from MergeHRISClient.models.team import Team
-from MergeHRISClient.models.termination_date import TerminationDate
 from MergeHRISClient.models.time_off import TimeOff
 from MergeHRISClient.models.time_off_status_enum import TimeOffStatusEnum
 from MergeHRISClient.models.type_enum import TypeEnum

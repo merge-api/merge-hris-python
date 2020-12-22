@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
 **legal_name** | **str** | The company&#39;s legal name. | [optional] 
 **display_name** | **str** | The company&#39;s display name. | [optional] 
-**ei_ns** | [**list[EIN]**](EIN.md) |  | [optional] 
+**ei_ns** | **list[str]** | The company&#39;s Employer Identification Numbers. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

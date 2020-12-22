@@ -23,11 +23,10 @@ Name | Type | Description | Notes
 **ethnicity** | [**OneOfEthnicityEnumBlankEnumNullEnum**](OneOfEthnicityEnumBlankEnumNullEnum.md) | The employee&#39;s ethnicity. | [optional] 
 **marital_status** | [**OneOfMaritalStatusEnumBlankEnumNullEnum**](OneOfMaritalStatusEnumBlankEnumNullEnum.md) | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **datetime** | The employee&#39;s date of birth. | [optional] 
-**hire_dates** | [**list[HireDate]**](HireDate.md) |  | [optional] [readonly] 
+**hire_dates** | **list[datetime]** | A list of the employee&#39;s hire dates. | [optional] 
 **employment_status** | [**OneOfEmploymentStatusEnumBlankEnumNullEnum**](OneOfEmploymentStatusEnumBlankEnumNullEnum.md) | The employment status of the employee. | [optional] 
-**termination_dates** | [**list[TerminationDate]**](TerminationDate.md) |  | [optional] [readonly] 
+**termination_dates** | **list[datetime]** | A list of the employee&#39;s termination dates. | [optional] 
 **avatar** | **str** | The URL of the employee&#39;s avatar image. | [optional] 
-**about** | **str** | A description of the employee. | [optional] 
 **documents** | **list[str]** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
