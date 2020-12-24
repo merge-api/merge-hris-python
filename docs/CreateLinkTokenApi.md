@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **create_link_token_create**
-> create_link_token_create(production_key=production_key)
+> LinkToken create_link_token_create(link_token, production_key=production_key)
 
 
 
@@ -43,10 +43,12 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.CreateLinkTokenApi(api_client)
-    production_key = 'production_key_example' # str | The requesting organization's production key. (optional)
+    link_token = MergeHRISClient.LinkToken() # LinkToken | 
+production_key = 'production_key_example' # str | The requesting organization's production key. (optional)
 
     try:
-        api_instance.create_link_token_create(production_key=production_key)
+        api_response = api_instance.create_link_token_create(link_token, production_key=production_key)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling CreateLinkTokenApi->create_link_token_create: %s\n" % e)
 ```
@@ -55,11 +57,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **link_token** | [**LinkToken**](LinkToken.md)|  | 
  **production_key** | **str**| The requesting organization&#39;s production key. | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**LinkToken**](LinkToken.md)
 
 ### Authorization
 
@@ -67,13 +70,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | No response body |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

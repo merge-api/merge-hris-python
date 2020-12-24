@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **private_token_retrieve**
-> private_token_retrieve(public_token, production_key=production_key)
+> PrivateToken private_token_retrieve(public_token, production_key=production_key)
 
 
 
@@ -47,7 +47,8 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 production_key = 'production_key_example' # str | The requesting organization's production key. (optional)
 
     try:
-        api_instance.private_token_retrieve(public_token, production_key=production_key)
+        api_response = api_instance.private_token_retrieve(public_token, production_key=production_key)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling PrivateTokenApi->private_token_retrieve: %s\n" % e)
 ```
@@ -61,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**PrivateToken**](PrivateToken.md)
 
 ### Authorization
 
@@ -70,12 +71,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | No response body |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

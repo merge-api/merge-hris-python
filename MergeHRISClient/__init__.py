@@ -63,6 +63,7 @@ from MergeHRISClient.models.employment_type_enum import EmploymentTypeEnum
 from MergeHRISClient.models.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.models.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.models.gender_enum import GenderEnum
+from MergeHRISClient.models.link_token import LinkToken
 from MergeHRISClient.models.location import Location
 from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
 from MergeHRISClient.models.null_enum import NullEnum
@@ -99,6 +100,7 @@ from MergeHRISClient.models.pay_currency_enum import PayCurrencyEnum
 from MergeHRISClient.models.pay_frequency_enum import PayFrequencyEnum
 from MergeHRISClient.models.pay_period_enum import PayPeriodEnum
 from MergeHRISClient.models.payroll_run import PayrollRun
+from MergeHRISClient.models.private_token import PrivateToken
 from MergeHRISClient.models.report import Report
 from MergeHRISClient.models.request_type_enum import RequestTypeEnum
 from MergeHRISClient.models.run_state_enum import RunStateEnum
