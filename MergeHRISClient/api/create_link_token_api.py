@@ -37,16 +37,17 @@ class CreateLinkTokenApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_link_token_create(self, **kwargs):  # noqa: E501
+    def create_link_token_create(self, link_token, **kwargs):  # noqa: E501
         """create_link_token_create  # noqa: E501
 
         Creates a link token to be used when linking a new end user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_link_token_create(async_req=True)
+        >>> thread = api.create_link_token_create(link_token, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param LinkToken link_token: (required)
         :param str production_key: The requesting organization's production key.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -55,23 +56,24 @@ class CreateLinkTokenApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: None
+        :return: LinkToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_link_token_create_with_http_info(**kwargs)  # noqa: E501
+        return self.create_link_token_create_with_http_info(link_token, **kwargs)  # noqa: E501
 
-    def create_link_token_create_with_http_info(self, **kwargs):  # noqa: E501
+    def create_link_token_create_with_http_info(self, link_token, **kwargs):  # noqa: E501
         """create_link_token_create  # noqa: E501
 
         Creates a link token to be used when linking a new end user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_link_token_create_with_http_info(async_req=True)
+        >>> thread = api.create_link_token_create_with_http_info(link_token, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param LinkToken link_token: (required)
         :param str production_key: The requesting organization's production key.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -82,7 +84,7 @@ class CreateLinkTokenApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: None
+        :return: tuple(LinkToken, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -90,6 +92,7 @@ class CreateLinkTokenApi(object):
         local_var_params = locals()
 
         all_params = [
+            'link_token',
             'production_key'
         ]
         all_params.extend(
@@ -109,6 +112,10 @@ class CreateLinkTokenApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'link_token' is set
+        if self.api_client.client_side_validation and ('link_token' not in local_var_params or  # noqa: E501
+                                                        local_var_params['link_token'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `link_token` when calling `create_link_token_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -124,6 +131,16 @@ class CreateLinkTokenApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'link_token' in local_var_params:
+            body_params = local_var_params['link_token']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['tokenAuth']  # noqa: E501
 
@@ -135,7 +152,7 @@ class CreateLinkTokenApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='LinkToken',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
