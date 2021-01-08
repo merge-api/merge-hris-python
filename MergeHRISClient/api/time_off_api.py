@@ -47,7 +47,7 @@ class TimeOffApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param TimeOff time_off:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -74,7 +74,7 @@ class TimeOffApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param TimeOff time_off:
         :param _return_http_data_only: response data without head status code
@@ -94,7 +94,7 @@ class TimeOffApi(object):
         local_var_params = locals()
 
         all_params = [
-            'x_link_token',
+            'x_account_token',
             'run_async',
             'time_off'
         ]
@@ -125,8 +125,8 @@ class TimeOffApi(object):
             query_params.append(('run_async', local_var_params['run_async']))  # noqa: E501
 
         header_params = {}
-        if 'x_link_token' in local_var_params:
-            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
+        if 'x_account_token' in local_var_params:
+            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -172,7 +172,7 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -199,7 +199,7 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -219,7 +219,7 @@ class TimeOffApi(object):
 
         all_params = [
             'id',
-            'x_link_token',
+            'x_account_token',
             'run_async'
         ]
         all_params.extend(
@@ -255,8 +255,8 @@ class TimeOffApi(object):
             query_params.append(('run_async', local_var_params['run_async']))  # noqa: E501
 
         header_params = {}
-        if 'x_link_token' in local_var_params:
-            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
+        if 'x_account_token' in local_var_params:
+            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -295,14 +295,13 @@ class TimeOffApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str x_link_token: Token identifying the end user.
-        :param str created_after: If provided, will only return objects created after this datetime.
-        :param str created_before: If provided, will only return objects created before this datetime.
+        :param str x_account_token: Token identifying the end user.
+        :param datetime created_after: If provided, will only return objects created after this datetime.
+        :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
         :param str expand: Which relations should be returned in expanded form.
-        :param str linked_account_id: If provided, will only return objects associated with the given `linked_account_id`.
-        :param str modified_after: If provided, will only return objects modified after this datetime.
-        :param str modified_before: If provided, will only return objects modified before this datetime.
+        :param datetime modified_after: If provided, will only return objects modified after this datetime.
+        :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
         :param str remote_id: The API provider's ID for the given object.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -329,14 +328,13 @@ class TimeOffApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str x_link_token: Token identifying the end user.
-        :param str created_after: If provided, will only return objects created after this datetime.
-        :param str created_before: If provided, will only return objects created before this datetime.
+        :param str x_account_token: Token identifying the end user.
+        :param datetime created_after: If provided, will only return objects created after this datetime.
+        :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
         :param str expand: Which relations should be returned in expanded form.
-        :param str linked_account_id: If provided, will only return objects associated with the given `linked_account_id`.
-        :param str modified_after: If provided, will only return objects modified after this datetime.
-        :param str modified_before: If provided, will only return objects modified before this datetime.
+        :param datetime modified_after: If provided, will only return objects modified after this datetime.
+        :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
         :param str remote_id: The API provider's ID for the given object.
         :param _return_http_data_only: response data without head status code
@@ -356,12 +354,11 @@ class TimeOffApi(object):
         local_var_params = locals()
 
         all_params = [
-            'x_link_token',
+            'x_account_token',
             'created_after',
             'created_before',
             'cursor',
             'expand',
-            'linked_account_id',
             'modified_after',
             'modified_before',
             'page_size',
@@ -398,8 +395,6 @@ class TimeOffApi(object):
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
         if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
             query_params.append(('expand', local_var_params['expand']))  # noqa: E501
-        if 'linked_account_id' in local_var_params and local_var_params['linked_account_id'] is not None:  # noqa: E501
-            query_params.append(('linked_account_id', local_var_params['linked_account_id']))  # noqa: E501
         if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
             query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
         if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501
@@ -410,8 +405,8 @@ class TimeOffApi(object):
             query_params.append(('remote_id', local_var_params['remote_id']))  # noqa: E501
 
         header_params = {}
-        if 'x_link_token' in local_var_params:
-            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
+        if 'x_account_token' in local_var_params:
+            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -451,7 +446,7 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param PatchedTimeOff patched_time_off:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -479,7 +474,7 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param bool run_async: Whether or not third-party updates should be run asynchronously.
         :param PatchedTimeOff patched_time_off:
         :param _return_http_data_only: response data without head status code
@@ -500,7 +495,7 @@ class TimeOffApi(object):
 
         all_params = [
             'id',
-            'x_link_token',
+            'x_account_token',
             'run_async',
             'patched_time_off'
         ]
@@ -537,8 +532,8 @@ class TimeOffApi(object):
             query_params.append(('run_async', local_var_params['run_async']))  # noqa: E501
 
         header_params = {}
-        if 'x_link_token' in local_var_params:
-            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
+        if 'x_account_token' in local_var_params:
+            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -584,7 +579,7 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param str expand: Which relations should be returned in expanded form.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -611,7 +606,7 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str x_link_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user.
         :param str expand: Which relations should be returned in expanded form.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -631,7 +626,7 @@ class TimeOffApi(object):
 
         all_params = [
             'id',
-            'x_link_token',
+            'x_account_token',
             'expand'
         ]
         all_params.extend(
@@ -667,8 +662,8 @@ class TimeOffApi(object):
             query_params.append(('expand', local_var_params['expand']))  # noqa: E501
 
         header_params = {}
-        if 'x_link_token' in local_var_params:
-            header_params['X-Link-Token'] = local_var_params['x_link_token']  # noqa: E501
+        if 'x_account_token' in local_var_params:
+            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
 
         form_params = []
         local_var_files = {}

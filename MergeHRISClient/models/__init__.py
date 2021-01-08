@@ -15,11 +15,11 @@
 from __future__ import absolute_import
 
 # import models into model package
+from MergeHRISClient.models.account_token import AccountToken
 from MergeHRISClient.models.async_task_execution import AsyncTaskExecution
 from MergeHRISClient.models.async_task_execution_status_enum import AsyncTaskExecutionStatusEnum
 from MergeHRISClient.models.benefit import Benefit
 from MergeHRISClient.models.benefit_plan_type_enum import BenefitPlanTypeEnum
-from MergeHRISClient.models.blank_enum import BlankEnum
 from MergeHRISClient.models.company import Company
 from MergeHRISClient.models.country_enum import CountryEnum
 from MergeHRISClient.models.deduction import Deduction
@@ -36,7 +36,6 @@ from MergeHRISClient.models.gender_enum import GenderEnum
 from MergeHRISClient.models.link_token import LinkToken
 from MergeHRISClient.models.location import Location
 from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
-from MergeHRISClient.models.null_enum import NullEnum
 from MergeHRISClient.models.paginated_async_task_execution_list import PaginatedAsyncTaskExecutionList
 from MergeHRISClient.models.paginated_benefit_list import PaginatedBenefitList
 from MergeHRISClient.models.paginated_company_list import PaginatedCompanyList
@@ -70,7 +69,6 @@ from MergeHRISClient.models.pay_currency_enum import PayCurrencyEnum
 from MergeHRISClient.models.pay_frequency_enum import PayFrequencyEnum
 from MergeHRISClient.models.pay_period_enum import PayPeriodEnum
 from MergeHRISClient.models.payroll_run import PayrollRun
-from MergeHRISClient.models.private_token import PrivateToken
 from MergeHRISClient.models.report import Report
 from MergeHRISClient.models.request_type_enum import RequestTypeEnum
 from MergeHRISClient.models.run_state_enum import RunStateEnum

@@ -1,18 +1,18 @@
-# MergeHRISClient.CreateLinkTokenApi
+# MergeHRISClient.AccountTokenApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_link_token_create**](CreateLinkTokenApi.md#create_link_token_create) | **POST** /create-link-token | 
+[**account_token_retrieve**](AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 
 
-# **create_link_token_create**
-> LinkToken create_link_token_create(link_token, production_key=production_key)
+# **account_token_retrieve**
+> AccountToken account_token_retrieve(public_token, production_key=production_key)
 
 
 
-Creates a link token to be used when linking a new end user.
+Returns the account token for the end user with the provided public token.
 
 ### Example
 
@@ -47,27 +47,27 @@ configuration = MergeHRISClient.Configuration(
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeHRISClient.CreateLinkTokenApi(api_client)
-    link_token = MergeHRISClient.LinkToken() # LinkToken | 
+    api_instance = MergeHRISClient.AccountTokenApi(api_client)
+    public_token = 'public_token_example' # str | 
 production_key = 'production_key_example' # str | The requesting organization's production key. (optional)
 
     try:
-        api_response = api_instance.create_link_token_create(link_token, production_key=production_key)
+        api_response = api_instance.account_token_retrieve(public_token, production_key=production_key)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling CreateLinkTokenApi->create_link_token_create: %s\n" % e)
+        print("Exception when calling AccountTokenApi->account_token_retrieve: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **link_token** | [**LinkToken**](LinkToken.md)|  | 
+ **public_token** | **str**|  | 
  **production_key** | **str**| The requesting organization&#39;s production key. | [optional] 
 
 ### Return type
 
-[**LinkToken**](LinkToken.md)
+[**AccountToken**](AccountToken.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

@@ -38,12 +38,12 @@ class PatchedEmployment(object):
         'remote_id': 'str',
         'job_title': 'str',
         'pay_rate': 'float',
-        'pay_period': 'OneOfPayPeriodEnumBlankEnumNullEnum',
-        'pay_frequency': 'OneOfPayFrequencyEnumBlankEnumNullEnum',
-        'pay_currency': 'OneOfPayCurrencyEnumBlankEnumNullEnum',
-        'flsa_status': 'OneOfFlsaStatusEnumBlankEnumNullEnum',
+        'pay_period': 'PayPeriodEnum',
+        'pay_frequency': 'PayFrequencyEnum',
+        'pay_currency': 'PayCurrencyEnum',
+        'flsa_status': 'FlsaStatusEnum',
         'effective_date': 'datetime',
-        'employment_type': 'OneOfEmploymentTypeEnumBlankEnumNullEnum'
+        'employment_type': 'EmploymentTypeEnum'
     }
 
     attribute_map = {
@@ -186,7 +186,7 @@ class PatchedEmployment(object):
         The time period this pay rate encompasses.  # noqa: E501
 
         :return: The pay_period of this PatchedEmployment.  # noqa: E501
-        :rtype: OneOfPayPeriodEnumBlankEnumNullEnum
+        :rtype: PayPeriodEnum
         """
         return self._pay_period
 
@@ -197,7 +197,7 @@ class PatchedEmployment(object):
         The time period this pay rate encompasses.  # noqa: E501
 
         :param pay_period: The pay_period of this PatchedEmployment.  # noqa: E501
-        :type: OneOfPayPeriodEnumBlankEnumNullEnum
+        :type: PayPeriodEnum
         """
 
         self._pay_period = pay_period
@@ -209,7 +209,7 @@ class PatchedEmployment(object):
         The position's pay frequency.  # noqa: E501
 
         :return: The pay_frequency of this PatchedEmployment.  # noqa: E501
-        :rtype: OneOfPayFrequencyEnumBlankEnumNullEnum
+        :rtype: PayFrequencyEnum
         """
         return self._pay_frequency
 
@@ -220,7 +220,7 @@ class PatchedEmployment(object):
         The position's pay frequency.  # noqa: E501
 
         :param pay_frequency: The pay_frequency of this PatchedEmployment.  # noqa: E501
-        :type: OneOfPayFrequencyEnumBlankEnumNullEnum
+        :type: PayFrequencyEnum
         """
 
         self._pay_frequency = pay_frequency
@@ -232,7 +232,7 @@ class PatchedEmployment(object):
         The position's currency code.  # noqa: E501
 
         :return: The pay_currency of this PatchedEmployment.  # noqa: E501
-        :rtype: OneOfPayCurrencyEnumBlankEnumNullEnum
+        :rtype: PayCurrencyEnum
         """
         return self._pay_currency
 
@@ -243,7 +243,7 @@ class PatchedEmployment(object):
         The position's currency code.  # noqa: E501
 
         :param pay_currency: The pay_currency of this PatchedEmployment.  # noqa: E501
-        :type: OneOfPayCurrencyEnumBlankEnumNullEnum
+        :type: PayCurrencyEnum
         """
 
         self._pay_currency = pay_currency
@@ -255,7 +255,7 @@ class PatchedEmployment(object):
         The position's FLSA status.  # noqa: E501
 
         :return: The flsa_status of this PatchedEmployment.  # noqa: E501
-        :rtype: OneOfFlsaStatusEnumBlankEnumNullEnum
+        :rtype: FlsaStatusEnum
         """
         return self._flsa_status
 
@@ -266,7 +266,7 @@ class PatchedEmployment(object):
         The position's FLSA status.  # noqa: E501
 
         :param flsa_status: The flsa_status of this PatchedEmployment.  # noqa: E501
-        :type: OneOfFlsaStatusEnumBlankEnumNullEnum
+        :type: FlsaStatusEnum
         """
 
         self._flsa_status = flsa_status
@@ -301,7 +301,7 @@ class PatchedEmployment(object):
         The position's type of employment.  # noqa: E501
 
         :return: The employment_type of this PatchedEmployment.  # noqa: E501
-        :rtype: OneOfEmploymentTypeEnumBlankEnumNullEnum
+        :rtype: EmploymentTypeEnum
         """
         return self._employment_type
 
@@ -312,7 +312,7 @@ class PatchedEmployment(object):
         The position's type of employment.  # noqa: E501
 
         :param employment_type: The employment_type of this PatchedEmployment.  # noqa: E501
-        :type: OneOfEmploymentTypeEnumBlankEnumNullEnum
+        :type: EmploymentTypeEnum
         """
 
         self._employment_type = employment_type

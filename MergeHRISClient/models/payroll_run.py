@@ -36,8 +36,8 @@ class PayrollRun(object):
     openapi_types = {
         'id': 'str',
         'remote_id': 'str',
-        'run_state': 'OneOfRunStateEnumBlankEnumNullEnum',
-        'run_type': 'OneOfRunTypeEnumBlankEnumNullEnum',
+        'run_state': 'RunStateEnum',
+        'run_type': 'RunTypeEnum',
         'start_date': 'datetime',
         'end_date': 'datetime',
         'check_date': 'datetime'
@@ -128,7 +128,7 @@ class PayrollRun(object):
         The state of the payroll run  # noqa: E501
 
         :return: The run_state of this PayrollRun.  # noqa: E501
-        :rtype: OneOfRunStateEnumBlankEnumNullEnum
+        :rtype: RunStateEnum
         """
         return self._run_state
 
@@ -139,7 +139,7 @@ class PayrollRun(object):
         The state of the payroll run  # noqa: E501
 
         :param run_state: The run_state of this PayrollRun.  # noqa: E501
-        :type: OneOfRunStateEnumBlankEnumNullEnum
+        :type: RunStateEnum
         """
 
         self._run_state = run_state
@@ -151,7 +151,7 @@ class PayrollRun(object):
         The type of the payroll run  # noqa: E501
 
         :return: The run_type of this PayrollRun.  # noqa: E501
-        :rtype: OneOfRunTypeEnumBlankEnumNullEnum
+        :rtype: RunTypeEnum
         """
         return self._run_type
 
@@ -162,7 +162,7 @@ class PayrollRun(object):
         The type of the payroll run  # noqa: E501
 
         :param run_type: The run_type of this PayrollRun.  # noqa: E501
-        :type: OneOfRunTypeEnumBlankEnumNullEnum
+        :type: RunTypeEnum
         """
 
         self._run_type = run_type

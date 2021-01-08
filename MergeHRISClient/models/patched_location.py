@@ -40,9 +40,9 @@ class PatchedLocation(object):
         'street_1': 'str',
         'street_2': 'str',
         'city': 'str',
-        'state': 'OneOfStateEnumBlankEnumNullEnum',
+        'state': 'StateEnum',
         'zip_code': 'str',
-        'country': 'OneOfCountryEnumBlankEnumNullEnum'
+        'country': 'CountryEnum'
     }
 
     attribute_map = {
@@ -234,7 +234,7 @@ class PatchedLocation(object):
         The location's state.  # noqa: E501
 
         :return: The state of this PatchedLocation.  # noqa: E501
-        :rtype: OneOfStateEnumBlankEnumNullEnum
+        :rtype: StateEnum
         """
         return self._state
 
@@ -245,7 +245,7 @@ class PatchedLocation(object):
         The location's state.  # noqa: E501
 
         :param state: The state of this PatchedLocation.  # noqa: E501
-        :type: OneOfStateEnumBlankEnumNullEnum
+        :type: StateEnum
         """
 
         self._state = state
@@ -280,7 +280,7 @@ class PatchedLocation(object):
         The location's country.  # noqa: E501
 
         :return: The country of this PatchedLocation.  # noqa: E501
-        :rtype: OneOfCountryEnumBlankEnumNullEnum
+        :rtype: CountryEnum
         """
         return self._country
 
@@ -291,7 +291,7 @@ class PatchedLocation(object):
         The location's country.  # noqa: E501
 
         :param country: The country of this PatchedLocation.  # noqa: E501
-        :type: OneOfCountryEnumBlankEnumNullEnum
+        :type: CountryEnum
         """
 
         self._country = country

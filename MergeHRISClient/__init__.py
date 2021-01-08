@@ -18,6 +18,7 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
+from MergeHRISClient.api.account_token_api import AccountTokenApi
 from MergeHRISClient.api.benefits_api import BenefitsApi
 from MergeHRISClient.api.companies_api import CompaniesApi
 from MergeHRISClient.api.create_link_token_api import CreateLinkTokenApi
@@ -29,7 +30,6 @@ from MergeHRISClient.api.employees_api import EmployeesApi
 from MergeHRISClient.api.employments_api import EmploymentsApi
 from MergeHRISClient.api.locations_api import LocationsApi
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
-from MergeHRISClient.api.private_token_api import PrivateTokenApi
 from MergeHRISClient.api.reports_api import ReportsApi
 from MergeHRISClient.api.tasks_api import TasksApi
 from MergeHRISClient.api.taxes_api import TaxesApi
@@ -45,11 +45,11 @@ from MergeHRISClient.exceptions import ApiValueError
 from MergeHRISClient.exceptions import ApiKeyError
 from MergeHRISClient.exceptions import ApiException
 # import models into sdk package
+from MergeHRISClient.models.account_token import AccountToken
 from MergeHRISClient.models.async_task_execution import AsyncTaskExecution
 from MergeHRISClient.models.async_task_execution_status_enum import AsyncTaskExecutionStatusEnum
 from MergeHRISClient.models.benefit import Benefit
 from MergeHRISClient.models.benefit_plan_type_enum import BenefitPlanTypeEnum
-from MergeHRISClient.models.blank_enum import BlankEnum
 from MergeHRISClient.models.company import Company
 from MergeHRISClient.models.country_enum import CountryEnum
 from MergeHRISClient.models.deduction import Deduction
@@ -66,7 +66,6 @@ from MergeHRISClient.models.gender_enum import GenderEnum
 from MergeHRISClient.models.link_token import LinkToken
 from MergeHRISClient.models.location import Location
 from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
-from MergeHRISClient.models.null_enum import NullEnum
 from MergeHRISClient.models.paginated_async_task_execution_list import PaginatedAsyncTaskExecutionList
 from MergeHRISClient.models.paginated_benefit_list import PaginatedBenefitList
 from MergeHRISClient.models.paginated_company_list import PaginatedCompanyList
@@ -100,7 +99,6 @@ from MergeHRISClient.models.pay_currency_enum import PayCurrencyEnum
 from MergeHRISClient.models.pay_frequency_enum import PayFrequencyEnum
 from MergeHRISClient.models.pay_period_enum import PayPeriodEnum
 from MergeHRISClient.models.payroll_run import PayrollRun
-from MergeHRISClient.models.private_token import PrivateToken
 from MergeHRISClient.models.report import Report
 from MergeHRISClient.models.request_type_enum import RequestTypeEnum
 from MergeHRISClient.models.run_state_enum import RunStateEnum
