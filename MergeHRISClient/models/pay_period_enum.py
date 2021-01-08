@@ -32,10 +32,13 @@ class PayPeriodEnum(object):
     HOUR = "HOUR"
     DAY = "DAY"
     WEEK = "WEEK"
+    EVERY_TWO_WEEKS = "EVERY_TWO_WEEKS"
     MONTH = "MONTH"
+    QUARTER = "QUARTER"
+    EVERY_SIX_MONTHS = "EVERY_SIX_MONTHS"
     YEAR = "YEAR"
 
-    allowable_values = [HOUR, DAY, WEEK, MONTH, YEAR]  # noqa: E501
+    allowable_values = [HOUR, DAY, WEEK, EVERY_TWO_WEEKS, MONTH, QUARTER, EVERY_SIX_MONTHS, YEAR]  # noqa: E501
 
     """
     Attributes:

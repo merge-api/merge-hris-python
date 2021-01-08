@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **benefits_create**
-> Benefit benefits_create(x_link_token=x_link_token, run_async=run_async, benefit=benefit)
+> Benefit benefits_create(x_account_token=x_account_token, run_async=run_async, benefit=benefit)
 
 
 
@@ -21,7 +21,7 @@ Creates a `Benefit` object with the given values.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -39,21 +39,26 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.BenefitsApi(api_client)
-    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+    x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 benefit = MergeHRISClient.Benefit() # Benefit |  (optional)
 
     try:
-        api_response = api_instance.benefits_create(x_link_token=x_link_token, run_async=run_async, benefit=benefit)
+        api_response = api_instance.benefits_create(x_account_token=x_account_token, run_async=run_async, benefit=benefit)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BenefitsApi->benefits_create: %s\n" % e)
@@ -63,7 +68,7 @@ benefit = MergeHRISClient.Benefit() # Benefit |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **benefit** | [**Benefit**](Benefit.md)|  | [optional] 
 
@@ -89,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **benefits_destroy**
-> AsyncTaskExecution benefits_destroy(id, x_link_token=x_link_token, run_async=run_async)
+> AsyncTaskExecution benefits_destroy(id, x_account_token=x_account_token, run_async=run_async)
 
 
 
@@ -97,7 +102,7 @@ Deletes a `Benefit` object with the given `id`.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -115,21 +120,26 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.BenefitsApi(api_client)
     id = 'id_example' # str | 
-x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     try:
-        api_response = api_instance.benefits_destroy(id, x_link_token=x_link_token, run_async=run_async)
+        api_response = api_instance.benefits_destroy(id, x_account_token=x_account_token, run_async=run_async)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BenefitsApi->benefits_destroy: %s\n" % e)
@@ -140,7 +150,7 @@ run_async = True # bool | Whether or not third-party updates should be run async
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
 
 ### Return type
@@ -165,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **benefits_list**
-> PaginatedBenefitList benefits_list(x_link_token=x_link_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, linked_account_id=linked_account_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+> PaginatedBenefitList benefits_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
 
 
 
@@ -173,7 +183,7 @@ Returns a list of `Benefit` objects.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -191,28 +201,32 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.BenefitsApi(api_client)
-    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
-created_after = 'created_after_example' # str | If provided, will only return objects created after this datetime. (optional)
-created_before = 'created_before_example' # str | If provided, will only return objects created before this datetime. (optional)
+    x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created after this datetime. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created before this datetime. (optional)
 cursor = 56 # int | The pagination cursor value. (optional)
 expand = 'expand_example' # str | Which relations should be returned in expanded form. (optional)
-linked_account_id = 'linked_account_id_example' # str | If provided, will only return objects associated with the given `linked_account_id`. (optional)
-modified_after = 'modified_after_example' # str | If provided, will only return objects modified after this datetime. (optional)
-modified_before = 'modified_before_example' # str | If provided, will only return objects modified before this datetime. (optional)
+modified_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified after this datetime. (optional)
+modified_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified before this datetime. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
 
     try:
-        api_response = api_instance.benefits_list(x_link_token=x_link_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, linked_account_id=linked_account_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.benefits_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BenefitsApi->benefits_list: %s\n" % e)
@@ -222,14 +236,13 @@ remote_id = 'remote_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
- **created_after** | **str**| If provided, will only return objects created after this datetime. | [optional] 
- **created_before** | **str**| If provided, will only return objects created before this datetime. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
+ **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional] 
+ **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **int**| The pagination cursor value. | [optional] 
  **expand** | **str**| Which relations should be returned in expanded form. | [optional] 
- **linked_account_id** | **str**| If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;. | [optional] 
- **modified_after** | **str**| If provided, will only return objects modified after this datetime. | [optional] 
- **modified_before** | **str**| If provided, will only return objects modified before this datetime. | [optional] 
+ **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional] 
+ **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
 
@@ -254,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **benefits_partial_update**
-> Benefit benefits_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_benefit=patched_benefit)
+> Benefit benefits_partial_update(id, x_account_token=x_account_token, run_async=run_async, patched_benefit=patched_benefit)
 
 
 
@@ -262,7 +275,7 @@ Updates a `Benefit` object with the given `id`.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -280,22 +293,27 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.BenefitsApi(api_client)
     id = 'id_example' # str | 
-x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 patched_benefit = MergeHRISClient.PatchedBenefit() # PatchedBenefit |  (optional)
 
     try:
-        api_response = api_instance.benefits_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_benefit=patched_benefit)
+        api_response = api_instance.benefits_partial_update(id, x_account_token=x_account_token, run_async=run_async, patched_benefit=patched_benefit)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BenefitsApi->benefits_partial_update: %s\n" % e)
@@ -306,7 +324,7 @@ patched_benefit = MergeHRISClient.PatchedBenefit() # PatchedBenefit |  (optional
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **patched_benefit** | [**PatchedBenefit**](PatchedBenefit.md)|  | [optional] 
 
@@ -332,7 +350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **benefits_retrieve**
-> Benefit benefits_retrieve(id, x_link_token=x_link_token, expand=expand)
+> Benefit benefits_retrieve(id, x_account_token=x_account_token, expand=expand)
 
 
 
@@ -340,7 +358,7 @@ Returns a `Benefit` object with the given `id`.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -358,21 +376,26 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.BenefitsApi(api_client)
     id = 'id_example' # str | 
-x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 expand = 'expand_example' # str | Which relations should be returned in expanded form. (optional)
 
     try:
-        api_response = api_instance.benefits_retrieve(id, x_link_token=x_link_token, expand=expand)
+        api_response = api_instance.benefits_retrieve(id, x_account_token=x_account_token, expand=expand)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BenefitsApi->benefits_retrieve: %s\n" % e)
@@ -383,7 +406,7 @@ expand = 'expand_example' # str | Which relations should be returned in expanded
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
  **expand** | **str**| Which relations should be returned in expanded form. | [optional] 
 
 ### Return type
@@ -413,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -431,10 +454,15 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:

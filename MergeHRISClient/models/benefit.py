@@ -38,7 +38,7 @@ class Benefit(object):
         'remote_id': 'str',
         'employee': 'str',
         'provider_name': 'str',
-        'benefit_plan_type': 'OneOfBenefitPlanTypeEnumBlankEnumNullEnum',
+        'benefit_plan_type': 'BenefitPlanTypeEnum',
         'employee_contribution': 'float',
         'company_contribution': 'float'
     }
@@ -174,7 +174,7 @@ class Benefit(object):
         The type of benefit plan  # noqa: E501
 
         :return: The benefit_plan_type of this Benefit.  # noqa: E501
-        :rtype: OneOfBenefitPlanTypeEnumBlankEnumNullEnum
+        :rtype: BenefitPlanTypeEnum
         """
         return self._benefit_plan_type
 
@@ -185,7 +185,7 @@ class Benefit(object):
         The type of benefit plan  # noqa: E501
 
         :param benefit_plan_type: The benefit_plan_type of this Benefit.  # noqa: E501
-        :type: OneOfBenefitPlanTypeEnumBlankEnumNullEnum
+        :type: BenefitPlanTypeEnum
         """
 
         self._benefit_plan_type = benefit_plan_type

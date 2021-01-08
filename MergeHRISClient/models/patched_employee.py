@@ -49,12 +49,12 @@ class PatchedEmployee(object):
         'manager': 'str',
         'team': 'str',
         'ssn': 'str',
-        'gender': 'OneOfGenderEnumBlankEnumNullEnum',
-        'ethnicity': 'OneOfEthnicityEnumBlankEnumNullEnum',
-        'marital_status': 'OneOfMaritalStatusEnumBlankEnumNullEnum',
+        'gender': 'GenderEnum',
+        'ethnicity': 'EthnicityEnum',
+        'marital_status': 'MaritalStatusEnum',
         'date_of_birth': 'datetime',
         'hire_dates': 'list[datetime]',
-        'employment_status': 'OneOfEmploymentStatusEnumBlankEnumNullEnum',
+        'employment_status': 'EmploymentStatusEnum',
         'termination_dates': 'list[datetime]',
         'avatar': 'str',
         'documents': 'list[str]'
@@ -510,7 +510,7 @@ class PatchedEmployee(object):
         The employee's gender.  # noqa: E501
 
         :return: The gender of this PatchedEmployee.  # noqa: E501
-        :rtype: OneOfGenderEnumBlankEnumNullEnum
+        :rtype: GenderEnum
         """
         return self._gender
 
@@ -521,7 +521,7 @@ class PatchedEmployee(object):
         The employee's gender.  # noqa: E501
 
         :param gender: The gender of this PatchedEmployee.  # noqa: E501
-        :type: OneOfGenderEnumBlankEnumNullEnum
+        :type: GenderEnum
         """
 
         self._gender = gender
@@ -533,7 +533,7 @@ class PatchedEmployee(object):
         The employee's ethnicity.  # noqa: E501
 
         :return: The ethnicity of this PatchedEmployee.  # noqa: E501
-        :rtype: OneOfEthnicityEnumBlankEnumNullEnum
+        :rtype: EthnicityEnum
         """
         return self._ethnicity
 
@@ -544,7 +544,7 @@ class PatchedEmployee(object):
         The employee's ethnicity.  # noqa: E501
 
         :param ethnicity: The ethnicity of this PatchedEmployee.  # noqa: E501
-        :type: OneOfEthnicityEnumBlankEnumNullEnum
+        :type: EthnicityEnum
         """
 
         self._ethnicity = ethnicity
@@ -556,7 +556,7 @@ class PatchedEmployee(object):
         The employee's marital status.  # noqa: E501
 
         :return: The marital_status of this PatchedEmployee.  # noqa: E501
-        :rtype: OneOfMaritalStatusEnumBlankEnumNullEnum
+        :rtype: MaritalStatusEnum
         """
         return self._marital_status
 
@@ -567,7 +567,7 @@ class PatchedEmployee(object):
         The employee's marital status.  # noqa: E501
 
         :param marital_status: The marital_status of this PatchedEmployee.  # noqa: E501
-        :type: OneOfMaritalStatusEnumBlankEnumNullEnum
+        :type: MaritalStatusEnum
         """
 
         self._marital_status = marital_status
@@ -625,7 +625,7 @@ class PatchedEmployee(object):
         The employment status of the employee.  # noqa: E501
 
         :return: The employment_status of this PatchedEmployee.  # noqa: E501
-        :rtype: OneOfEmploymentStatusEnumBlankEnumNullEnum
+        :rtype: EmploymentStatusEnum
         """
         return self._employment_status
 
@@ -636,7 +636,7 @@ class PatchedEmployee(object):
         The employment status of the employee.  # noqa: E501
 
         :param employment_status: The employment_status of this PatchedEmployee.  # noqa: E501
-        :type: OneOfEmploymentStatusEnumBlankEnumNullEnum
+        :type: EmploymentStatusEnum
         """
 
         self._employment_status = employment_status

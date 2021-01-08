@@ -36,7 +36,7 @@ class Earning(object):
     openapi_types = {
         'employee_payroll_run': 'str',
         'amount': 'float',
-        'type': 'OneOfTypeEnumBlankEnumNullEnum'
+        'type': 'TypeEnum'
     }
 
     attribute_map = {
@@ -113,7 +113,7 @@ class Earning(object):
         The type of earning.  # noqa: E501
 
         :return: The type of this Earning.  # noqa: E501
-        :rtype: OneOfTypeEnumBlankEnumNullEnum
+        :rtype: TypeEnum
         """
         return self._type
 
@@ -124,7 +124,7 @@ class Earning(object):
         The type of earning.  # noqa: E501
 
         :param type: The type of this Earning.  # noqa: E501
-        :type: OneOfTypeEnumBlankEnumNullEnum
+        :type: TypeEnum
         """
 
         self._type = type

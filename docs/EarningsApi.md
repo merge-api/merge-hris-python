@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **earnings_create**
-> Earning earnings_create(x_link_token=x_link_token, run_async=run_async, earning=earning)
+> Earning earnings_create(x_account_token=x_account_token, run_async=run_async, earning=earning)
 
 
 
@@ -21,7 +21,7 @@ Creates an `Earning` object with the given values.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -39,21 +39,26 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EarningsApi(api_client)
-    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+    x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 earning = MergeHRISClient.Earning() # Earning |  (optional)
 
     try:
-        api_response = api_instance.earnings_create(x_link_token=x_link_token, run_async=run_async, earning=earning)
+        api_response = api_instance.earnings_create(x_account_token=x_account_token, run_async=run_async, earning=earning)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EarningsApi->earnings_create: %s\n" % e)
@@ -63,7 +68,7 @@ earning = MergeHRISClient.Earning() # Earning |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **earning** | [**Earning**](Earning.md)|  | [optional] 
 
@@ -89,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **earnings_destroy**
-> AsyncTaskExecution earnings_destroy(id, x_link_token=x_link_token, run_async=run_async)
+> AsyncTaskExecution earnings_destroy(id, x_account_token=x_account_token, run_async=run_async)
 
 
 
@@ -97,7 +102,7 @@ Deletes an `Earning` object with the given `id`.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -115,21 +120,26 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EarningsApi(api_client)
     id = 'id_example' # str | 
-x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 
     try:
-        api_response = api_instance.earnings_destroy(id, x_link_token=x_link_token, run_async=run_async)
+        api_response = api_instance.earnings_destroy(id, x_account_token=x_account_token, run_async=run_async)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EarningsApi->earnings_destroy: %s\n" % e)
@@ -140,7 +150,7 @@ run_async = True # bool | Whether or not third-party updates should be run async
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
 
 ### Return type
@@ -165,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **earnings_list**
-> PaginatedEarningList earnings_list(x_link_token=x_link_token, created_after=created_after, created_before=created_before, cursor=cursor, linked_account_id=linked_account_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+> PaginatedEarningList earnings_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
 
 
 
@@ -173,7 +183,7 @@ Returns a list of `Earning` objects.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -191,27 +201,31 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EarningsApi(api_client)
-    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
-created_after = 'created_after_example' # str | If provided, will only return objects created after this datetime. (optional)
-created_before = 'created_before_example' # str | If provided, will only return objects created before this datetime. (optional)
+    x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created after this datetime. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created before this datetime. (optional)
 cursor = 56 # int | The pagination cursor value. (optional)
-linked_account_id = 'linked_account_id_example' # str | If provided, will only return objects associated with the given `linked_account_id`. (optional)
-modified_after = 'modified_after_example' # str | If provided, will only return objects modified after this datetime. (optional)
-modified_before = 'modified_before_example' # str | If provided, will only return objects modified before this datetime. (optional)
+modified_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified after this datetime. (optional)
+modified_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified before this datetime. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
 
     try:
-        api_response = api_instance.earnings_list(x_link_token=x_link_token, created_after=created_after, created_before=created_before, cursor=cursor, linked_account_id=linked_account_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.earnings_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EarningsApi->earnings_list: %s\n" % e)
@@ -221,13 +235,12 @@ remote_id = 'remote_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
- **created_after** | **str**| If provided, will only return objects created after this datetime. | [optional] 
- **created_before** | **str**| If provided, will only return objects created before this datetime. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
+ **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional] 
+ **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **int**| The pagination cursor value. | [optional] 
- **linked_account_id** | **str**| If provided, will only return objects associated with the given &#x60;linked_account_id&#x60;. | [optional] 
- **modified_after** | **str**| If provided, will only return objects modified after this datetime. | [optional] 
- **modified_before** | **str**| If provided, will only return objects modified before this datetime. | [optional] 
+ **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional] 
+ **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
 
@@ -252,7 +265,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **earnings_partial_update**
-> Earning earnings_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_earning=patched_earning)
+> Earning earnings_partial_update(id, x_account_token=x_account_token, run_async=run_async, patched_earning=patched_earning)
 
 
 
@@ -260,7 +273,7 @@ Updates an `Earning` object with the given `id`.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -278,22 +291,27 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EarningsApi(api_client)
     id = 'id_example' # str | 
-x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
 patched_earning = MergeHRISClient.PatchedEarning() # PatchedEarning |  (optional)
 
     try:
-        api_response = api_instance.earnings_partial_update(id, x_link_token=x_link_token, run_async=run_async, patched_earning=patched_earning)
+        api_response = api_instance.earnings_partial_update(id, x_account_token=x_account_token, run_async=run_async, patched_earning=patched_earning)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EarningsApi->earnings_partial_update: %s\n" % e)
@@ -304,7 +322,7 @@ patched_earning = MergeHRISClient.PatchedEarning() # PatchedEarning |  (optional
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional] 
  **patched_earning** | [**PatchedEarning**](PatchedEarning.md)|  | [optional] 
 
@@ -330,7 +348,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **earnings_retrieve**
-> Earning earnings_retrieve(id, x_link_token=x_link_token)
+> Earning earnings_retrieve(id, x_account_token=x_account_token)
 
 
 
@@ -338,7 +356,7 @@ Returns an `Earning` object with the given `id`.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -356,20 +374,25 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.EarningsApi(api_client)
     id = 'id_example' # str | 
-x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
+x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 
     try:
-        api_response = api_instance.earnings_retrieve(id, x_link_token=x_link_token)
+        api_response = api_instance.earnings_retrieve(id, x_account_token=x_account_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EarningsApi->earnings_retrieve: %s\n" % e)
@@ -380,7 +403,7 @@ x_link_token = 'x_link_token_example' # str | Token identifying the end user. (o
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
- **x_link_token** | **str**| Token identifying the end user. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. | [optional] 
 
 ### Return type
 
@@ -409,7 +432,7 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -427,10 +450,15 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:

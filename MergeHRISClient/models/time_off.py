@@ -38,11 +38,11 @@ class TimeOff(object):
         'remote_id': 'str',
         'employee': 'str',
         'approver': 'str',
-        'status': 'OneOfTimeOffStatusEnumBlankEnumNullEnum',
+        'status': 'TimeOffStatusEnum',
         'employee_note': 'str',
-        'units': 'OneOfUnitsEnumBlankEnumNullEnum',
+        'units': 'UnitsEnum',
         'amount': 'float',
-        'request_type': 'OneOfRequestTypeEnumBlankEnumNullEnum'
+        'request_type': 'RequestTypeEnum'
     }
 
     attribute_map = {
@@ -182,7 +182,7 @@ class TimeOff(object):
         The status of this time off request.  # noqa: E501
 
         :return: The status of this TimeOff.  # noqa: E501
-        :rtype: OneOfTimeOffStatusEnumBlankEnumNullEnum
+        :rtype: TimeOffStatusEnum
         """
         return self._status
 
@@ -193,7 +193,7 @@ class TimeOff(object):
         The status of this time off request.  # noqa: E501
 
         :param status: The status of this TimeOff.  # noqa: E501
-        :type: OneOfTimeOffStatusEnumBlankEnumNullEnum
+        :type: TimeOffStatusEnum
         """
 
         self._status = status
@@ -228,7 +228,7 @@ class TimeOff(object):
         The unit of time requested.  # noqa: E501
 
         :return: The units of this TimeOff.  # noqa: E501
-        :rtype: OneOfUnitsEnumBlankEnumNullEnum
+        :rtype: UnitsEnum
         """
         return self._units
 
@@ -239,7 +239,7 @@ class TimeOff(object):
         The unit of time requested.  # noqa: E501
 
         :param units: The units of this TimeOff.  # noqa: E501
-        :type: OneOfUnitsEnumBlankEnumNullEnum
+        :type: UnitsEnum
         """
 
         self._units = units
@@ -274,7 +274,7 @@ class TimeOff(object):
         The type of time off request.  # noqa: E501
 
         :return: The request_type of this TimeOff.  # noqa: E501
-        :rtype: OneOfRequestTypeEnumBlankEnumNullEnum
+        :rtype: RequestTypeEnum
         """
         return self._request_type
 
@@ -285,7 +285,7 @@ class TimeOff(object):
         The type of time off request.  # noqa: E501
 
         :param request_type: The request_type of this TimeOff.  # noqa: E501
-        :type: OneOfRequestTypeEnumBlankEnumNullEnum
+        :type: RequestTypeEnum
         """
 
         self._request_type = request_type

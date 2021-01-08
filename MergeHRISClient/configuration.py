@@ -52,6 +52,25 @@ class Configuration(object):
       nothing to discard.
 
     :Example:
+
+    API Key Authentication Example.
+    Given the following security scheme in the OpenAPI specification:
+      components:
+        securitySchemes:
+          cookieAuth:         # name for the security scheme
+            type: apiKey
+            in: cookie
+            name: JSESSIONID  # cookie name
+
+    You can programmatically set the cookie:
+
+conf = MergeHRISClient.Configuration(
+    api_key={'cookieAuth': 'abc123'}
+    api_key_prefix={'cookieAuth': 'JSESSIONID'}
+)
+
+    The following cookie will be added to the HTTP request:
+       Cookie: JSESSIONID abc123
     """
 
     _default = None
@@ -90,9 +109,6 @@ class Configuration(object):
         """Password for HTTP basic authentication
         """
         self.discard_unknown_keys = discard_unknown_keys
-        self.access_token = None
-        """access token for OAuth/Bearer
-        """
         self.logger = {}
         """Logging Settings
         """
@@ -319,13 +335,12 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if self.access_token is not None:
+        if 'Authorization' in self.api_key:
             auth['tokenAuth'] = {
-                'type': 'bearer',
+                'type': 'api_key',
                 'in': 'header',
-                'format': 'Token',
                 'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
+                'value': self.get_api_key_with_prefix('Authorization')
             }
         return auth
 

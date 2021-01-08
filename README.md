@@ -64,23 +64,29 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Configure API key authorization: tokenAuth
+configuration = MergeHRISClient.Configuration(
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeHRISClient.BenefitsApi(api_client)
-    x_link_token = 'x_link_token_example' # str | Token identifying the end user. (optional)
-run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
-benefit = MergeHRISClient.Benefit() # Benefit |  (optional)
+    api_instance = MergeHRISClient.AccountTokenApi(api_client)
+    public_token = 'public_token_example' # str | 
+production_key = 'production_key_example' # str | The requesting organization's production key. (optional)
 
     try:
-        api_response = api_instance.benefits_create(x_link_token=x_link_token, run_async=run_async, benefit=benefit)
+        api_response = api_instance.account_token_retrieve(public_token, production_key=production_key)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BenefitsApi->benefits_create: %s\n" % e)
+        print("Exception when calling AccountTokenApi->account_token_retrieve: %s\n" % e)
     
 ```
 
@@ -90,6 +96,7 @@ All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *BenefitsApi* | [**benefits_create**](docs/BenefitsApi.md#benefits_create) | **POST** /benefits | 
 *BenefitsApi* | [**benefits_destroy**](docs/BenefitsApi.md#benefits_destroy) | **DELETE** /benefits/{id} | 
 *BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
@@ -151,7 +158,6 @@ Class | Method | HTTP request | Description
 *PayrollRunsApi* | [**payroll_runs_partial_update**](docs/PayrollRunsApi.md#payroll_runs_partial_update) | **PATCH** /payroll-runs/{id} | 
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *PayrollRunsApi* | [**payroll_runs_update**](docs/PayrollRunsApi.md#payroll_runs_update) | **PUT** /payroll-runs/{id} | 
-*PrivateTokenApi* | [**private_token_retrieve**](docs/PrivateTokenApi.md#private_token_retrieve) | **GET** /private-token/{public_token} | 
 *ReportsApi* | [**reports_create**](docs/ReportsApi.md#reports_create) | **POST** /reports | 
 *ReportsApi* | [**reports_destroy**](docs/ReportsApi.md#reports_destroy) | **DELETE** /reports/{id} | 
 *ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
@@ -182,11 +188,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccountToken](docs/AccountToken.md)
  - [AsyncTaskExecution](docs/AsyncTaskExecution.md)
  - [AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
  - [Benefit](docs/Benefit.md)
  - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
- - [BlankEnum](docs/BlankEnum.md)
  - [Company](docs/Company.md)
  - [CountryEnum](docs/CountryEnum.md)
  - [Deduction](docs/Deduction.md)
@@ -203,7 +209,6 @@ Class | Method | HTTP request | Description
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
- - [NullEnum](docs/NullEnum.md)
  - [PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
@@ -237,7 +242,6 @@ Class | Method | HTTP request | Description
  - [PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [PayPeriodEnum](docs/PayPeriodEnum.md)
  - [PayrollRun](docs/PayrollRun.md)
- - [PrivateToken](docs/PrivateToken.md)
  - [Report](docs/Report.md)
  - [RequestTypeEnum](docs/RequestTypeEnum.md)
  - [RunStateEnum](docs/RunStateEnum.md)
@@ -256,7 +260,9 @@ Class | Method | HTTP request | Description
 
 ## tokenAuth
 
-- **Type**: Bearer authentication (Token)
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
 
 
 ## Author
