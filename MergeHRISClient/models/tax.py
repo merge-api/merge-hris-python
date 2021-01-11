@@ -34,6 +34,7 @@ class Tax(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'employee_payroll_run': 'str',
         'name': 'str',
         'amount': 'float',
@@ -41,28 +42,53 @@ class Tax(object):
     }
 
     attribute_map = {
+        'id': 'id',
         'employee_payroll_run': 'employee_payroll_run',
         'name': 'name',
         'amount': 'amount',
         'employer_tax': 'employer_tax'
     }
 
-    def __init__(self, employee_payroll_run=None, name=None, amount=None, employer_tax=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, employee_payroll_run=None, name=None, amount=None, employer_tax=None, local_vars_configuration=None):  # noqa: E501
         """Tax - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._employee_payroll_run = None
         self._name = None
         self._amount = None
         self._employer_tax = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         self.employee_payroll_run = employee_payroll_run
         self.name = name
         self.amount = amount
         self.employer_tax = employer_tax
+
+    @property
+    def id(self):
+        """Gets the id of this Tax.  # noqa: E501
+
+
+        :return: The id of this Tax.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Tax.
+
+
+        :param id: The id of this Tax.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def employee_payroll_run(self):

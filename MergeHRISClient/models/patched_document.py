@@ -34,31 +34,57 @@ class PatchedDocument(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'employee': 'str',
         'file_name': 'str',
         'file_url': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
         'employee': 'employee',
         'file_name': 'file_name',
         'file_url': 'file_url'
     }
 
-    def __init__(self, employee=None, file_name=None, file_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, employee=None, file_name=None, file_url=None, local_vars_configuration=None):  # noqa: E501
         """PatchedDocument - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._employee = None
         self._file_name = None
         self._file_url = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         self.employee = employee
         self.file_name = file_name
         self.file_url = file_url
+
+    @property
+    def id(self):
+        """Gets the id of this PatchedDocument.  # noqa: E501
+
+
+        :return: The id of this PatchedDocument.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this PatchedDocument.
+
+
+        :param id: The id of this PatchedDocument.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def employee(self):

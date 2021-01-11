@@ -5,11 +5,11 @@ All URIs are relative to *https://app.merge.dev/api/hris/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**tasks_list**](TasksApi.md#tasks_list) | **GET** /tasks | 
-[**tasks_retrieve**](TasksApi.md#tasks_retrieve) | **GET** /tasks/{task_id} | 
+[**tasks_retrieve**](TasksApi.md#tasks_retrieve) | **GET** /tasks/{common_model_id} | 
 
 
 # **tasks_list**
-> PaginatedAsyncTaskExecutionList tasks_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, modified_after=modified_after, modified_before=modified_before, page_size=page_size, status=status)
+> PaginatedAsyncTaskExecutionList tasks_list(x_account_token=x_account_token, cursor=cursor, page_size=page_size)
 
 
 
@@ -50,16 +50,11 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.TasksApi(api_client)
     x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created after this datetime. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created before this datetime. (optional)
 cursor = 56 # int | The pagination cursor value. (optional)
-modified_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified after this datetime. (optional)
-modified_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified before this datetime. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
-status = 'status_example' # str | The status of the task. (optional)
 
     try:
-        api_response = api_instance.tasks_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, modified_after=modified_after, modified_before=modified_before, page_size=page_size, status=status)
+        api_response = api_instance.tasks_list(x_account_token=x_account_token, cursor=cursor, page_size=page_size)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TasksApi->tasks_list: %s\n" % e)
@@ -70,13 +65,8 @@ status = 'status_example' # str | The status of the task. (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. | [optional] 
- **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional] 
- **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **int**| The pagination cursor value. | [optional] 
- **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional] 
- **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **status** | **str**| The status of the task. | [optional] 
 
 ### Return type
 
@@ -99,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **tasks_retrieve**
-> AsyncTaskExecution tasks_retrieve(task_id, x_account_token=x_account_token)
+> AsyncTaskExecution tasks_retrieve(common_model_id, x_account_token=x_account_token)
 
 
 
@@ -139,11 +129,11 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.TasksApi(api_client)
-    task_id = 'task_id_example' # str | 
+    common_model_id = 'common_model_id_example' # str | 
 x_account_token = 'x_account_token_example' # str | Token identifying the end user. (optional)
 
     try:
-        api_response = api_instance.tasks_retrieve(task_id, x_account_token=x_account_token)
+        api_response = api_instance.tasks_retrieve(common_model_id, x_account_token=x_account_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TasksApi->tasks_retrieve: %s\n" % e)
@@ -153,7 +143,7 @@ x_account_token = 'x_account_token_example' # str | Token identifying the end us
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **task_id** | [**str**](.md)|  | 
+ **common_model_id** | [**str**](.md)|  | 
  **x_account_token** | **str**| Token identifying the end user. | [optional] 
 
 ### Return type

@@ -152,9 +152,6 @@ class Location(object):
         if (self.local_vars_configuration.client_side_validation and
                 phone_number is not None and len(phone_number) > 17):
             raise ValueError("Invalid value for `phone_number`, length must be less than or equal to `17`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                phone_number is not None and not re.search(r'^\+?1?\d{9,15}$', phone_number)):  # noqa: E501
-            raise ValueError(r"Invalid value for `phone_number`, must be a follow pattern or equal to `/^\+?1?\d{9,15}$/`")  # noqa: E501
 
         self._phone_number = phone_number
 
