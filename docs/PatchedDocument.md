@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] [readonly] 
 **employee** | **str** | The employee this document belongs to. | [optional] 
 **file_name** | **str** | The document&#39;s filename. | [optional] 
 **file_url** | **str** | The URL from which the document can be retrieved. | [optional] 

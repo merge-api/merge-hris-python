@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] [readonly] 
 **employee_payroll_run** | **str** | The deduction&#39;s employee payroll run. | [optional] 
 **name** | **str** | The deduction&#39;s name. | [optional] 
 **employee_deduction** | **float** | The amount the employee is deducting. | [optional] 

@@ -358,9 +358,6 @@ class Employee(object):
         if (self.local_vars_configuration.client_side_validation and
                 mobile_phone_number is not None and len(mobile_phone_number) > 17):
             raise ValueError("Invalid value for `mobile_phone_number`, length must be less than or equal to `17`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                mobile_phone_number is not None and not re.search(r'^\+?1?\d{9,15}$', mobile_phone_number)):  # noqa: E501
-            raise ValueError(r"Invalid value for `mobile_phone_number`, must be a follow pattern or equal to `/^\+?1?\d{9,15}$/`")  # noqa: E501
 
         self._mobile_phone_number = mobile_phone_number
 

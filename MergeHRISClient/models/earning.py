@@ -34,31 +34,57 @@ class Earning(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'employee_payroll_run': 'str',
         'amount': 'float',
         'type': 'TypeEnum'
     }
 
     attribute_map = {
+        'id': 'id',
         'employee_payroll_run': 'employee_payroll_run',
         'amount': 'amount',
         'type': 'type'
     }
 
-    def __init__(self, employee_payroll_run=None, amount=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, employee_payroll_run=None, amount=None, type=None, local_vars_configuration=None):  # noqa: E501
         """Earning - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._employee_payroll_run = None
         self._amount = None
         self._type = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         self.employee_payroll_run = employee_payroll_run
         self.amount = amount
         self.type = type
+
+    @property
+    def id(self):
+        """Gets the id of this Earning.  # noqa: E501
+
+
+        :return: The id of this Earning.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Earning.
+
+
+        :param id: The id of this Earning.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def employee_payroll_run(self):

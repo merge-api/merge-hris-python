@@ -79,11 +79,11 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.AccountTokenApi(api_client)
-    public_token = 'public_token_example' # str | 
-production_key = 'production_key_example' # str | The requesting organization's production key. (optional)
+    production_key = 'production_key_example' # str | The requesting organization's production key.
+public_token = 'public_token_example' # str | 
 
     try:
-        api_response = api_instance.account_token_retrieve(public_token, production_key=production_key)
+        api_response = api_instance.account_token_retrieve(production_key, public_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AccountTokenApi->account_token_retrieve: %s\n" % e)
@@ -109,7 +109,6 @@ Class | Method | HTTP request | Description
 *CompaniesApi* | [**companies_partial_update**](docs/CompaniesApi.md#companies_partial_update) | **PATCH** /companies/{id} | 
 *CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
 *CompaniesApi* | [**companies_update**](docs/CompaniesApi.md#companies_update) | **PUT** /companies/{id} | 
-*CreateLinkTokenApi* | [**create_link_token_create**](docs/CreateLinkTokenApi.md#create_link_token_create) | **POST** /create-link-token | 
 *DeductionsApi* | [**deductions_create**](docs/DeductionsApi.md#deductions_create) | **POST** /deductions | 
 *DeductionsApi* | [**deductions_destroy**](docs/DeductionsApi.md#deductions_destroy) | **DELETE** /deductions/{id} | 
 *DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
@@ -146,6 +145,7 @@ Class | Method | HTTP request | Description
 *EmploymentsApi* | [**employments_partial_update**](docs/EmploymentsApi.md#employments_partial_update) | **PATCH** /employments/{id} | 
 *EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
 *EmploymentsApi* | [**employments_update**](docs/EmploymentsApi.md#employments_update) | **PUT** /employments/{id} | 
+*LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *LocationsApi* | [**locations_create**](docs/LocationsApi.md#locations_create) | **POST** /locations | 
 *LocationsApi* | [**locations_destroy**](docs/LocationsApi.md#locations_destroy) | **DELETE** /locations/{id} | 
 *LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
@@ -165,7 +165,7 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
 *ReportsApi* | [**reports_update**](docs/ReportsApi.md#reports_update) | **PUT** /reports/{id} | 
 *TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
-*TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{task_id} | 
+*TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{common_model_id} | 
 *TaxesApi* | [**taxes_create**](docs/TaxesApi.md#taxes_create) | **POST** /taxes | 
 *TaxesApi* | [**taxes_destroy**](docs/TaxesApi.md#taxes_destroy) | **DELETE** /taxes/{id} | 
 *TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
@@ -203,6 +203,7 @@ Class | Method | HTTP request | Description
  - [Employment](docs/Employment.md)
  - [EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
  - [EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
+ - [EndUserDetails](docs/EndUserDetails.md)
  - [EthnicityEnum](docs/EthnicityEnum.md)
  - [FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [GenderEnum](docs/GenderEnum.md)

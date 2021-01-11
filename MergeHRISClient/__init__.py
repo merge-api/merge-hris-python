@@ -21,13 +21,13 @@ __version__ = "1.0.0"
 from MergeHRISClient.api.account_token_api import AccountTokenApi
 from MergeHRISClient.api.benefits_api import BenefitsApi
 from MergeHRISClient.api.companies_api import CompaniesApi
-from MergeHRISClient.api.create_link_token_api import CreateLinkTokenApi
 from MergeHRISClient.api.deductions_api import DeductionsApi
 from MergeHRISClient.api.documents_api import DocumentsApi
 from MergeHRISClient.api.earnings_api import EarningsApi
 from MergeHRISClient.api.employee_payroll_runs_api import EmployeePayrollRunsApi
 from MergeHRISClient.api.employees_api import EmployeesApi
 from MergeHRISClient.api.employments_api import EmploymentsApi
+from MergeHRISClient.api.link_token_api import LinkTokenApi
 from MergeHRISClient.api.locations_api import LocationsApi
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
 from MergeHRISClient.api.reports_api import ReportsApi
@@ -60,6 +60,7 @@ from MergeHRISClient.models.employee_payroll_run import EmployeePayrollRun
 from MergeHRISClient.models.employment import Employment
 from MergeHRISClient.models.employment_status_enum import EmploymentStatusEnum
 from MergeHRISClient.models.employment_type_enum import EmploymentTypeEnum
+from MergeHRISClient.models.end_user_details import EndUserDetails
 from MergeHRISClient.models.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.models.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.models.gender_enum import GenderEnum

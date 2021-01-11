@@ -1,22 +1,22 @@
-# MergeHRISClient.PrivateTokenApi
+# MergeHRISClient.LinkTokenApi
 
 All URIs are relative to *https://app.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**private_token_retrieve**](PrivateTokenApi.md#private_token_retrieve) | **GET** /private-token/{public_token} | 
+[**link_token_create**](LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 
 
-# **private_token_retrieve**
-> PrivateToken private_token_retrieve(public_token, production_key=production_key)
+# **link_token_create**
+> LinkToken link_token_create(production_key, end_user_details)
 
 
 
-Returns the private token for the end user with the provided public token.
+Creates a link token to be used when linking a new end user.
 
 ### Example
 
-* Bearer (Token) Authentication (tokenAuth):
+* Api Key Authentication (tokenAuth):
 ```python
 from __future__ import print_function
 import time
@@ -34,35 +34,40 @@ configuration = MergeHRISClient.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (Token): tokenAuth
+# Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    host = "https://app.merge.dev/api/hris/v1",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
 )
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeHRISClient.PrivateTokenApi(api_client)
-    public_token = 'public_token_example' # str | 
-production_key = 'production_key_example' # str | The requesting organization's production key. (optional)
+    api_instance = MergeHRISClient.LinkTokenApi(api_client)
+    production_key = 'production_key_example' # str | The requesting organization's production key.
+end_user_details = MergeHRISClient.EndUserDetails() # EndUserDetails | 
 
     try:
-        api_response = api_instance.private_token_retrieve(public_token, production_key=production_key)
+        api_response = api_instance.link_token_create(production_key, end_user_details)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling PrivateTokenApi->private_token_retrieve: %s\n" % e)
+        print("Exception when calling LinkTokenApi->link_token_create: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **public_token** | **str**|  | 
- **production_key** | **str**| The requesting organization&#39;s production key. | [optional] 
+ **production_key** | **str**| The requesting organization&#39;s production key. | 
+ **end_user_details** | [**EndUserDetails**](EndUserDetails.md)|  | 
 
 ### Return type
 
-[**PrivateToken**](PrivateToken.md)
+[**LinkToken**](LinkToken.md)
 
 ### Authorization
 
@@ -70,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

@@ -30,6 +30,7 @@ from MergeHRISClient.models.employee_payroll_run import EmployeePayrollRun
 from MergeHRISClient.models.employment import Employment
 from MergeHRISClient.models.employment_status_enum import EmploymentStatusEnum
 from MergeHRISClient.models.employment_type_enum import EmploymentTypeEnum
+from MergeHRISClient.models.end_user_details import EndUserDetails
 from MergeHRISClient.models.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.models.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.models.gender_enum import GenderEnum

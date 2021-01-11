@@ -48,13 +48,8 @@ class TasksApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_account_token: Token identifying the end user.
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
-        :param str status: The status of the task.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -80,13 +75,8 @@ class TasksApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_account_token: Token identifying the end user.
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
-        :param str status: The status of the task.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -105,13 +95,8 @@ class TasksApi(object):
 
         all_params = [
             'x_account_token',
-            'created_after',
-            'created_before',
             'cursor',
-            'modified_after',
-            'modified_before',
-            'page_size',
-            'status'
+            'page_size'
         ]
         all_params.extend(
             [
@@ -136,20 +121,10 @@ class TasksApi(object):
         path_params = {}
 
         query_params = []
-        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
-            query_params.append(('created_after', local_var_params['created_after']))  # noqa: E501
-        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
-            query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
         if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
-        if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
-            query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
-        if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501
-            query_params.append(('modified_before', local_var_params['modified_before']))  # noqa: E501
         if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
             query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
-        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
-            query_params.append(('status', local_var_params['status']))  # noqa: E501
 
         header_params = {}
         if 'x_account_token' in local_var_params:
@@ -182,17 +157,17 @@ class TasksApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def tasks_retrieve(self, task_id, **kwargs):  # noqa: E501
+    def tasks_retrieve(self, common_model_id, **kwargs):  # noqa: E501
         """tasks_retrieve  # noqa: E501
 
         Returns an `AsyncTaskExecution` object with the given `id`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tasks_retrieve(task_id, async_req=True)
+        >>> thread = api.tasks_retrieve(common_model_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str task_id: (required)
+        :param str common_model_id: (required)
         :param str x_account_token: Token identifying the end user.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -206,19 +181,19 @@ class TasksApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.tasks_retrieve_with_http_info(task_id, **kwargs)  # noqa: E501
+        return self.tasks_retrieve_with_http_info(common_model_id, **kwargs)  # noqa: E501
 
-    def tasks_retrieve_with_http_info(self, task_id, **kwargs):  # noqa: E501
+    def tasks_retrieve_with_http_info(self, common_model_id, **kwargs):  # noqa: E501
         """tasks_retrieve  # noqa: E501
 
         Returns an `AsyncTaskExecution` object with the given `id`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.tasks_retrieve_with_http_info(task_id, async_req=True)
+        >>> thread = api.tasks_retrieve_with_http_info(common_model_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str task_id: (required)
+        :param str common_model_id: (required)
         :param str x_account_token: Token identifying the end user.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -237,7 +212,7 @@ class TasksApi(object):
         local_var_params = locals()
 
         all_params = [
-            'task_id',
+            'common_model_id',
             'x_account_token'
         ]
         all_params.extend(
@@ -257,16 +232,16 @@ class TasksApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'task_id' is set
-        if self.api_client.client_side_validation and ('task_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['task_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `task_id` when calling `tasks_retrieve`")  # noqa: E501
+        # verify the required parameter 'common_model_id' is set
+        if self.api_client.client_side_validation and ('common_model_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['common_model_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `common_model_id` when calling `tasks_retrieve`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'task_id' in local_var_params:
-            path_params['task_id'] = local_var_params['task_id']  # noqa: E501
+        if 'common_model_id' in local_var_params:
+            path_params['common_model_id'] = local_var_params['common_model_id']  # noqa: E501
 
         query_params = []
 
@@ -286,7 +261,7 @@ class TasksApi(object):
         auth_settings = ['tokenAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/tasks/{task_id}', 'GET',
+            '/tasks/{common_model_id}', 'GET',
             path_params,
             query_params,
             header_params,

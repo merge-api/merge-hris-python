@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] [readonly] 
 **name** | **str** | The report&#39;s name. | [optional] 
 **content** | **str** | The report&#39;s content JSON. | [optional] 
 

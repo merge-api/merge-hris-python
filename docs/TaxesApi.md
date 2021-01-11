@@ -89,12 +89,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** |  |  -  |
-**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **taxes_destroy**
-> AsyncTaskExecution taxes_destroy(id, x_account_token=x_account_token, run_async=run_async)
+> Tax taxes_destroy(id, x_account_token=x_account_token, run_async=run_async)
 
 
 
@@ -155,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncTaskExecution**](AsyncTaskExecution.md)
+[**Tax**](Tax.md)
 
 ### Authorization
 
@@ -170,7 +169,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** |  |  -  |
-**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -343,7 +341,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
-**202** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -34,27 +34,53 @@ class Report(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
         'name': 'str',
         'content': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'content': 'content'
     }
 
-    def __init__(self, name=None, content=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, content=None, local_vars_configuration=None):  # noqa: E501
         """Report - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._name = None
         self._content = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         self.name = name
         self.content = content
+
+    @property
+    def id(self):
+        """Gets the id of this Report.  # noqa: E501
+
+
+        :return: The id of this Report.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Report.
+
+
+        :param id: The id of this Report.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def name(self):
