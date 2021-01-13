@@ -299,6 +299,7 @@ class BenefitsApi(object):
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
+        :param str employee_id: If provided, will only return benefits for this employee.
         :param str expand: Which relations should be returned in expanded form.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
@@ -332,6 +333,7 @@ class BenefitsApi(object):
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
+        :param str employee_id: If provided, will only return benefits for this employee.
         :param str expand: Which relations should be returned in expanded form.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
@@ -358,6 +360,7 @@ class BenefitsApi(object):
             'created_after',
             'created_before',
             'cursor',
+            'employee_id',
             'expand',
             'modified_after',
             'modified_before',
@@ -393,6 +396,8 @@ class BenefitsApi(object):
             query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
         if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
+        if 'employee_id' in local_var_params and local_var_params['employee_id'] is not None:  # noqa: E501
+            query_params.append(('employee_id', local_var_params['employee_id']))  # noqa: E501
         if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
             query_params.append(('expand', local_var_params['expand']))  # noqa: E501
         if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501

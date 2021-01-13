@@ -296,14 +296,18 @@ class EmployeesApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_account_token: Token identifying the end user.
+        :param str company_id: If provided, will only return employees for this company.
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
         :param str expand: Which relations should be returned in expanded form.
+        :param str manager_id: If provided, will only return employees for this manager.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
         :param str remote_id: The API provider's ID for the given object.
+        :param str team_id: If provided, will only return employees for this team.
+        :param str work_location_id: If provided, will only return employees for this location.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -329,14 +333,18 @@ class EmployeesApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_account_token: Token identifying the end user.
+        :param str company_id: If provided, will only return employees for this company.
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
         :param str expand: Which relations should be returned in expanded form.
+        :param str manager_id: If provided, will only return employees for this manager.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
         :param str remote_id: The API provider's ID for the given object.
+        :param str team_id: If provided, will only return employees for this team.
+        :param str work_location_id: If provided, will only return employees for this location.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -355,14 +363,18 @@ class EmployeesApi(object):
 
         all_params = [
             'x_account_token',
+            'company_id',
             'created_after',
             'created_before',
             'cursor',
             'expand',
+            'manager_id',
             'modified_after',
             'modified_before',
             'page_size',
-            'remote_id'
+            'remote_id',
+            'team_id',
+            'work_location_id'
         ]
         all_params.extend(
             [
@@ -387,6 +399,8 @@ class EmployeesApi(object):
         path_params = {}
 
         query_params = []
+        if 'company_id' in local_var_params and local_var_params['company_id'] is not None:  # noqa: E501
+            query_params.append(('company_id', local_var_params['company_id']))  # noqa: E501
         if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
             query_params.append(('created_after', local_var_params['created_after']))  # noqa: E501
         if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
@@ -395,6 +409,8 @@ class EmployeesApi(object):
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
         if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
             query_params.append(('expand', local_var_params['expand']))  # noqa: E501
+        if 'manager_id' in local_var_params and local_var_params['manager_id'] is not None:  # noqa: E501
+            query_params.append(('manager_id', local_var_params['manager_id']))  # noqa: E501
         if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
             query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
         if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501
@@ -403,6 +419,10 @@ class EmployeesApi(object):
             query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
         if 'remote_id' in local_var_params and local_var_params['remote_id'] is not None:  # noqa: E501
             query_params.append(('remote_id', local_var_params['remote_id']))  # noqa: E501
+        if 'team_id' in local_var_params and local_var_params['team_id'] is not None:  # noqa: E501
+            query_params.append(('team_id', local_var_params['team_id']))  # noqa: E501
+        if 'work_location_id' in local_var_params and local_var_params['work_location_id'] is not None:  # noqa: E501
+            query_params.append(('work_location_id', local_var_params['work_location_id']))  # noqa: E501
 
         header_params = {}
         if 'x_account_token' in local_var_params:

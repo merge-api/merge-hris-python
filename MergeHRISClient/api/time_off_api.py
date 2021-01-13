@@ -296,9 +296,11 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_account_token: Token identifying the end user.
+        :param str approver_id: If provided, will only return time off for this approver.
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
+        :param str employee_id: If provided, will only return time off for this employee.
         :param str expand: Which relations should be returned in expanded form.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
@@ -329,9 +331,11 @@ class TimeOffApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str x_account_token: Token identifying the end user.
+        :param str approver_id: If provided, will only return time off for this approver.
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
+        :param str employee_id: If provided, will only return time off for this employee.
         :param str expand: Which relations should be returned in expanded form.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
@@ -355,9 +359,11 @@ class TimeOffApi(object):
 
         all_params = [
             'x_account_token',
+            'approver_id',
             'created_after',
             'created_before',
             'cursor',
+            'employee_id',
             'expand',
             'modified_after',
             'modified_before',
@@ -387,12 +393,16 @@ class TimeOffApi(object):
         path_params = {}
 
         query_params = []
+        if 'approver_id' in local_var_params and local_var_params['approver_id'] is not None:  # noqa: E501
+            query_params.append(('approver_id', local_var_params['approver_id']))  # noqa: E501
         if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
             query_params.append(('created_after', local_var_params['created_after']))  # noqa: E501
         if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
             query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
         if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
+        if 'employee_id' in local_var_params and local_var_params['employee_id'] is not None:  # noqa: E501
+            query_params.append(('employee_id', local_var_params['employee_id']))  # noqa: E501
         if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
             query_params.append(('expand', local_var_params['expand']))  # noqa: E501
         if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501

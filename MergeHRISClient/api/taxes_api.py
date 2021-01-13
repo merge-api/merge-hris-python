@@ -299,6 +299,7 @@ class TaxesApi(object):
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
+        :param str employee_payroll_run_id: If provided, will only return taxes for this employee payroll run.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
@@ -331,6 +332,7 @@ class TaxesApi(object):
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
         :param int cursor: The pagination cursor value.
+        :param str employee_payroll_run_id: If provided, will only return taxes for this employee payroll run.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
@@ -356,6 +358,7 @@ class TaxesApi(object):
             'created_after',
             'created_before',
             'cursor',
+            'employee_payroll_run_id',
             'modified_after',
             'modified_before',
             'page_size',
@@ -390,6 +393,8 @@ class TaxesApi(object):
             query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
         if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
             query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
+        if 'employee_payroll_run_id' in local_var_params and local_var_params['employee_payroll_run_id'] is not None:  # noqa: E501
+            query_params.append(('employee_payroll_run_id', local_var_params['employee_payroll_run_id']))  # noqa: E501
         if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
             query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
         if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501

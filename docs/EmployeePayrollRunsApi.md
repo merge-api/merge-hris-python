@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **employee_payroll_runs_list**
-> PaginatedEmployeePayrollRunList employee_payroll_runs_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+> PaginatedEmployeePayrollRunList employee_payroll_runs_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id)
 
 
 
@@ -217,14 +217,16 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 created_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created after this datetime. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created before this datetime. (optional)
 cursor = 56 # int | The pagination cursor value. (optional)
+employee_id = 'employee_id_example' # str | If provided, will only return employee payroll runs for this employee. (optional)
 expand = 'expand_example' # str | Which relations should be returned in expanded form. (optional)
 modified_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified after this datetime. (optional)
 modified_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified before this datetime. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+payroll_run_id = 'payroll_run_id_example' # str | If provided, will only return employee payroll runs for this employee. (optional)
 remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
 
     try:
-        api_response = api_instance.employee_payroll_runs_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.employee_payroll_runs_list(x_account_token=x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_list: %s\n" % e)
@@ -238,10 +240,12 @@ Name | Type | Description  | Notes
  **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional] 
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional] 
  **cursor** | **int**| The pagination cursor value. | [optional] 
+ **employee_id** | [**str**](.md)| If provided, will only return employee payroll runs for this employee. | [optional] 
  **expand** | **str**| Which relations should be returned in expanded form. | [optional] 
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional] 
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **payroll_run_id** | [**str**](.md)| If provided, will only return employee payroll runs for this employee. | [optional] 
  **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
 
 ### Return type
