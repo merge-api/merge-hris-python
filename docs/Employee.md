@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 **ethnicity** | [**EthnicityEnum**](EthnicityEnum.md) | The employee&#39;s ethnicity. | [optional] 
 **marital_status** | [**MaritalStatusEnum**](MaritalStatusEnum.md) | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **datetime** | The employee&#39;s date of birth. | [optional] 
-**hire_dates** | **list[datetime]** | A list of the employee&#39;s hire dates. | [optional] 
+**hire_date** | **datetime** | The employee&#39;s hire date. | [optional] 
 **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. | [optional] 
-**termination_dates** | **list[datetime]** | A list of the employee&#39;s termination dates. | [optional] 
+**termination_date** | **datetime** | The employee&#39;s termination date. | [optional] 
 **avatar** | **str** | The URL of the employee&#39;s avatar image. | [optional] 
 **documents** | **list[str]** |  | [optional] [readonly] 
 

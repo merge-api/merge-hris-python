@@ -28,7 +28,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="Merge HRIS API",
-    author="Gil Feig",
+    author="Merge Team",
     author_email="hello@merge.dev",
     url="",
     keywords=["OpenAPI", "OpenAPI-Generator", "Merge HRIS API"],

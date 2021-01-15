@@ -53,9 +53,9 @@ class Employee(object):
         'ethnicity': 'EthnicityEnum',
         'marital_status': 'MaritalStatusEnum',
         'date_of_birth': 'datetime',
-        'hire_dates': 'list[datetime]',
+        'hire_date': 'datetime',
         'employment_status': 'EmploymentStatusEnum',
-        'termination_dates': 'list[datetime]',
+        'termination_date': 'datetime',
         'avatar': 'str',
         'documents': 'list[str]'
     }
@@ -80,14 +80,14 @@ class Employee(object):
         'ethnicity': 'ethnicity',
         'marital_status': 'marital_status',
         'date_of_birth': 'date_of_birth',
-        'hire_dates': 'hire_dates',
+        'hire_date': 'hire_date',
         'employment_status': 'employment_status',
-        'termination_dates': 'termination_dates',
+        'termination_date': 'termination_date',
         'avatar': 'avatar',
         'documents': 'documents'
     }
 
-    def __init__(self, id=None, remote_id=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_dates=None, employment_status=None, termination_dates=None, avatar=None, documents=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, company=None, first_name=None, last_name=None, display_full_name=None, work_email=None, personal_email=None, mobile_phone_number=None, employments=None, home_location=None, work_location=None, manager=None, team=None, ssn=None, gender=None, ethnicity=None, marital_status=None, date_of_birth=None, hire_date=None, employment_status=None, termination_date=None, avatar=None, documents=None, local_vars_configuration=None):  # noqa: E501
         """Employee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -112,9 +112,9 @@ class Employee(object):
         self._ethnicity = None
         self._marital_status = None
         self._date_of_birth = None
-        self._hire_dates = None
+        self._hire_date = None
         self._employment_status = None
-        self._termination_dates = None
+        self._termination_date = None
         self._avatar = None
         self._documents = None
         self.discriminator = None
@@ -140,9 +140,9 @@ class Employee(object):
         self.ethnicity = ethnicity
         self.marital_status = marital_status
         self.date_of_birth = date_of_birth
-        self.hire_dates = hire_dates
+        self.hire_date = hire_date
         self.employment_status = employment_status
-        self.termination_dates = termination_dates
+        self.termination_date = termination_date
         self.avatar = avatar
         if documents is not None:
             self.documents = documents
@@ -593,27 +593,27 @@ class Employee(object):
         self._date_of_birth = date_of_birth
 
     @property
-    def hire_dates(self):
-        """Gets the hire_dates of this Employee.  # noqa: E501
+    def hire_date(self):
+        """Gets the hire_date of this Employee.  # noqa: E501
 
-        A list of the employee's hire dates.  # noqa: E501
+        The employee's hire date.  # noqa: E501
 
-        :return: The hire_dates of this Employee.  # noqa: E501
-        :rtype: list[datetime]
+        :return: The hire_date of this Employee.  # noqa: E501
+        :rtype: datetime
         """
-        return self._hire_dates
+        return self._hire_date
 
-    @hire_dates.setter
-    def hire_dates(self, hire_dates):
-        """Sets the hire_dates of this Employee.
+    @hire_date.setter
+    def hire_date(self, hire_date):
+        """Sets the hire_date of this Employee.
 
-        A list of the employee's hire dates.  # noqa: E501
+        The employee's hire date.  # noqa: E501
 
-        :param hire_dates: The hire_dates of this Employee.  # noqa: E501
-        :type: list[datetime]
+        :param hire_date: The hire_date of this Employee.  # noqa: E501
+        :type: datetime
         """
 
-        self._hire_dates = hire_dates
+        self._hire_date = hire_date
 
     @property
     def employment_status(self):
@@ -639,27 +639,27 @@ class Employee(object):
         self._employment_status = employment_status
 
     @property
-    def termination_dates(self):
-        """Gets the termination_dates of this Employee.  # noqa: E501
+    def termination_date(self):
+        """Gets the termination_date of this Employee.  # noqa: E501
 
-        A list of the employee's termination dates.  # noqa: E501
+        The employee's termination date.  # noqa: E501
 
-        :return: The termination_dates of this Employee.  # noqa: E501
-        :rtype: list[datetime]
+        :return: The termination_date of this Employee.  # noqa: E501
+        :rtype: datetime
         """
-        return self._termination_dates
+        return self._termination_date
 
-    @termination_dates.setter
-    def termination_dates(self, termination_dates):
-        """Sets the termination_dates of this Employee.
+    @termination_date.setter
+    def termination_date(self, termination_date):
+        """Sets the termination_date of this Employee.
 
-        A list of the employee's termination dates.  # noqa: E501
+        The employee's termination date.  # noqa: E501
 
-        :param termination_dates: The termination_dates of this Employee.  # noqa: E501
-        :type: list[datetime]
+        :param termination_date: The termination_date of this Employee.  # noqa: E501
+        :type: datetime
         """
 
-        self._termination_dates = termination_dates
+        self._termination_date = termination_date
 
     @property
     def avatar(self):
