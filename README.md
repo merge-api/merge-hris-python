@@ -120,8 +120,6 @@ Class | Method | HTTP request | Description
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
 *ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
-*TasksApi* | [**tasks_list**](docs/TasksApi.md#tasks_list) | **GET** /tasks | 
-*TasksApi* | [**tasks_retrieve**](docs/TasksApi.md#tasks_retrieve) | **GET** /tasks/{common_model_id} | 
 *TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
 *TaxesApi* | [**taxes_retrieve**](docs/TaxesApi.md#taxes_retrieve) | **GET** /taxes/{id} | 
 *TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
@@ -133,8 +131,6 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccountToken](docs/AccountToken.md)
- - [AsyncTaskExecution](docs/AsyncTaskExecution.md)
- - [AsyncTaskExecutionStatusEnum](docs/AsyncTaskExecutionStatusEnum.md)
  - [Benefit](docs/Benefit.md)
  - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [Company](docs/Company.md)
@@ -154,7 +150,6 @@ Class | Method | HTTP request | Description
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
- - [PaginatedAsyncTaskExecutionList](docs/PaginatedAsyncTaskExecutionList.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
  - [PaginatedDeductionList](docs/PaginatedDeductionList.md)

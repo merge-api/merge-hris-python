@@ -16,8 +16,6 @@ from __future__ import absolute_import
 
 # import models into model package
 from MergeHRISClient.models.account_token import AccountToken
-from MergeHRISClient.models.async_task_execution import AsyncTaskExecution
-from MergeHRISClient.models.async_task_execution_status_enum import AsyncTaskExecutionStatusEnum
 from MergeHRISClient.models.benefit import Benefit
 from MergeHRISClient.models.benefit_plan_type_enum import BenefitPlanTypeEnum
 from MergeHRISClient.models.company import Company
@@ -37,7 +35,6 @@ from MergeHRISClient.models.gender_enum import GenderEnum
 from MergeHRISClient.models.link_token import LinkToken
 from MergeHRISClient.models.location import Location
 from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
-from MergeHRISClient.models.paginated_async_task_execution_list import PaginatedAsyncTaskExecutionList
 from MergeHRISClient.models.paginated_benefit_list import PaginatedBenefitList
 from MergeHRISClient.models.paginated_company_list import PaginatedCompanyList
 from MergeHRISClient.models.paginated_deduction_list import PaginatedDeductionList
