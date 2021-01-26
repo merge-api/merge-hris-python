@@ -37,17 +37,16 @@ class LinkTokenApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def link_token_create(self, production_key, end_user_details, **kwargs):  # noqa: E501
+    def link_token_create(self, end_user_details, **kwargs):  # noqa: E501
         """link_token_create  # noqa: E501
 
         Creates a link token to be used when linking a new end user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.link_token_create(production_key, end_user_details, async_req=True)
+        >>> thread = api.link_token_create(end_user_details, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str production_key: The requesting organization's production key. (required)
         :param EndUserDetails end_user_details: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -61,19 +60,18 @@ class LinkTokenApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.link_token_create_with_http_info(production_key, end_user_details, **kwargs)  # noqa: E501
+        return self.link_token_create_with_http_info(end_user_details, **kwargs)  # noqa: E501
 
-    def link_token_create_with_http_info(self, production_key, end_user_details, **kwargs):  # noqa: E501
+    def link_token_create_with_http_info(self, end_user_details, **kwargs):  # noqa: E501
         """link_token_create  # noqa: E501
 
         Creates a link token to be used when linking a new end user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.link_token_create_with_http_info(production_key, end_user_details, async_req=True)
+        >>> thread = api.link_token_create_with_http_info(end_user_details, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str production_key: The requesting organization's production key. (required)
         :param EndUserDetails end_user_details: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -92,7 +90,6 @@ class LinkTokenApi(object):
         local_var_params = locals()
 
         all_params = [
-            'production_key',
             'end_user_details'
         ]
         all_params.extend(
@@ -112,10 +109,6 @@ class LinkTokenApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'production_key' is set
-        if self.api_client.client_side_validation and ('production_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['production_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `production_key` when calling `link_token_create`")  # noqa: E501
         # verify the required parameter 'end_user_details' is set
         if self.api_client.client_side_validation and ('end_user_details' not in local_var_params or  # noqa: E501
                                                         local_var_params['end_user_details'] is None):  # noqa: E501
@@ -126,8 +119,6 @@ class LinkTokenApi(object):
         path_params = {}
 
         query_params = []
-        if 'production_key' in local_var_params and local_var_params['production_key'] is not None:  # noqa: E501
-            query_params.append(('production_key', local_var_params['production_key']))  # noqa: E501
 
         header_params = {}
 

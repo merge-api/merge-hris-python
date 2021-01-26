@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **link_token_create**
-> LinkToken link_token_create(production_key, end_user_details)
+> LinkToken link_token_create(end_user_details)
 
 
 
@@ -48,11 +48,10 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.LinkTokenApi(api_client)
-    production_key = 'production_key_example' # str | The requesting organization's production key.
-end_user_details = MergeHRISClient.EndUserDetails() # EndUserDetails | 
+    end_user_details = MergeHRISClient.EndUserDetails() # EndUserDetails | 
 
     try:
-        api_response = api_instance.link_token_create(production_key, end_user_details)
+        api_response = api_instance.link_token_create(end_user_details)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LinkTokenApi->link_token_create: %s\n" % e)
@@ -62,7 +61,6 @@ end_user_details = MergeHRISClient.EndUserDetails() # EndUserDetails |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **production_key** | **str**| The requesting organization&#39;s production key. | 
  **end_user_details** | [**EndUserDetails**](EndUserDetails.md)|  | 
 
 ### Return type
