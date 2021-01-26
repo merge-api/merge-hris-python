@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **account_token_retrieve**
-> AccountToken account_token_retrieve(production_key, public_token)
+> AccountToken account_token_retrieve(public_token)
 
 
 
@@ -48,11 +48,10 @@ configuration = MergeHRISClient.Configuration(
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = MergeHRISClient.AccountTokenApi(api_client)
-    production_key = 'production_key_example' # str | The requesting organization's production key.
-public_token = 'public_token_example' # str | 
+    public_token = 'public_token_example' # str | 
 
     try:
-        api_response = api_instance.account_token_retrieve(production_key, public_token)
+        api_response = api_instance.account_token_retrieve(public_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AccountTokenApi->account_token_retrieve: %s\n" % e)
@@ -62,7 +61,6 @@ public_token = 'public_token_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **production_key** | **str**| The requesting organization&#39;s production key. | 
  **public_token** | **str**|  | 
 
 ### Return type

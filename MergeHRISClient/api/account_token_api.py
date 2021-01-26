@@ -37,17 +37,16 @@ class AccountTokenApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def account_token_retrieve(self, production_key, public_token, **kwargs):  # noqa: E501
+    def account_token_retrieve(self, public_token, **kwargs):  # noqa: E501
         """account_token_retrieve  # noqa: E501
 
         Returns the account token for the end user with the provided public token.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.account_token_retrieve(production_key, public_token, async_req=True)
+        >>> thread = api.account_token_retrieve(public_token, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str production_key: The requesting organization's production key. (required)
         :param str public_token: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -61,19 +60,18 @@ class AccountTokenApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.account_token_retrieve_with_http_info(production_key, public_token, **kwargs)  # noqa: E501
+        return self.account_token_retrieve_with_http_info(public_token, **kwargs)  # noqa: E501
 
-    def account_token_retrieve_with_http_info(self, production_key, public_token, **kwargs):  # noqa: E501
+    def account_token_retrieve_with_http_info(self, public_token, **kwargs):  # noqa: E501
         """account_token_retrieve  # noqa: E501
 
         Returns the account token for the end user with the provided public token.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.account_token_retrieve_with_http_info(production_key, public_token, async_req=True)
+        >>> thread = api.account_token_retrieve_with_http_info(public_token, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str production_key: The requesting organization's production key. (required)
         :param str public_token: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -92,7 +90,6 @@ class AccountTokenApi(object):
         local_var_params = locals()
 
         all_params = [
-            'production_key',
             'public_token'
         ]
         all_params.extend(
@@ -112,10 +109,6 @@ class AccountTokenApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'production_key' is set
-        if self.api_client.client_side_validation and ('production_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['production_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `production_key` when calling `account_token_retrieve`")  # noqa: E501
         # verify the required parameter 'public_token' is set
         if self.api_client.client_side_validation and ('public_token' not in local_var_params or  # noqa: E501
                                                         local_var_params['public_token'] is None):  # noqa: E501
@@ -128,8 +121,6 @@ class AccountTokenApi(object):
             path_params['public_token'] = local_var_params['public_token']  # noqa: E501
 
         query_params = []
-        if 'production_key' in local_var_params and local_var_params['production_key'] is not None:  # noqa: E501
-            query_params.append(('production_key', local_var_params['production_key']))  # noqa: E501
 
         header_params = {}
 
