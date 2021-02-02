@@ -75,7 +75,7 @@ conf = MergeHRISClient.Configuration(
 
     _default = None
 
-    def __init__(self, host="https://app.merge.dev/api/hris/v1",
+    def __init__(self, host="https://api.merge.dev/api/hris/v1",
                  api_key=None, api_key_prefix=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
@@ -363,12 +363,12 @@ conf = MergeHRISClient.Configuration(
         """
         return [
             {
-                'url': "https://app.merge.dev/api/hris/v1",
+                'url': "https://api.merge.dev/api/hris/v1",
                 'description': "Production",
             },
             {
-                'url': "https://app-staging.merge.dev/api/hris/v1",
-                'description': "Staging",
+                'url': "https://api-sandbox.merge.dev/api/hris/v1",
+                'description': "Sandbox",
             }
         ]
 

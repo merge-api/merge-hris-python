@@ -53,10 +53,10 @@ import MergeHRISClient
 from MergeHRISClient.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://app.merge.dev/api/hris/v1
+# Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1"
+    host = "https://api.merge.dev/api/hris/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -66,7 +66,7 @@ configuration = MergeHRISClient.Configuration(
 
 # Configure API key authorization: tokenAuth
 configuration = MergeHRISClient.Configuration(
-    host = "https://app.merge.dev/api/hris/v1",
+    host = "https://api.merge.dev/api/hris/v1",
     api_key = {
         'Authorization': 'YOUR_API_KEY'
     }
@@ -91,7 +91,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://app.merge.dev/api/hris/v1*
+All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -100,12 +100,8 @@ Class | Method | HTTP request | Description
 *BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
 *CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
 *CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
-*DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
-*DeductionsApi* | [**deductions_retrieve**](docs/DeductionsApi.md#deductions_retrieve) | **GET** /deductions/{id} | 
 *DocumentsApi* | [**documents_list**](docs/DocumentsApi.md#documents_list) | **GET** /documents | 
 *DocumentsApi* | [**documents_retrieve**](docs/DocumentsApi.md#documents_retrieve) | **GET** /documents/{id} | 
-*EarningsApi* | [**earnings_list**](docs/EarningsApi.md#earnings_list) | **GET** /earnings | 
-*EarningsApi* | [**earnings_retrieve**](docs/EarningsApi.md#earnings_retrieve) | **GET** /earnings/{id} | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
 *EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
@@ -119,8 +115,6 @@ Class | Method | HTTP request | Description
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
 *ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
-*TaxesApi* | [**taxes_list**](docs/TaxesApi.md#taxes_list) | **GET** /taxes | 
-*TaxesApi* | [**taxes_retrieve**](docs/TaxesApi.md#taxes_retrieve) | **GET** /taxes/{id} | 
 *TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
@@ -151,16 +145,13 @@ Class | Method | HTTP request | Description
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
- - [PaginatedDeductionList](docs/PaginatedDeductionList.md)
  - [PaginatedDocumentList](docs/PaginatedDocumentList.md)
- - [PaginatedEarningList](docs/PaginatedEarningList.md)
  - [PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
  - [PaginatedLocationList](docs/PaginatedLocationList.md)
  - [PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
  - [PaginatedReportList](docs/PaginatedReportList.md)
- - [PaginatedTaxList](docs/PaginatedTaxList.md)
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
  - [PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [PayCurrencyEnum](docs/PayCurrencyEnum.md)

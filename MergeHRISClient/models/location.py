@@ -149,9 +149,6 @@ class Location(object):
         :param phone_number: The phone_number of this Location.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                phone_number is not None and len(phone_number) > 17):
-            raise ValueError("Invalid value for `phone_number`, length must be less than or equal to `17`")  # noqa: E501
 
         self._phone_number = phone_number
 

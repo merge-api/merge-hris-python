@@ -355,9 +355,6 @@ class Employee(object):
         :param mobile_phone_number: The mobile_phone_number of this Employee.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                mobile_phone_number is not None and len(mobile_phone_number) > 17):
-            raise ValueError("Invalid value for `mobile_phone_number`, length must be less than or equal to `17`")  # noqa: E501
 
         self._mobile_phone_number = mobile_phone_number
 

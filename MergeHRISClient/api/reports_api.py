@@ -37,20 +37,20 @@ class ReportsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def reports_list(self, **kwargs):  # noqa: E501
+    def reports_list(self, x_account_token, **kwargs):  # noqa: E501
         """reports_list  # noqa: E501
 
         Returns a list of `Report` objects.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_list(async_req=True)
+        >>> thread = api.reports_list(x_account_token, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user. (required)
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param int cursor: The pagination cursor value.
+        :param str cursor: The pagination cursor value.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
@@ -67,22 +67,22 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.reports_list_with_http_info(**kwargs)  # noqa: E501
+        return self.reports_list_with_http_info(x_account_token, **kwargs)  # noqa: E501
 
-    def reports_list_with_http_info(self, **kwargs):  # noqa: E501
+    def reports_list_with_http_info(self, x_account_token, **kwargs):  # noqa: E501
         """reports_list  # noqa: E501
 
         Returns a list of `Report` objects.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_list_with_http_info(async_req=True)
+        >>> thread = api.reports_list_with_http_info(x_account_token, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user.
+        :param str x_account_token: Token identifying the end user. (required)
         :param datetime created_after: If provided, will only return objects created after this datetime.
         :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param int cursor: The pagination cursor value.
+        :param str cursor: The pagination cursor value.
         :param datetime modified_after: If provided, will only return objects modified after this datetime.
         :param datetime modified_before: If provided, will only return objects modified before this datetime.
         :param int page_size: Number of results to return per page.
@@ -130,6 +130,10 @@ class ReportsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'x_account_token' is set
+        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
+                                                        local_var_params['x_account_token'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `x_account_token` when calling `reports_list`")  # noqa: E501
 
         collection_formats = {}
 
@@ -182,18 +186,18 @@ class ReportsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def reports_retrieve(self, id, **kwargs):  # noqa: E501
+    def reports_retrieve(self, x_account_token, id, **kwargs):  # noqa: E501
         """reports_retrieve  # noqa: E501
 
         Returns a `Report` object with the given `id`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_retrieve(id, async_req=True)
+        >>> thread = api.reports_retrieve(x_account_token, id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str x_account_token: Token identifying the end user. (required)
         :param str id: (required)
-        :param str x_account_token: Token identifying the end user.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -206,20 +210,20 @@ class ReportsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.reports_retrieve_with_http_info(id, **kwargs)  # noqa: E501
+        return self.reports_retrieve_with_http_info(x_account_token, id, **kwargs)  # noqa: E501
 
-    def reports_retrieve_with_http_info(self, id, **kwargs):  # noqa: E501
+    def reports_retrieve_with_http_info(self, x_account_token, id, **kwargs):  # noqa: E501
         """reports_retrieve  # noqa: E501
 
         Returns a `Report` object with the given `id`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.reports_retrieve_with_http_info(id, async_req=True)
+        >>> thread = api.reports_retrieve_with_http_info(x_account_token, id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str x_account_token: Token identifying the end user. (required)
         :param str id: (required)
-        :param str x_account_token: Token identifying the end user.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -237,8 +241,8 @@ class ReportsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'x_account_token'
+            'x_account_token',
+            'id'
         ]
         all_params.extend(
             [
@@ -257,6 +261,10 @@ class ReportsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'x_account_token' is set
+        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
+                                                        local_var_params['x_account_token'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `x_account_token` when calling `reports_retrieve`")  # noqa: E501
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501

@@ -1,6 +1,6 @@
 # Employee
 
-# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company. ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
+# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
