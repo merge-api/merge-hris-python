@@ -38,7 +38,7 @@ class Company(object):
         'remote_id': 'str',
         'legal_name': 'str',
         'display_name': 'str',
-        'ei_ns': 'list[str]'
+        'eins': 'list[str]'
     }
 
     attribute_map = {
@@ -46,10 +46,10 @@ class Company(object):
         'remote_id': 'remote_id',
         'legal_name': 'legal_name',
         'display_name': 'display_name',
-        'ei_ns': 'EINs'
+        'eins': 'eins'
     }
 
-    def __init__(self, id=None, remote_id=None, legal_name=None, display_name=None, ei_ns=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, remote_id=None, legal_name=None, display_name=None, eins=None, local_vars_configuration=None):  # noqa: E501
         """Company - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,7 +59,7 @@ class Company(object):
         self._remote_id = None
         self._legal_name = None
         self._display_name = None
-        self._ei_ns = None
+        self._eins = None
         self.discriminator = None
 
         if id is not None:
@@ -67,7 +67,7 @@ class Company(object):
         self.remote_id = remote_id
         self.legal_name = legal_name
         self.display_name = display_name
-        self.ei_ns = ei_ns
+        self.eins = eins
 
     @property
     def id(self):
@@ -160,27 +160,27 @@ class Company(object):
         self._display_name = display_name
 
     @property
-    def ei_ns(self):
-        """Gets the ei_ns of this Company.  # noqa: E501
+    def eins(self):
+        """Gets the eins of this Company.  # noqa: E501
 
         The company's Employer Identification Numbers.  # noqa: E501
 
-        :return: The ei_ns of this Company.  # noqa: E501
+        :return: The eins of this Company.  # noqa: E501
         :rtype: list[str]
         """
-        return self._ei_ns
+        return self._eins
 
-    @ei_ns.setter
-    def ei_ns(self, ei_ns):
-        """Sets the ei_ns of this Company.
+    @eins.setter
+    def eins(self, eins):
+        """Sets the eins of this Company.
 
         The company's Employer Identification Numbers.  # noqa: E501
 
-        :param ei_ns: The ei_ns of this Company.  # noqa: E501
+        :param eins: The eins of this Company.  # noqa: E501
         :type: list[str]
         """
 
-        self._ei_ns = ei_ns
+        self._eins = eins
 
     def to_dict(self):
         """Returns the model properties as a dict"""

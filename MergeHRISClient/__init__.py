@@ -21,9 +21,7 @@ __version__ = "1.0.0"
 from MergeHRISClient.api.account_token_api import AccountTokenApi
 from MergeHRISClient.api.benefits_api import BenefitsApi
 from MergeHRISClient.api.companies_api import CompaniesApi
-from MergeHRISClient.api.deductions_api import DeductionsApi
 from MergeHRISClient.api.documents_api import DocumentsApi
-from MergeHRISClient.api.earnings_api import EarningsApi
 from MergeHRISClient.api.employee_payroll_runs_api import EmployeePayrollRunsApi
 from MergeHRISClient.api.employees_api import EmployeesApi
 from MergeHRISClient.api.employments_api import EmploymentsApi
@@ -31,7 +29,6 @@ from MergeHRISClient.api.link_token_api import LinkTokenApi
 from MergeHRISClient.api.locations_api import LocationsApi
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
 from MergeHRISClient.api.reports_api import ReportsApi
-from MergeHRISClient.api.taxes_api import TaxesApi
 from MergeHRISClient.api.teams_api import TeamsApi
 from MergeHRISClient.api.time_off_api import TimeOffApi
 
@@ -66,16 +63,13 @@ from MergeHRISClient.models.location import Location
 from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
 from MergeHRISClient.models.paginated_benefit_list import PaginatedBenefitList
 from MergeHRISClient.models.paginated_company_list import PaginatedCompanyList
-from MergeHRISClient.models.paginated_deduction_list import PaginatedDeductionList
 from MergeHRISClient.models.paginated_document_list import PaginatedDocumentList
-from MergeHRISClient.models.paginated_earning_list import PaginatedEarningList
 from MergeHRISClient.models.paginated_employee_list import PaginatedEmployeeList
 from MergeHRISClient.models.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList
 from MergeHRISClient.models.paginated_employment_list import PaginatedEmploymentList
 from MergeHRISClient.models.paginated_location_list import PaginatedLocationList
 from MergeHRISClient.models.paginated_payroll_run_list import PaginatedPayrollRunList
 from MergeHRISClient.models.paginated_report_list import PaginatedReportList
-from MergeHRISClient.models.paginated_tax_list import PaginatedTaxList
 from MergeHRISClient.models.paginated_team_list import PaginatedTeamList
 from MergeHRISClient.models.paginated_time_off_list import PaginatedTimeOffList
 from MergeHRISClient.models.pay_currency_enum import PayCurrencyEnum

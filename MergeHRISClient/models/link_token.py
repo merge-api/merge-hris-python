@@ -34,23 +34,27 @@ class LinkToken(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'link_token': 'str'
+        'link_token': 'str',
+        'integration_name': 'str'
     }
 
     attribute_map = {
-        'link_token': 'link_token'
+        'link_token': 'link_token',
+        'integration_name': 'integration_name'
     }
 
-    def __init__(self, link_token=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, link_token=None, integration_name=None, local_vars_configuration=None):  # noqa: E501
         """LinkToken - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._link_token = None
+        self._integration_name = None
         self.discriminator = None
 
         self.link_token = link_token
+        self.integration_name = integration_name
 
     @property
     def link_token(self):
@@ -74,6 +78,29 @@ class LinkToken(object):
             raise ValueError("Invalid value for `link_token`, must not be `None`")  # noqa: E501
 
         self._link_token = link_token
+
+    @property
+    def integration_name(self):
+        """Gets the integration_name of this LinkToken.  # noqa: E501
+
+
+        :return: The integration_name of this LinkToken.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_name
+
+    @integration_name.setter
+    def integration_name(self, integration_name):
+        """Sets the integration_name of this LinkToken.
+
+
+        :param integration_name: The integration_name of this LinkToken.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and integration_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `integration_name`, must not be `None`")  # noqa: E501
+
+        self._integration_name = integration_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
