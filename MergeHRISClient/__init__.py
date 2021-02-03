@@ -1,5 +1,3 @@
-# coding: utf-8
-
 # flake8: noqa
 
 """
@@ -13,78 +11,18 @@
 """
 
 
-from __future__ import absolute_import
-
 __version__ = "1.0.0"
-
-# import apis into sdk package
-from MergeHRISClient.api.account_token_api import AccountTokenApi
-from MergeHRISClient.api.benefits_api import BenefitsApi
-from MergeHRISClient.api.companies_api import CompaniesApi
-from MergeHRISClient.api.documents_api import DocumentsApi
-from MergeHRISClient.api.employee_payroll_runs_api import EmployeePayrollRunsApi
-from MergeHRISClient.api.employees_api import EmployeesApi
-from MergeHRISClient.api.employments_api import EmploymentsApi
-from MergeHRISClient.api.link_token_api import LinkTokenApi
-from MergeHRISClient.api.locations_api import LocationsApi
-from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
-from MergeHRISClient.api.reports_api import ReportsApi
-from MergeHRISClient.api.teams_api import TeamsApi
-from MergeHRISClient.api.time_off_api import TimeOffApi
 
 # import ApiClient
 from MergeHRISClient.api_client import ApiClient
+
+# import Configuration
 from MergeHRISClient.configuration import Configuration
+
+# import exceptions
 from MergeHRISClient.exceptions import OpenApiException
+from MergeHRISClient.exceptions import ApiAttributeError
 from MergeHRISClient.exceptions import ApiTypeError
 from MergeHRISClient.exceptions import ApiValueError
 from MergeHRISClient.exceptions import ApiKeyError
 from MergeHRISClient.exceptions import ApiException
-# import models into sdk package
-from MergeHRISClient.models.account_token import AccountToken
-from MergeHRISClient.models.benefit import Benefit
-from MergeHRISClient.models.benefit_plan_type_enum import BenefitPlanTypeEnum
-from MergeHRISClient.models.company import Company
-from MergeHRISClient.models.country_enum import CountryEnum
-from MergeHRISClient.models.deduction import Deduction
-from MergeHRISClient.models.document import Document
-from MergeHRISClient.models.earning import Earning
-from MergeHRISClient.models.employee import Employee
-from MergeHRISClient.models.employee_payroll_run import EmployeePayrollRun
-from MergeHRISClient.models.employment import Employment
-from MergeHRISClient.models.employment_status_enum import EmploymentStatusEnum
-from MergeHRISClient.models.employment_type_enum import EmploymentTypeEnum
-from MergeHRISClient.models.end_user_details import EndUserDetails
-from MergeHRISClient.models.ethnicity_enum import EthnicityEnum
-from MergeHRISClient.models.flsa_status_enum import FlsaStatusEnum
-from MergeHRISClient.models.gender_enum import GenderEnum
-from MergeHRISClient.models.link_token import LinkToken
-from MergeHRISClient.models.location import Location
-from MergeHRISClient.models.marital_status_enum import MaritalStatusEnum
-from MergeHRISClient.models.paginated_benefit_list import PaginatedBenefitList
-from MergeHRISClient.models.paginated_company_list import PaginatedCompanyList
-from MergeHRISClient.models.paginated_document_list import PaginatedDocumentList
-from MergeHRISClient.models.paginated_employee_list import PaginatedEmployeeList
-from MergeHRISClient.models.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList
-from MergeHRISClient.models.paginated_employment_list import PaginatedEmploymentList
-from MergeHRISClient.models.paginated_location_list import PaginatedLocationList
-from MergeHRISClient.models.paginated_payroll_run_list import PaginatedPayrollRunList
-from MergeHRISClient.models.paginated_report_list import PaginatedReportList
-from MergeHRISClient.models.paginated_team_list import PaginatedTeamList
-from MergeHRISClient.models.paginated_time_off_list import PaginatedTimeOffList
-from MergeHRISClient.models.pay_currency_enum import PayCurrencyEnum
-from MergeHRISClient.models.pay_frequency_enum import PayFrequencyEnum
-from MergeHRISClient.models.pay_period_enum import PayPeriodEnum
-from MergeHRISClient.models.payroll_run import PayrollRun
-from MergeHRISClient.models.report import Report
-from MergeHRISClient.models.request_type_enum import RequestTypeEnum
-from MergeHRISClient.models.run_state_enum import RunStateEnum
-from MergeHRISClient.models.run_type_enum import RunTypeEnum
-from MergeHRISClient.models.state_enum import StateEnum
-from MergeHRISClient.models.tax import Tax
-from MergeHRISClient.models.team import Team
-from MergeHRISClient.models.time_off import TimeOff
-from MergeHRISClient.models.time_off_status_enum import TimeOffStatusEnum
-from MergeHRISClient.models.type_enum import TypeEnum
-from MergeHRISClient.models.units_enum import UnitsEnum
-

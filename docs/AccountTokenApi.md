@@ -18,10 +18,10 @@ Returns the account token for the end user with the provided public token.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeHRISClient
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.api import account_token_api
+from MergeHRISClient.model.account_token import AccountToken
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -35,25 +35,22 @@ configuration = MergeHRISClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://api.merge.dev/api/hris/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeHRISClient.AccountTokenApi(api_client)
-    public_token = 'public_token_example' # str | 
+    api_instance = account_token_api.AccountTokenApi(api_client)
+    public_token = "public_token_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.account_token_retrieve(public_token)
         pprint(api_response)
-    except ApiException as e:
+    except MergeHRISClient.ApiException as e:
         print("Exception when calling AccountTokenApi->account_token_retrieve: %s\n" % e)
 ```
 
@@ -61,7 +58,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **public_token** | **str**|  | 
+ **public_token** | **str**|  |
 
 ### Return type
 

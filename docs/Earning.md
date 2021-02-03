@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
-**employee_payroll_run** | **str** | The earning&#39;s employee payroll run. | [optional] 
-**amount** | **float** | The amount earned. | [optional] 
-**type** | [**TypeEnum**](TypeEnum.md) | The type of earning. | [optional] 
+**employee_payroll_run** | **str, none_type** | The earning&#39;s employee payroll run. | [optional] 
+**amount** | **float, none_type** | The amount earned. | [optional] 
+**type** | **object, none_type** | The type of earning. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,18 +9,21 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from MergeHRISClient.api_client import ApiClient
-from MergeHRISClient.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from MergeHRISClient.api_client import ApiClient, Endpoint
+from MergeHRISClient.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from MergeHRISClient.model.employee import Employee
+from MergeHRISClient.model.paginated_employee_list import PaginatedEmployeeList
 
 
 class EmployeesApi(object):
@@ -37,304 +38,591 @@ class EmployeesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def employees_list(self, x_account_token, **kwargs):  # noqa: E501
-        """employees_list  # noqa: E501
+        def __employees_list(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """employees_list  # noqa: E501
 
-        Returns a list of `Employee` objects.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employees_list(x_account_token, async_req=True)
-        >>> result = thread.get()
+            Returns a list of `Employee` objects.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str company_id: If provided, will only return employees for this company.
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param str cursor: The pagination cursor value.
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param str manager_id: If provided, will only return employees for this manager.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
-        :param int page_size: Number of results to return per page.
-        :param str remote_id: The API provider's ID for the given object.
-        :param str team_id: If provided, will only return employees for this team.
-        :param str work_location_id: If provided, will only return employees for this location.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: PaginatedEmployeeList
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.employees_list_with_http_info(x_account_token, **kwargs)  # noqa: E501
+            >>> thread = api.employees_list(x_account_token, async_req=True)
+            >>> result = thread.get()
 
-    def employees_list_with_http_info(self, x_account_token, **kwargs):  # noqa: E501
-        """employees_list  # noqa: E501
+            Args:
+                x_account_token (str): Token identifying the end user.
 
-        Returns a list of `Employee` objects.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employees_list_with_http_info(x_account_token, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                company_id (str): If provided, will only return employees for this company.. [optional]
+                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+                cursor (str): The pagination cursor value.. [optional]
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                manager_id (str): If provided, will only return employees for this manager.. [optional]
+                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+                page_size (int): Number of results to return per page.. [optional]
+                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                team_id (str): If provided, will only return employees for this team.. [optional]
+                work_location_id (str): If provided, will only return employees for this location.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str company_id: If provided, will only return employees for this company.
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param str cursor: The pagination cursor value.
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param str manager_id: If provided, will only return employees for this manager.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
-        :param int page_size: Number of results to return per page.
-        :param str remote_id: The API provider's ID for the given object.
-        :param str team_id: If provided, will only return employees for this team.
-        :param str work_location_id: If provided, will only return employees for this location.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(PaginatedEmployeeList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                PaginatedEmployeeList
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
+        self.employees_list = Endpoint(
+            settings={
+                'response_type': (PaginatedEmployeeList,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employees',
+                'operation_id': 'employees_list',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'company_id',
+                    'created_after',
+                    'created_before',
+                    'cursor',
+                    'expand',
+                    'manager_id',
+                    'modified_after',
+                    'modified_before',
+                    'page_size',
+                    'remote_id',
+                    'team_id',
+                    'work_location_id',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                    'remote_id',
+                ],
+                'enum': [
+                    'expand',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('expand',): {
 
-        all_params = [
-            'x_account_token',
-            'company_id',
-            'created_after',
-            'created_before',
-            'cursor',
-            'expand',
-            'manager_id',
-            'modified_after',
-            'modified_before',
-            'page_size',
-            'remote_id',
-            'team_id',
-            'work_location_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "COMPANY": "company",
+                        "DOCUMENTS": "documents",
+                        "DOCUMENTS,COMPANY": "documents,company",
+                        "DOCUMENTS,HOME_LOCATION": "documents,home_location",
+                        "DOCUMENTS,HOME_LOCATION,COMPANY": "documents,home_location,company",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER": "documents,home_location,manager",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER,COMPANY": "documents,home_location,manager,company",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER,TEAM": "documents,home_location,manager,team",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "documents,home_location,manager,team,company",
+                        "DOCUMENTS,HOME_LOCATION,TEAM": "documents,home_location,team",
+                        "DOCUMENTS,HOME_LOCATION,TEAM,COMPANY": "documents,home_location,team,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION": "documents,home_location,work_location",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,COMPANY": "documents,home_location,work_location,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER": "documents,home_location,work_location,manager",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "documents,home_location,work_location,manager,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "documents,home_location,work_location,manager,team",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "documents,home_location,work_location,manager,team,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM": "documents,home_location,work_location,team",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "documents,home_location,work_location,team,company",
+                        "DOCUMENTS,MANAGER": "documents,manager",
+                        "DOCUMENTS,MANAGER,COMPANY": "documents,manager,company",
+                        "DOCUMENTS,MANAGER,TEAM": "documents,manager,team",
+                        "DOCUMENTS,MANAGER,TEAM,COMPANY": "documents,manager,team,company",
+                        "DOCUMENTS,TEAM": "documents,team",
+                        "DOCUMENTS,TEAM,COMPANY": "documents,team,company",
+                        "DOCUMENTS,WORK_LOCATION": "documents,work_location",
+                        "DOCUMENTS,WORK_LOCATION,COMPANY": "documents,work_location,company",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER": "documents,work_location,manager",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER,COMPANY": "documents,work_location,manager,company",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER,TEAM": "documents,work_location,manager,team",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "documents,work_location,manager,team,company",
+                        "DOCUMENTS,WORK_LOCATION,TEAM": "documents,work_location,team",
+                        "DOCUMENTS,WORK_LOCATION,TEAM,COMPANY": "documents,work_location,team,company",
+                        "EMPLOYMENTS": "employments",
+                        "EMPLOYMENTS,COMPANY": "employments,company",
+                        "EMPLOYMENTS,DOCUMENTS": "employments,documents",
+                        "EMPLOYMENTS,DOCUMENTS,COMPANY": "employments,documents,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION": "employments,documents,home_location",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,COMPANY": "employments,documents,home_location,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER": "employments,documents,home_location,manager",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER,COMPANY": "employments,documents,home_location,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER,TEAM": "employments,documents,home_location,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "employments,documents,home_location,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,TEAM": "employments,documents,home_location,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,TEAM,COMPANY": "employments,documents,home_location,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION": "employments,documents,home_location,work_location",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,COMPANY": "employments,documents,home_location,work_location,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER": "employments,documents,home_location,work_location,manager",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "employments,documents,home_location,work_location,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "employments,documents,home_location,work_location,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,documents,home_location,work_location,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM": "employments,documents,home_location,work_location,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "employments,documents,home_location,work_location,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER": "employments,documents,manager",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER,COMPANY": "employments,documents,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER,TEAM": "employments,documents,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER,TEAM,COMPANY": "employments,documents,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,TEAM": "employments,documents,team",
+                        "EMPLOYMENTS,DOCUMENTS,TEAM,COMPANY": "employments,documents,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION": "employments,documents,work_location",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,COMPANY": "employments,documents,work_location,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER": "employments,documents,work_location,manager",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER,COMPANY": "employments,documents,work_location,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER,TEAM": "employments,documents,work_location,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,documents,work_location,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,TEAM": "employments,documents,work_location,team",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,TEAM,COMPANY": "employments,documents,work_location,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION": "employments,home_location",
+                        "EMPLOYMENTS,HOME_LOCATION,COMPANY": "employments,home_location,company",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER": "employments,home_location,manager",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER,COMPANY": "employments,home_location,manager,company",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER,TEAM": "employments,home_location,manager,team",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "employments,home_location,manager,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION,TEAM": "employments,home_location,team",
+                        "EMPLOYMENTS,HOME_LOCATION,TEAM,COMPANY": "employments,home_location,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION": "employments,home_location,work_location",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,COMPANY": "employments,home_location,work_location,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER": "employments,home_location,work_location,manager",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "employments,home_location,work_location,manager,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "employments,home_location,work_location,manager,team",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,home_location,work_location,manager,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,TEAM": "employments,home_location,work_location,team",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "employments,home_location,work_location,team,company",
+                        "EMPLOYMENTS,MANAGER": "employments,manager",
+                        "EMPLOYMENTS,MANAGER,COMPANY": "employments,manager,company",
+                        "EMPLOYMENTS,MANAGER,TEAM": "employments,manager,team",
+                        "EMPLOYMENTS,MANAGER,TEAM,COMPANY": "employments,manager,team,company",
+                        "EMPLOYMENTS,TEAM": "employments,team",
+                        "EMPLOYMENTS,TEAM,COMPANY": "employments,team,company",
+                        "EMPLOYMENTS,WORK_LOCATION": "employments,work_location",
+                        "EMPLOYMENTS,WORK_LOCATION,COMPANY": "employments,work_location,company",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER": "employments,work_location,manager",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER,COMPANY": "employments,work_location,manager,company",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER,TEAM": "employments,work_location,manager,team",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,work_location,manager,team,company",
+                        "EMPLOYMENTS,WORK_LOCATION,TEAM": "employments,work_location,team",
+                        "EMPLOYMENTS,WORK_LOCATION,TEAM,COMPANY": "employments,work_location,team,company",
+                        "HOME_LOCATION": "home_location",
+                        "HOME_LOCATION,COMPANY": "home_location,company",
+                        "HOME_LOCATION,MANAGER": "home_location,manager",
+                        "HOME_LOCATION,MANAGER,COMPANY": "home_location,manager,company",
+                        "HOME_LOCATION,MANAGER,TEAM": "home_location,manager,team",
+                        "HOME_LOCATION,MANAGER,TEAM,COMPANY": "home_location,manager,team,company",
+                        "HOME_LOCATION,TEAM": "home_location,team",
+                        "HOME_LOCATION,TEAM,COMPANY": "home_location,team,company",
+                        "HOME_LOCATION,WORK_LOCATION": "home_location,work_location",
+                        "HOME_LOCATION,WORK_LOCATION,COMPANY": "home_location,work_location,company",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER": "home_location,work_location,manager",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "home_location,work_location,manager,company",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "home_location,work_location,manager,team",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "home_location,work_location,manager,team,company",
+                        "HOME_LOCATION,WORK_LOCATION,TEAM": "home_location,work_location,team",
+                        "HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "home_location,work_location,team,company",
+                        "MANAGER": "manager",
+                        "MANAGER,COMPANY": "manager,company",
+                        "MANAGER,TEAM": "manager,team",
+                        "MANAGER,TEAM,COMPANY": "manager,team,company",
+                        "TEAM": "team",
+                        "TEAM,COMPANY": "team,company",
+                        "WORK_LOCATION": "work_location",
+                        "WORK_LOCATION,COMPANY": "work_location,company",
+                        "WORK_LOCATION,MANAGER": "work_location,manager",
+                        "WORK_LOCATION,MANAGER,COMPANY": "work_location,manager,company",
+                        "WORK_LOCATION,MANAGER,TEAM": "work_location,manager,team",
+                        "WORK_LOCATION,MANAGER,TEAM,COMPANY": "work_location,manager,team,company",
+                        "WORK_LOCATION,TEAM": "work_location,team",
+                        "WORK_LOCATION,TEAM,COMPANY": "work_location,team,company"
+                    },
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'company_id':
+                        (str,),
+                    'created_after':
+                        (datetime,),
+                    'created_before':
+                        (datetime,),
+                    'cursor':
+                        (str,),
+                    'expand':
+                        (str,),
+                    'manager_id':
+                        (str,),
+                    'modified_after':
+                        (datetime,),
+                    'modified_before':
+                        (datetime,),
+                    'page_size':
+                        (int,),
+                    'remote_id':
+                        (str, none_type,),
+                    'team_id':
+                        (str,),
+                    'work_location_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'company_id': 'company_id',
+                    'created_after': 'created_after',
+                    'created_before': 'created_before',
+                    'cursor': 'cursor',
+                    'expand': 'expand',
+                    'manager_id': 'manager_id',
+                    'modified_after': 'modified_after',
+                    'modified_before': 'modified_before',
+                    'page_size': 'page_size',
+                    'remote_id': 'remote_id',
+                    'team_id': 'team_id',
+                    'work_location_id': 'work_location_id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'company_id': 'query',
+                    'created_after': 'query',
+                    'created_before': 'query',
+                    'cursor': 'query',
+                    'expand': 'query',
+                    'manager_id': 'query',
+                    'modified_after': 'query',
+                    'modified_before': 'query',
+                    'page_size': 'query',
+                    'remote_id': 'query',
+                    'team_id': 'query',
+                    'work_location_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__employees_list
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method employees_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_account_token' is set
-        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_account_token'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_account_token` when calling `employees_list`")  # noqa: E501
+        def __employees_retrieve(
+            self,
+            x_account_token,
+            id,
+            **kwargs
+        ):
+            """employees_retrieve  # noqa: E501
 
-        collection_formats = {}
+            Returns an `Employee` object with the given `id`.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.employees_retrieve(x_account_token, id, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'company_id' in local_var_params and local_var_params['company_id'] is not None:  # noqa: E501
-            query_params.append(('company_id', local_var_params['company_id']))  # noqa: E501
-        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
-            query_params.append(('created_after', local_var_params['created_after']))  # noqa: E501
-        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
-            query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
-        if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
-            query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
-        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
-            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
-        if 'manager_id' in local_var_params and local_var_params['manager_id'] is not None:  # noqa: E501
-            query_params.append(('manager_id', local_var_params['manager_id']))  # noqa: E501
-        if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
-            query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
-        if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501
-            query_params.append(('modified_before', local_var_params['modified_before']))  # noqa: E501
-        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
-            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
-        if 'remote_id' in local_var_params and local_var_params['remote_id'] is not None:  # noqa: E501
-            query_params.append(('remote_id', local_var_params['remote_id']))  # noqa: E501
-        if 'team_id' in local_var_params and local_var_params['team_id'] is not None:  # noqa: E501
-            query_params.append(('team_id', local_var_params['team_id']))  # noqa: E501
-        if 'work_location_id' in local_var_params and local_var_params['work_location_id'] is not None:  # noqa: E501
-            query_params.append(('work_location_id', local_var_params['work_location_id']))  # noqa: E501
+            Args:
+                x_account_token (str): Token identifying the end user.
+                id (str):
 
-        header_params = {}
-        if 'x_account_token' in local_var_params:
-            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
+            Keyword Args:
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                Employee
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        self.employees_retrieve = Endpoint(
+            settings={
+                'response_type': (Employee,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employees/{id}',
+                'operation_id': 'employees_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'id',
+                    'expand',
+                ],
+                'required': [
+                    'x_account_token',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'expand',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('expand',): {
 
-        # Authentication setting
-        auth_settings = ['tokenAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/employees', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='PaginatedEmployeeList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def employees_retrieve(self, x_account_token, id, **kwargs):  # noqa: E501
-        """employees_retrieve  # noqa: E501
-
-        Returns an `Employee` object with the given `id`.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employees_retrieve(x_account_token, id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str id: (required)
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Employee
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.employees_retrieve_with_http_info(x_account_token, id, **kwargs)  # noqa: E501
-
-    def employees_retrieve_with_http_info(self, x_account_token, id, **kwargs):  # noqa: E501
-        """employees_retrieve  # noqa: E501
-
-        Returns an `Employee` object with the given `id`.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employees_retrieve_with_http_info(x_account_token, id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str id: (required)
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Employee, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'x_account_token',
-            'id',
-            'expand'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "COMPANY": "company",
+                        "DOCUMENTS": "documents",
+                        "DOCUMENTS,COMPANY": "documents,company",
+                        "DOCUMENTS,HOME_LOCATION": "documents,home_location",
+                        "DOCUMENTS,HOME_LOCATION,COMPANY": "documents,home_location,company",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER": "documents,home_location,manager",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER,COMPANY": "documents,home_location,manager,company",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER,TEAM": "documents,home_location,manager,team",
+                        "DOCUMENTS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "documents,home_location,manager,team,company",
+                        "DOCUMENTS,HOME_LOCATION,TEAM": "documents,home_location,team",
+                        "DOCUMENTS,HOME_LOCATION,TEAM,COMPANY": "documents,home_location,team,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION": "documents,home_location,work_location",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,COMPANY": "documents,home_location,work_location,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER": "documents,home_location,work_location,manager",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "documents,home_location,work_location,manager,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "documents,home_location,work_location,manager,team",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "documents,home_location,work_location,manager,team,company",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM": "documents,home_location,work_location,team",
+                        "DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "documents,home_location,work_location,team,company",
+                        "DOCUMENTS,MANAGER": "documents,manager",
+                        "DOCUMENTS,MANAGER,COMPANY": "documents,manager,company",
+                        "DOCUMENTS,MANAGER,TEAM": "documents,manager,team",
+                        "DOCUMENTS,MANAGER,TEAM,COMPANY": "documents,manager,team,company",
+                        "DOCUMENTS,TEAM": "documents,team",
+                        "DOCUMENTS,TEAM,COMPANY": "documents,team,company",
+                        "DOCUMENTS,WORK_LOCATION": "documents,work_location",
+                        "DOCUMENTS,WORK_LOCATION,COMPANY": "documents,work_location,company",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER": "documents,work_location,manager",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER,COMPANY": "documents,work_location,manager,company",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER,TEAM": "documents,work_location,manager,team",
+                        "DOCUMENTS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "documents,work_location,manager,team,company",
+                        "DOCUMENTS,WORK_LOCATION,TEAM": "documents,work_location,team",
+                        "DOCUMENTS,WORK_LOCATION,TEAM,COMPANY": "documents,work_location,team,company",
+                        "EMPLOYMENTS": "employments",
+                        "EMPLOYMENTS,COMPANY": "employments,company",
+                        "EMPLOYMENTS,DOCUMENTS": "employments,documents",
+                        "EMPLOYMENTS,DOCUMENTS,COMPANY": "employments,documents,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION": "employments,documents,home_location",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,COMPANY": "employments,documents,home_location,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER": "employments,documents,home_location,manager",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER,COMPANY": "employments,documents,home_location,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER,TEAM": "employments,documents,home_location,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "employments,documents,home_location,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,TEAM": "employments,documents,home_location,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,TEAM,COMPANY": "employments,documents,home_location,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION": "employments,documents,home_location,work_location",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,COMPANY": "employments,documents,home_location,work_location,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER": "employments,documents,home_location,work_location,manager",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "employments,documents,home_location,work_location,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "employments,documents,home_location,work_location,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,documents,home_location,work_location,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM": "employments,documents,home_location,work_location,team",
+                        "EMPLOYMENTS,DOCUMENTS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "employments,documents,home_location,work_location,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER": "employments,documents,manager",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER,COMPANY": "employments,documents,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER,TEAM": "employments,documents,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,MANAGER,TEAM,COMPANY": "employments,documents,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,TEAM": "employments,documents,team",
+                        "EMPLOYMENTS,DOCUMENTS,TEAM,COMPANY": "employments,documents,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION": "employments,documents,work_location",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,COMPANY": "employments,documents,work_location,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER": "employments,documents,work_location,manager",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER,COMPANY": "employments,documents,work_location,manager,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER,TEAM": "employments,documents,work_location,manager,team",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,documents,work_location,manager,team,company",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,TEAM": "employments,documents,work_location,team",
+                        "EMPLOYMENTS,DOCUMENTS,WORK_LOCATION,TEAM,COMPANY": "employments,documents,work_location,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION": "employments,home_location",
+                        "EMPLOYMENTS,HOME_LOCATION,COMPANY": "employments,home_location,company",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER": "employments,home_location,manager",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER,COMPANY": "employments,home_location,manager,company",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER,TEAM": "employments,home_location,manager,team",
+                        "EMPLOYMENTS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "employments,home_location,manager,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION,TEAM": "employments,home_location,team",
+                        "EMPLOYMENTS,HOME_LOCATION,TEAM,COMPANY": "employments,home_location,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION": "employments,home_location,work_location",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,COMPANY": "employments,home_location,work_location,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER": "employments,home_location,work_location,manager",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "employments,home_location,work_location,manager,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "employments,home_location,work_location,manager,team",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,home_location,work_location,manager,team,company",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,TEAM": "employments,home_location,work_location,team",
+                        "EMPLOYMENTS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "employments,home_location,work_location,team,company",
+                        "EMPLOYMENTS,MANAGER": "employments,manager",
+                        "EMPLOYMENTS,MANAGER,COMPANY": "employments,manager,company",
+                        "EMPLOYMENTS,MANAGER,TEAM": "employments,manager,team",
+                        "EMPLOYMENTS,MANAGER,TEAM,COMPANY": "employments,manager,team,company",
+                        "EMPLOYMENTS,TEAM": "employments,team",
+                        "EMPLOYMENTS,TEAM,COMPANY": "employments,team,company",
+                        "EMPLOYMENTS,WORK_LOCATION": "employments,work_location",
+                        "EMPLOYMENTS,WORK_LOCATION,COMPANY": "employments,work_location,company",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER": "employments,work_location,manager",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER,COMPANY": "employments,work_location,manager,company",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER,TEAM": "employments,work_location,manager,team",
+                        "EMPLOYMENTS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,work_location,manager,team,company",
+                        "EMPLOYMENTS,WORK_LOCATION,TEAM": "employments,work_location,team",
+                        "EMPLOYMENTS,WORK_LOCATION,TEAM,COMPANY": "employments,work_location,team,company",
+                        "HOME_LOCATION": "home_location",
+                        "HOME_LOCATION,COMPANY": "home_location,company",
+                        "HOME_LOCATION,MANAGER": "home_location,manager",
+                        "HOME_LOCATION,MANAGER,COMPANY": "home_location,manager,company",
+                        "HOME_LOCATION,MANAGER,TEAM": "home_location,manager,team",
+                        "HOME_LOCATION,MANAGER,TEAM,COMPANY": "home_location,manager,team,company",
+                        "HOME_LOCATION,TEAM": "home_location,team",
+                        "HOME_LOCATION,TEAM,COMPANY": "home_location,team,company",
+                        "HOME_LOCATION,WORK_LOCATION": "home_location,work_location",
+                        "HOME_LOCATION,WORK_LOCATION,COMPANY": "home_location,work_location,company",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER": "home_location,work_location,manager",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "home_location,work_location,manager,company",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "home_location,work_location,manager,team",
+                        "HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "home_location,work_location,manager,team,company",
+                        "HOME_LOCATION,WORK_LOCATION,TEAM": "home_location,work_location,team",
+                        "HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "home_location,work_location,team,company",
+                        "MANAGER": "manager",
+                        "MANAGER,COMPANY": "manager,company",
+                        "MANAGER,TEAM": "manager,team",
+                        "MANAGER,TEAM,COMPANY": "manager,team,company",
+                        "TEAM": "team",
+                        "TEAM,COMPANY": "team,company",
+                        "WORK_LOCATION": "work_location",
+                        "WORK_LOCATION,COMPANY": "work_location,company",
+                        "WORK_LOCATION,MANAGER": "work_location,manager",
+                        "WORK_LOCATION,MANAGER,COMPANY": "work_location,manager,company",
+                        "WORK_LOCATION,MANAGER,TEAM": "work_location,manager,team",
+                        "WORK_LOCATION,MANAGER,TEAM,COMPANY": "work_location,manager,team,company",
+                        "WORK_LOCATION,TEAM": "work_location,team",
+                        "WORK_LOCATION,TEAM,COMPANY": "work_location,team,company"
+                    },
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'id':
+                        (str,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'id': 'id',
+                    'expand': 'expand',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'id': 'path',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__employees_retrieve
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method employees_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_account_token' is set
-        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_account_token'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_account_token` when calling `employees_retrieve`")  # noqa: E501
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `employees_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
-            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
-
-        header_params = {}
-        if 'x_account_token' in local_var_params:
-            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['tokenAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/employees/{id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Employee',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

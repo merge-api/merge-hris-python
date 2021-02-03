@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,18 +9,21 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from MergeHRISClient.api_client import ApiClient
-from MergeHRISClient.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from MergeHRISClient.api_client import ApiClient, Endpoint
+from MergeHRISClient.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from MergeHRISClient.model.employment import Employment
+from MergeHRISClient.model.paginated_employment_list import PaginatedEmploymentList
 
 
 class EmploymentsApi(object):
@@ -37,279 +38,299 @@ class EmploymentsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def employments_list(self, x_account_token, **kwargs):  # noqa: E501
-        """employments_list  # noqa: E501
+        def __employments_list(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """employments_list  # noqa: E501
 
-        Returns a list of `Employment` objects.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employments_list(x_account_token, async_req=True)
-        >>> result = thread.get()
+            Returns a list of `Employment` objects.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param str cursor: The pagination cursor value.
-        :param str employee_id: If provided, will only return employments for this employee.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
-        :param int page_size: Number of results to return per page.
-        :param str remote_id: The API provider's ID for the given object.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: PaginatedEmploymentList
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.employments_list_with_http_info(x_account_token, **kwargs)  # noqa: E501
+            >>> thread = api.employments_list(x_account_token, async_req=True)
+            >>> result = thread.get()
 
-    def employments_list_with_http_info(self, x_account_token, **kwargs):  # noqa: E501
-        """employments_list  # noqa: E501
+            Args:
+                x_account_token (str): Token identifying the end user.
 
-        Returns a list of `Employment` objects.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employments_list_with_http_info(x_account_token, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+                cursor (str): The pagination cursor value.. [optional]
+                employee_id (str): If provided, will only return employments for this employee.. [optional]
+                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+                page_size (int): Number of results to return per page.. [optional]
+                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param str cursor: The pagination cursor value.
-        :param str employee_id: If provided, will only return employments for this employee.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
-        :param int page_size: Number of results to return per page.
-        :param str remote_id: The API provider's ID for the given object.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(PaginatedEmploymentList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                PaginatedEmploymentList
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = [
-            'x_account_token',
-            'created_after',
-            'created_before',
-            'cursor',
-            'employee_id',
-            'modified_after',
-            'modified_before',
-            'page_size',
-            'remote_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.employments_list = Endpoint(
+            settings={
+                'response_type': (PaginatedEmploymentList,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employments',
+                'operation_id': 'employments_list',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'created_after',
+                    'created_before',
+                    'cursor',
+                    'employee_id',
+                    'modified_after',
+                    'modified_before',
+                    'page_size',
+                    'remote_id',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                    'remote_id',
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'created_after':
+                        (datetime,),
+                    'created_before':
+                        (datetime,),
+                    'cursor':
+                        (str,),
+                    'employee_id':
+                        (str,),
+                    'modified_after':
+                        (datetime,),
+                    'modified_before':
+                        (datetime,),
+                    'page_size':
+                        (int,),
+                    'remote_id':
+                        (str, none_type,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'created_after': 'created_after',
+                    'created_before': 'created_before',
+                    'cursor': 'cursor',
+                    'employee_id': 'employee_id',
+                    'modified_after': 'modified_after',
+                    'modified_before': 'modified_before',
+                    'page_size': 'page_size',
+                    'remote_id': 'remote_id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'created_after': 'query',
+                    'created_before': 'query',
+                    'cursor': 'query',
+                    'employee_id': 'query',
+                    'modified_after': 'query',
+                    'modified_before': 'query',
+                    'page_size': 'query',
+                    'remote_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__employments_list
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method employments_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_account_token' is set
-        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_account_token'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_account_token` when calling `employments_list`")  # noqa: E501
+        def __employments_retrieve(
+            self,
+            x_account_token,
+            id,
+            **kwargs
+        ):
+            """employments_retrieve  # noqa: E501
 
-        collection_formats = {}
+            Returns an `Employment` object with the given `id`.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.employments_retrieve(x_account_token, id, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
-            query_params.append(('created_after', local_var_params['created_after']))  # noqa: E501
-        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
-            query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
-        if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
-            query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
-        if 'employee_id' in local_var_params and local_var_params['employee_id'] is not None:  # noqa: E501
-            query_params.append(('employee_id', local_var_params['employee_id']))  # noqa: E501
-        if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
-            query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
-        if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501
-            query_params.append(('modified_before', local_var_params['modified_before']))  # noqa: E501
-        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
-            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
-        if 'remote_id' in local_var_params and local_var_params['remote_id'] is not None:  # noqa: E501
-            query_params.append(('remote_id', local_var_params['remote_id']))  # noqa: E501
+            Args:
+                x_account_token (str): Token identifying the end user.
+                id (str):
 
-        header_params = {}
-        if 'x_account_token' in local_var_params:
-            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                Employment
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['tokenAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/employments', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='PaginatedEmploymentList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def employments_retrieve(self, x_account_token, id, **kwargs):  # noqa: E501
-        """employments_retrieve  # noqa: E501
-
-        Returns an `Employment` object with the given `id`.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employments_retrieve(x_account_token, id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str id: (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Employment
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.employments_retrieve_with_http_info(x_account_token, id, **kwargs)  # noqa: E501
-
-    def employments_retrieve_with_http_info(self, x_account_token, id, **kwargs):  # noqa: E501
-        """employments_retrieve  # noqa: E501
-
-        Returns an `Employment` object with the given `id`.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employments_retrieve_with_http_info(x_account_token, id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str id: (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(Employment, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'x_account_token',
-            'id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.employments_retrieve = Endpoint(
+            settings={
+                'response_type': (Employment,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employments/{id}',
+                'operation_id': 'employments_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'id',
+                ],
+                'required': [
+                    'x_account_token',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'id': 'id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__employments_retrieve
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method employments_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_account_token' is set
-        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_account_token'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_account_token` when calling `employments_retrieve`")  # noqa: E501
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `employments_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-        if 'x_account_token' in local_var_params:
-            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['tokenAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/employments/{id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Employment',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

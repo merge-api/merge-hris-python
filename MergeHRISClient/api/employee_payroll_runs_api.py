@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,18 +9,21 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from MergeHRISClient.api_client import ApiClient
-from MergeHRISClient.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from MergeHRISClient.api_client import ApiClient, Endpoint
+from MergeHRISClient.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from MergeHRISClient.model.employee_payroll_run import EmployeePayrollRun
+from MergeHRISClient.model.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList
 
 
 class EmployeePayrollRunsApi(object):
@@ -37,294 +38,331 @@ class EmployeePayrollRunsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def employee_payroll_runs_list(self, x_account_token, **kwargs):  # noqa: E501
-        """employee_payroll_runs_list  # noqa: E501
+        def __employee_payroll_runs_list(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """employee_payroll_runs_list  # noqa: E501
 
-        Returns a list of `EmployeePayrollRun` objects.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employee_payroll_runs_list(x_account_token, async_req=True)
-        >>> result = thread.get()
+            Returns a list of `EmployeePayrollRun` objects.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param str cursor: The pagination cursor value.
-        :param str employee_id: If provided, will only return employee payroll runs for this employee.
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
-        :param int page_size: Number of results to return per page.
-        :param str payroll_run_id: If provided, will only return employee payroll runs for this employee.
-        :param str remote_id: The API provider's ID for the given object.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: PaginatedEmployeePayrollRunList
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.employee_payroll_runs_list_with_http_info(x_account_token, **kwargs)  # noqa: E501
+            >>> thread = api.employee_payroll_runs_list(x_account_token, async_req=True)
+            >>> result = thread.get()
 
-    def employee_payroll_runs_list_with_http_info(self, x_account_token, **kwargs):  # noqa: E501
-        """employee_payroll_runs_list  # noqa: E501
+            Args:
+                x_account_token (str): Token identifying the end user.
 
-        Returns a list of `EmployeePayrollRun` objects.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employee_payroll_runs_list_with_http_info(x_account_token, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
+                created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
+                cursor (str): The pagination cursor value.. [optional]
+                employee_id (str): If provided, will only return time off for this employee.. [optional]
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
+                modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
+                page_size (int): Number of results to return per page.. [optional]
+                payroll_run_id (str): If provided, will only return employee payroll runs for this employee.. [optional]
+                remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param datetime created_after: If provided, will only return objects created after this datetime.
-        :param datetime created_before: If provided, will only return objects created before this datetime.
-        :param str cursor: The pagination cursor value.
-        :param str employee_id: If provided, will only return employee payroll runs for this employee.
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param datetime modified_after: If provided, will only return objects modified after this datetime.
-        :param datetime modified_before: If provided, will only return objects modified before this datetime.
-        :param int page_size: Number of results to return per page.
-        :param str payroll_run_id: If provided, will only return employee payroll runs for this employee.
-        :param str remote_id: The API provider's ID for the given object.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(PaginatedEmployeePayrollRunList, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                PaginatedEmployeePayrollRunList
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
+        self.employee_payroll_runs_list = Endpoint(
+            settings={
+                'response_type': (PaginatedEmployeePayrollRunList,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employee-payroll-runs',
+                'operation_id': 'employee_payroll_runs_list',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'created_after',
+                    'created_before',
+                    'cursor',
+                    'employee_id',
+                    'expand',
+                    'modified_after',
+                    'modified_before',
+                    'page_size',
+                    'payroll_run_id',
+                    'remote_id',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                    'remote_id',
+                ],
+                'enum': [
+                    'expand',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('expand',): {
 
-        all_params = [
-            'x_account_token',
-            'created_after',
-            'created_before',
-            'cursor',
-            'employee_id',
-            'expand',
-            'modified_after',
-            'modified_before',
-            'page_size',
-            'payroll_run_id',
-            'remote_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "EMPLOYEE": "employee",
+                        "EMPLOYEE,PAYROLL_RUN": "employee,payroll_run",
+                        "PAYROLL_RUN": "payroll_run"
+                    },
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'created_after':
+                        (datetime,),
+                    'created_before':
+                        (datetime,),
+                    'cursor':
+                        (str,),
+                    'employee_id':
+                        (str,),
+                    'expand':
+                        (str,),
+                    'modified_after':
+                        (datetime,),
+                    'modified_before':
+                        (datetime,),
+                    'page_size':
+                        (int,),
+                    'payroll_run_id':
+                        (str,),
+                    'remote_id':
+                        (str, none_type,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'created_after': 'created_after',
+                    'created_before': 'created_before',
+                    'cursor': 'cursor',
+                    'employee_id': 'employee_id',
+                    'expand': 'expand',
+                    'modified_after': 'modified_after',
+                    'modified_before': 'modified_before',
+                    'page_size': 'page_size',
+                    'payroll_run_id': 'payroll_run_id',
+                    'remote_id': 'remote_id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'created_after': 'query',
+                    'created_before': 'query',
+                    'cursor': 'query',
+                    'employee_id': 'query',
+                    'expand': 'query',
+                    'modified_after': 'query',
+                    'modified_before': 'query',
+                    'page_size': 'query',
+                    'payroll_run_id': 'query',
+                    'remote_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__employee_payroll_runs_list
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method employee_payroll_runs_list" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_account_token' is set
-        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_account_token'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_account_token` when calling `employee_payroll_runs_list`")  # noqa: E501
+        def __employee_payroll_runs_retrieve(
+            self,
+            x_account_token,
+            id,
+            **kwargs
+        ):
+            """employee_payroll_runs_retrieve  # noqa: E501
 
-        collection_formats = {}
+            Returns an `EmployeePayrollRun` object with the given `id`.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.employee_payroll_runs_retrieve(x_account_token, id, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
-            query_params.append(('created_after', local_var_params['created_after']))  # noqa: E501
-        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
-            query_params.append(('created_before', local_var_params['created_before']))  # noqa: E501
-        if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
-            query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
-        if 'employee_id' in local_var_params and local_var_params['employee_id'] is not None:  # noqa: E501
-            query_params.append(('employee_id', local_var_params['employee_id']))  # noqa: E501
-        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
-            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
-        if 'modified_after' in local_var_params and local_var_params['modified_after'] is not None:  # noqa: E501
-            query_params.append(('modified_after', local_var_params['modified_after']))  # noqa: E501
-        if 'modified_before' in local_var_params and local_var_params['modified_before'] is not None:  # noqa: E501
-            query_params.append(('modified_before', local_var_params['modified_before']))  # noqa: E501
-        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
-            query_params.append(('page_size', local_var_params['page_size']))  # noqa: E501
-        if 'payroll_run_id' in local_var_params and local_var_params['payroll_run_id'] is not None:  # noqa: E501
-            query_params.append(('payroll_run_id', local_var_params['payroll_run_id']))  # noqa: E501
-        if 'remote_id' in local_var_params and local_var_params['remote_id'] is not None:  # noqa: E501
-            query_params.append(('remote_id', local_var_params['remote_id']))  # noqa: E501
+            Args:
+                x_account_token (str): Token identifying the end user.
+                id (str):
 
-        header_params = {}
-        if 'x_account_token' in local_var_params:
-            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
+            Keyword Args:
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                EmployeePayrollRun
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['id'] = \
+                id
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        self.employee_payroll_runs_retrieve = Endpoint(
+            settings={
+                'response_type': (EmployeePayrollRun,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employee-payroll-runs/{id}',
+                'operation_id': 'employee_payroll_runs_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'id',
+                    'expand',
+                ],
+                'required': [
+                    'x_account_token',
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'expand',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('expand',): {
 
-        # Authentication setting
-        auth_settings = ['tokenAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/employee-payroll-runs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='PaginatedEmployeePayrollRunList',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def employee_payroll_runs_retrieve(self, x_account_token, id, **kwargs):  # noqa: E501
-        """employee_payroll_runs_retrieve  # noqa: E501
-
-        Returns an `EmployeePayrollRun` object with the given `id`.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employee_payroll_runs_retrieve(x_account_token, id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str id: (required)
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: EmployeePayrollRun
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.employee_payroll_runs_retrieve_with_http_info(x_account_token, id, **kwargs)  # noqa: E501
-
-    def employee_payroll_runs_retrieve_with_http_info(self, x_account_token, id, **kwargs):  # noqa: E501
-        """employee_payroll_runs_retrieve  # noqa: E501
-
-        Returns an `EmployeePayrollRun` object with the given `id`.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.employee_payroll_runs_retrieve_with_http_info(x_account_token, id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str x_account_token: Token identifying the end user. (required)
-        :param str id: (required)
-        :param str expand: Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(EmployeePayrollRun, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'x_account_token',
-            'id',
-            'expand'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "EMPLOYEE": "employee",
+                        "EMPLOYEE,PAYROLL_RUN": "employee,payroll_run",
+                        "PAYROLL_RUN": "payroll_run"
+                    },
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'id':
+                        (str,),
+                    'expand':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'id': 'id',
+                    'expand': 'expand',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'id': 'path',
+                    'expand': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__employee_payroll_runs_retrieve
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method employee_payroll_runs_retrieve" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'x_account_token' is set
-        if self.api_client.client_side_validation and ('x_account_token' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_account_token'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_account_token` when calling `employee_payroll_runs_retrieve`")  # noqa: E501
-        # verify the required parameter 'id' is set
-        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `employee_payroll_runs_retrieve`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in local_var_params:
-            path_params['id'] = local_var_params['id']  # noqa: E501
-
-        query_params = []
-        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
-            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
-
-        header_params = {}
-        if 'x_account_token' in local_var_params:
-            header_params['X-Account-Token'] = local_var_params['x_account_token']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['tokenAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/employee-payroll-runs/{id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='EmployeePayrollRun',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
