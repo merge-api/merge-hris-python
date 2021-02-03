@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**next** | **str** |  | [optional] 
-**previous** | **str** |  | [optional] 
-**results** | [**list[Location]**](Location.md) |  | [optional] 
+**next** | **str, none_type** |  | [optional] 
+**previous** | **str, none_type** |  | [optional] 
+**results** | [**[Location]**](Location.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

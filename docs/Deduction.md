@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
-**employee_payroll_run** | **str** | The deduction&#39;s employee payroll run. | [optional] 
-**name** | **str** | The deduction&#39;s name. | [optional] 
-**employee_deduction** | **float** | The amount the employee is deducting. | [optional] 
-**company_deduction** | **float** | The amount the company is deducting. | [optional] 
+**employee_payroll_run** | **str, none_type** | The deduction&#39;s employee payroll run. | [optional] 
+**name** | **str, none_type** | The deduction&#39;s name. | [optional] 
+**employee_deduction** | **float, none_type** | The amount the employee is deducting. | [optional] 
+**company_deduction** | **float, none_type** | The amount the company is deducting. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

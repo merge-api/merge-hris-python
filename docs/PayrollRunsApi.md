@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **payroll_runs_list**
-> PaginatedPayrollRunList payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+> PaginatedPayrollRunList payroll_runs_list(x_account_token)
 
 
 
@@ -19,10 +19,10 @@ Returns a list of `PayrollRun` objects.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeHRISClient
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.api import payroll_runs_api
+from MergeHRISClient.model.paginated_payroll_run_list import PaginatedPayrollRunList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -36,32 +36,37 @@ configuration = MergeHRISClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://api.merge.dev/api/hris/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeHRISClient.PayrollRunsApi(api_client)
-    x_account_token = 'x_account_token_example' # str | Token identifying the end user.
-created_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created after this datetime. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects created before this datetime. (optional)
-cursor = 'cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw' # str | The pagination cursor value. (optional)
-modified_after = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified after this datetime. (optional)
-modified_before = '2013-10-20T19:20:30+01:00' # datetime | If provided, will only return objects modified before this datetime. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-remote_id = 'remote_id_example' # str | The API provider's ID for the given object. (optional)
+    api_instance = payroll_runs_api.PayrollRunsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
+    created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
+    cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
+    modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
+    modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
+    page_size = 1 # int | Number of results to return per page. (optional)
+    remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.payroll_runs_list(x_account_token)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling PayrollRunsApi->payroll_runs_list: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         api_response = api_instance.payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
-    except ApiException as e:
+    except MergeHRISClient.ApiException as e:
         print("Exception when calling PayrollRunsApi->payroll_runs_list: %s\n" % e)
 ```
 
@@ -69,14 +74,14 @@ remote_id = 'remote_id_example' # str | The API provider's ID for the given obje
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. | 
- **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional] 
- **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional] 
- **cursor** | **str**| The pagination cursor value. | [optional] 
- **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional] 
- **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
- **remote_id** | **str**| The API provider&#39;s ID for the given object. | [optional] 
+ **x_account_token** | **str**| Token identifying the end user. |
+ **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional]
+ **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
+ **cursor** | **str**| The pagination cursor value. | [optional]
+ **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
+ **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
+ **page_size** | **int**| Number of results to return per page. | [optional]
+ **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
 
@@ -109,10 +114,10 @@ Returns a `PayrollRun` object with the given `id`.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeHRISClient
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.api import payroll_runs_api
+from MergeHRISClient.model.payroll_run import PayrollRun
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -126,26 +131,23 @@ configuration = MergeHRISClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://api.merge.dev/api/hris/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeHRISClient.PayrollRunsApi(api_client)
-    x_account_token = 'x_account_token_example' # str | Token identifying the end user.
-id = 'id_example' # str | 
+    api_instance = payroll_runs_api.PayrollRunsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    id = "id_example" # str | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.payroll_runs_retrieve(x_account_token, id)
         pprint(api_response)
-    except ApiException as e:
+    except MergeHRISClient.ApiException as e:
         print("Exception when calling PayrollRunsApi->payroll_runs_retrieve: %s\n" % e)
 ```
 
@@ -153,8 +155,8 @@ id = 'id_example' # str |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. | 
- **id** | [**str**](.md)|  | 
+ **x_account_token** | **str**| Token identifying the end user. |
+ **id** | **str**|  |
 
 ### Return type
 

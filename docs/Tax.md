@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
-**employee_payroll_run** | **str** | The tax&#39;s employee payroll run. | [optional] 
-**name** | **str** | The deduction&#39;s name. | [optional] 
-**amount** | **float** | The tax amount. | [optional] 
-**employer_tax** | **bool** | Whether or not the employer is responsible for paying the tax. | [optional] 
+**employee_payroll_run** | **str, none_type** | The tax&#39;s employee payroll run. | [optional] 
+**name** | **str, none_type** | The deduction&#39;s name. | [optional] 
+**amount** | **float, none_type** | The tax amount. | [optional] 
+**employer_tax** | **bool, none_type** | Whether or not the employer is responsible for paying the tax. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

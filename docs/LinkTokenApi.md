@@ -18,10 +18,11 @@ Creates a link token to be used when linking a new end user.
 
 * Api Key Authentication (tokenAuth):
 ```python
-from __future__ import print_function
 import time
 import MergeHRISClient
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.api import link_token_api
+from MergeHRISClient.model.link_token import LinkToken
+from MergeHRISClient.model.end_user_details import EndUserDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -35,25 +36,29 @@ configuration = MergeHRISClient.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: tokenAuth
-configuration = MergeHRISClient.Configuration(
-    host = "https://api.merge.dev/api/hris/v1",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = MergeHRISClient.LinkTokenApi(api_client)
-    end_user_details = MergeHRISClient.EndUserDetails() # EndUserDetails | 
+    api_instance = link_token_api.LinkTokenApi(api_client)
+    end_user_details = EndUserDetails(
+        end_user_email_address="end_user_email_address_example",
+        end_user_organization_name="end_user_organization_name_example",
+        end_user_origin_id="end_user_origin_id_example",
+        categories=[
+            "hris",
+        ],
+    ) # EndUserDetails | 
 
+    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.link_token_create(end_user_details)
         pprint(api_response)
-    except ApiException as e:
+    except MergeHRISClient.ApiException as e:
         print("Exception when calling LinkTokenApi->link_token_create: %s\n" % e)
 ```
 
@@ -61,7 +66,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **end_user_details** | [**EndUserDetails**](EndUserDetails.md)|  | 
+ **end_user_details** | [**EndUserDetails**](EndUserDetails.md)|  |
 
 ### Return type
 

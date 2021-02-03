@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
-**name** | **str** | The report&#39;s name. | [optional] 
-**content** | **str** | The report&#39;s content JSON. | [optional] 
+**name** | **str, none_type** | The report&#39;s name. | [optional] 
+**content** | **str, none_type** | The report&#39;s content JSON. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

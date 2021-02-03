@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
-**remote_id** | **str** | The third-party API ID of the matching object. | [optional] 
-**phone_number** | **str** | The location&#39;s phone number. | [optional] 
-**street_1** | **str** | Line 1 of the location&#39;s street address. | [optional] 
-**street_2** | **str** | Line 2 of the location&#39;s street address. | [optional] 
-**city** | **str** | The location&#39;s city. | [optional] 
-**state** | [**StateEnum**](StateEnum.md) | The location&#39;s state. | [optional] 
-**zip_code** | **str** | The location&#39;s zip code. | [optional] 
-**country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. | [optional] 
+**remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
+**phone_number** | **str, none_type** | The location&#39;s phone number. | [optional] 
+**street_1** | **str, none_type** | Line 1 of the location&#39;s street address. | [optional] 
+**street_2** | **str, none_type** | Line 2 of the location&#39;s street address. | [optional] 
+**city** | **str, none_type** | The location&#39;s city. | [optional] 
+**state** | **object, none_type** | The location&#39;s state. | [optional] 
+**zip_code** | **str, none_type** | The location&#39;s zip code. | [optional] 
+**country** | **object, none_type** | The location&#39;s country. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
