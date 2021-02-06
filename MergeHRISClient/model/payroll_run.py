@@ -77,8 +77,8 @@ class PayrollRun(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'remote_id': (str, none_type,),  # noqa: E501
-            'run_state': (object, none_type,),  # noqa: E501
-            'run_type': (object, none_type,),  # noqa: E501
+            'run_state': (str, none_type,),  # noqa: E501
+            'run_type': (str, none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
             'end_date': (datetime, none_type,),  # noqa: E501
             'check_date': (datetime, none_type,),  # noqa: E501
@@ -147,8 +147,8 @@ class PayrollRun(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            run_state (object, none_type): The state of the payroll run. [optional]  # noqa: E501
-            run_type (object, none_type): The type of the payroll run. [optional]  # noqa: E501
+            run_state (str, none_type): The state of the payroll run. [optional]  # noqa: E501
+            run_type (str, none_type): The type of the payroll run. [optional]  # noqa: E501
             start_date (datetime, none_type): The day and time the payroll run started.. [optional]  # noqa: E501
             end_date (datetime, none_type): The day and time the payroll run ended.. [optional]  # noqa: E501
             check_date (datetime, none_type): The day and time the payroll run was checked.. [optional]  # noqa: E501
