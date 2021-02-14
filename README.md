@@ -90,12 +90,11 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
+*AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
 *BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
 *BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
 *CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
 *CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
-*DocumentsApi* | [**documents_list**](docs/DocumentsApi.md#documents_list) | **GET** /documents | 
-*DocumentsApi* | [**documents_retrieve**](docs/DocumentsApi.md#documents_retrieve) | **GET** /documents/{id} | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
 *EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /employees | 
@@ -107,8 +106,6 @@ Class | Method | HTTP request | Description
 *LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
 *PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
-*ReportsApi* | [**reports_list**](docs/ReportsApi.md#reports_list) | **GET** /reports | 
-*ReportsApi* | [**reports_retrieve**](docs/ReportsApi.md#reports_retrieve) | **GET** /reports/{id} | 
 *TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
@@ -118,12 +115,12 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccountToken](docs/AccountToken.md)
+ - [AvailableActions](docs/AvailableActions.md)
  - [Benefit](docs/Benefit.md)
  - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [Company](docs/Company.md)
  - [CountryEnum](docs/CountryEnum.md)
  - [Deduction](docs/Deduction.md)
- - [Document](docs/Document.md)
  - [Earning](docs/Earning.md)
  - [Employee](docs/Employee.md)
  - [EmployeePayrollRun](docs/EmployeePayrollRun.md)
@@ -137,22 +134,20 @@ Class | Method | HTTP request | Description
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [ModelOperation](docs/ModelOperation.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
- - [PaginatedDocumentList](docs/PaginatedDocumentList.md)
  - [PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
  - [PaginatedLocationList](docs/PaginatedLocationList.md)
  - [PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
- - [PaginatedReportList](docs/PaginatedReportList.md)
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
  - [PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [PayCurrencyEnum](docs/PayCurrencyEnum.md)
  - [PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [PayPeriodEnum](docs/PayPeriodEnum.md)
  - [PayrollRun](docs/PayrollRun.md)
- - [Report](docs/Report.md)
  - [RequestTypeEnum](docs/RequestTypeEnum.md)
  - [RunStateEnum](docs/RunStateEnum.md)
  - [RunTypeEnum](docs/RunTypeEnum.md)

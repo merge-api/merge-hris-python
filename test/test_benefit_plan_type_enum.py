@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.benefit_plan_type_enum import BenefitPlanTypeEnum  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
+
 
 class TestBenefitPlanTypeEnum(unittest.TestCase):
     """BenefitPlanTypeEnum unit test stubs"""
@@ -29,23 +25,11 @@ class TestBenefitPlanTypeEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test BenefitPlanTypeEnum
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.benefit_plan_type_enum.BenefitPlanTypeEnum()  # noqa: E501
-        if include_optional :
-            return BenefitPlanTypeEnum(
-            )
-        else :
-            return BenefitPlanTypeEnum(
-        )
-
     def testBenefitPlanTypeEnum(self):
         """Test BenefitPlanTypeEnum"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = BenefitPlanTypeEnum()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

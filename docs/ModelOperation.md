@@ -1,11 +1,10 @@
-# PaginatedReportList
+# ModelOperation
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**next** | **str, none_type** |  | [optional] 
-**previous** | **str, none_type** |  | [optional] 
-**results** | [**[Report]**](Report.md) |  | [optional] 
+**model_name** | **str** |  | 
+**available_operations** | **[str]** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

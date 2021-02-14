@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,20 +9,17 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeHRISClient
 from MergeHRISClient.api.account_token_api import AccountTokenApi  # noqa: E501
-from MergeHRISClient.rest import ApiException
 
 
 class TestAccountTokenApi(unittest.TestCase):
     """AccountTokenApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeHRISClient.api.account_token_api.AccountTokenApi()  # noqa: E501
+        self.api = AccountTokenApi()  # noqa: E501
 
     def tearDown(self):
         pass

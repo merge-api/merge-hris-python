@@ -110,7 +110,6 @@ class Employee(ModelNormal):
             'employment_status': (str, none_type,),  # noqa: E501
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
-            'documents': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -142,7 +141,6 @@ class Employee(ModelNormal):
         'employment_status': 'employment_status',  # noqa: E501
         'termination_date': 'termination_date',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
-        'documents': 'documents',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -214,7 +212,6 @@ class Employee(ModelNormal):
             employment_status (str, none_type): The employment status of the employee.. [optional]  # noqa: E501
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501
-            documents ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

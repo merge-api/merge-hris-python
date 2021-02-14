@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.earning import Earning  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.earning import Earning
+
 
 class TestEarning(unittest.TestCase):
     """Earning unit test stubs"""
@@ -29,26 +25,11 @@ class TestEarning(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Earning
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.earning.Earning()  # noqa: E501
-        if include_optional :
-            return Earning(
-                employee_payroll_run = '35347df1-95e7-46e2-93cc-66f1191edca5', 
-                amount = 1002.34, 
-                type = SALARY
-            )
-        else :
-            return Earning(
-        )
-
     def testEarning(self):
         """Test Earning"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Earning()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

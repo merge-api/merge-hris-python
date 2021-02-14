@@ -50,7 +50,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
-    expand = "employments,documents,home_location,work_location,manager,team,company" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "employments,home_location,work_location,manager,team,company" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     manager_id = "manager_id_example" # str | If provided, will only return employees for this manager. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
@@ -152,7 +152,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     api_instance = employees_api.EmployeesApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    expand = "employments,documents,home_location,work_location,manager,team,company" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "employments,home_location,work_location,manager,team,company" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
 
     # example passing only required values which don't have defaults set
     try:

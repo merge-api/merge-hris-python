@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,34 +9,19 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeHRISClient
 from MergeHRISClient.api.teams_api import TeamsApi  # noqa: E501
-from MergeHRISClient.rest import ApiException
 
 
 class TestTeamsApi(unittest.TestCase):
     """TeamsApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeHRISClient.api.teams_api.TeamsApi()  # noqa: E501
+        self.api = TeamsApi()  # noqa: E501
 
     def tearDown(self):
-        pass
-
-    def test_teams_create(self):
-        """Test case for teams_create
-
-        """
-        pass
-
-    def test_teams_destroy(self):
-        """Test case for teams_destroy
-
-        """
         pass
 
     def test_teams_list(self):
@@ -47,20 +30,8 @@ class TestTeamsApi(unittest.TestCase):
         """
         pass
 
-    def test_teams_partial_update(self):
-        """Test case for teams_partial_update
-
-        """
-        pass
-
     def test_teams_retrieve(self):
         """Test case for teams_retrieve
-
-        """
-        pass
-
-    def test_teams_update(self):
-        """Test case for teams_update
 
         """
         pass

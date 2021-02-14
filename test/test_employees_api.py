@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,34 +9,19 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeHRISClient
 from MergeHRISClient.api.employees_api import EmployeesApi  # noqa: E501
-from MergeHRISClient.rest import ApiException
 
 
 class TestEmployeesApi(unittest.TestCase):
     """EmployeesApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeHRISClient.api.employees_api.EmployeesApi()  # noqa: E501
+        self.api = EmployeesApi()  # noqa: E501
 
     def tearDown(self):
-        pass
-
-    def test_employees_create(self):
-        """Test case for employees_create
-
-        """
-        pass
-
-    def test_employees_destroy(self):
-        """Test case for employees_destroy
-
-        """
         pass
 
     def test_employees_list(self):
@@ -47,20 +30,8 @@ class TestEmployeesApi(unittest.TestCase):
         """
         pass
 
-    def test_employees_partial_update(self):
-        """Test case for employees_partial_update
-
-        """
-        pass
-
     def test_employees_retrieve(self):
         """Test case for employees_retrieve
-
-        """
-        pass
-
-    def test_employees_update(self):
-        """Test case for employees_update
 
         """
         pass

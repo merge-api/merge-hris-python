@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.employee_payroll_run import EmployeePayrollRun
+globals()['EmployeePayrollRun'] = EmployeePayrollRun
+from MergeHRISClient.model.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList
+
 
 class TestPaginatedEmployeePayrollRunList(unittest.TestCase):
     """PaginatedEmployeePayrollRunList unit test stubs"""
@@ -29,42 +27,11 @@ class TestPaginatedEmployeePayrollRunList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedEmployeePayrollRunList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.paginated_employee_payroll_run_list.PaginatedEmployeePayrollRunList()  # noqa: E501
-        if include_optional :
-            return PaginatedEmployeePayrollRunList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeHRISClient.models.employee_payroll_run.EmployeePayrollRun(
-                        id = '0', 
-                        origin_id = '19202938', 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        employee = 'd2f972d0-2526-434b-9409-4c3b468e08f0', 
-                        payroll_run = '35347df1-95e7-46e2-93cc-66f1191edca5', 
-                        gross_pay = 1342.67, 
-                        net_pay = 865.78, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        check_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        earnings = [{"employee_payroll_run":"35347df1-95e7-46e2-93cc-66f1191edca5","amount":1002.34,"type":"SALARY"},{"employee_payroll_run":"35347df1-95e7-46e2-93cc-66f1191edca5","amount":8342.34,"type":"OVERTIME"}], 
-                        deductions = [{"employee_payroll_run":"35347df1-95e7-46e2-93cc-66f1191edca5","name":"Social Security","employee_deduction":34.54,"company_deduction":78.78}], 
-                        taxes = [{"employee_payroll_run":"35347df1-95e7-46e2-93cc-66f1191edca5","name":"California State Income Tax","amount":100.25,"employer_tax":"False"}], )
-                    ]
-            )
-        else :
-            return PaginatedEmployeePayrollRunList(
-        )
-
     def testPaginatedEmployeePayrollRunList(self):
         """Test PaginatedEmployeePayrollRunList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedEmployeePayrollRunList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

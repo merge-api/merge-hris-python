@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.team import Team  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.team import Team
+
 
 class TestTeam(unittest.TestCase):
     """Team unit test stubs"""
@@ -29,31 +25,11 @@ class TestTeam(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test Team
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.team.Team()  # noqa: E501
-        if include_optional :
-            return Team(
-                id = '0', 
-                origin_id = '19202938', 
-                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                name = 'Engineering'
-            )
-        else :
-            return Team(
-                id = '0',
-                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-        )
-
     def testTeam(self):
         """Test Team"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = Team()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

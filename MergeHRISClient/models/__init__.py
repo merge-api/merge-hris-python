@@ -10,12 +10,12 @@
 # sys.setrecursionlimit(n)
 
 from MergeHRISClient.model.account_token import AccountToken
+from MergeHRISClient.model.available_actions import AvailableActions
 from MergeHRISClient.model.benefit import Benefit
 from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
 from MergeHRISClient.model.company import Company
 from MergeHRISClient.model.country_enum import CountryEnum
 from MergeHRISClient.model.deduction import Deduction
-from MergeHRISClient.model.document import Document
 from MergeHRISClient.model.earning import Earning
 from MergeHRISClient.model.employee import Employee
 from MergeHRISClient.model.employee_payroll_run import EmployeePayrollRun
@@ -29,22 +29,20 @@ from MergeHRISClient.model.gender_enum import GenderEnum
 from MergeHRISClient.model.link_token import LinkToken
 from MergeHRISClient.model.location import Location
 from MergeHRISClient.model.marital_status_enum import MaritalStatusEnum
+from MergeHRISClient.model.model_operation import ModelOperation
 from MergeHRISClient.model.paginated_benefit_list import PaginatedBenefitList
 from MergeHRISClient.model.paginated_company_list import PaginatedCompanyList
-from MergeHRISClient.model.paginated_document_list import PaginatedDocumentList
 from MergeHRISClient.model.paginated_employee_list import PaginatedEmployeeList
 from MergeHRISClient.model.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList
 from MergeHRISClient.model.paginated_employment_list import PaginatedEmploymentList
 from MergeHRISClient.model.paginated_location_list import PaginatedLocationList
 from MergeHRISClient.model.paginated_payroll_run_list import PaginatedPayrollRunList
-from MergeHRISClient.model.paginated_report_list import PaginatedReportList
 from MergeHRISClient.model.paginated_team_list import PaginatedTeamList
 from MergeHRISClient.model.paginated_time_off_list import PaginatedTimeOffList
 from MergeHRISClient.model.pay_currency_enum import PayCurrencyEnum
 from MergeHRISClient.model.pay_frequency_enum import PayFrequencyEnum
 from MergeHRISClient.model.pay_period_enum import PayPeriodEnum
 from MergeHRISClient.model.payroll_run import PayrollRun
-from MergeHRISClient.model.report import Report
 from MergeHRISClient.model.request_type_enum import RequestTypeEnum
 from MergeHRISClient.model.run_state_enum import RunStateEnum
 from MergeHRISClient.model.run_type_enum import RunTypeEnum

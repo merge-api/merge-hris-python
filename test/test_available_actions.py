@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import MergeHRISClient
-from MergeHRISClient.model.gender_enum import GenderEnum
+from MergeHRISClient.model.model_operation import ModelOperation
+globals()['ModelOperation'] = ModelOperation
+from MergeHRISClient.model.available_actions import AvailableActions
 
 
-class TestGenderEnum(unittest.TestCase):
-    """GenderEnum unit test stubs"""
+class TestAvailableActions(unittest.TestCase):
+    """AvailableActions unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestGenderEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGenderEnum(self):
-        """Test GenderEnum"""
+    def testAvailableActions(self):
+        """Test AvailableActions"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GenderEnum()  # noqa: E501
+        # model = AvailableActions()  # noqa: E501
         pass
 
 

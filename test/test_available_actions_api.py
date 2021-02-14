@@ -9,26 +9,25 @@
 """
 
 
-import sys
 import unittest
 
 import MergeHRISClient
-from MergeHRISClient.model.gender_enum import GenderEnum
+from MergeHRISClient.api.available_actions_api import AvailableActionsApi  # noqa: E501
 
 
-class TestGenderEnum(unittest.TestCase):
-    """GenderEnum unit test stubs"""
+class TestAvailableActionsApi(unittest.TestCase):
+    """AvailableActionsApi unit test stubs"""
 
     def setUp(self):
-        pass
+        self.api = AvailableActionsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def testGenderEnum(self):
-        """Test GenderEnum"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = GenderEnum()  # noqa: E501
+    def test_available_actions_retrieve(self):
+        """Test case for available_actions_retrieve
+
+        """
         pass
 
 

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.link_token import LinkToken  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.link_token import LinkToken
+
 
 class TestLinkToken(unittest.TestCase):
     """LinkToken unit test stubs"""
@@ -29,25 +25,11 @@ class TestLinkToken(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test LinkToken
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.link_token.LinkToken()  # noqa: E501
-        if include_optional :
-            return LinkToken(
-                link_token = '0'
-            )
-        else :
-            return LinkToken(
-                link_token = '0',
-        )
-
     def testLinkToken(self):
         """Test LinkToken"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = LinkToken()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

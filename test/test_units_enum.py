@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.units_enum import UnitsEnum  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.units_enum import UnitsEnum
+
 
 class TestUnitsEnum(unittest.TestCase):
     """UnitsEnum unit test stubs"""
@@ -29,23 +25,11 @@ class TestUnitsEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test UnitsEnum
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.units_enum.UnitsEnum()  # noqa: E501
-        if include_optional :
-            return UnitsEnum(
-            )
-        else :
-            return UnitsEnum(
-        )
-
     def testUnitsEnum(self):
         """Test UnitsEnum"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = UnitsEnum()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

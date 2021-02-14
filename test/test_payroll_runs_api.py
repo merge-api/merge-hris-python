@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,34 +9,19 @@
 """
 
 
-from __future__ import absolute_import
-
 import unittest
 
 import MergeHRISClient
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi  # noqa: E501
-from MergeHRISClient.rest import ApiException
 
 
 class TestPayrollRunsApi(unittest.TestCase):
     """PayrollRunsApi unit test stubs"""
 
     def setUp(self):
-        self.api = MergeHRISClient.api.payroll_runs_api.PayrollRunsApi()  # noqa: E501
+        self.api = PayrollRunsApi()  # noqa: E501
 
     def tearDown(self):
-        pass
-
-    def test_payroll_runs_create(self):
-        """Test case for payroll_runs_create
-
-        """
-        pass
-
-    def test_payroll_runs_destroy(self):
-        """Test case for payroll_runs_destroy
-
-        """
         pass
 
     def test_payroll_runs_list(self):
@@ -47,20 +30,8 @@ class TestPayrollRunsApi(unittest.TestCase):
         """
         pass
 
-    def test_payroll_runs_partial_update(self):
-        """Test case for payroll_runs_partial_update
-
-        """
-        pass
-
     def test_payroll_runs_retrieve(self):
         """Test case for payroll_runs_retrieve
-
-        """
-        pass
-
-    def test_payroll_runs_update(self):
-        """Test case for payroll_runs_update
 
         """
         pass

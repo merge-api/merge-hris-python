@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.paginated_company_list import PaginatedCompanyList  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.company import Company
+globals()['Company'] = Company
+from MergeHRISClient.model.paginated_company_list import PaginatedCompanyList
+
 
 class TestPaginatedCompanyList(unittest.TestCase):
     """PaginatedCompanyList unit test stubs"""
@@ -29,37 +27,11 @@ class TestPaginatedCompanyList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedCompanyList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.paginated_company_list.PaginatedCompanyList()  # noqa: E501
-        if include_optional :
-            return PaginatedCompanyList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeHRISClient.models.company.Company(
-                        id = '0', 
-                        origin_id = '19202938', 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        legal_name = 'Merge API Inc.', 
-                        display_name = 'Merge', 
-                        ei_ns = [
-                            '0'
-                            ], )
-                    ]
-            )
-        else :
-            return PaginatedCompanyList(
-        )
-
     def testPaginatedCompanyList(self):
         """Test PaginatedCompanyList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedCompanyList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

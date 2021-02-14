@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,12 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.request_type_enum import RequestTypeEnum  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.request_type_enum import RequestTypeEnum
+
 
 class TestRequestTypeEnum(unittest.TestCase):
     """RequestTypeEnum unit test stubs"""
@@ -29,23 +25,11 @@ class TestRequestTypeEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test RequestTypeEnum
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.request_type_enum.RequestTypeEnum()  # noqa: E501
-        if include_optional :
-            return RequestTypeEnum(
-            )
-        else :
-            return RequestTypeEnum(
-        )
-
     def testRequestTypeEnum(self):
         """Test RequestTypeEnum"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = RequestTypeEnum()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

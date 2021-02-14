@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.paginated_employment_list import PaginatedEmploymentList  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.employment import Employment
+globals()['Employment'] = Employment
+from MergeHRISClient.model.paginated_employment_list import PaginatedEmploymentList
+
 
 class TestPaginatedEmploymentList(unittest.TestCase):
     """PaginatedEmploymentList unit test stubs"""
@@ -29,40 +27,11 @@ class TestPaginatedEmploymentList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedEmploymentList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.paginated_employment_list.PaginatedEmploymentList()  # noqa: E501
-        if include_optional :
-            return PaginatedEmploymentList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeHRISClient.models.employment.Employment(
-                        id = '0', 
-                        origin_id = '19202938', 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        job_title = 'Software Engineer', 
-                        pay_rate = 80000.00, 
-                        pay_period = YEAR, 
-                        pay_frequency = BIWEEKLY, 
-                        pay_currency = USD, 
-                        fisa_status = EXEMPT, 
-                        effective_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        employment_type = null, )
-                    ]
-            )
-        else :
-            return PaginatedEmploymentList(
-        )
-
     def testPaginatedEmploymentList(self):
         """Test PaginatedEmploymentList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedEmploymentList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

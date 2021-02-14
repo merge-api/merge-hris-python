@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.paginated_benefit_list import PaginatedBenefitList  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.benefit import Benefit
+globals()['Benefit'] = Benefit
+from MergeHRISClient.model.paginated_benefit_list import PaginatedBenefitList
+
 
 class TestPaginatedBenefitList(unittest.TestCase):
     """PaginatedBenefitList unit test stubs"""
@@ -29,37 +27,11 @@ class TestPaginatedBenefitList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedBenefitList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.paginated_benefit_list.PaginatedBenefitList()  # noqa: E501
-        if include_optional :
-            return PaginatedBenefitList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeHRISClient.models.benefit.Benefit(
-                        id = '0', 
-                        origin_id = '19202938', 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        employee = 'd2f972d0-2526-434b-9409-4c3b468e08f0', 
-                        provider_name = 'Blue Shield of California', 
-                        benefit_plan_type = MEDICAL, 
-                        employee_contribution = 23.65, 
-                        company_contribution = 150.0, )
-                    ]
-            )
-        else :
-            return PaginatedBenefitList(
-        )
-
     def testPaginatedBenefitList(self):
         """Test PaginatedBenefitList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedBenefitList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':

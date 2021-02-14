@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Merge HRIS API
 
@@ -11,14 +9,14 @@
 """
 
 
-from __future__ import absolute_import
-
+import sys
 import unittest
-import datetime
 
 import MergeHRISClient
-from MergeHRISClient.models.paginated_employee_list import PaginatedEmployeeList  # noqa: E501
-from MergeHRISClient.rest import ApiException
+from MergeHRISClient.model.employee import Employee
+globals()['Employee'] = Employee
+from MergeHRISClient.model.paginated_employee_list import PaginatedEmployeeList
+
 
 class TestPaginatedEmployeeList(unittest.TestCase):
     """PaginatedEmployeeList unit test stubs"""
@@ -29,68 +27,11 @@ class TestPaginatedEmployeeList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
-        """Test PaginatedEmployeeList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
-        # model = MergeHRISClient.models.paginated_employee_list.PaginatedEmployeeList()  # noqa: E501
-        if include_optional :
-            return PaginatedEmployeeList(
-                next = '0', 
-                previous = '0', 
-                results = [
-                    MergeHRISClient.models.employee.Employee(
-                        id = '0', 
-                        origin_id = '19202938', 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        company = '8d9fd929-436c-4fd4-a48b-0c61f68d6178', 
-                        first_name = 'Jane', 
-                        last_name = 'Doe', 
-                        display_full_name = 'Jane Doe', 
-                        work_email = 'jane@merge.dev', 
-                        personal_email = 'jane@gmail.com', 
-                        mobile_phone_number = '+1234567890', 
-                        employments = [
-                            MergeHRISClient.models.employment.Employment(
-                                id = '0', 
-                                origin_id = '19202938', 
-                                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                job_title = 'Software Engineer', 
-                                pay_rate = 80000.00, 
-                                pay_period = YEAR, 
-                                pay_frequency = BIWEEKLY, 
-                                pay_currency = USD, 
-                                fisa_status = EXEMPT, 
-                                effective_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                employment_type = null, )
-                            ], 
-                        home_location = 'd2f972d0-2526-434b-9409-4c3b468e08f0', 
-                        work_location = '9efbc633-3387-4306-aa55-e2c635e6bb4f', 
-                        manager = '0048ea5b-911e-4dff-9364-92070dea62ff', 
-                        team = '249c9faa-3045-4a31-953b-8f22d3613301', 
-                        ssn = '1234567890', 
-                        gender = FEMALE, 
-                        ethnicity = AMERICAN INDIAN OR ALASKA NATIVE, 
-                        marital_status = SINGLE, 
-                        date_of_birth = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        hire_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        employment_status = ACTIVE, 
-                        termination_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        avatar = 'http://alturl.com/p749b', 
-                        about = 'Employee description!', )
-                    ]
-            )
-        else :
-            return PaginatedEmployeeList(
-        )
-
     def testPaginatedEmployeeList(self):
         """Test PaginatedEmployeeList"""
-        inst_req_only = self.make_instance(include_optional=False)
-        inst_req_and_optional = self.make_instance(include_optional=True)
+        # FIXME: construct object with mandatory attributes with example values
+        # model = PaginatedEmployeeList()  # noqa: E501
+        pass
 
 
 if __name__ == '__main__':
