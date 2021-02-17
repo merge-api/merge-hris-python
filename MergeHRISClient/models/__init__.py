@@ -26,6 +26,7 @@ from MergeHRISClient.model.end_user_details import EndUserDetails
 from MergeHRISClient.model.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.model.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.model.gender_enum import GenderEnum
+from MergeHRISClient.model.integration_public import IntegrationPublic
 from MergeHRISClient.model.link_token import LinkToken
 from MergeHRISClient.model.location import Location
 from MergeHRISClient.model.marital_status_enum import MaritalStatusEnum

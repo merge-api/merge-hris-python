@@ -4,9 +4,105 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**time_off_create**](TimeOffApi.md#time_off_create) | **POST** /time-off | 
 [**time_off_list**](TimeOffApi.md#time_off_list) | **GET** /time-off | 
 [**time_off_retrieve**](TimeOffApi.md#time_off_retrieve) | **GET** /time-off/{id} | 
 
+
+# **time_off_create**
+> TimeOff time_off_create(x_account_token)
+
+
+
+Creates a `TimeOff` object with the given values.
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+```python
+import time
+import MergeHRISClient
+from MergeHRISClient.api import time_off_api
+from MergeHRISClient.model.time_off import TimeOff
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeHRISClient.Configuration(
+    host = "https://api.merge.dev/api/hris/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeHRISClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = time_off_api.TimeOffApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+    time_off = TimeOff(
+        id="91b2b905-e866-40c8-8be2-efe53827a0aa",
+        remote_id="19202938",
+        employee="d2f972d0-2526-434b-9409-4c3b468e08f0",
+        approver="9efbc633-3387-4306-aa55-e2c635e6bb4f",
+        status="status_example",
+        employee_note="Trip to Iowa. Miss those cornfields!",
+        units="units_example",
+        amount=13,
+        request_type="request_type_example",
+    ) # TimeOff |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.time_off_create(x_account_token)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling TimeOffApi->time_off_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.time_off_create(x_account_token, run_async=run_async, time_off=time_off)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling TimeOffApi->time_off_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
+ **time_off** | [**TimeOff**](TimeOff.md)|  | [optional]
+
+### Return type
+
+[**TimeOff**](TimeOff.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **time_off_list**
 > PaginatedTimeOffList time_off_list(x_account_token)

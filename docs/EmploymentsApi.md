@@ -4,9 +4,106 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**employments_create**](EmploymentsApi.md#employments_create) | **POST** /employments | 
 [**employments_list**](EmploymentsApi.md#employments_list) | **GET** /employments | 
 [**employments_retrieve**](EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
 
+
+# **employments_create**
+> Employment employments_create(x_account_token)
+
+
+
+Creates an `Employment` object with the given values.
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+```python
+import time
+import MergeHRISClient
+from MergeHRISClient.api import employments_api
+from MergeHRISClient.model.employment import Employment
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeHRISClient.Configuration(
+    host = "https://api.merge.dev/api/hris/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeHRISClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = employments_api.EmploymentsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+    employment = Employment(
+        id="65d8ffd0-211b-4ba4-b85a-fbe2ce220982",
+        remote_id="19202938",
+        job_title="Software Engineer",
+        pay_rate=80000.00,
+        pay_period="pay_period_example",
+        pay_frequency="pay_frequency_example",
+        pay_currency="pay_currency_example",
+        flsa_status="flsa_status_example",
+        effective_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        employment_type="employment_type_example",
+    ) # Employment |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.employments_create(x_account_token)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling EmploymentsApi->employments_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.employments_create(x_account_token, run_async=run_async, employment=employment)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling EmploymentsApi->employments_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
+ **employment** | [**Employment**](Employment.md)|  | [optional]
+
+### Return type
+
+[**Employment**](Employment.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **employments_list**
 > PaginatedEmploymentList employments_list(x_account_token)

@@ -37,6 +37,7 @@ MergeHRISClient/model/end_user_details.py
 MergeHRISClient/model/ethnicity_enum.py
 MergeHRISClient/model/flsa_status_enum.py
 MergeHRISClient/model/gender_enum.py
+MergeHRISClient/model/integration_public.py
 MergeHRISClient/model/link_token.py
 MergeHRISClient/model/location.py
 MergeHRISClient/model/marital_status_enum.py
@@ -93,6 +94,7 @@ docs/EndUserDetails.md
 docs/EthnicityEnum.md
 docs/FlsaStatusEnum.md
 docs/GenderEnum.md
+docs/IntegrationPublic.md
 docs/LinkToken.md
 docs/LinkTokenApi.md
 docs/Location.md
@@ -131,4 +133,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_integration_public.py
 tox.ini

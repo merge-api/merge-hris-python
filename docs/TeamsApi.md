@@ -4,9 +4,99 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**teams_create**](TeamsApi.md#teams_create) | **POST** /teams | 
 [**teams_list**](TeamsApi.md#teams_list) | **GET** /teams | 
 [**teams_retrieve**](TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 
+
+# **teams_create**
+> Team teams_create(x_account_token)
+
+
+
+Creates a `Team` object with the given values.
+
+### Example
+
+* Api Key Authentication (tokenAuth):
+```python
+import time
+import MergeHRISClient
+from MergeHRISClient.api import teams_api
+from MergeHRISClient.model.team import Team
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = MergeHRISClient.Configuration(
+    host = "https://api.merge.dev/api/hris/v1"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: tokenAuth
+configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with MergeHRISClient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = teams_api.TeamsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
+    team = Team(
+        id="13a72919-9fae-4f54-81ca-ddfd8712a1ba",
+        remote_id="19202938",
+        name="Engineering",
+    ) # Team |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.teams_create(x_account_token)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling TeamsApi->teams_create: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.teams_create(x_account_token, run_async=run_async, team=team)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling TeamsApi->teams_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
+ **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
+ **team** | [**Team**](Team.md)|  | [optional]
+
+### Return type
+
+[**Team**](Team.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **teams_list**
 > PaginatedTeamList teams_list(x_account_token)
