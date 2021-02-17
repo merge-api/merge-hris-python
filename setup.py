@@ -1,7 +1,7 @@
 """
-    Merge HRIS API
+    Merge ATS API
 
-    The unified API for building rich integrations with multiple HR Information System platforms.  # noqa: E501
+    The unified API for building rich integrations with multiple Applicant Tracking System platforms.  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: hello@merge.dev
@@ -29,16 +29,16 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="Merge HRIS API",
+    description="Merge ATS API",
     author="Merge Team",
     author_email="hello@merge.dev",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "Merge HRIS API"],
+    keywords=["OpenAPI", "OpenAPI-Generator", "Merge ATS API"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""\
-    The unified API for building rich integrations with multiple HR Information System platforms.  # noqa: E501
+    The unified API for building rich integrations with multiple Applicant Tracking System platforms.  # noqa: E501
     """
 )

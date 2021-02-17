@@ -1,7 +1,7 @@
 """
-    Merge HRIS API
+    Merge ATS API
 
-    The unified API for building rich integrations with multiple HR Information System platforms.  # noqa: E501
+    The unified API for building rich integrations with multiple Applicant Tracking System platforms.  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: hello@merge.dev
@@ -54,9 +54,7 @@ class GenderEnum(ModelSimple):
         ('value',): {
             'MALE': "MALE",
             'FEMALE': "FEMALE",
-            'NON-BINARY': "NON-BINARY",
-            'OTHER': "OTHER",
-            'PREFER_NOT_TO_DISCLOSE': "PREFER_NOT_TO_DISCLOSE",
+            'DECLINE_TO_SELF_IDENTIFY': "DECLINE_TO_SELF_IDENTIFY",
         },
     }
 
@@ -106,10 +104,10 @@ class GenderEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["MALE", "FEMALE", "NON-BINARY", "OTHER", "PREFER_NOT_TO_DISCLOSE", ]  # noqa: E501
+            args[0] (str):, must be one of ["MALE", "FEMALE", "DECLINE_TO_SELF_IDENTIFY", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["MALE", "FEMALE", "NON-BINARY", "OTHER", "PREFER_NOT_TO_DISCLOSE", ]  # noqa: E501
+            value (str):, must be one of ["MALE", "FEMALE", "DECLINE_TO_SELF_IDENTIFY", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

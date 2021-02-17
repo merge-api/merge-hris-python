@@ -1,6 +1,6 @@
 # MergeHRISClient.AccountTokenApi
 
-All URIs are relative to *https://api.merge.dev/api/hris/v1*
+All URIs are relative to *https://api.merge.dev/api/ats/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,10 +23,10 @@ import MergeHRISClient
 from MergeHRISClient.api import account_token_api
 from MergeHRISClient.model.account_token import AccountToken
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
+# Defining the host is optional and defaults to https://api.merge.dev/api/ats/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = MergeHRISClient.Configuration(
-    host = "https://api.merge.dev/api/hris/v1"
+    host = "https://api.merge.dev/api/ats/v1"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -1,7 +1,7 @@
 """
-    Merge HRIS API
+    Merge ATS API
 
-    The unified API for building rich integrations with multiple HR Information System platforms.  # noqa: E501
+    The unified API for building rich integrations with multiple Applicant Tracking System platforms.  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: hello@merge.dev
@@ -30,7 +30,9 @@ from MergeHRISClient.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
+    from MergeHRISClient.model.integration_public import IntegrationPublic
     from MergeHRISClient.model.model_operation import ModelOperation
+    globals()['IntegrationPublic'] = IntegrationPublic
     globals()['ModelOperation'] = ModelOperation
 
 
@@ -80,6 +82,7 @@ class AvailableActions(ModelNormal):
         """
         lazy_import()
         return {
+            'integration': (IntegrationPublic,),  # noqa: E501
             'available_model_operations': ([ModelOperation],),  # noqa: E501
         }
 
@@ -89,6 +92,7 @@ class AvailableActions(ModelNormal):
 
 
     attribute_map = {
+        'integration': 'integration',  # noqa: E501
         'available_model_operations': 'available_model_operations',  # noqa: E501
     }
 
@@ -104,8 +108,11 @@ class AvailableActions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, integration, *args, **kwargs):  # noqa: E501
         """AvailableActions - a model defined in OpenAPI
+
+        Args:
+            integration (IntegrationPublic):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,6 +171,7 @@ class AvailableActions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.integration = integration
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

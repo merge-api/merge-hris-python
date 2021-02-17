@@ -1,7 +1,7 @@
 """
-    Merge HRIS API
+    Merge ATS API
 
-    The unified API for building rich integrations with multiple HR Information System platforms.  # noqa: E501
+    The unified API for building rich integrations with multiple Applicant Tracking System platforms.  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: hello@merge.dev
@@ -112,7 +112,7 @@ conf = MergeHRISClient.Configuration(
                  ):
         """Constructor
         """
-        self._base_path = "https://api.merge.dev/api/hris/v1" if host is None else host
+        self._base_path = "https://api.merge.dev/api/ats/v1" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -415,11 +415,11 @@ conf = MergeHRISClient.Configuration(
         """
         return [
             {
-                'url': "https://api.merge.dev/api/hris/v1",
+                'url': "https://api.merge.dev/api/ats/v1",
                 'description': "Production",
             },
             {
-                'url': "https://api-sandbox.merge.dev/api/hris/v1",
+                'url': "https://api-sandbox.merge.dev/api/ats/v1",
                 'description': "Sandbox",
             }
         ]
