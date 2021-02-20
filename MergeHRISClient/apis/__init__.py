@@ -23,6 +23,7 @@ from MergeHRISClient.api.employees_api import EmployeesApi
 from MergeHRISClient.api.employments_api import EmploymentsApi
 from MergeHRISClient.api.link_token_api import LinkTokenApi
 from MergeHRISClient.api.locations_api import LocationsApi
+from MergeHRISClient.api.passthrough_api import PassthroughApi
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
 from MergeHRISClient.api.teams_api import TeamsApi
 from MergeHRISClient.api.time_off_api import TimeOffApi

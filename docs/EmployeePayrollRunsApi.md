@@ -51,6 +51,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     employee_id = "employee_id_example" # str | If provided, will only return time off for this employee. (optional)
     expand = "employee,payroll_run" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
@@ -67,7 +68,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.employee_payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id)
+        api_response = api_instance.employee_payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_list: %s\n" % e)
@@ -83,6 +84,7 @@ Name | Type | Description  | Notes
  **cursor** | **str**| The pagination cursor value. | [optional]
  **employee_id** | **str**| If provided, will only return time off for this employee. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
@@ -149,6 +151,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
     expand = "employee,payroll_run" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -160,7 +163,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.employee_payroll_runs_retrieve(x_account_token, id, expand=expand)
+        api_response = api_instance.employee_payroll_runs_retrieve(x_account_token, id, expand=expand, include_remote_data=include_remote_data)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_retrieve: %s\n" % e)
@@ -173,6 +176,7 @@ Name | Type | Description  | Notes
  **x_account_token** | **str**| Token identifying the end user. |
  **id** | **str**|  |
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type
 

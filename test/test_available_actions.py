@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import MergeHRISClient
+from MergeHRISClient.model.account_integration import AccountIntegration
 from MergeHRISClient.model.model_operation import ModelOperation
+globals()['AccountIntegration'] = AccountIntegration
 globals()['ModelOperation'] = ModelOperation
 from MergeHRISClient.model.available_actions import AvailableActions
 

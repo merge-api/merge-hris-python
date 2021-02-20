@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **flsa_status** | **str, none_type** | The position&#39;s FLSA status. | [optional] 
 **effective_date** | **datetime, none_type** | The position&#39;s effective date. | [optional] 
 **employment_type** | **str, none_type** | The position&#39;s type of employment. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

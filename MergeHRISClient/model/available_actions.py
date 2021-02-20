@@ -30,7 +30,9 @@ from MergeHRISClient.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
+    from MergeHRISClient.model.account_integration import AccountIntegration
     from MergeHRISClient.model.model_operation import ModelOperation
+    globals()['AccountIntegration'] = AccountIntegration
     globals()['ModelOperation'] = ModelOperation
 
 
@@ -80,6 +82,8 @@ class AvailableActions(ModelNormal):
         """
         lazy_import()
         return {
+            'integration': (AccountIntegration,),  # noqa: E501
+            'passthrough_available': (bool,),  # noqa: E501
             'available_model_operations': ([ModelOperation],),  # noqa: E501
         }
 
@@ -89,6 +93,8 @@ class AvailableActions(ModelNormal):
 
 
     attribute_map = {
+        'integration': 'integration',  # noqa: E501
+        'passthrough_available': 'passthrough_available',  # noqa: E501
         'available_model_operations': 'available_model_operations',  # noqa: E501
     }
 
@@ -104,8 +110,12 @@ class AvailableActions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, integration, passthrough_available, *args, **kwargs):  # noqa: E501
         """AvailableActions - a model defined in OpenAPI
+
+        Args:
+            integration (AccountIntegration):
+            passthrough_available (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,6 +174,8 @@ class AvailableActions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.integration = integration
+        self.passthrough_available = passthrough_available
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

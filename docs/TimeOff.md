@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **units** | **str, none_type** | The unit of time requested. | [optional] 
 **amount** | **float, none_type** | The number of time off units requested. | [optional] 
 **request_type** | **str, none_type** | The type of time off request. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

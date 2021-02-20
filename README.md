@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
 *LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
 *LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
+*PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
 *PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
@@ -114,12 +115,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccountIntegration](docs/AccountIntegration.md)
  - [AccountToken](docs/AccountToken.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Benefit](docs/Benefit.md)
  - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [Company](docs/Company.md)
  - [CountryEnum](docs/CountryEnum.md)
+ - [DataPassthrough](docs/DataPassthrough.md)
  - [Deduction](docs/Deduction.md)
  - [Earning](docs/Earning.md)
  - [Employee](docs/Employee.md)
@@ -134,6 +137,7 @@ Class | Method | HTTP request | Description
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [MethodEnum](docs/MethodEnum.md)
  - [ModelOperation](docs/ModelOperation.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
@@ -148,6 +152,8 @@ Class | Method | HTTP request | Description
  - [PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [PayPeriodEnum](docs/PayPeriodEnum.md)
  - [PayrollRun](docs/PayrollRun.md)
+ - [RemoteData](docs/RemoteData.md)
+ - [RemoteResponse](docs/RemoteResponse.md)
  - [RequestTypeEnum](docs/RequestTypeEnum.md)
  - [RunStateEnum](docs/RunStateEnum.md)
  - [RunTypeEnum](docs/RunTypeEnum.md)
