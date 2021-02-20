@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import MergeHRISClient
+from MergeHRISClient.model.remote_data import RemoteData
+globals()['RemoteData'] = RemoteData
 from MergeHRISClient.model.benefit import Benefit
 
 

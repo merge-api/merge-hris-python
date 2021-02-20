@@ -15,9 +15,11 @@ import unittest
 import MergeHRISClient
 from MergeHRISClient.model.deduction import Deduction
 from MergeHRISClient.model.earning import Earning
+from MergeHRISClient.model.remote_data import RemoteData
 from MergeHRISClient.model.tax import Tax
 globals()['Deduction'] = Deduction
 globals()['Earning'] = Earning
+globals()['RemoteData'] = RemoteData
 globals()['Tax'] = Tax
 from MergeHRISClient.model.employee_payroll_run import EmployeePayrollRun
 

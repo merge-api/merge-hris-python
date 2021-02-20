@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **employment_status** | **str, none_type** | The employment status of the employee. | [optional] 
 **termination_date** | **datetime, none_type** | The employee&#39;s termination date. | [optional] 
 **avatar** | **str, none_type** | The URL of the employee&#39;s avatar image. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

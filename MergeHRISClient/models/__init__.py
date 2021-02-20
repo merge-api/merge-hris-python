@@ -9,12 +9,14 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from MergeHRISClient.model.account_integration import AccountIntegration
 from MergeHRISClient.model.account_token import AccountToken
 from MergeHRISClient.model.available_actions import AvailableActions
 from MergeHRISClient.model.benefit import Benefit
 from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
 from MergeHRISClient.model.company import Company
 from MergeHRISClient.model.country_enum import CountryEnum
+from MergeHRISClient.model.data_passthrough import DataPassthrough
 from MergeHRISClient.model.deduction import Deduction
 from MergeHRISClient.model.earning import Earning
 from MergeHRISClient.model.employee import Employee
@@ -29,6 +31,7 @@ from MergeHRISClient.model.gender_enum import GenderEnum
 from MergeHRISClient.model.link_token import LinkToken
 from MergeHRISClient.model.location import Location
 from MergeHRISClient.model.marital_status_enum import MaritalStatusEnum
+from MergeHRISClient.model.method_enum import MethodEnum
 from MergeHRISClient.model.model_operation import ModelOperation
 from MergeHRISClient.model.paginated_benefit_list import PaginatedBenefitList
 from MergeHRISClient.model.paginated_company_list import PaginatedCompanyList
@@ -43,6 +46,8 @@ from MergeHRISClient.model.pay_currency_enum import PayCurrencyEnum
 from MergeHRISClient.model.pay_frequency_enum import PayFrequencyEnum
 from MergeHRISClient.model.pay_period_enum import PayPeriodEnum
 from MergeHRISClient.model.payroll_run import PayrollRun
+from MergeHRISClient.model.remote_data import RemoteData
+from MergeHRISClient.model.remote_response import RemoteResponse
 from MergeHRISClient.model.request_type_enum import RequestTypeEnum
 from MergeHRISClient.model.run_state_enum import RunStateEnum
 from MergeHRISClient.model.run_type_enum import RunTypeEnum

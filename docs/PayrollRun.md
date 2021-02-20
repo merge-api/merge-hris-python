@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **start_date** | **datetime, none_type** | The day and time the payroll run started. | [optional] 
 **end_date** | **datetime, none_type** | The day and time the payroll run ended. | [optional] 
 **check_date** | **datetime, none_type** | The day and time the payroll run was checked. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
