@@ -116,7 +116,6 @@ class Employee(ModelNormal):
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
-            'extra_value': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +148,6 @@ class Employee(ModelNormal):
         'termination_date': 'termination_date',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
-        'extra_value': 'extra_value',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -222,7 +220,6 @@ class Employee(ModelNormal):
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
-            extra_value (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
