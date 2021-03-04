@@ -47,7 +47,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     api_instance = passthrough_api.PassthroughApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     data_passthrough = DataPassthrough(
-        method="method_example",
+        method=,
         path="/scooters",
         data={
             "key": None,

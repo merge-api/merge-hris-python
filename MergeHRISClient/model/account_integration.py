@@ -55,6 +55,10 @@ class AccountIntegration(ModelNormal):
     """
 
     allowed_values = {
+        ('categories',): {
+            'HRIS': "hris",
+            'ATS': "ats",
+        },
     }
 
     validations = {
@@ -150,7 +154,7 @@ class AccountIntegration(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            categories ([str]): [optional]  # noqa: E501
+            categories ([str]): Category or categories this integration belongs to. Multiple categories should be comma separated.<br />For [ats, hris], enter <i>ats,hris</i>. [optional]  # noqa: E501
             image (str, none_type): Company logo.. [optional]  # noqa: E501
             square_image (str, none_type): Company logo in square shape.. [optional]  # noqa: E501
             color (str): The color of this integration used for buttons and text throughout the app and landing pages. Choose a darker, saturated color.. [optional]  # noqa: E501

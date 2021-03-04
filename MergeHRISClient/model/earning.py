@@ -78,7 +78,7 @@ class Earning(ModelNormal):
             'id': (str,),  # noqa: E501
             'employee_payroll_run': (str, none_type,),  # noqa: E501
             'amount': (float, none_type,),  # noqa: E501
-            'type': (str, none_type,),  # noqa: E501
+            'type': (object, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -142,7 +142,7 @@ class Earning(ModelNormal):
             id (str): [optional]  # noqa: E501
             employee_payroll_run (str, none_type): The earning's employee payroll run.. [optional]  # noqa: E501
             amount (float, none_type): The amount earned.. [optional]  # noqa: E501
-            type (str, none_type): The type of earning.. [optional]  # noqa: E501
+            type (object, none_type): The type of earning.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
