@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
 **employee_payroll_run** | **str, none_type** | The tax&#39;s employee payroll run. | [optional] 
-**name** | **str, none_type** | The deduction&#39;s name. | [optional] 
+**name** | **str, none_type** | The tax&#39;s name. | [optional] 
 **amount** | **float, none_type** | The tax amount. | [optional] 
 **employer_tax** | **bool, none_type** | Whether or not the employer is responsible for paying the tax. | [optional] 
 

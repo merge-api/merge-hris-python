@@ -45,10 +45,19 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = available_actions_api.AvailableActionsApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.available_actions_retrieve(x_account_token)
+        pprint(api_response)
+    except MergeHRISClient.ApiException as e:
+        print("Exception when calling AvailableActionsApi->available_actions_retrieve: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        api_response = api_instance.available_actions_retrieve(x_account_token, include_remote_data=include_remote_data)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling AvailableActionsApi->available_actions_retrieve: %s\n" % e)
@@ -59,6 +68,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
+ **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type
 

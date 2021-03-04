@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
 **job_title** | **str, none_type** | The position&#39;s title. | [optional] 
 **pay_rate** | **float, none_type** | The position&#39;s pay rate in dollars. | [optional] 
-**pay_period** | **str, none_type** | The time period this pay rate encompasses. | [optional] 
-**pay_frequency** | **str, none_type** | The position&#39;s pay frequency. | [optional] 
-**pay_currency** | **str, none_type** | The position&#39;s currency code. | [optional] 
-**flsa_status** | **str, none_type** | The position&#39;s FLSA status. | [optional] 
+**pay_period** | **object, none_type** | The time period this pay rate encompasses. | [optional] 
+**pay_frequency** | **object, none_type** | The position&#39;s pay frequency. | [optional] 
+**pay_currency** | **object, none_type** | The position&#39;s currency code. | [optional] 
+**flsa_status** | **object, none_type** | The position&#39;s FLSA status. | [optional] 
 **effective_date** | **datetime, none_type** | The position&#39;s effective date. | [optional] 
-**employment_type** | **str, none_type** | The position&#39;s type of employment. | [optional] 
+**employment_type** | **object, none_type** | The position&#39;s type of employment. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

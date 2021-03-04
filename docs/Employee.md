@@ -19,14 +19,16 @@ Name | Type | Description | Notes
 **manager** | **str, none_type** | The employeee ID of the employee&#39;s manager. | [optional] 
 **team** | **str, none_type** | The employee&#39;s team. | [optional] 
 **ssn** | **str, none_type** | The employee&#39;s social security number. | [optional] 
-**gender** | **str, none_type** | The employee&#39;s gender. | [optional] 
-**ethnicity** | **str, none_type** | The employee&#39;s ethnicity. | [optional] 
-**marital_status** | **str, none_type** | The employee&#39;s marital status. | [optional] 
+**gender** | **object, none_type** | The employee&#39;s gender. | [optional] 
+**ethnicity** | **object, none_type** | The employee&#39;s ethnicity. | [optional] 
+**marital_status** | **object, none_type** | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **datetime, none_type** | The employee&#39;s date of birth. | [optional] 
 **hire_date** | **datetime, none_type** | The employee&#39;s hire date. | [optional] 
-**employment_status** | **str, none_type** | The employment status of the employee. | [optional] 
+**employment_status** | **object, none_type** | The employment status of the employee. | [optional] 
 **termination_date** | **datetime, none_type** | The employee&#39;s termination date. | [optional] 
 **avatar** | **str, none_type** | The URL of the employee&#39;s avatar image. | [optional] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**extra_value** | **str** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

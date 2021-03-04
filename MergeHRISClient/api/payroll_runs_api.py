@@ -59,6 +59,7 @@ class PayrollRunsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
@@ -128,6 +129,7 @@ class PayrollRunsApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'include_remote_data',
                     'modified_after',
                     'modified_before',
                     'page_size',
@@ -158,6 +160,8 @@ class PayrollRunsApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                     'modified_after':
                         (datetime,),
                     'modified_before':
@@ -172,6 +176,7 @@ class PayrollRunsApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
@@ -182,6 +187,7 @@ class PayrollRunsApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
@@ -220,6 +226,7 @@ class PayrollRunsApi(object):
                 id (str):
 
             Keyword Args:
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -285,6 +292,7 @@ class PayrollRunsApi(object):
                 'all': [
                     'x_account_token',
                     'id',
+                    'include_remote_data',
                 ],
                 'required': [
                     'x_account_token',
@@ -307,14 +315,18 @@ class PayrollRunsApi(object):
                         (str,),
                     'id':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
+                    'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
+                    'include_remote_data': 'query',
                 },
                 'collection_format_map': {
                 }
