@@ -84,11 +84,11 @@ class TimeOff(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'employee': (str, none_type,),  # noqa: E501
             'approver': (str, none_type,),  # noqa: E501
-            'status': (str, none_type,),  # noqa: E501
+            'status': (object, none_type,),  # noqa: E501
             'employee_note': (str, none_type,),  # noqa: E501
-            'units': (str, none_type,),  # noqa: E501
+            'units': (object, none_type,),  # noqa: E501
             'amount': (float, none_type,),  # noqa: E501
-            'request_type': (str, none_type,),  # noqa: E501
+            'request_type': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -160,11 +160,11 @@ class TimeOff(ModelNormal):
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             employee (str, none_type): The employee requesting time off.. [optional]  # noqa: E501
             approver (str, none_type): The employee approving the time off request.. [optional]  # noqa: E501
-            status (str, none_type): The status of this time off request.. [optional]  # noqa: E501
+            status (object, none_type): The status of this time off request.. [optional]  # noqa: E501
             employee_note (str, none_type): The status of this time off request.. [optional]  # noqa: E501
-            units (str, none_type): The unit of time requested.. [optional]  # noqa: E501
+            units (object, none_type): The unit of time requested.. [optional]  # noqa: E501
             amount (float, none_type): The number of time off units requested.. [optional]  # noqa: E501
-            request_type (str, none_type): The type of time off request.. [optional]  # noqa: E501
+            request_type (object, none_type): The type of time off request.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

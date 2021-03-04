@@ -107,12 +107,12 @@ class Employee(ModelNormal):
             'manager': (str, none_type,),  # noqa: E501
             'team': (str, none_type,),  # noqa: E501
             'ssn': (str, none_type,),  # noqa: E501
-            'gender': (str, none_type,),  # noqa: E501
-            'ethnicity': (str, none_type,),  # noqa: E501
-            'marital_status': (str, none_type,),  # noqa: E501
+            'gender': (object, none_type,),  # noqa: E501
+            'ethnicity': (object, none_type,),  # noqa: E501
+            'marital_status': (object, none_type,),  # noqa: E501
             'date_of_birth': (datetime, none_type,),  # noqa: E501
             'hire_date': (datetime, none_type,),  # noqa: E501
-            'employment_status': (str, none_type,),  # noqa: E501
+            'employment_status': (object, none_type,),  # noqa: E501
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
@@ -211,12 +211,12 @@ class Employee(ModelNormal):
             manager (str, none_type): The employeee ID of the employee's manager.. [optional]  # noqa: E501
             team (str, none_type): The employee's team.. [optional]  # noqa: E501
             ssn (str, none_type): The employee's social security number.. [optional]  # noqa: E501
-            gender (str, none_type): The employee's gender.. [optional]  # noqa: E501
-            ethnicity (str, none_type): The employee's ethnicity.. [optional]  # noqa: E501
-            marital_status (str, none_type): The employee's marital status.. [optional]  # noqa: E501
+            gender (object, none_type): The employee's gender.. [optional]  # noqa: E501
+            ethnicity (object, none_type): The employee's ethnicity.. [optional]  # noqa: E501
+            marital_status (object, none_type): The employee's marital status.. [optional]  # noqa: E501
             date_of_birth (datetime, none_type): The employee's date of birth.. [optional]  # noqa: E501
             hire_date (datetime, none_type): The employee's hire date.. [optional]  # noqa: E501
-            employment_status (str, none_type): The employment status of the employee.. [optional]  # noqa: E501
+            employment_status (object, none_type): The employment status of the employee.. [optional]  # noqa: E501
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
