@@ -22,6 +22,7 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from MergeHRISClient.model.create_team import CreateTeam
 from MergeHRISClient.model.paginated_team_list import PaginatedTeamList
 from MergeHRISClient.model.team import Team
 
@@ -37,6 +38,140 @@ class TeamsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        def __teams_create(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """teams_create  # noqa: E501
+
+            Creates a `Team` object with the given values.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.teams_create(x_account_token, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+
+            Keyword Args:
+                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
+                create_team (CreateTeam): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                Team
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
+
+        self.teams_create = Endpoint(
+            settings={
+                'response_type': (Team,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/teams',
+                'operation_id': 'teams_create',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'run_async',
+                    'create_team',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'run_async':
+                        (bool,),
+                    'create_team':
+                        (CreateTeam,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'run_async': 'run_async',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'run_async': 'query',
+                    'create_team': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__teams_create
+        )
 
         def __teams_list(
             self,
@@ -59,6 +194,7 @@ class TeamsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
@@ -128,6 +264,7 @@ class TeamsApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'include_remote_data',
                     'modified_after',
                     'modified_before',
                     'page_size',
@@ -158,6 +295,8 @@ class TeamsApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                     'modified_after':
                         (datetime,),
                     'modified_before':
@@ -172,6 +311,7 @@ class TeamsApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
@@ -182,6 +322,7 @@ class TeamsApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
@@ -220,6 +361,7 @@ class TeamsApi(object):
                 id (str):
 
             Keyword Args:
+                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -285,6 +427,7 @@ class TeamsApi(object):
                 'all': [
                     'x_account_token',
                     'id',
+                    'include_remote_data',
                 ],
                 'required': [
                     'x_account_token',
@@ -307,14 +450,18 @@ class TeamsApi(object):
                         (str,),
                     'id':
                         (str,),
+                    'include_remote_data':
+                        (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
+                    'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
+                    'include_remote_data': 'query',
                 },
                 'collection_format_map': {
                 }

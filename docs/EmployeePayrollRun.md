@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **earnings** | [**[Earning]**](Earning.md) |  | [optional] [readonly] 
 **deductions** | [**[Deduction]**](Deduction.md) |  | [optional] [readonly] 
 **taxes** | [**[Tax]**](Tax.md) |  | [optional] [readonly] 
+**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
