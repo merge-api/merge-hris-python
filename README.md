@@ -111,7 +111,10 @@ Class | Method | HTTP request | Description
 *LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
 *LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
 *PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
+<<<<<<< HEAD
 *PayrollRunsApi* | [**payroll_runs_create**](docs/PayrollRunsApi.md#payroll_runs_create) | **POST** /payroll-runs | 
+=======
+>>>>>>> master
 *PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *TeamsApi* | [**teams_create**](docs/TeamsApi.md#teams_create) | **POST** /teams | 
@@ -131,6 +134,7 @@ Class | Method | HTTP request | Description
  - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [Company](docs/Company.md)
  - [CountryEnum](docs/CountryEnum.md)
+<<<<<<< HEAD
  - [CreateBenefit](docs/CreateBenefit.md)
  - [CreateCompany](docs/CreateCompany.md)
  - [CreateEmployee](docs/CreateEmployee.md)
@@ -140,6 +144,8 @@ Class | Method | HTTP request | Description
  - [CreatePayrollRun](docs/CreatePayrollRun.md)
  - [CreateTeam](docs/CreateTeam.md)
  - [CreateTimeOff](docs/CreateTimeOff.md)
+=======
+>>>>>>> master
  - [DataPassthrough](docs/DataPassthrough.md)
  - [Deduction](docs/Deduction.md)
  - [Earning](docs/Earning.md)

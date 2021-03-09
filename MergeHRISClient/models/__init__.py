@@ -16,6 +16,7 @@ from MergeHRISClient.model.benefit import Benefit
 from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
 from MergeHRISClient.model.company import Company
 from MergeHRISClient.model.country_enum import CountryEnum
+<<<<<<< HEAD
 from MergeHRISClient.model.create_benefit import CreateBenefit
 from MergeHRISClient.model.create_company import CreateCompany
 from MergeHRISClient.model.create_employee import CreateEmployee
@@ -25,6 +26,8 @@ from MergeHRISClient.model.create_location import CreateLocation
 from MergeHRISClient.model.create_payroll_run import CreatePayrollRun
 from MergeHRISClient.model.create_team import CreateTeam
 from MergeHRISClient.model.create_time_off import CreateTimeOff
+=======
+>>>>>>> master
 from MergeHRISClient.model.data_passthrough import DataPassthrough
 from MergeHRISClient.model.deduction import Deduction
 from MergeHRISClient.model.earning import Earning

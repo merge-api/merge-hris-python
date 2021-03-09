@@ -79,7 +79,10 @@ class Earning(ModelNormal):
             'employee_payroll_run': (str, none_type,),  # noqa: E501
             'amount': (float, none_type,),  # noqa: E501
             'type': (object, none_type,),  # noqa: E501
+<<<<<<< HEAD
             'remote_data': ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type], none_type,),  # noqa: E501
+=======
+>>>>>>> master
         }
 
     @cached_property
@@ -145,7 +148,10 @@ class Earning(ModelNormal):
             employee_payroll_run (str, none_type): The earning's employee payroll run.. [optional]  # noqa: E501
             amount (float, none_type): The amount earned.. [optional]  # noqa: E501
             type (object, none_type): The type of earning.. [optional]  # noqa: E501
+<<<<<<< HEAD
             remote_data ([{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type], none_type): [optional]  # noqa: E501
+=======
+>>>>>>> master
         """
 
         _check_type = kwargs.pop('_check_type', True)
