@@ -65,9 +65,7 @@ configuration = MergeHRISClient.Configuration(
 
 # Configure API key authorization: tokenAuth
 configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
+configuration.api_key_prefix['tokenAuth'] = 'Bearer'
 
 
 # Enter a context with an instance of the API client
