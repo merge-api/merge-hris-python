@@ -23,6 +23,7 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeHRISClient.model.data_passthrough_request import DataPassthroughRequest
+from MergeHRISClient.model.data_passthrough import DataPassthrough
 from MergeHRISClient.model.remote_response import RemoteResponse
 
 
@@ -146,7 +147,7 @@ class PassthroughApi(object):
                     'x_account_token':
                         (str,),
                     'data_passthrough_request':
-                        (DataPassthroughRequest,),
+                        (DataPassthroughRequest, DataPassthrough),
                     'include_remote_data':
                         (bool,),
                 },
