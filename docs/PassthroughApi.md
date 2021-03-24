@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **passthrough_create**
-> RemoteResponse passthrough_create(x_account_token, data_passthrough)
+> RemoteResponse passthrough_create(x_account_token, data_passthrough_request)
 
 
 
@@ -21,8 +21,8 @@ Pull data from an endpoint not currently supported by Merge.
 import time
 import MergeHRISClient
 from MergeHRISClient.api import passthrough_api
+from MergeHRISClient.model.data_passthrough_request import DataPassthroughRequest
 from MergeHRISClient.model.remote_response import RemoteResponse
-from MergeHRISClient.model.data_passthrough import DataPassthrough
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -46,21 +46,22 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = passthrough_api.PassthroughApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    data_passthrough = DataPassthrough(
+    data_passthrough_request = DataPassthroughRequest(
         method=,
         path="/scooters",
+        base_url_override="base_url_override_example",
         data={
             "key": None,
         },
         headers={
             "key": None,
         },
-    ) # DataPassthrough | 
+    ) # DataPassthroughRequest | 
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.passthrough_create(x_account_token, data_passthrough)
+        api_response = api_instance.passthrough_create(x_account_token, data_passthrough_request)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling PassthroughApi->passthrough_create: %s\n" % e)
@@ -68,7 +69,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.passthrough_create(x_account_token, data_passthrough, include_remote_data=include_remote_data)
+        api_response = api_instance.passthrough_create(x_account_token, data_passthrough_request, include_remote_data=include_remote_data)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling PassthroughApi->passthrough_create: %s\n" % e)
@@ -79,7 +80,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **data_passthrough** | [**DataPassthrough**](DataPassthrough.md)|  |
+ **data_passthrough_request** | [**DataPassthroughRequest**](DataPassthroughRequest.md)|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

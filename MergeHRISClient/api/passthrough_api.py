@@ -22,7 +22,7 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from MergeHRISClient.model.data_passthrough import DataPassthrough
+from MergeHRISClient.model.data_passthrough_request import DataPassthroughRequest
 from MergeHRISClient.model.remote_response import RemoteResponse
 
 
@@ -41,7 +41,7 @@ class PassthroughApi(object):
         def __passthrough_create(
             self,
             x_account_token,
-            data_passthrough,
+            data_passthrough_request,
             **kwargs
         ):
             """passthrough_create  # noqa: E501
@@ -50,12 +50,12 @@ class PassthroughApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.passthrough_create(x_account_token, data_passthrough, async_req=True)
+            >>> thread = api.passthrough_create(x_account_token, data_passthrough_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
-                data_passthrough (DataPassthrough):
+                data_passthrough_request (DataPassthroughRequest):
 
             Keyword Args:
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
@@ -105,8 +105,8 @@ class PassthroughApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
-            kwargs['data_passthrough'] = \
-                data_passthrough
+            kwargs['data_passthrough_request'] = \
+                data_passthrough_request
             return self.call_with_http_info(**kwargs)
 
         self.passthrough_create = Endpoint(
@@ -123,12 +123,12 @@ class PassthroughApi(object):
             params_map={
                 'all': [
                     'x_account_token',
-                    'data_passthrough',
+                    'data_passthrough_request',
                     'include_remote_data',
                 ],
                 'required': [
                     'x_account_token',
-                    'data_passthrough',
+                    'data_passthrough_request',
                 ],
                 'nullable': [
                 ],
@@ -145,8 +145,8 @@ class PassthroughApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
-                    'data_passthrough':
-                        (DataPassthrough,),
+                    'data_passthrough_request':
+                        (DataPassthroughRequest,),
                     'include_remote_data':
                         (bool,),
                 },
@@ -156,7 +156,7 @@ class PassthroughApi(object):
                 },
                 'location_map': {
                     'x_account_token': 'header',
-                    'data_passthrough': 'body',
+                    'data_passthrough_request': 'body',
                     'include_remote_data': 'query',
                 },
                 'collection_format_map': {

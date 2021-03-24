@@ -28,7 +28,7 @@ MergeHRISClient/model/benefit.py
 MergeHRISClient/model/benefit_plan_type_enum.py
 MergeHRISClient/model/company.py
 MergeHRISClient/model/country_enum.py
-MergeHRISClient/model/data_passthrough.py
+MergeHRISClient/model/data_passthrough_request.py
 MergeHRISClient/model/deduction.py
 MergeHRISClient/model/earning.py
 MergeHRISClient/model/employee.py
@@ -36,7 +36,7 @@ MergeHRISClient/model/employee_payroll_run.py
 MergeHRISClient/model/employment.py
 MergeHRISClient/model/employment_status_enum.py
 MergeHRISClient/model/employment_type_enum.py
-MergeHRISClient/model/end_user_details.py
+MergeHRISClient/model/end_user_details_request.py
 MergeHRISClient/model/ethnicity_enum.py
 MergeHRISClient/model/flsa_status_enum.py
 MergeHRISClient/model/gender_enum.py
@@ -86,7 +86,7 @@ docs/BenefitsApi.md
 docs/CompaniesApi.md
 docs/Company.md
 docs/CountryEnum.md
-docs/DataPassthrough.md
+docs/DataPassthroughRequest.md
 docs/Deduction.md
 docs/Earning.md
 docs/Employee.md
@@ -97,7 +97,7 @@ docs/Employment.md
 docs/EmploymentStatusEnum.md
 docs/EmploymentTypeEnum.md
 docs/EmploymentsApi.md
-docs/EndUserDetails.md
+docs/EndUserDetailsRequest.md
 docs/EthnicityEnum.md
 docs/FlsaStatusEnum.md
 docs/GenderEnum.md

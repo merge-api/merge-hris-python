@@ -16,7 +16,7 @@ from MergeHRISClient.model.benefit import Benefit
 from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
 from MergeHRISClient.model.company import Company
 from MergeHRISClient.model.country_enum import CountryEnum
-from MergeHRISClient.model.data_passthrough import DataPassthrough
+from MergeHRISClient.model.data_passthrough_request import DataPassthroughRequest
 from MergeHRISClient.model.deduction import Deduction
 from MergeHRISClient.model.earning import Earning
 from MergeHRISClient.model.employee import Employee
@@ -24,7 +24,7 @@ from MergeHRISClient.model.employee_payroll_run import EmployeePayrollRun
 from MergeHRISClient.model.employment import Employment
 from MergeHRISClient.model.employment_status_enum import EmploymentStatusEnum
 from MergeHRISClient.model.employment_type_enum import EmploymentTypeEnum
-from MergeHRISClient.model.end_user_details import EndUserDetails
+from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
 from MergeHRISClient.model.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.model.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.model.gender_enum import GenderEnum
