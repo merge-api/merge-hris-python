@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **link_token_create**
-> LinkToken link_token_create(end_user_details)
+> LinkToken link_token_create(end_user_details_request)
 
 
 
@@ -22,7 +22,7 @@ import time
 import MergeHRISClient
 from MergeHRISClient.api import link_token_api
 from MergeHRISClient.model.link_token import LinkToken
-from MergeHRISClient.model.end_user_details import EndUserDetails
+from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,18 +45,18 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = link_token_api.LinkTokenApi(api_client)
-    end_user_details = EndUserDetails(
+    end_user_details_request = EndUserDetailsRequest(
         end_user_email_address="end_user_email_address_example",
         end_user_organization_name="end_user_organization_name_example",
         end_user_origin_id="end_user_origin_id_example",
         categories=[
             "hris",
         ],
-    ) # EndUserDetails | 
+    ) # EndUserDetailsRequest | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.link_token_create(end_user_details)
+        api_response = api_instance.link_token_create(end_user_details_request)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling LinkTokenApi->link_token_create: %s\n" % e)
@@ -66,7 +66,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **end_user_details** | [**EndUserDetails**](EndUserDetails.md)|  |
+ **end_user_details_request** | [**EndUserDetailsRequest**](EndUserDetailsRequest.md)|  |
 
 ### Return type
 

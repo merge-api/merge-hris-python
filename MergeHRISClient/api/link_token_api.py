@@ -22,6 +22,7 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
 from MergeHRISClient.model.end_user_details import EndUserDetails
 from MergeHRISClient.model.link_token import LinkToken
 
@@ -40,7 +41,7 @@ class LinkTokenApi(object):
 
         def __link_token_create(
             self,
-            end_user_details,
+            end_user_details_request,
             **kwargs
         ):
             """link_token_create  # noqa: E501
@@ -49,11 +50,11 @@ class LinkTokenApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.link_token_create(end_user_details, async_req=True)
+            >>> thread = api.link_token_create(end_user_details_request, async_req=True)
             >>> result = thread.get()
 
             Args:
-                end_user_details (EndUserDetails):
+                end_user_details_request (EndUserDetailsRequest):
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -100,8 +101,8 @@ class LinkTokenApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['end_user_details'] = \
-                end_user_details
+            kwargs['end_user_details_request'] = \
+                end_user_details_request
             return self.call_with_http_info(**kwargs)
 
         self.link_token_create = Endpoint(
@@ -117,10 +118,10 @@ class LinkTokenApi(object):
             },
             params_map={
                 'all': [
-                    'end_user_details',
+                    'end_user_details_request',
                 ],
                 'required': [
-                    'end_user_details',
+                    'end_user_details_request',
                 ],
                 'nullable': [
                 ],
@@ -135,13 +136,13 @@ class LinkTokenApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'end_user_details':
-                        (EndUserDetails,),
+                    'end_user_details_request':
+                        (EndUserDetailsRequest, EndUserDetails),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'end_user_details': 'body',
+                    'end_user_details_request': 'body',
                 },
                 'collection_format_map': {
                 }
