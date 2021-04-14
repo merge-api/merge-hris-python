@@ -83,6 +83,7 @@ class EndUserDetailsRequest(ModelNormal):
             'end_user_organization_name': (str,),  # noqa: E501
             'end_user_origin_id': (str,),  # noqa: E501
             'categories': ([str],),  # noqa: E501
+            'integration': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,6 +96,7 @@ class EndUserDetailsRequest(ModelNormal):
         'end_user_organization_name': 'end_user_organization_name',  # noqa: E501
         'end_user_origin_id': 'end_user_origin_id',  # noqa: E501
         'categories': 'categories',  # noqa: E501
+        'integration': 'integration',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -149,6 +151,7 @@ class EndUserDetailsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            integration (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

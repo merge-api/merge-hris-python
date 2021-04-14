@@ -59,7 +59,6 @@ class PassthroughApi(object):
                 data_passthrough_request (DataPassthroughRequest):
 
             Keyword Args:
-                include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -125,7 +124,6 @@ class PassthroughApi(object):
                 'all': [
                     'x_account_token',
                     'data_passthrough_request',
-                    'include_remote_data',
                 ],
                 'required': [
                     'x_account_token',
@@ -148,17 +146,13 @@ class PassthroughApi(object):
                         (str,),
                     'data_passthrough_request':
                         (DataPassthroughRequest, DataPassthrough),
-                    'include_remote_data':
-                        (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
-                    'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'data_passthrough_request': 'body',
-                    'include_remote_data': 'query',
                 },
                 'collection_format_map': {
                 }

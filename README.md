@@ -99,12 +99,15 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**employees_retrieve**](docs/EmployeesApi.md#employees_retrieve) | **GET** /employees/{id} | 
 *EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
 *EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
+*GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
 *LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
 *LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
 *PassthroughApi* | [**passthrough_create**](docs/PassthroughApi.md#passthrough_create) | **POST** /passthrough | 
 *PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
+*RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
+*SyncStatusApi* | [**sync_status_retrieve**](docs/SyncStatusApi.md#sync_status_retrieve) | **GET** /sync-status | 
 *TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
 *TimeOffApi* | [**time_off_list**](docs/TimeOffApi.md#time_off_list) | **GET** /time-off | 
@@ -132,6 +135,7 @@ Class | Method | HTTP request | Description
  - [EthnicityEnum](docs/EthnicityEnum.md)
  - [FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [GenderEnum](docs/GenderEnum.md)
+ - [GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
@@ -151,11 +155,14 @@ Class | Method | HTTP request | Description
  - [PayPeriodEnum](docs/PayPeriodEnum.md)
  - [PayrollRun](docs/PayrollRun.md)
  - [RemoteData](docs/RemoteData.md)
+ - [RemoteKey](docs/RemoteKey.md)
+ - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
  - [RequestTypeEnum](docs/RequestTypeEnum.md)
  - [RunStateEnum](docs/RunStateEnum.md)
  - [RunTypeEnum](docs/RunTypeEnum.md)
  - [StateEnum](docs/StateEnum.md)
+ - [SyncStatus](docs/SyncStatus.md)
  - [Tax](docs/Tax.md)
  - [Team](docs/Team.md)
  - [TimeOff](docs/TimeOff.md)

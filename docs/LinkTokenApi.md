@@ -52,6 +52,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
         categories=[
             "hris",
         ],
+        integration="integration_example",
     ) # EndUserDetailsRequest | 
 
     # example passing only required values which don't have defaults set

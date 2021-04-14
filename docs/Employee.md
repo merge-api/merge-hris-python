@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **employments** | **[str]** |  | [optional] [readonly] 
 **home_location** | **str, none_type** | The employee&#39;s home address. | [optional] 
 **work_location** | **str, none_type** | The employee&#39;s work address. | [optional] 
-**manager** | **str, none_type** | The employeee ID of the employee&#39;s manager. | [optional] 
+**manager** | **str, none_type** | The employee ID of the employee&#39;s manager. | [optional] 
 **team** | **str, none_type** | The employee&#39;s team. | [optional] 
 **ssn** | **str, none_type** | The employee&#39;s social security number. | [optional] 
 **gender** | **object, none_type** | The employee&#39;s gender. | [optional] 
@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **employment_status** | **object, none_type** | The employment status of the employee. | [optional] 
 **termination_date** | **datetime, none_type** | The employee&#39;s termination date. | [optional] 
 **avatar** | **str, none_type** | The URL of the employee&#39;s avatar image. | [optional] 
+**employee_number** | **str, none_type** | The identification number for the employee. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
