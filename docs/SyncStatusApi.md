@@ -1,18 +1,18 @@
-# MergeHRISClient.AvailableActionsApi
+# MergeHRISClient.SyncStatusApi
 
 All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**available_actions_retrieve**](AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
+[**sync_status_retrieve**](SyncStatusApi.md#sync_status_retrieve) | **GET** /sync-status | 
 
 
-# **available_actions_retrieve**
-> AvailableActions available_actions_retrieve(x_account_token)
+# **sync_status_retrieve**
+> SyncStatus sync_status_retrieve(x_account_token)
 
 
 
-Returns a list of models and actions available for an account.
+Get syncing status.
 
 ### Example
 
@@ -20,8 +20,8 @@ Returns a list of models and actions available for an account.
 ```python
 import time
 import MergeHRISClient
-from MergeHRISClient.api import available_actions_api
-from MergeHRISClient.model.available_actions import AvailableActions
+from MergeHRISClient.api import sync_status_api
+from MergeHRISClient.model.sync_status import SyncStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -43,15 +43,15 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = available_actions_api.AvailableActionsApi(api_client)
+    api_instance = sync_status_api.SyncStatusApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.available_actions_retrieve(x_account_token)
+        api_response = api_instance.sync_status_retrieve(x_account_token)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
-        print("Exception when calling AvailableActionsApi->available_actions_retrieve: %s\n" % e)
+        print("Exception when calling SyncStatusApi->sync_status_retrieve: %s\n" % e)
 ```
 
 ### Parameters
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AvailableActions**](AvailableActions.md)
+[**SyncStatus**](SyncStatus.md)
 
 ### Authorization
 

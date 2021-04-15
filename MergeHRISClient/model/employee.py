@@ -115,6 +115,7 @@ class Employee(ModelNormal):
             'employment_status': (object, none_type,),  # noqa: E501
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
+            'employee_number': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -147,6 +148,7 @@ class Employee(ModelNormal):
         'employment_status': 'employment_status',  # noqa: E501
         'termination_date': 'termination_date',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
+        'employee_number': 'employee_number',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
     }
 
@@ -208,7 +210,7 @@ class Employee(ModelNormal):
             employments ([str]): [optional]  # noqa: E501
             home_location (str, none_type): The employee's home address.. [optional]  # noqa: E501
             work_location (str, none_type): The employee's work address.. [optional]  # noqa: E501
-            manager (str, none_type): The employeee ID of the employee's manager.. [optional]  # noqa: E501
+            manager (str, none_type): The employee ID of the employee's manager.. [optional]  # noqa: E501
             team (str, none_type): The employee's team.. [optional]  # noqa: E501
             ssn (str, none_type): The employee's social security number.. [optional]  # noqa: E501
             gender (object, none_type): The employee's gender.. [optional]  # noqa: E501
@@ -219,6 +221,7 @@ class Employee(ModelNormal):
             employment_status (object, none_type): The employment status of the employee.. [optional]  # noqa: E501
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501
+            employee_number (str, none_type): The identification number for the employee.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

@@ -91,6 +91,7 @@ class AccountIntegration(ModelNormal):
             'image': (str, none_type,),  # noqa: E501
             'square_image': (str, none_type,),  # noqa: E501
             'color': (str,),  # noqa: E501
+            'slug': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class AccountIntegration(ModelNormal):
         'image': 'image',  # noqa: E501
         'square_image': 'square_image',  # noqa: E501
         'color': 'color',  # noqa: E501
+        'slug': 'slug',  # noqa: E501
     }
 
     _composed_schemas = {}

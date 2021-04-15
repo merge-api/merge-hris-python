@@ -28,6 +28,7 @@ from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
 from MergeHRISClient.model.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.model.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.model.gender_enum import GenderEnum
+from MergeHRISClient.model.generate_remote_key_request import GenerateRemoteKeyRequest
 from MergeHRISClient.model.link_token import LinkToken
 from MergeHRISClient.model.location import Location
 from MergeHRISClient.model.marital_status_enum import MaritalStatusEnum
@@ -47,11 +48,14 @@ from MergeHRISClient.model.pay_frequency_enum import PayFrequencyEnum
 from MergeHRISClient.model.pay_period_enum import PayPeriodEnum
 from MergeHRISClient.model.payroll_run import PayrollRun
 from MergeHRISClient.model.remote_data import RemoteData
+from MergeHRISClient.model.remote_key import RemoteKey
+from MergeHRISClient.model.remote_key_for_regeneration_request import RemoteKeyForRegenerationRequest
 from MergeHRISClient.model.remote_response import RemoteResponse
 from MergeHRISClient.model.request_type_enum import RequestTypeEnum
 from MergeHRISClient.model.run_state_enum import RunStateEnum
 from MergeHRISClient.model.run_type_enum import RunTypeEnum
 from MergeHRISClient.model.state_enum import StateEnum
+from MergeHRISClient.model.sync_status import SyncStatus
 from MergeHRISClient.model.tax import Tax
 from MergeHRISClient.model.team import Team
 from MergeHRISClient.model.time_off import TimeOff

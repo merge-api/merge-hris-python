@@ -1,18 +1,18 @@
-# MergeHRISClient.AvailableActionsApi
+# MergeHRISClient.GenerateKeyApi
 
 All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**available_actions_retrieve**](AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
+[**generate_key_create**](GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
 
 
-# **available_actions_retrieve**
-> AvailableActions available_actions_retrieve(x_account_token)
+# **generate_key_create**
+> RemoteKey generate_key_create(generate_remote_key_request)
 
 
 
-Returns a list of models and actions available for an account.
+Create a remote key.
 
 ### Example
 
@@ -20,8 +20,9 @@ Returns a list of models and actions available for an account.
 ```python
 import time
 import MergeHRISClient
-from MergeHRISClient.api import available_actions_api
-from MergeHRISClient.model.available_actions import AvailableActions
+from MergeHRISClient.api import generate_key_api
+from MergeHRISClient.model.generate_remote_key_request import GenerateRemoteKeyRequest
+from MergeHRISClient.model.remote_key import RemoteKey
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -43,26 +44,28 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = available_actions_api.AvailableActionsApi(api_client)
-    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    api_instance = generate_key_api.GenerateKeyApi(api_client)
+    generate_remote_key_request = GenerateRemoteKeyRequest(
+        name="Remote Deployment Key 1",
+    ) # GenerateRemoteKeyRequest | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.available_actions_retrieve(x_account_token)
+        api_response = api_instance.generate_key_create(generate_remote_key_request)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
-        print("Exception when calling AvailableActionsApi->available_actions_retrieve: %s\n" % e)
+        print("Exception when calling GenerateKeyApi->generate_key_create: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. |
+ **generate_remote_key_request** | [**GenerateRemoteKeyRequest**](GenerateRemoteKeyRequest.md)|  |
 
 ### Return type
 
-[**AvailableActions**](AvailableActions.md)
+[**RemoteKey**](RemoteKey.md)
 
 ### Authorization
 
@@ -70,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

@@ -57,19 +57,10 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
             "key": None,
         },
     ) # DataPassthroughRequest | 
-    include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.passthrough_create(x_account_token, data_passthrough_request)
-        pprint(api_response)
-    except MergeHRISClient.ApiException as e:
-        print("Exception when calling PassthroughApi->passthrough_create: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.passthrough_create(x_account_token, data_passthrough_request, include_remote_data=include_remote_data)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling PassthroughApi->passthrough_create: %s\n" % e)
@@ -81,7 +72,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
  **data_passthrough_request** | [**DataPassthroughRequest**](DataPassthroughRequest.md)|  |
- **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type
 
