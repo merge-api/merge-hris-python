@@ -1,5 +1,6 @@
 # EthnicityEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # PaginatedBenefitList
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

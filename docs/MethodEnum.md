@@ -1,5 +1,6 @@
 # MethodEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

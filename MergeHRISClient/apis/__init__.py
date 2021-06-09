@@ -30,3 +30,4 @@ from MergeHRISClient.api.regenerate_key_api import RegenerateKeyApi
 from MergeHRISClient.api.sync_status_api import SyncStatusApi
 from MergeHRISClient.api.teams_api import TeamsApi
 from MergeHRISClient.api.time_off_api import TimeOffApi
+from MergeHRISClient.api.time_off_balance_api import TimeOffBalanceApi

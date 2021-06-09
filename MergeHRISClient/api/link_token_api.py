@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeHRISClient.api_client import ApiClient, Endpoint
+from MergeHRISClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeHRISClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -105,7 +105,7 @@ class LinkTokenApi(object):
                 end_user_details_request
             return self.call_with_http_info(**kwargs)
 
-        self.link_token_create = Endpoint(
+        self.link_token_create = _Endpoint(
             settings={
                 'response_type': (LinkToken,),
                 'auth': [

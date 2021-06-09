@@ -79,7 +79,7 @@ class SyncStatus(ModelNormal):
             'model_id': (str,),  # noqa: E501
             'last_sync_start': (datetime,),  # noqa: E501
             'next_sync_start': (datetime,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (object,),  # noqa: E501
             'is_initial_sync': (bool,),  # noqa: E501
         }
 
@@ -117,7 +117,7 @@ class SyncStatus(ModelNormal):
             model_id (str):
             last_sync_start (datetime):
             next_sync_start (datetime):
-            status (str):
+            status (object):
             is_initial_sync (bool):
 
         Keyword Args:

@@ -72,7 +72,7 @@ class Employee(ModelNormal):
             'max_length': 100,
         },
         ('avatar',): {
-            'max_length': 700,
+            'max_length': 2000,
         },
     }
 
@@ -94,6 +94,7 @@ class Employee(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'remote_id': (str, none_type,),  # noqa: E501
+            'employee_number': (str, none_type,),  # noqa: E501
             'company': (str, none_type,),  # noqa: E501
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
@@ -115,7 +116,6 @@ class Employee(ModelNormal):
             'employment_status': (object, none_type,),  # noqa: E501
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
-            'employee_number': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -127,6 +127,7 @@ class Employee(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'remote_id': 'remote_id',  # noqa: E501
+        'employee_number': 'employee_number',  # noqa: E501
         'company': 'company',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
@@ -148,7 +149,6 @@ class Employee(ModelNormal):
         'employment_status': 'employment_status',  # noqa: E501
         'termination_date': 'termination_date',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
-        'employee_number': 'employee_number',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
     }
 
@@ -200,7 +200,8 @@ class Employee(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            company (str, none_type): The ID of the Employee's company.. [optional]  # noqa: E501
+            employee_number (str, none_type): The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user.. [optional]  # noqa: E501
+            company (str, none_type): The ID of the employee's company.. [optional]  # noqa: E501
             first_name (str, none_type): The employee's first name.. [optional]  # noqa: E501
             last_name (str, none_type): The employee's last name.. [optional]  # noqa: E501
             display_full_name (str, none_type): The employee's full name, to use for display purposes.. [optional]  # noqa: E501
@@ -217,11 +218,10 @@ class Employee(ModelNormal):
             ethnicity (object, none_type): The employee's ethnicity.. [optional]  # noqa: E501
             marital_status (object, none_type): The employee's marital status.. [optional]  # noqa: E501
             date_of_birth (datetime, none_type): The employee's date of birth.. [optional]  # noqa: E501
-            hire_date (datetime, none_type): The employee's hire date.. [optional]  # noqa: E501
+            hire_date (datetime, none_type): The employee's hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date.. [optional]  # noqa: E501
             employment_status (object, none_type): The employment status of the employee.. [optional]  # noqa: E501
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501
-            employee_number (str, none_type): The identification number for the employee.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

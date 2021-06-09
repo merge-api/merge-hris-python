@@ -78,6 +78,7 @@ class ModelOperation(ModelNormal):
             'model_name': (str,),  # noqa: E501
             'available_operations': ([str],),  # noqa: E501
             'required_post_parameters': ([str],),  # noqa: E501
+            'supported_fields': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +90,7 @@ class ModelOperation(ModelNormal):
         'model_name': 'model_name',  # noqa: E501
         'available_operations': 'available_operations',  # noqa: E501
         'required_post_parameters': 'required_post_parameters',  # noqa: E501
+        'supported_fields': 'supported_fields',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -103,13 +105,14 @@ class ModelOperation(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, model_name, available_operations, required_post_parameters, *args, **kwargs):  # noqa: E501
+    def __init__(self, model_name, available_operations, required_post_parameters, supported_fields, *args, **kwargs):  # noqa: E501
         """ModelOperation - a model defined in OpenAPI
 
         Args:
             model_name (str):
             available_operations ([str]):
             required_post_parameters ([str]):
+            supported_fields ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -170,6 +173,7 @@ class ModelOperation(ModelNormal):
         self.model_name = model_name
         self.available_operations = available_operations
         self.required_post_parameters = required_post_parameters
+        self.supported_fields = supported_fields
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
