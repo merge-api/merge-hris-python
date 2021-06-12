@@ -1,5 +1,6 @@
 # PaginatedTeamList
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

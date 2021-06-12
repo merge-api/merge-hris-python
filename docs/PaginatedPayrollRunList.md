@@ -1,5 +1,6 @@
 # PaginatedPayrollRunList
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

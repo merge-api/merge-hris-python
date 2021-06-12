@@ -1,5 +1,6 @@
 # TypeEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

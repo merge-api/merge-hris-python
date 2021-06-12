@@ -86,7 +86,7 @@ class Location(ModelNormal):
             'street_1': (str, none_type,),  # noqa: E501
             'street_2': (str, none_type,),  # noqa: E501
             'city': (str, none_type,),  # noqa: E501
-            'state': (object, none_type,),  # noqa: E501
+            'state': (str, none_type,),  # noqa: E501
             'zip_code': (str, none_type,),  # noqa: E501
             'country': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
@@ -162,7 +162,7 @@ class Location(ModelNormal):
             street_1 (str, none_type): Line 1 of the location's street address.. [optional]  # noqa: E501
             street_2 (str, none_type): Line 2 of the location's street address.. [optional]  # noqa: E501
             city (str, none_type): The location's city.. [optional]  # noqa: E501
-            state (object, none_type): The location's state.. [optional]  # noqa: E501
+            state (str, none_type): The location's state. Represents a region if outside of the US.. [optional]  # noqa: E501
             zip_code (str, none_type): The location's zip code.. [optional]  # noqa: E501
             country (object, none_type): The location's country.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501

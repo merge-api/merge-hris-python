@@ -1,5 +1,6 @@
 # PaginatedLocationList
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

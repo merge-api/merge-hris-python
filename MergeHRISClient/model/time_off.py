@@ -89,6 +89,8 @@ class TimeOff(ModelNormal):
             'units': (object, none_type,),  # noqa: E501
             'amount': (float, none_type,),  # noqa: E501
             'request_type': (object, none_type,),  # noqa: E501
+            'start_time': (datetime, none_type,),  # noqa: E501
+            'end_time': (datetime, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -107,6 +109,8 @@ class TimeOff(ModelNormal):
         'units': 'units',  # noqa: E501
         'amount': 'amount',  # noqa: E501
         'request_type': 'request_type',  # noqa: E501
+        'start_time': 'start_time',  # noqa: E501
+        'end_time': 'end_time',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
     }
 
@@ -165,6 +169,8 @@ class TimeOff(ModelNormal):
             units (object, none_type): The unit of time requested.. [optional]  # noqa: E501
             amount (float, none_type): The number of time off units requested.. [optional]  # noqa: E501
             request_type (object, none_type): The type of time off request.. [optional]  # noqa: E501
+            start_time (datetime, none_type): The day and time of the start of the time requested off.. [optional]  # noqa: E501
+            end_time (datetime, none_type): The day and time of the end of the time requested off.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

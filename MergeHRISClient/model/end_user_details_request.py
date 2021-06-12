@@ -58,6 +58,7 @@ class EndUserDetailsRequest(ModelNormal):
         ('categories',): {
             'HRIS': "hris",
             'ATS': "ats",
+            'ACCOUNTING': "accounting",
         },
     }
 
@@ -83,7 +84,7 @@ class EndUserDetailsRequest(ModelNormal):
             'end_user_organization_name': (str,),  # noqa: E501
             'end_user_origin_id': (str,),  # noqa: E501
             'categories': ([str],),  # noqa: E501
-            'integration': (str,),  # noqa: E501
+            'integration': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -111,14 +112,13 @@ class EndUserDetailsRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, end_user_email_address, end_user_organization_name, end_user_origin_id, categories, *args, **kwargs):  # noqa: E501
+    def __init__(self, end_user_email_address, end_user_organization_name, end_user_origin_id, *args, **kwargs):  # noqa: E501
         """EndUserDetailsRequest - a model defined in OpenAPI
 
         Args:
             end_user_email_address (str):
             end_user_organization_name (str):
             end_user_origin_id (str):
-            categories ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -151,7 +151,8 @@ class EndUserDetailsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            integration (str): [optional]  # noqa: E501
+            categories ([str]): [optional]  # noqa: E501
+            integration (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -180,7 +181,6 @@ class EndUserDetailsRequest(ModelNormal):
         self.end_user_email_address = end_user_email_address
         self.end_user_organization_name = end_user_organization_name
         self.end_user_origin_id = end_user_origin_id
-        self.categories = categories
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

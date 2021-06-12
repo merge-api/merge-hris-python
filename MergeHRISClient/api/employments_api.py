@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from MergeHRISClient.api_client import ApiClient, Endpoint
+from MergeHRISClient.api_client import ApiClient, Endpoint as _Endpoint
 from MergeHRISClient.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -23,6 +23,7 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeHRISClient.model.employment import Employment
+from MergeHRISClient.model.employment_request import EmploymentRequest
 from MergeHRISClient.model.paginated_employment_list import PaginatedEmploymentList
 
 
@@ -37,6 +38,140 @@ class EmploymentsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        def __employments_create(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """employments_create  # noqa: E501
+
+            Creates an `Employment` object with the given values.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.employments_create(x_account_token, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+
+            Keyword Args:
+                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
+                employment_request (EmploymentRequest): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                Employment
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
+
+        self.employments_create = _Endpoint(
+            settings={
+                'response_type': (Employment,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employments',
+                'operation_id': 'employments_create',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'run_async',
+                    'employment_request',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'run_async':
+                        (bool,),
+                    'employment_request':
+                        (EmploymentRequest,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'run_async': 'run_async',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'run_async': 'query',
+                    'employment_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__employments_create
+        )
 
         def __employments_list(
             self,
@@ -113,7 +248,7 @@ class EmploymentsApi(object):
                 x_account_token
             return self.call_with_http_info(**kwargs)
 
-        self.employments_list = Endpoint(
+        self.employments_list = _Endpoint(
             settings={
                 'response_type': (PaginatedEmploymentList,),
                 'auth': [
@@ -283,7 +418,7 @@ class EmploymentsApi(object):
                 id
             return self.call_with_http_info(**kwargs)
 
-        self.employments_retrieve = Endpoint(
+        self.employments_retrieve = _Endpoint(
             settings={
                 'response_type': (Employment,),
                 'auth': [

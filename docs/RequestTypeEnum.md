@@ -1,5 +1,6 @@
 # RequestTypeEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

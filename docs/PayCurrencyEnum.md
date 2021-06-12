@@ -1,5 +1,6 @@
 # PayCurrencyEnum
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
