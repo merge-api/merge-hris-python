@@ -104,6 +104,7 @@ class EmployeeRequest(ModelNormal):
             'marital_status': (object, none_type,),  # noqa: E501
             'date_of_birth': (datetime, none_type,),  # noqa: E501
             'hire_date': (datetime, none_type,),  # noqa: E501
+            'start_date': (datetime, none_type,),  # noqa: E501
             'employment_status': (object, none_type,),  # noqa: E501
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
@@ -134,6 +135,7 @@ class EmployeeRequest(ModelNormal):
         'marital_status': 'marital_status',  # noqa: E501
         'date_of_birth': 'date_of_birth',  # noqa: E501
         'hire_date': 'hire_date',  # noqa: E501
+        'start_date': 'start_date',  # noqa: E501
         'employment_status': 'employment_status',  # noqa: E501
         'termination_date': 'termination_date',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
@@ -204,6 +206,7 @@ class EmployeeRequest(ModelNormal):
             marital_status (object, none_type): The employee's marital status.. [optional]  # noqa: E501
             date_of_birth (datetime, none_type): The employee's date of birth.. [optional]  # noqa: E501
             hire_date (datetime, none_type): The employee's hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date.. [optional]  # noqa: E501
+            start_date (datetime, none_type): The employee's start date.. [optional]  # noqa: E501
             employment_status (object, none_type): The employment status of the employee.. [optional]  # noqa: E501
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501

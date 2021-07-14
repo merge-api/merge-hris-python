@@ -89,10 +89,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountTokenApi* | [**account_token_retrieve**](docs/AccountTokenApi.md#account_token_retrieve) | **GET** /account-token/{public_token} | 
 *AvailableActionsApi* | [**available_actions_retrieve**](docs/AvailableActionsApi.md#available_actions_retrieve) | **GET** /available-actions | 
+*BenefitsApi* | [**benefits_create**](docs/BenefitsApi.md#benefits_create) | **POST** /benefits | 
 *BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
 *BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
 *CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
 *CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
+*DeleteAccountApi* | [**delete_account_create**](docs/DeleteAccountApi.md#delete_account_create) | **POST** /delete-account | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
 *EmployeesApi* | [**employees_create**](docs/EmployeesApi.md#employees_create) | **POST** /employees | 
@@ -102,6 +104,8 @@ Class | Method | HTTP request | Description
 *EmploymentsApi* | [**employments_list**](docs/EmploymentsApi.md#employments_list) | **GET** /employments | 
 *EmploymentsApi* | [**employments_retrieve**](docs/EmploymentsApi.md#employments_retrieve) | **GET** /employments/{id} | 
 *GenerateKeyApi* | [**generate_key_create**](docs/GenerateKeyApi.md#generate_key_create) | **POST** /generate-key | 
+*IssuesApi* | [**issues_list**](docs/IssuesApi.md#issues_list) | **GET** /issues | 
+*IssuesApi* | [**issues_retrieve**](docs/IssuesApi.md#issues_retrieve) | **GET** /issues/{id} | 
 *LinkTokenApi* | [**link_token_create**](docs/LinkTokenApi.md#link_token_create) | **POST** /link-token | 
 *LocationsApi* | [**locations_list**](docs/LocationsApi.md#locations_list) | **GET** /locations | 
 *LocationsApi* | [**locations_retrieve**](docs/LocationsApi.md#locations_retrieve) | **GET** /locations/{id} | 
@@ -126,6 +130,7 @@ Class | Method | HTTP request | Description
  - [AvailableActions](docs/AvailableActions.md)
  - [Benefit](docs/Benefit.md)
  - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
+ - [BenefitRequest](docs/BenefitRequest.md)
  - [Company](docs/Company.md)
  - [CountryEnum](docs/CountryEnum.md)
  - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
@@ -143,6 +148,8 @@ Class | Method | HTTP request | Description
  - [FlsaStatusEnum](docs/FlsaStatusEnum.md)
  - [GenderEnum](docs/GenderEnum.md)
  - [GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
+ - [Issue](docs/Issue.md)
+ - [IssueStatusEnum](docs/IssueStatusEnum.md)
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
@@ -153,6 +160,7 @@ Class | Method | HTTP request | Description
  - [PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
+ - [PaginatedIssueList](docs/PaginatedIssueList.md)
  - [PaginatedLocationList](docs/PaginatedLocationList.md)
  - [PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
  - [PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)

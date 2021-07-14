@@ -83,6 +83,7 @@ class Team(ModelNormal):
             'id': (str,),  # noqa: E501
             'remote_id': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
+            'parent_team': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
         }
 
@@ -95,6 +96,7 @@ class Team(ModelNormal):
         'id': 'id',  # noqa: E501
         'remote_id': 'remote_id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'parent_team': 'parent_team',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
     }
 
@@ -147,6 +149,7 @@ class Team(ModelNormal):
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
             name (str, none_type): The team's name.. [optional]  # noqa: E501
+            parent_team (str, none_type): The team's parent team.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
         """
 

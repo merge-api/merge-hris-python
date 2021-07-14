@@ -14,6 +14,7 @@ from MergeHRISClient.model.account_token import AccountToken
 from MergeHRISClient.model.available_actions import AvailableActions
 from MergeHRISClient.model.benefit import Benefit
 from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
+from MergeHRISClient.model.benefit_request import BenefitRequest
 from MergeHRISClient.model.company import Company
 from MergeHRISClient.model.country_enum import CountryEnum
 from MergeHRISClient.model.data_passthrough_request import DataPassthroughRequest
@@ -31,6 +32,8 @@ from MergeHRISClient.model.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.model.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.model.gender_enum import GenderEnum
 from MergeHRISClient.model.generate_remote_key_request import GenerateRemoteKeyRequest
+from MergeHRISClient.model.issue import Issue
+from MergeHRISClient.model.issue_status_enum import IssueStatusEnum
 from MergeHRISClient.model.link_token import LinkToken
 from MergeHRISClient.model.location import Location
 from MergeHRISClient.model.marital_status_enum import MaritalStatusEnum
@@ -41,6 +44,7 @@ from MergeHRISClient.model.paginated_company_list import PaginatedCompanyList
 from MergeHRISClient.model.paginated_employee_list import PaginatedEmployeeList
 from MergeHRISClient.model.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList
 from MergeHRISClient.model.paginated_employment_list import PaginatedEmploymentList
+from MergeHRISClient.model.paginated_issue_list import PaginatedIssueList
 from MergeHRISClient.model.paginated_location_list import PaginatedLocationList
 from MergeHRISClient.model.paginated_payroll_run_list import PaginatedPayrollRunList
 from MergeHRISClient.model.paginated_sync_status_list import PaginatedSyncStatusList

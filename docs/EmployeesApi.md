@@ -69,6 +69,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
         marital_status=,
         date_of_birth=dateutil_parser('1970-01-01T00:00:00.00Z'),
         hire_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        start_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
         employment_status=,
         termination_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
         avatar="http://alturl.com/h2h8m",

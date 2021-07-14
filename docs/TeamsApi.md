@@ -53,6 +53,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
+    parent_team_id = "parent_team_id_example" # str, none_type | If provided, will only return teams with this parent team. (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
 
     # example passing only required values which don't have defaults set
@@ -65,7 +66,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.teams_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.teams_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, parent_team_id=parent_team_id, remote_id=remote_id)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling TeamsApi->teams_list: %s\n" % e)
@@ -84,6 +85,7 @@ Name | Type | Description  | Notes
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
+ **parent_team_id** | **str, none_type**| If provided, will only return teams with this parent team. | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type

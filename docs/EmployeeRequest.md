@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **marital_status** | **object, none_type** | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **datetime, none_type** | The employee&#39;s date of birth. | [optional] 
 **hire_date** | **datetime, none_type** | The employee&#39;s hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. | [optional] 
+**start_date** | **datetime, none_type** | The employee&#39;s start date. | [optional] 
 **employment_status** | **object, none_type** | The employment status of the employee. | [optional] 
 **termination_date** | **datetime, none_type** | The employee&#39;s termination date. | [optional] 
 **avatar** | **str, none_type** | The URL of the employee&#39;s avatar image. | [optional] 
