@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeHRISClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -56,6 +54,8 @@ class RequestTypeEnum(ModelSimple):
             'SICK': "SICK",
             'PERSONAL': "PERSONAL",
             'JURY_DUTY': "JURY_DUTY",
+            'VOLUNTEER': "VOLUNTEER",
+            'BEREAVEMENT': "BEREAVEMENT",
         },
     }
 
@@ -105,10 +105,10 @@ class RequestTypeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["VACATION", "SICK", "PERSONAL", "JURY_DUTY", ]  # noqa: E501
+            args[0] (str):, must be one of ["VACATION", "SICK", "PERSONAL", "JURY_DUTY", "VOLUNTEER", "BEREAVEMENT", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["VACATION", "SICK", "PERSONAL", "JURY_DUTY", ]  # noqa: E501
+            value (str):, must be one of ["VACATION", "SICK", "PERSONAL", "JURY_DUTY", "VOLUNTEER", "BEREAVEMENT", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

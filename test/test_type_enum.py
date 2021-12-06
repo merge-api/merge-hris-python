@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.type_enum import TypeEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestTypeEnum(unittest.TestCase):
         """Test TypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = TypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

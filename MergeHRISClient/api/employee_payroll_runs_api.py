@@ -59,7 +59,9 @@ class EmployeePayrollRunsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
-                employee_id (str): If provided, will only return time off for this employee.. [optional]
+                employee_id (str): If provided, will only return employee payroll runs for this employee.. [optional]
+                ended_after (datetime, none_type): If provided, will only return employee payroll runs ended after this datetime.. [optional]
+                ended_before (datetime, none_type): If provided, will only return employee payroll runs ended before this datetime.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
@@ -67,6 +69,8 @@ class EmployeePayrollRunsApi(object):
                 page_size (int): Number of results to return per page.. [optional]
                 payroll_run_id (str): If provided, will only return employee payroll runs for this employee.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                started_after (datetime, none_type): If provided, will only return employee payroll runs started after this datetime.. [optional]
+                started_before (datetime, none_type): If provided, will only return employee payroll runs started before this datetime.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -133,6 +137,8 @@ class EmployeePayrollRunsApi(object):
                     'created_before',
                     'cursor',
                     'employee_id',
+                    'ended_after',
+                    'ended_before',
                     'expand',
                     'include_remote_data',
                     'modified_after',
@@ -140,12 +146,18 @@ class EmployeePayrollRunsApi(object):
                     'page_size',
                     'payroll_run_id',
                     'remote_id',
+                    'started_after',
+                    'started_before',
                 ],
                 'required': [
                     'x_account_token',
                 ],
                 'nullable': [
+                    'ended_after',
+                    'ended_before',
                     'remote_id',
+                    'started_after',
+                    'started_before',
                 ],
                 'enum': [
                     'expand',
@@ -175,6 +187,10 @@ class EmployeePayrollRunsApi(object):
                         (str,),
                     'employee_id':
                         (str,),
+                    'ended_after':
+                        (datetime, none_type,),
+                    'ended_before':
+                        (datetime, none_type,),
                     'expand':
                         (str,),
                     'include_remote_data':
@@ -189,6 +205,10 @@ class EmployeePayrollRunsApi(object):
                         (str,),
                     'remote_id':
                         (str, none_type,),
+                    'started_after':
+                        (datetime, none_type,),
+                    'started_before':
+                        (datetime, none_type,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
@@ -196,6 +216,8 @@ class EmployeePayrollRunsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'employee_id': 'employee_id',
+                    'ended_after': 'ended_after',
+                    'ended_before': 'ended_before',
                     'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
@@ -203,6 +225,8 @@ class EmployeePayrollRunsApi(object):
                     'page_size': 'page_size',
                     'payroll_run_id': 'payroll_run_id',
                     'remote_id': 'remote_id',
+                    'started_after': 'started_after',
+                    'started_before': 'started_before',
                 },
                 'location_map': {
                     'x_account_token': 'header',
@@ -210,6 +234,8 @@ class EmployeePayrollRunsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'employee_id': 'query',
+                    'ended_after': 'query',
+                    'ended_before': 'query',
                     'expand': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
@@ -217,6 +243,8 @@ class EmployeePayrollRunsApi(object):
                     'page_size': 'query',
                     'payroll_run_id': 'query',
                     'remote_id': 'query',
+                    'started_after': 'query',
+                    'started_before': 'query',
                 },
                 'collection_format_map': {
                 }

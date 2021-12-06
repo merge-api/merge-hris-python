@@ -50,12 +50,11 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
         method=,
         path="/scooters",
         base_url_override="base_url_override_example",
-        data={
-            "key": None,
-        },
+        data="{"company": "Lime", "model": "Gen 2.5"}",
         headers={
             "key": None,
         },
+        request_format=,
     ) # DataPassthroughRequest | 
 
     # example passing only required values which don't have defaults set

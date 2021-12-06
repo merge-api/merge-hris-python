@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.employee_payroll_run import EmployeePayrollRun
 globals()['EmployeePayrollRun'] = EmployeePayrollRun
 from MergeHRISClient.model.paginated_employee_payroll_run_list import PaginatedEmployeePayrollRunList
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestPaginatedEmployeePayrollRunList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedEmployeePayrollRunList(unittest.TestCase):
         """Test PaginatedEmployeePayrollRunList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedEmployeePayrollRunList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedEmployeePayrollRunList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedEmployeePayrollRunList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

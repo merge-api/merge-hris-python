@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.sync_status import SyncStatus
 globals()['SyncStatus'] = SyncStatus
 from MergeHRISClient.model.paginated_sync_status_list import PaginatedSyncStatusList
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestPaginatedSyncStatusList(unittest.TestCase):
@@ -31,7 +33,22 @@ class TestPaginatedSyncStatusList(unittest.TestCase):
         """Test PaginatedSyncStatusList"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PaginatedSyncStatusList()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for PaginatedSyncStatusList
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (PaginatedSyncStatusList,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

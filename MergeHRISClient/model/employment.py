@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeHRISClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -82,6 +80,7 @@ class Employment(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'remote_id': (str, none_type,),  # noqa: E501
+            'employee': (str, none_type,),  # noqa: E501
             'job_title': (str, none_type,),  # noqa: E501
             'pay_rate': (float, none_type,),  # noqa: E501
             'pay_period': (object, none_type,),  # noqa: E501
@@ -101,6 +100,7 @@ class Employment(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'remote_id': 'remote_id',  # noqa: E501
+        'employee': 'employee',  # noqa: E501
         'job_title': 'job_title',  # noqa: E501
         'pay_rate': 'pay_rate',  # noqa: E501
         'pay_period': 'pay_period',  # noqa: E501
@@ -160,6 +160,7 @@ class Employment(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
+            employee (str, none_type): The employee holding this position.. [optional]  # noqa: E501
             job_title (str, none_type): The position's title.. [optional]  # noqa: E501
             pay_rate (float, none_type): The position's pay rate in dollars.. [optional]  # noqa: E501
             pay_period (object, none_type): The time period this pay rate encompasses.. [optional]  # noqa: E501

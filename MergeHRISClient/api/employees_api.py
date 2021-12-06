@@ -23,7 +23,6 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeHRISClient.model.employee import Employee
-from MergeHRISClient.model.employee_request import EmployeeRequest
 from MergeHRISClient.model.paginated_employee_list import PaginatedEmployeeList
 
 
@@ -38,140 +37,6 @@ class EmployeesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __employees_create(
-            self,
-            x_account_token,
-            **kwargs
-        ):
-            """employees_create  # noqa: E501
-
-            Creates an `Employee` object with the given values.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.employees_create(x_account_token, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                x_account_token (str): Token identifying the end user.
-
-            Keyword Args:
-                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
-                employee_request (EmployeeRequest): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Employee
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['x_account_token'] = \
-                x_account_token
-            return self.call_with_http_info(**kwargs)
-
-        self.employees_create = _Endpoint(
-            settings={
-                'response_type': (Employee,),
-                'auth': [
-                    'tokenAuth'
-                ],
-                'endpoint_path': '/employees',
-                'operation_id': 'employees_create',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'x_account_token',
-                    'run_async',
-                    'employee_request',
-                ],
-                'required': [
-                    'x_account_token',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'x_account_token':
-                        (str,),
-                    'run_async':
-                        (bool,),
-                    'employee_request':
-                        (EmployeeRequest,),
-                },
-                'attribute_map': {
-                    'x_account_token': 'X-Account-Token',
-                    'run_async': 'run_async',
-                },
-                'location_map': {
-                    'x_account_token': 'header',
-                    'run_async': 'query',
-                    'employee_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json',
-                    'application/x-www-form-urlencoded',
-                    'multipart/form-data'
-                ]
-            },
-            api_client=api_client,
-            callable=__employees_create
-        )
 
         def __employees_list(
             self,
@@ -197,13 +62,15 @@ class EmployeesApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                include_sensitive_fields (bool): Whether to include sensetive fields (such as social security numbers) in the response.. [optional]
+                include_sensitive_fields (bool): Whether to include sensitive fields (such as social security numbers) in the response.. [optional]
                 manager_id (str): If provided, will only return employees for this manager.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                personal_email (str, none_type): If provided, will only return Employees with this personal email. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 team_id (str): If provided, will only return employees for this team.. [optional]
+                work_email (str, none_type): If provided, will only return Employees with this work email. [optional]
                 work_location_id (str): If provided, will only return employees for this location.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -278,15 +145,19 @@ class EmployeesApi(object):
                     'modified_after',
                     'modified_before',
                     'page_size',
+                    'personal_email',
                     'remote_id',
                     'team_id',
+                    'work_email',
                     'work_location_id',
                 ],
                 'required': [
                     'x_account_token',
                 ],
                 'nullable': [
+                    'personal_email',
                     'remote_id',
+                    'work_email',
                 ],
                 'enum': [
                     'expand',
@@ -390,10 +261,14 @@ class EmployeesApi(object):
                         (datetime,),
                     'page_size':
                         (int,),
+                    'personal_email':
+                        (str, none_type,),
                     'remote_id':
                         (str, none_type,),
                     'team_id':
                         (str,),
+                    'work_email':
+                        (str, none_type,),
                     'work_location_id':
                         (str,),
                 },
@@ -410,8 +285,10 @@ class EmployeesApi(object):
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
+                    'personal_email': 'personal_email',
                     'remote_id': 'remote_id',
                     'team_id': 'team_id',
+                    'work_email': 'work_email',
                     'work_location_id': 'work_location_id',
                 },
                 'location_map': {
@@ -427,8 +304,10 @@ class EmployeesApi(object):
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
+                    'personal_email': 'query',
                     'remote_id': 'query',
                     'team_id': 'query',
+                    'work_email': 'query',
                     'work_location_id': 'query',
                 },
                 'collection_format_map': {
@@ -466,7 +345,7 @@ class EmployeesApi(object):
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                include_sensitive_fields (bool): Whether to include sensetive fields (such as social security numbers) in the response.. [optional]
+                include_sensitive_fields (bool): Whether to include sensitive fields (such as social security numbers) in the response.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object

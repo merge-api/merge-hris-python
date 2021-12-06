@@ -65,6 +65,7 @@ class TimeOffBalanceApi(object):
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                policy_type (str, none_type): If provided, will only return TimeOffBalance with this policy type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT'). [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -137,16 +138,19 @@ class TimeOffBalanceApi(object):
                     'modified_after',
                     'modified_before',
                     'page_size',
+                    'policy_type',
                     'remote_id',
                 ],
                 'required': [
                     'x_account_token',
                 ],
                 'nullable': [
+                    'policy_type',
                     'remote_id',
                 ],
                 'enum': [
                     'expand',
+                    'policy_type',
                 ],
                 'validation': [
                 ]
@@ -158,6 +162,17 @@ class TimeOffBalanceApi(object):
                     ('expand',): {
 
                         "EMPLOYEE": "employee"
+                    },
+                    ('policy_type',): {
+                        'None': None,
+                        "EMPTY": "",
+                        "BEREAVEMENT": "BEREAVEMENT",
+                        "JURY_DUTY": "JURY_DUTY",
+                        "NULL": "null",
+                        "PERSONAL": "PERSONAL",
+                        "SICK": "SICK",
+                        "VACATION": "VACATION",
+                        "VOLUNTEER": "VOLUNTEER"
                     },
                 },
                 'openapi_types': {
@@ -181,6 +196,8 @@ class TimeOffBalanceApi(object):
                         (datetime,),
                     'page_size':
                         (int,),
+                    'policy_type':
+                        (str, none_type,),
                     'remote_id':
                         (str, none_type,),
                 },
@@ -195,6 +212,7 @@ class TimeOffBalanceApi(object):
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
+                    'policy_type': 'policy_type',
                     'remote_id': 'remote_id',
                 },
                 'location_map': {
@@ -208,6 +226,7 @@ class TimeOffBalanceApi(object):
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
+                    'policy_type': 'query',
                     'remote_id': 'query',
                 },
                 'collection_format_map': {
@@ -231,7 +250,7 @@ class TimeOffBalanceApi(object):
         ):
             """time_off_balance_retrieve  # noqa: E501
 
-            Returns an `TimeOffBalance` object with the given `id`.  # noqa: E501
+            Returns a `TimeOffBalance` object with the given `id`.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

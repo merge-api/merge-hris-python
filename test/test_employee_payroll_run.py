@@ -11,6 +11,7 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.deduction import Deduction
@@ -22,6 +23,7 @@ globals()['Earning'] = Earning
 globals()['RemoteData'] = RemoteData
 globals()['Tax'] = Tax
 from MergeHRISClient.model.employee_payroll_run import EmployeePayrollRun
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestEmployeePayrollRun(unittest.TestCase):
@@ -37,7 +39,22 @@ class TestEmployeePayrollRun(unittest.TestCase):
         """Test EmployeePayrollRun"""
         # FIXME: construct object with mandatory attributes with example values
         # model = EmployeePayrollRun()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for EmployeePayrollRun
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (EmployeePayrollRun,), False)
+
+        assert deserialized is not None
+
 
 
 if __name__ == '__main__':

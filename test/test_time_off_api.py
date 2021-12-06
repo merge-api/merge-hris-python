@@ -24,6 +24,12 @@ class TestTimeOffApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_time_off_create(self):
+        """Test case for time_off_create
+
+        """
+        pass
+
     def test_time_off_list(self):
         """Test case for time_off_list
 

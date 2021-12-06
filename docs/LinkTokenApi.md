@@ -50,7 +50,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
         end_user_organization_name="end_user_organization_name_example",
         end_user_origin_id="end_user_origin_id_example",
         categories=[
-            "hris",
+            CategoriesEnum("hris"),
         ],
         integration="integration_example",
     ) # EndUserDetailsRequest | 

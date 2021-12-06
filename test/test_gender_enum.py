@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.gender_enum import GenderEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestGenderEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestGenderEnum(unittest.TestCase):
         """Test GenderEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = GenderEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

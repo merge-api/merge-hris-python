@@ -24,8 +24,14 @@ class TestSyncStatusApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_sync_status_retrieve(self):
-        """Test case for sync_status_retrieve
+    def test_sync_status_list(self):
+        """Test case for sync_status_list
+
+        """
+        pass
+
+    def test_sync_status_resync_create(self):
+        """Test case for sync_status_resync_create
 
         """
         pass

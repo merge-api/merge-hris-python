@@ -23,7 +23,6 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
-from MergeHRISClient.model.end_user_details import EndUserDetails
 from MergeHRISClient.model.link_token import LinkToken
 
 
@@ -137,7 +136,7 @@ class LinkTokenApi(object):
                 },
                 'openapi_types': {
                     'end_user_details_request':
-                        (EndUserDetailsRequest, EndUserDetails),
+                        (EndUserDetailsRequest,),
                 },
                 'attribute_map': {
                 },

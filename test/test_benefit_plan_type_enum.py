@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestBenefitPlanTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestBenefitPlanTypeEnum(unittest.TestCase):
         """Test BenefitPlanTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = BenefitPlanTypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

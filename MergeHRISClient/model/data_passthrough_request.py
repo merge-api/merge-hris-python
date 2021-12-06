@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeHRISClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -58,6 +56,15 @@ class DataPassthroughRequest(ModelNormal):
     }
 
     validations = {
+        ('path',): {
+            'min_length': 1,
+        },
+        ('base_url_override',): {
+            'min_length': 1,
+        },
+        ('data',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -78,8 +85,9 @@ class DataPassthroughRequest(ModelNormal):
             'method': (object,),  # noqa: E501
             'path': (str,),  # noqa: E501
             'base_url_override': (str, none_type,),  # noqa: E501
-            'data': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'data': (str, none_type,),  # noqa: E501
             'headers': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'request_format': (object, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,6 +101,7 @@ class DataPassthroughRequest(ModelNormal):
         'base_url_override': 'base_url_override',  # noqa: E501
         'data': 'data',  # noqa: E501
         'headers': 'headers',  # noqa: E501
+        'request_format': 'request_format',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -146,8 +155,9 @@ class DataPassthroughRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             base_url_override (str, none_type): [optional]  # noqa: E501
-            data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            data (str, none_type): [optional]  # noqa: E501
             headers ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            request_format (object, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

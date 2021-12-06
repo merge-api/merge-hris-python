@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **work_email** | **str, none_type** | The employee&#39;s work email. | [optional] 
 **personal_email** | **str, none_type** | The employee&#39;s personal email. | [optional] 
 **mobile_phone_number** | **str, none_type** | The employee&#39;s mobile phone number. | [optional] 
-**employments** | **[str]** |  | [optional] [readonly] 
+**employments** | **[str]** | Array of &#x60;Employment&#x60; IDs for this Employee. | [optional] [readonly] 
 **home_location** | **str, none_type** | The employee&#39;s home address. | [optional] 
 **work_location** | **str, none_type** | The employee&#39;s work address. | [optional] 
 **manager** | **str, none_type** | The employee ID of the employee&#39;s manager. | [optional] 
@@ -25,11 +25,13 @@ Name | Type | Description | Notes
 **ethnicity** | **object, none_type** | The employee&#39;s ethnicity. | [optional] 
 **marital_status** | **object, none_type** | The employee&#39;s marital status. | [optional] 
 **date_of_birth** | **datetime, none_type** | The employee&#39;s date of birth. | [optional] 
-**hire_date** | **datetime, none_type** | The employee&#39;s hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. | [optional] 
+**hire_date** | **datetime, none_type** | The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you&#39;re looking for the employee&#39;s start date, refer to the start_date field. | [optional] 
+**start_date** | **datetime, none_type** | The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date. | [optional] 
 **employment_status** | **object, none_type** | The employment status of the employee. | [optional] 
 **termination_date** | **datetime, none_type** | The employee&#39;s termination date. | [optional] 
 **avatar** | **str, none_type** | The URL of the employee&#39;s avatar image. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**custom_fields** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** | Custom fields configured for a given model. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

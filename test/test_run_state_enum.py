@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.run_state_enum import RunStateEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestRunStateEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestRunStateEnum(unittest.TestCase):
         """Test RunStateEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = RunStateEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

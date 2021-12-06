@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeHRISClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -82,6 +80,7 @@ class Location(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'remote_id': (str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'phone_number': (str, none_type,),  # noqa: E501
             'street_1': (str, none_type,),  # noqa: E501
             'street_2': (str, none_type,),  # noqa: E501
@@ -100,6 +99,7 @@ class Location(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'remote_id': 'remote_id',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'phone_number': 'phone_number',  # noqa: E501
         'street_1': 'street_1',  # noqa: E501
         'street_2': 'street_2',  # noqa: E501
@@ -158,6 +158,7 @@ class Location(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
+            name (str, none_type): The location's name.. [optional]  # noqa: E501
             phone_number (str, none_type): The location's phone number.. [optional]  # noqa: E501
             street_1 (str, none_type): Line 1 of the location's street address.. [optional]  # noqa: E501
             street_2 (str, none_type): Line 2 of the location's street address.. [optional]  # noqa: E501

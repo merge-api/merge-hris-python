@@ -55,6 +55,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
+    policy_type = "" # str, none_type | If provided, will only return TimeOffBalance with this policy type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT') (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
 
     # example passing only required values which don't have defaults set
@@ -67,7 +68,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.time_off_balance_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.time_off_balance_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, policy_type=policy_type, remote_id=remote_id)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling TimeOffBalanceApi->time_off_balance_list: %s\n" % e)
@@ -88,6 +89,7 @@ Name | Type | Description  | Notes
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
+ **policy_type** | **str, none_type**| If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
@@ -116,7 +118,7 @@ Name | Type | Description  | Notes
 
 
 
-Returns an `TimeOffBalance` object with the given `id`.
+Returns a `TimeOffBalance` object with the given `id`.
 
 ### Example
 

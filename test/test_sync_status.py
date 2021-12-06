@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.sync_status import SyncStatus
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestSyncStatus(unittest.TestCase):
@@ -29,7 +31,27 @@ class TestSyncStatus(unittest.TestCase):
         """Test SyncStatus"""
         # FIXME: construct object with mandatory attributes with example values
         # model = SyncStatus()  # noqa: E501
-        pass
+
+        raw_json = """
+            {"model_name": "Candidate", "model_id": "ats.Candidate", "last_sync_start": "2021-03-30T19:44:18.695973Z", "next_sync_start": "2021-03-30T20:44:18.662942Z", "status": "SYNCING", "is_initial_sync": true}
+        """
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (SyncStatus,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model_name is not None
+        assert deserialized.model_id is not None
+        assert deserialized.last_sync_start is not None
+        assert deserialized.next_sync_start is not None
+        assert deserialized.status is not None
+        assert deserialized.is_initial_sync is not None
 
 
 if __name__ == '__main__':

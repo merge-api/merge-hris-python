@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.employment_status_enum import EmploymentStatusEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestEmploymentStatusEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestEmploymentStatusEnum(unittest.TestCase):
         """Test EmploymentStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = EmploymentStatusEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()
