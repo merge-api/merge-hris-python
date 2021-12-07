@@ -9,8 +9,6 @@
 
 ## Related issues
 
-> All PRs at Merge must be backed by an Asana ticket. Create one here, and then replace this line with the link. https://app.asana.com/0/1198991781422585/list
-
 ## Checklists
 
 ### Development

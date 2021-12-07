@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.ethnicity_enum import EthnicityEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestEthnicityEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestEthnicityEnum(unittest.TestCase):
         """Test EthnicityEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = EthnicityEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

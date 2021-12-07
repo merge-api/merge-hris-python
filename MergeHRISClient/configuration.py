@@ -103,6 +103,7 @@ conf = MergeHRISClient.Configuration(
 
     def __init__(self, host=None,
                  api_key=None, api_key_prefix=None,
+                 access_token=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
                  disabled_client_side_validations="",
@@ -127,6 +128,7 @@ conf = MergeHRISClient.Configuration(
         """Temp file folder for downloading files
         """
         # Authentication Settings
+        self.access_token = access_token
         self.api_key = {}
         if api_key:
             self.api_key = api_key

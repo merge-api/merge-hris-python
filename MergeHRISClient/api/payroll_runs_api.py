@@ -59,11 +59,16 @@ class PayrollRunsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                ended_after (datetime, none_type): If provided, will only return payroll runs ended after this datetime.. [optional]
+                ended_before (datetime, none_type): If provided, will only return payroll runs ended before this datetime.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                run_type (str, none_type): If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS'). [optional]
+                started_after (datetime, none_type): If provided, will only return payroll runs started after this datetime.. [optional]
+                started_before (datetime, none_type): If provided, will only return payroll runs started before this datetime.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -129,19 +134,30 @@ class PayrollRunsApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'ended_after',
+                    'ended_before',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
                     'page_size',
                     'remote_id',
+                    'run_type',
+                    'started_after',
+                    'started_before',
                 ],
                 'required': [
                     'x_account_token',
                 ],
                 'nullable': [
+                    'ended_after',
+                    'ended_before',
                     'remote_id',
+                    'run_type',
+                    'started_after',
+                    'started_before',
                 ],
                 'enum': [
+                    'run_type',
                 ],
                 'validation': [
                 ]
@@ -150,6 +166,16 @@ class PayrollRunsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('run_type',): {
+                        'None': None,
+                        "EMPTY": "",
+                        "CORRECTION": "CORRECTION",
+                        "NULL": "null",
+                        "OFF_CYCLE": "OFF_CYCLE",
+                        "REGULAR": "REGULAR",
+                        "SIGN_ON_BONUS": "SIGN_ON_BONUS",
+                        "TERMINATION": "TERMINATION"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -160,6 +186,10 @@ class PayrollRunsApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'ended_after':
+                        (datetime, none_type,),
+                    'ended_before':
+                        (datetime, none_type,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -170,28 +200,44 @@ class PayrollRunsApi(object):
                         (int,),
                     'remote_id':
                         (str, none_type,),
+                    'run_type':
+                        (str, none_type,),
+                    'started_after':
+                        (datetime, none_type,),
+                    'started_before':
+                        (datetime, none_type,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'ended_after': 'ended_after',
+                    'ended_before': 'ended_before',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
                     'remote_id': 'remote_id',
+                    'run_type': 'run_type',
+                    'started_after': 'started_after',
+                    'started_before': 'started_before',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'ended_after': 'query',
+                    'ended_before': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
                     'remote_id': 'query',
+                    'run_type': 'query',
+                    'started_after': 'query',
+                    'started_before': 'query',
                 },
                 'collection_format_map': {
                 }

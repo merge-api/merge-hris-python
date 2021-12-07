@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
+**name** | **str, none_type** | The location&#39;s name. | [optional] 
 **phone_number** | **str, none_type** | The location&#39;s phone number. | [optional] 
 **street_1** | **str, none_type** | Line 1 of the location&#39;s street address. | [optional] 
 **street_2** | **str, none_type** | Line 2 of the location&#39;s street address. | [optional] 

@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.remote_key_for_regeneration_request import RemoteKeyForRegenerationRequest
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestRemoteKeyForRegenerationRequest(unittest.TestCase):
@@ -29,7 +31,23 @@ class TestRemoteKeyForRegenerationRequest(unittest.TestCase):
         """Test RemoteKeyForRegenerationRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = RemoteKeyForRegenerationRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for RemoteKeyForRegenerationRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (RemoteKeyForRegenerationRequest,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.name is not None
 
 
 if __name__ == '__main__':

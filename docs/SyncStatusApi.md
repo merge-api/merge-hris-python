@@ -46,7 +46,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sync_status_api.SyncStatusApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    cursor = 1 # int | The pagination cursor value. (optional)
+    cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
 
     # example passing only required values which don't have defaults set
@@ -71,7 +71,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **cursor** | **int**| The pagination cursor value. | [optional]
+ **cursor** | **str**| The pagination cursor value. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
 
 ### Return type
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 
 
-Force resync of all models.
+Force re-sync of all models. This is only available for organizations on Merge's Grow and Expand plans.
 
 ### Example
 

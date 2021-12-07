@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.pay_frequency_enum import PayFrequencyEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestPayFrequencyEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestPayFrequencyEnum(unittest.TestCase):
         """Test PayFrequencyEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = PayFrequencyEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

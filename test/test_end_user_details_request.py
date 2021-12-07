@@ -11,9 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
-import openapi_client
-from openapi_client.model.end_user_details_request import EndUserDetailsRequest
+import MergeHRISClient
+from MergeHRISClient.model.categories_enum import CategoriesEnum
+globals()['CategoriesEnum'] = CategoriesEnum
+from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestEndUserDetailsRequest(unittest.TestCase):
@@ -29,7 +33,25 @@ class TestEndUserDetailsRequest(unittest.TestCase):
         """Test EndUserDetailsRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = EndUserDetailsRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for EndUserDetailsRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (EndUserDetailsRequest,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.end_user_email_address is not None
+        assert deserialized.end_user_organization_name is not None
+        assert deserialized.end_user_origin_id is not None
 
 
 if __name__ == '__main__':

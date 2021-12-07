@@ -8,8 +8,9 @@ Name | Type | Description | Notes
 **method** | **object** |  | 
 **path** | **str** |  | 
 **base_url_override** | **str, none_type** |  | [optional] 
-**data** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
+**data** | **str, none_type** |  | [optional] 
 **headers** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
+**request_format** | **object, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

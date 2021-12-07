@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.flsa_status_enum import FlsaStatusEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestFlsaStatusEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestFlsaStatusEnum(unittest.TestCase):
         """Test FlsaStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = FlsaStatusEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

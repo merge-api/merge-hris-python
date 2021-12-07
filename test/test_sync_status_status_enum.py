@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.sync_status_status_enum import SyncStatusStatusEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestSyncStatusStatusEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestSyncStatusStatusEnum(unittest.TestCase):
         """Test SyncStatusStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = SyncStatusStatusEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

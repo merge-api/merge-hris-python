@@ -56,7 +56,7 @@ class SyncStatusApi(object):
                 x_account_token (str): Token identifying the end user.
 
             Keyword Args:
-                cursor (int): The pagination cursor value.. [optional]
+                cursor (str): The pagination cursor value.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -142,7 +142,7 @@ class SyncStatusApi(object):
                     'x_account_token':
                         (str,),
                     'cursor':
-                        (int,),
+                        (str,),
                     'page_size':
                         (int,),
                 },
@@ -176,7 +176,7 @@ class SyncStatusApi(object):
         ):
             """sync_status_resync_create  # noqa: E501
 
-            Force resync of all models.  # noqa: E501
+            Force re-sync of all models. This is only available for organizations on Merge's Grow and Expand plans.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

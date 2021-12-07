@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.method_enum import MethodEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestMethodEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestMethodEnum(unittest.TestCase):
         """Test MethodEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = MethodEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

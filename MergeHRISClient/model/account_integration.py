@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeHRISClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -28,6 +26,10 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+
+def lazy_import():
+    from MergeHRISClient.model.categories_enum import CategoriesEnum
+    globals()['CategoriesEnum'] = CategoriesEnum
 
 
 class AccountIntegration(ModelNormal):
@@ -55,11 +57,6 @@ class AccountIntegration(ModelNormal):
     """
 
     allowed_values = {
-        ('categories',): {
-            'HRIS': "hris",
-            'ATS': "ats",
-            'ACCOUNTING': "accounting",
-        },
     }
 
     validations = {
@@ -85,9 +82,10 @@ class AccountIntegration(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'categories': ([str],),  # noqa: E501
+            'categories': ([CategoriesEnum],),  # noqa: E501
             'image': (str, none_type,),  # noqa: E501
             'square_image': (str, none_type,),  # noqa: E501
             'color': (str,),  # noqa: E501
@@ -157,10 +155,11 @@ class AccountIntegration(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            categories ([str]): Category or categories this integration belongs to. Multiple categories should be comma separated.. [optional]  # noqa: E501
-            image (str, none_type): Company logo in rectangular shape.. [optional]  # noqa: E501
-            square_image (str, none_type): Company logo in square shape.. [optional]  # noqa: E501
-            color (str): The color of this integration used for buttons and text throughout the app and landing pages.. [optional]  # noqa: E501
+            categories ([CategoriesEnum]): Category or categories this integration belongs to. Multiple categories should be comma separated.<br/><br>Example: For [ats, hris], enter <i>ats,hris</i>. [optional]  # noqa: E501
+            image (str, none_type): Company logo in rectangular shape. <b>Upload an image with a clear background.</b>. [optional]  # noqa: E501
+            square_image (str, none_type): Company logo in square shape. <b>Upload an image with a white background.</b>. [optional]  # noqa: E501
+            color (str): The color of this integration used for buttons and text throughout the app and landing pages. <b>Choose a darker, saturated color.</b>. [optional]  # noqa: E501
+            slug (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

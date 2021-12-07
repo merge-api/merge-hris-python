@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeHRISClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -52,21 +50,11 @@ class RunTypeEnum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'INIT': "INIT",
             'REGULAR': "REGULAR",
             'OFF_CYCLE': "OFF_CYCLE",
             'CORRECTION': "CORRECTION",
             'TERMINATION': "TERMINATION",
-            'RECONCILIATION': "RECONCILIATION",
-            'NEW_HIRE': "NEW_HIRE",
-            'POP': "POP",
-            'TRANSITION': "TRANSITION",
-            'CORRECTION_DISPLAY': "CORRECTION_DISPLAY",
-            'EXCESS_HOURS': "EXCESS_HOURS",
             'SIGN_ON_BONUS': "SIGN_ON_BONUS",
-            'S_CORP': "S_CORP",
-            'FRINGE_BENEFITS': "FRINGE_BENEFITS",
-            'CONTRACTOR_LATE_PAYMENTS': "CONTRACTOR_LATE_PAYMENTS",
         },
     }
 
@@ -116,10 +104,10 @@ class RunTypeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["INIT", "REGULAR", "OFF_CYCLE", "CORRECTION", "TERMINATION", "RECONCILIATION", "NEW_HIRE", "POP", "TRANSITION", "CORRECTION_DISPLAY", "EXCESS_HOURS", "SIGN_ON_BONUS", "S_CORP", "FRINGE_BENEFITS", "CONTRACTOR_LATE_PAYMENTS", ]  # noqa: E501
+            args[0] (str):, must be one of ["REGULAR", "OFF_CYCLE", "CORRECTION", "TERMINATION", "SIGN_ON_BONUS", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["INIT", "REGULAR", "OFF_CYCLE", "CORRECTION", "TERMINATION", "RECONCILIATION", "NEW_HIRE", "POP", "TRANSITION", "CORRECTION_DISPLAY", "EXCESS_HOURS", "SIGN_ON_BONUS", "S_CORP", "FRINGE_BENEFITS", "CONTRACTOR_LATE_PAYMENTS", ]  # noqa: E501
+            value (str):, must be one of ["REGULAR", "OFF_CYCLE", "CORRECTION", "TERMINATION", "SIGN_ON_BONUS", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

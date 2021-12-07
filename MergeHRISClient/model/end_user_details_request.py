@@ -12,8 +12,6 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-import nulltype  # noqa: F401
-
 from MergeHRISClient.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -28,6 +26,10 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+
+def lazy_import():
+    from MergeHRISClient.model.categories_enum import CategoriesEnum
+    globals()['CategoriesEnum'] = CategoriesEnum
 
 
 class EndUserDetailsRequest(ModelNormal):
@@ -55,14 +57,21 @@ class EndUserDetailsRequest(ModelNormal):
     """
 
     allowed_values = {
-        ('categories',): {
-            'HRIS': "hris",
-            'ATS': "ats",
-            'ACCOUNTING': "accounting",
-        },
     }
 
     validations = {
+        ('end_user_email_address',): {
+            'min_length': 1,
+        },
+        ('end_user_organization_name',): {
+            'min_length': 1,
+        },
+        ('end_user_origin_id',): {
+            'min_length': 1,
+        },
+        ('integration',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
@@ -79,11 +88,12 @@ class EndUserDetailsRequest(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'end_user_email_address': (str,),  # noqa: E501
             'end_user_organization_name': (str,),  # noqa: E501
             'end_user_origin_id': (str,),  # noqa: E501
-            'categories': ([str],),  # noqa: E501
+            'categories': ([CategoriesEnum],),  # noqa: E501
             'integration': (str, none_type,),  # noqa: E501
         }
 
@@ -151,7 +161,7 @@ class EndUserDetailsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            categories ([str]): [optional]  # noqa: E501
+            categories ([CategoriesEnum]): [optional]  # noqa: E501
             integration (str, none_type): [optional]  # noqa: E501
         """
 

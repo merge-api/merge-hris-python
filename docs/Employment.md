@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
+**employee** | **str, none_type** | The employee holding this position. | [optional] 
 **job_title** | **str, none_type** | The position&#39;s title. | [optional] 
 **pay_rate** | **float, none_type** | The position&#39;s pay rate in dollars. | [optional] 
 **pay_period** | **object, none_type** | The time period this pay rate encompasses. | [optional] 

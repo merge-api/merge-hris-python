@@ -49,7 +49,9 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
-    employee_id = "employee_id_example" # str | If provided, will only return time off for this employee. (optional)
+    employee_id = "employee_id_example" # str | If provided, will only return employee payroll runs for this employee. (optional)
+    ended_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return employee payroll runs ended after this datetime. (optional)
+    ended_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return employee payroll runs ended before this datetime. (optional)
     expand = "employee,payroll_run" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
@@ -57,6 +59,8 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     page_size = 1 # int | Number of results to return per page. (optional)
     payroll_run_id = "payroll_run_id_example" # str | If provided, will only return employee payroll runs for this employee. (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
+    started_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return employee payroll runs started after this datetime. (optional)
+    started_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return employee payroll runs started before this datetime. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -68,7 +72,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.employee_payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id)
+        api_response = api_instance.employee_payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, ended_after=ended_after, ended_before=ended_before, expand=expand, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id, started_after=started_after, started_before=started_before)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_list: %s\n" % e)
@@ -83,7 +87,9 @@ Name | Type | Description  | Notes
  **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
- **employee_id** | **str**| If provided, will only return time off for this employee. | [optional]
+ **employee_id** | **str**| If provided, will only return employee payroll runs for this employee. | [optional]
+ **ended_after** | **datetime, none_type**| If provided, will only return employee payroll runs ended after this datetime. | [optional]
+ **ended_before** | **datetime, none_type**| If provided, will only return employee payroll runs ended before this datetime. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
@@ -91,6 +97,8 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Number of results to return per page. | [optional]
  **payroll_run_id** | **str**| If provided, will only return employee payroll runs for this employee. | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
+ **started_after** | **datetime, none_type**| If provided, will only return employee payroll runs started after this datetime. | [optional]
+ **started_before** | **datetime, none_type**| If provided, will only return employee payroll runs started before this datetime. | [optional]
 
 ### Return type
 

@@ -56,6 +56,9 @@ class RemoteDataRequest(ModelNormal):
     }
 
     validations = {
+        ('path',): {
+            'min_length': 1,
+        },
     }
 
     additional_properties_type = None
