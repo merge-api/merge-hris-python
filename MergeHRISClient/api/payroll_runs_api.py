@@ -61,6 +61,7 @@ class PayrollRunsApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 ended_after (datetime, none_type): If provided, will only return payroll runs ended after this datetime.. [optional]
                 ended_before (datetime, none_type): If provided, will only return payroll runs ended before this datetime.. [optional]
+                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -136,6 +137,7 @@ class PayrollRunsApi(object):
                     'cursor',
                     'ended_after',
                     'ended_before',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
@@ -190,6 +192,8 @@ class PayrollRunsApi(object):
                         (datetime, none_type,),
                     'ended_before':
                         (datetime, none_type,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -214,6 +218,7 @@ class PayrollRunsApi(object):
                     'cursor': 'cursor',
                     'ended_after': 'ended_after',
                     'ended_before': 'ended_before',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -230,6 +235,7 @@ class PayrollRunsApi(object):
                     'cursor': 'query',
                     'ended_after': 'query',
                     'ended_before': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',

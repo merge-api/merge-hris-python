@@ -15,7 +15,9 @@ from MergeHRISClient.model.account_details_and_actions_integration import Accoun
 from MergeHRISClient.model.account_details_and_actions_status_enum import AccountDetailsAndActionsStatusEnum
 from MergeHRISClient.model.account_integration import AccountIntegration
 from MergeHRISClient.model.account_token import AccountToken
+from MergeHRISClient.model.account_type_enum import AccountTypeEnum
 from MergeHRISClient.model.available_actions import AvailableActions
+from MergeHRISClient.model.bank_info import BankInfo
 from MergeHRISClient.model.benefit import Benefit
 from MergeHRISClient.model.benefit_plan_type_enum import BenefitPlanTypeEnum
 from MergeHRISClient.model.categories_enum import CategoriesEnum
@@ -31,6 +33,7 @@ from MergeHRISClient.model.employment import Employment
 from MergeHRISClient.model.employment_status_enum import EmploymentStatusEnum
 from MergeHRISClient.model.employment_type_enum import EmploymentTypeEnum
 from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
+from MergeHRISClient.model.error_validation_problem import ErrorValidationProblem
 from MergeHRISClient.model.ethnicity_enum import EthnicityEnum
 from MergeHRISClient.model.flsa_status_enum import FlsaStatusEnum
 from MergeHRISClient.model.gender_enum import GenderEnum
@@ -43,6 +46,7 @@ from MergeHRISClient.model.marital_status_enum import MaritalStatusEnum
 from MergeHRISClient.model.method_enum import MethodEnum
 from MergeHRISClient.model.model_operation import ModelOperation
 from MergeHRISClient.model.paginated_account_details_and_actions_list import PaginatedAccountDetailsAndActionsList
+from MergeHRISClient.model.paginated_bank_info_list import PaginatedBankInfoList
 from MergeHRISClient.model.paginated_benefit_list import PaginatedBenefitList
 from MergeHRISClient.model.paginated_company_list import PaginatedCompanyList
 from MergeHRISClient.model.paginated_deduction_list import PaginatedDeductionList
@@ -51,6 +55,7 @@ from MergeHRISClient.model.paginated_employee_payroll_run_list import PaginatedE
 from MergeHRISClient.model.paginated_employment_list import PaginatedEmploymentList
 from MergeHRISClient.model.paginated_issue_list import PaginatedIssueList
 from MergeHRISClient.model.paginated_location_list import PaginatedLocationList
+from MergeHRISClient.model.paginated_pay_group_list import PaginatedPayGroupList
 from MergeHRISClient.model.paginated_payroll_run_list import PaginatedPayrollRunList
 from MergeHRISClient.model.paginated_sync_status_list import PaginatedSyncStatusList
 from MergeHRISClient.model.paginated_team_list import PaginatedTeamList
@@ -58,6 +63,7 @@ from MergeHRISClient.model.paginated_time_off_balance_list import PaginatedTimeO
 from MergeHRISClient.model.paginated_time_off_list import PaginatedTimeOffList
 from MergeHRISClient.model.pay_currency_enum import PayCurrencyEnum
 from MergeHRISClient.model.pay_frequency_enum import PayFrequencyEnum
+from MergeHRISClient.model.pay_group import PayGroup
 from MergeHRISClient.model.pay_period_enum import PayPeriodEnum
 from MergeHRISClient.model.payroll_run import PayrollRun
 from MergeHRISClient.model.policy_type_enum import PolicyTypeEnum
@@ -76,7 +82,11 @@ from MergeHRISClient.model.tax import Tax
 from MergeHRISClient.model.team import Team
 from MergeHRISClient.model.time_off import TimeOff
 from MergeHRISClient.model.time_off_balance import TimeOffBalance
+from MergeHRISClient.model.time_off_endpoint_request import TimeOffEndpointRequest
 from MergeHRISClient.model.time_off_request import TimeOffRequest
+from MergeHRISClient.model.time_off_response import TimeOffResponse
 from MergeHRISClient.model.time_off_status_enum import TimeOffStatusEnum
 from MergeHRISClient.model.type_enum import TypeEnum
 from MergeHRISClient.model.units_enum import UnitsEnum
+from MergeHRISClient.model.validation_problem_source import ValidationProblemSource
+from MergeHRISClient.model.warning_validation_problem import WarningValidationProblem

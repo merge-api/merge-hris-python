@@ -61,6 +61,7 @@ class BenefitsApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return time off for this employee.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "employee"
+                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -133,6 +134,7 @@ class BenefitsApi(object):
                     'cursor',
                     'employee_id',
                     'expand',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
@@ -173,6 +175,8 @@ class BenefitsApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -191,6 +195,7 @@ class BenefitsApi(object):
                     'cursor': 'cursor',
                     'employee_id': 'employee_id',
                     'expand': 'expand',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -204,6 +209,7 @@ class BenefitsApi(object):
                     'cursor': 'query',
                     'employee_id': 'query',
                     'expand': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',

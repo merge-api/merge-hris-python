@@ -53,6 +53,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     ended_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return employee payroll runs ended after this datetime. (optional)
     ended_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return employee payroll runs ended before this datetime. (optional)
     expand = "employee,payroll_run" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
@@ -72,7 +73,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.employee_payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, ended_after=ended_after, ended_before=ended_before, expand=expand, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id, started_after=started_after, started_before=started_before)
+        api_response = api_instance.employee_payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, ended_after=ended_after, ended_before=ended_before, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, payroll_run_id=payroll_run_id, remote_id=remote_id, started_after=started_after, started_before=started_before)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling EmployeePayrollRunsApi->employee_payroll_runs_list: %s\n" % e)
@@ -91,6 +92,7 @@ Name | Type | Description  | Notes
  **ended_after** | **datetime, none_type**| If provided, will only return employee payroll runs ended after this datetime. | [optional]
  **ended_before** | **datetime, none_type**| If provided, will only return employee payroll runs ended before this datetime. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]

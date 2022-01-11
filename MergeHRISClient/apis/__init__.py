@@ -17,6 +17,7 @@
 from MergeHRISClient.api.account_details_api import AccountDetailsApi
 from MergeHRISClient.api.account_token_api import AccountTokenApi
 from MergeHRISClient.api.available_actions_api import AvailableActionsApi
+from MergeHRISClient.api.bank_info_api import BankInfoApi
 from MergeHRISClient.api.benefits_api import BenefitsApi
 from MergeHRISClient.api.companies_api import CompaniesApi
 from MergeHRISClient.api.deductions_api import DeductionsApi
