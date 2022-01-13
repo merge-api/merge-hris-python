@@ -105,6 +105,7 @@ class Employee(ModelNormal):
             'work_location': (str, none_type,),  # noqa: E501
             'manager': (str, none_type,),  # noqa: E501
             'team': (str, none_type,),  # noqa: E501
+            'pay_group': (str, none_type,),  # noqa: E501
             'ssn': (str, none_type,),  # noqa: E501
             'gender': (object, none_type,),  # noqa: E501
             'ethnicity': (object, none_type,),  # noqa: E501
@@ -140,6 +141,7 @@ class Employee(ModelNormal):
         'work_location': 'work_location',  # noqa: E501
         'manager': 'manager',  # noqa: E501
         'team': 'team',  # noqa: E501
+        'pay_group': 'pay_group',  # noqa: E501
         'ssn': 'ssn',  # noqa: E501
         'gender': 'gender',  # noqa: E501
         'ethnicity': 'ethnicity',  # noqa: E501
@@ -206,7 +208,7 @@ class Employee(ModelNormal):
             company (str, none_type): The ID of the employee's company.. [optional]  # noqa: E501
             first_name (str, none_type): The employee's first name.. [optional]  # noqa: E501
             last_name (str, none_type): The employee's last name.. [optional]  # noqa: E501
-            display_full_name (str, none_type): The employee's full name, to use for display purposes.. [optional]  # noqa: E501
+            display_full_name (str, none_type): The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.. [optional]  # noqa: E501
             work_email (str, none_type): The employee's work email.. [optional]  # noqa: E501
             personal_email (str, none_type): The employee's personal email.. [optional]  # noqa: E501
             mobile_phone_number (str, none_type): The employee's mobile phone number.. [optional]  # noqa: E501
@@ -215,6 +217,7 @@ class Employee(ModelNormal):
             work_location (str, none_type): The employee's work address.. [optional]  # noqa: E501
             manager (str, none_type): The employee ID of the employee's manager.. [optional]  # noqa: E501
             team (str, none_type): The employee's team.. [optional]  # noqa: E501
+            pay_group (str, none_type): The employee's pay group. [optional]  # noqa: E501
             ssn (str, none_type): The employee's social security number.. [optional]  # noqa: E501
             gender (object, none_type): The employee's gender.. [optional]  # noqa: E501
             ethnicity (object, none_type): The employee's ethnicity.. [optional]  # noqa: E501

@@ -24,7 +24,8 @@ from MergeHRISClient.model_utils import (  # noqa: F401
 )
 from MergeHRISClient.model.paginated_time_off_list import PaginatedTimeOffList
 from MergeHRISClient.model.time_off import TimeOff
-from MergeHRISClient.model.time_off_request import TimeOffRequest
+from MergeHRISClient.model.time_off_endpoint_request import TimeOffEndpointRequest
+from MergeHRISClient.model.time_off_response import TimeOffResponse
 
 
 class TimeOffApi(object):
@@ -42,6 +43,7 @@ class TimeOffApi(object):
         def __time_off_create(
             self,
             x_account_token,
+            time_off_endpoint_request,
             **kwargs
         ):
             """time_off_create  # noqa: E501
@@ -50,15 +52,15 @@ class TimeOffApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.time_off_create(x_account_token, async_req=True)
+            >>> thread = api.time_off_create(x_account_token, time_off_endpoint_request, async_req=True)
             >>> result = thread.get()
 
             Args:
                 x_account_token (str): Token identifying the end user.
+                time_off_endpoint_request (TimeOffEndpointRequest):
 
             Keyword Args:
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
-                time_off_request (TimeOffRequest): [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -80,7 +82,7 @@ class TimeOffApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                TimeOff
+                TimeOffResponse
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -105,11 +107,13 @@ class TimeOffApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             kwargs['x_account_token'] = \
                 x_account_token
+            kwargs['time_off_endpoint_request'] = \
+                time_off_endpoint_request
             return self.call_with_http_info(**kwargs)
 
         self.time_off_create = _Endpoint(
             settings={
-                'response_type': (TimeOff,),
+                'response_type': (TimeOffResponse,),
                 'auth': [
                     'tokenAuth'
                 ],
@@ -121,11 +125,12 @@ class TimeOffApi(object):
             params_map={
                 'all': [
                     'x_account_token',
+                    'time_off_endpoint_request',
                     'run_async',
-                    'time_off_request',
                 ],
                 'required': [
                     'x_account_token',
+                    'time_off_endpoint_request',
                 ],
                 'nullable': [
                 ],
@@ -142,10 +147,10 @@ class TimeOffApi(object):
                 'openapi_types': {
                     'x_account_token':
                         (str,),
+                    'time_off_endpoint_request':
+                        (TimeOffEndpointRequest,),
                     'run_async':
                         (bool,),
-                    'time_off_request':
-                        (TimeOffRequest,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
@@ -153,8 +158,8 @@ class TimeOffApi(object):
                 },
                 'location_map': {
                     'x_account_token': 'header',
+                    'time_off_endpoint_request': 'body',
                     'run_async': 'query',
-                    'time_off_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -197,6 +202,7 @@ class TimeOffApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return time off for this employee.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
+                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -272,6 +278,7 @@ class TimeOffApi(object):
                     'cursor',
                     'employee_id',
                     'expand',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
@@ -343,6 +350,8 @@ class TimeOffApi(object):
                         (str,),
                     'expand':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -366,6 +375,7 @@ class TimeOffApi(object):
                     'cursor': 'cursor',
                     'employee_id': 'employee_id',
                     'expand': 'expand',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -382,6 +392,7 @@ class TimeOffApi(object):
                     'cursor': 'query',
                     'employee_id': 'query',
                     'expand': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',

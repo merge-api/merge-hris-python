@@ -60,6 +60,7 @@ class DeductionsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 employee_payroll_run_id (str): If provided, will only return deductions for this employee payroll run.. [optional]
+                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -131,6 +132,7 @@ class DeductionsApi(object):
                     'created_before',
                     'cursor',
                     'employee_payroll_run_id',
+                    'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
                     'modified_before',
@@ -164,6 +166,8 @@ class DeductionsApi(object):
                         (str,),
                     'employee_payroll_run_id':
                         (str,),
+                    'include_deleted_data':
+                        (bool,),
                     'include_remote_data':
                         (bool,),
                     'modified_after':
@@ -181,6 +185,7 @@ class DeductionsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'employee_payroll_run_id': 'employee_payroll_run_id',
+                    'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
@@ -193,6 +198,7 @@ class DeductionsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'employee_payroll_run_id': 'query',
+                    'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',

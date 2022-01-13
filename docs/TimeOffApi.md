@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **time_off_create**
-> TimeOff time_off_create(x_account_token)
+> TimeOffResponse time_off_create(x_account_token, time_off_endpoint_request)
 
 
 
@@ -23,8 +23,8 @@ Creates a `TimeOff` object with the given values.
 import time
 import MergeHRISClient
 from MergeHRISClient.api import time_off_api
-from MergeHRISClient.model.time_off import TimeOff
-from MergeHRISClient.model.time_off_request import TimeOffRequest
+from MergeHRISClient.model.time_off_response import TimeOffResponse
+from MergeHRISClient.model.time_off_endpoint_request import TimeOffEndpointRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/hris/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -48,23 +48,25 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = time_off_api.TimeOffApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
+    time_off_endpoint_request = TimeOffEndpointRequest(
+        model=TimeOffRequest(
+            remote_id="19202938",
+            employee="d2f972d0-2526-434b-9409-4c3b468e08f0",
+            approver="9efbc633-3387-4306-aa55-e2c635e6bb4f",
+            status=,
+            employee_note="Trip to Iowa. Miss those cornfields!",
+            units=,
+            amount=7,
+            request_type=,
+            start_time=dateutil_parser('2020-11-10T00:00:00Z'),
+            end_time=dateutil_parser('2020-11-17T00:00:00Z'),
+        ),
+    ) # TimeOffEndpointRequest | 
     run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
-    time_off_request = TimeOffRequest(
-        remote_id="19202938",
-        employee="d2f972d0-2526-434b-9409-4c3b468e08f0",
-        approver="9efbc633-3387-4306-aa55-e2c635e6bb4f",
-        status=,
-        employee_note="Trip to Iowa. Miss those cornfields!",
-        units=,
-        amount=7,
-        request_type=,
-        start_time=dateutil_parser('2020-11-10T00:00:00Z'),
-        end_time=dateutil_parser('2020-11-17T00:00:00Z'),
-    ) # TimeOffRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.time_off_create(x_account_token)
+        api_response = api_instance.time_off_create(x_account_token, time_off_endpoint_request)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling TimeOffApi->time_off_create: %s\n" % e)
@@ -72,7 +74,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.time_off_create(x_account_token, run_async=run_async, time_off_request=time_off_request)
+        api_response = api_instance.time_off_create(x_account_token, time_off_endpoint_request, run_async=run_async)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling TimeOffApi->time_off_create: %s\n" % e)
@@ -84,12 +86,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
+ **time_off_endpoint_request** | [**TimeOffEndpointRequest**](TimeOffEndpointRequest.md)|  |
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **time_off_request** | [**TimeOffRequest**](TimeOffRequest.md)|  | [optional]
 
 ### Return type
 
-[**TimeOff**](TimeOff.md)
+[**TimeOffResponse**](TimeOffResponse.md)
 
 ### Authorization
 
@@ -152,13 +154,14 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     employee_id = "employee_id_example" # str | If provided, will only return time off for this employee. (optional)
     expand = "employee,approver" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
-    request_type = "" # str, none_type | If provided, will only return TimeOff with this request type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT') (optional)
-    status = "" # str, none_type | If provided, will only return TimeOff with this status. Options: ('REQUESTED', 'APPROVED', 'DECLINED', 'CANCELLED', 'DELETED') (optional)
+    request_type = "BEREAVEMENT" # str, none_type | If provided, will only return TimeOff with this request type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT') (optional)
+    status = "APPROVED" # str, none_type | If provided, will only return TimeOff with this status. Options: ('REQUESTED', 'APPROVED', 'DECLINED', 'CANCELLED', 'DELETED') (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -170,7 +173,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.time_off_list(x_account_token, approver_id=approver_id, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id, request_type=request_type, status=status)
+        api_response = api_instance.time_off_list(x_account_token, approver_id=approver_id, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id, request_type=request_type, status=status)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling TimeOffApi->time_off_list: %s\n" % e)
@@ -188,6 +191,7 @@ Name | Type | Description  | Notes
  **cursor** | **str**| The pagination cursor value. | [optional]
  **employee_id** | **str**| If provided, will only return time off for this employee. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
