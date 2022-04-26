@@ -39,6 +39,7 @@ class AccountDetailsApi(object):
 
         def __account_details_retrieve(
             self,
+            x_account_token,
             **kwargs
         ):
             """account_details_retrieve  # noqa: E501
@@ -47,9 +48,11 @@ class AccountDetailsApi(object):
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 
-            >>> thread = api.account_details_retrieve(async_req=True)
+            >>> thread = api.account_details_retrieve(x_account_token, async_req=True)
             >>> result = thread.get()
 
+            Args:
+                x_account_token (str): Token identifying the end user.
 
             Keyword Args:
                 _return_http_data_only (bool): response data without head status
@@ -96,6 +99,8 @@ class AccountDetailsApi(object):
                 '_check_return_type', True
             )
             kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
             return self.call_with_http_info(**kwargs)
 
         self.account_details_retrieve = _Endpoint(
@@ -111,8 +116,11 @@ class AccountDetailsApi(object):
             },
             params_map={
                 'all': [
+                    'x_account_token',
                 ],
-                'required': [],
+                'required': [
+                    'x_account_token',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -126,10 +134,14 @@ class AccountDetailsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'x_account_token':
+                        (str,),
                 },
                 'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
                 },
                 'location_map': {
+                    'x_account_token': 'header',
                 },
                 'collection_format_map': {
                 }

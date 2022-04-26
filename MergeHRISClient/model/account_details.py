@@ -75,11 +75,13 @@ class AccountDetails(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'integration': (str,),  # noqa: E501
+            'integration_slug': (str,),  # noqa: E501
             'category': (object, none_type,),  # noqa: E501
             'end_user_origin_id': (str,),  # noqa: E501
             'end_user_organization_name': (str,),  # noqa: E501
             'end_user_email_address': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'webhook_listener_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,11 +92,13 @@ class AccountDetails(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'integration': 'integration',  # noqa: E501
+        'integration_slug': 'integration_slug',  # noqa: E501
         'category': 'category',  # noqa: E501
         'end_user_origin_id': 'end_user_origin_id',  # noqa: E501
         'end_user_organization_name': 'end_user_organization_name',  # noqa: E501
         'end_user_email_address': 'end_user_email_address',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'webhook_listener_url': 'webhook_listener_url',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -145,11 +149,13 @@ class AccountDetails(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             integration (str): [optional]  # noqa: E501
+            integration_slug (str): [optional]  # noqa: E501
             category (object, none_type): [optional]  # noqa: E501
             end_user_origin_id (str): [optional]  # noqa: E501
             end_user_organization_name (str): [optional]  # noqa: E501
             end_user_email_address (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
+            webhook_listener_url (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

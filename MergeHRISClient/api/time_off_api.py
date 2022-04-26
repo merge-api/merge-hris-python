@@ -22,6 +22,7 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from MergeHRISClient.model.meta_response import MetaResponse
 from MergeHRISClient.model.paginated_time_off_list import PaginatedTimeOffList
 from MergeHRISClient.model.time_off import TimeOff
 from MergeHRISClient.model.time_off_endpoint_request import TimeOffEndpointRequest
@@ -60,6 +61,7 @@ class TimeOffApi(object):
                 time_off_endpoint_request (TimeOffEndpointRequest):
 
             Keyword Args:
+                is_debug_mode (bool): Whether to include debug fields (such as log file links) in the response.. [optional]
                 run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -126,6 +128,7 @@ class TimeOffApi(object):
                 'all': [
                     'x_account_token',
                     'time_off_endpoint_request',
+                    'is_debug_mode',
                     'run_async',
                 ],
                 'required': [
@@ -149,16 +152,20 @@ class TimeOffApi(object):
                         (str,),
                     'time_off_endpoint_request':
                         (TimeOffEndpointRequest,),
+                    'is_debug_mode':
+                        (bool,),
                     'run_async':
                         (bool,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
+                    'is_debug_mode': 'is_debug_mode',
                     'run_async': 'run_async',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'time_off_endpoint_request': 'body',
+                    'is_debug_mode': 'query',
                     'run_async': 'query',
                 },
                 'collection_format_map': {
@@ -315,10 +322,8 @@ class TimeOffApi(object):
                     },
                     ('request_type',): {
                         'None': None,
-                        "EMPTY": "",
                         "BEREAVEMENT": "BEREAVEMENT",
                         "JURY_DUTY": "JURY_DUTY",
-                        "NULL": "null",
                         "PERSONAL": "PERSONAL",
                         "SICK": "SICK",
                         "VACATION": "VACATION",
@@ -326,12 +331,10 @@ class TimeOffApi(object):
                     },
                     ('status',): {
                         'None': None,
-                        "EMPTY": "",
                         "APPROVED": "APPROVED",
                         "CANCELLED": "CANCELLED",
                         "DECLINED": "DECLINED",
                         "DELETED": "DELETED",
-                        "NULL": "null",
                         "REQUESTED": "REQUESTED"
                     },
                 },
@@ -412,6 +415,125 @@ class TimeOffApi(object):
             },
             api_client=api_client,
             callable=__time_off_list
+        )
+
+        def __time_off_meta_post_retrieve(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """time_off_meta_post_retrieve  # noqa: E501
+
+            Returns metadata for `TimeOff` POSTs.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.time_off_meta_post_retrieve(x_account_token, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                MetaResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
+
+        self.time_off_meta_post_retrieve = _Endpoint(
+            settings={
+                'response_type': (MetaResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/time-off/meta/post',
+                'operation_id': 'time_off_meta_post_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__time_off_meta_post_retrieve
         )
 
         def __time_off_retrieve(

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **account_details_retrieve**
-> AccountDetails account_details_retrieve()
+> AccountDetails account_details_retrieve(x_account_token)
 
 
 
@@ -44,10 +44,11 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = account_details_api.AccountDetailsApi(api_client)
+    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.account_details_retrieve()
+        api_response = api_instance.account_details_retrieve(x_account_token)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling AccountDetailsApi->account_details_retrieve: %s\n" % e)
@@ -55,7 +56,10 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_account_token** | **str**| Token identifying the end user. |
 
 ### Return type
 

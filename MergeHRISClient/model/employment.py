@@ -86,6 +86,7 @@ class Employment(ModelNormal):
             'pay_period': (object, none_type,),  # noqa: E501
             'pay_frequency': (object, none_type,),  # noqa: E501
             'pay_currency': (object, none_type,),  # noqa: E501
+            'pay_group': (str, none_type,),  # noqa: E501
             'flsa_status': (object, none_type,),  # noqa: E501
             'effective_date': (datetime, none_type,),  # noqa: E501
             'employment_type': (object, none_type,),  # noqa: E501
@@ -106,6 +107,7 @@ class Employment(ModelNormal):
         'pay_period': 'pay_period',  # noqa: E501
         'pay_frequency': 'pay_frequency',  # noqa: E501
         'pay_currency': 'pay_currency',  # noqa: E501
+        'pay_group': 'pay_group',  # noqa: E501
         'flsa_status': 'flsa_status',  # noqa: E501
         'effective_date': 'effective_date',  # noqa: E501
         'employment_type': 'employment_type',  # noqa: E501
@@ -160,12 +162,13 @@ class Employment(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): The employee holding this position.. [optional]  # noqa: E501
+            employee (str, none_type): [optional]  # noqa: E501
             job_title (str, none_type): The position's title.. [optional]  # noqa: E501
             pay_rate (float, none_type): The position's pay rate in dollars.. [optional]  # noqa: E501
             pay_period (object, none_type): The time period this pay rate encompasses.. [optional]  # noqa: E501
             pay_frequency (object, none_type): The position's pay frequency.. [optional]  # noqa: E501
             pay_currency (object, none_type): The position's currency code.. [optional]  # noqa: E501
+            pay_group (str, none_type): [optional]  # noqa: E501
             flsa_status (object, none_type): The position's FLSA status.. [optional]  # noqa: E501
             effective_date (datetime, none_type): The position's effective date.. [optional]  # noqa: E501
             employment_type (object, none_type): The position's type of employment.. [optional]  # noqa: E501

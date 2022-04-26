@@ -76,7 +76,7 @@ class ForceResyncApi(object):
                 async_req (bool): execute request asynchronously
 
             Returns:
-                SyncStatus
+                [SyncStatus]
                     If the method is called asynchronously, returns the request
                     thread.
             """
@@ -105,7 +105,7 @@ class ForceResyncApi(object):
 
         self.sync_status_resync_create = _Endpoint(
             settings={
-                'response_type': (SyncStatus,),
+                'response_type': ([SyncStatus],),
                 'auth': [
                     'tokenAuth'
                 ],

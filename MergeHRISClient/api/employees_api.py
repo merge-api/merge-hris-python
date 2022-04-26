@@ -23,6 +23,11 @@ from MergeHRISClient.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from MergeHRISClient.model.employee import Employee
+from MergeHRISClient.model.employee_endpoint_request import EmployeeEndpointRequest
+from MergeHRISClient.model.employee_response import EmployeeResponse
+from MergeHRISClient.model.ignore_common_model import IgnoreCommonModel
+from MergeHRISClient.model.ignore_common_model_request import IgnoreCommonModelRequest
+from MergeHRISClient.model.meta_response import MetaResponse
 from MergeHRISClient.model.paginated_employee_list import PaginatedEmployeeList
 
 
@@ -37,6 +42,292 @@ class EmployeesApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+        def __employees_create(
+            self,
+            x_account_token,
+            employee_endpoint_request,
+            **kwargs
+        ):
+            """employees_create  # noqa: E501
+
+            Creates an `Employee` object with the given values.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.employees_create(x_account_token, employee_endpoint_request, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+                employee_endpoint_request (EmployeeEndpointRequest):
+
+            Keyword Args:
+                is_debug_mode (bool): Whether to include debug fields (such as log file links) in the response.. [optional]
+                run_async (bool): Whether or not third-party updates should be run asynchronously.. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                EmployeeResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['employee_endpoint_request'] = \
+                employee_endpoint_request
+            return self.call_with_http_info(**kwargs)
+
+        self.employees_create = _Endpoint(
+            settings={
+                'response_type': (EmployeeResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employees',
+                'operation_id': 'employees_create',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'employee_endpoint_request',
+                    'is_debug_mode',
+                    'run_async',
+                ],
+                'required': [
+                    'x_account_token',
+                    'employee_endpoint_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'employee_endpoint_request':
+                        (EmployeeEndpointRequest,),
+                    'is_debug_mode':
+                        (bool,),
+                    'run_async':
+                        (bool,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'is_debug_mode': 'is_debug_mode',
+                    'run_async': 'run_async',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'employee_endpoint_request': 'body',
+                    'is_debug_mode': 'query',
+                    'run_async': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__employees_create
+        )
+
+        def __employees_ignore_create(
+            self,
+            x_account_token,
+            model_id,
+            ignore_common_model_request,
+            **kwargs
+        ):
+            """employees_ignore_create  # noqa: E501
+
+            Ignores a specific row based on the `model_id` in the url. These records will have their properties set to null, and will not be updated in future syncs. The \"reason\" and \"message\" fields in the request body will be stored for audit purposes.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.employees_ignore_create(x_account_token, model_id, ignore_common_model_request, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+                model_id (str):
+                ignore_common_model_request (IgnoreCommonModelRequest):
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                IgnoreCommonModel
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            kwargs['model_id'] = \
+                model_id
+            kwargs['ignore_common_model_request'] = \
+                ignore_common_model_request
+            return self.call_with_http_info(**kwargs)
+
+        self.employees_ignore_create = _Endpoint(
+            settings={
+                'response_type': (IgnoreCommonModel,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employees/ignore/{model_id}',
+                'operation_id': 'employees_ignore_create',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                    'model_id',
+                    'ignore_common_model_request',
+                ],
+                'required': [
+                    'x_account_token',
+                    'model_id',
+                    'ignore_common_model_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                    'model_id':
+                        (str,),
+                    'ignore_common_model_request':
+                        (IgnoreCommonModelRequest,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                    'model_id': 'model_id',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                    'model_id': 'path',
+                    'ignore_common_model_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'application/x-www-form-urlencoded',
+                    'multipart/form-data'
+                ]
+            },
+            api_client=api_client,
+            callable=__employees_ignore_create
+        )
 
         def __employees_list(
             self,
@@ -180,6 +471,70 @@ class EmployeesApi(object):
                         "EMPLOYMENTS": "employments",
                         "EMPLOYMENTS,COMPANY": "employments,company",
                         "EMPLOYMENTS,COMPANY,PAY_GROUP": "employments,company,pay_group",
+                        "EMPLOYMENTS,GROUPS": "employments,groups",
+                        "EMPLOYMENTS,GROUPS,COMPANY": "employments,groups,company",
+                        "EMPLOYMENTS,GROUPS,COMPANY,PAY_GROUP": "employments,groups,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION": "employments,groups,home_location",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,COMPANY": "employments,groups,home_location,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,COMPANY,PAY_GROUP": "employments,groups,home_location,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER": "employments,groups,home_location,manager",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,COMPANY": "employments,groups,home_location,manager,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,COMPANY,PAY_GROUP": "employments,groups,home_location,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,PAY_GROUP": "employments,groups,home_location,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM": "employments,groups,home_location,manager,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "employments,groups,home_location,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM,PAY_GROUP": "employments,groups,home_location,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,PAY_GROUP": "employments,groups,home_location,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM": "employments,groups,home_location,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM,COMPANY": "employments,groups,home_location,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM,PAY_GROUP": "employments,groups,home_location,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION": "employments,groups,home_location,work_location",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY": "employments,groups,home_location,work_location,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER": "employments,groups,home_location,work_location,manager",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "employments,groups,home_location,work_location,manager,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,PAY_GROUP": "employments,groups,home_location,work_location,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "employments,groups,home_location,work_location,manager,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,groups,home_location,work_location,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "employments,groups,home_location,work_location,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,PAY_GROUP": "employments,groups,home_location,work_location,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM": "employments,groups,home_location,work_location,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "employments,groups,home_location,work_location,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,PAY_GROUP": "employments,groups,home_location,work_location,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER": "employments,groups,manager",
+                        "EMPLOYMENTS,GROUPS,MANAGER,COMPANY": "employments,groups,manager,company",
+                        "EMPLOYMENTS,GROUPS,MANAGER,COMPANY,PAY_GROUP": "employments,groups,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER,PAY_GROUP": "employments,groups,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM": "employments,groups,manager,team",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM,COMPANY": "employments,groups,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM,PAY_GROUP": "employments,groups,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,PAY_GROUP": "employments,groups,pay_group",
+                        "EMPLOYMENTS,GROUPS,TEAM": "employments,groups,team",
+                        "EMPLOYMENTS,GROUPS,TEAM,COMPANY": "employments,groups,team,company",
+                        "EMPLOYMENTS,GROUPS,TEAM,COMPANY,PAY_GROUP": "employments,groups,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,TEAM,PAY_GROUP": "employments,groups,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION": "employments,groups,work_location",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,COMPANY": "employments,groups,work_location,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,COMPANY,PAY_GROUP": "employments,groups,work_location,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER": "employments,groups,work_location,manager",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,COMPANY": "employments,groups,work_location,manager,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "employments,groups,work_location,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,PAY_GROUP": "employments,groups,work_location,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM": "employments,groups,work_location,manager,team",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,groups,work_location,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,work_location,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "employments,groups,work_location,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,PAY_GROUP": "employments,groups,work_location,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM": "employments,groups,work_location,team",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM,COMPANY": "employments,groups,work_location,team,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,groups,work_location,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM,PAY_GROUP": "employments,groups,work_location,team,pay_group",
                         "EMPLOYMENTS,HOME_LOCATION": "employments,home_location",
                         "EMPLOYMENTS,HOME_LOCATION,COMPANY": "employments,home_location,company",
                         "EMPLOYMENTS,HOME_LOCATION,COMPANY,PAY_GROUP": "employments,home_location,company,pay_group",
@@ -241,6 +596,70 @@ class EmployeesApi(object):
                         "EMPLOYMENTS,WORK_LOCATION,TEAM,COMPANY": "employments,work_location,team,company",
                         "EMPLOYMENTS,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,work_location,team,company,pay_group",
                         "EMPLOYMENTS,WORK_LOCATION,TEAM,PAY_GROUP": "employments,work_location,team,pay_group",
+                        "GROUPS": "groups",
+                        "GROUPS,COMPANY": "groups,company",
+                        "GROUPS,COMPANY,PAY_GROUP": "groups,company,pay_group",
+                        "GROUPS,HOME_LOCATION": "groups,home_location",
+                        "GROUPS,HOME_LOCATION,COMPANY": "groups,home_location,company",
+                        "GROUPS,HOME_LOCATION,COMPANY,PAY_GROUP": "groups,home_location,company,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER": "groups,home_location,manager",
+                        "GROUPS,HOME_LOCATION,MANAGER,COMPANY": "groups,home_location,manager,company",
+                        "GROUPS,HOME_LOCATION,MANAGER,COMPANY,PAY_GROUP": "groups,home_location,manager,company,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER,PAY_GROUP": "groups,home_location,manager,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM": "groups,home_location,manager,team",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "groups,home_location,manager,team,company",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,home_location,manager,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM,PAY_GROUP": "groups,home_location,manager,team,pay_group",
+                        "GROUPS,HOME_LOCATION,PAY_GROUP": "groups,home_location,pay_group",
+                        "GROUPS,HOME_LOCATION,TEAM": "groups,home_location,team",
+                        "GROUPS,HOME_LOCATION,TEAM,COMPANY": "groups,home_location,team,company",
+                        "GROUPS,HOME_LOCATION,TEAM,COMPANY,PAY_GROUP": "groups,home_location,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,TEAM,PAY_GROUP": "groups,home_location,team,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION": "groups,home_location,work_location",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY": "groups,home_location,work_location,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY,PAY_GROUP": "groups,home_location,work_location,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER": "groups,home_location,work_location,manager",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "groups,home_location,work_location,manager,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "groups,home_location,work_location,manager,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,PAY_GROUP": "groups,home_location,work_location,manager,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "groups,home_location,work_location,manager,team",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "groups,home_location,work_location,manager,team,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,home_location,work_location,manager,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "groups,home_location,work_location,manager,team,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,PAY_GROUP": "groups,home_location,work_location,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM": "groups,home_location,work_location,team",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "groups,home_location,work_location,team,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "groups,home_location,work_location,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,PAY_GROUP": "groups,home_location,work_location,team,pay_group",
+                        "GROUPS,MANAGER": "groups,manager",
+                        "GROUPS,MANAGER,COMPANY": "groups,manager,company",
+                        "GROUPS,MANAGER,COMPANY,PAY_GROUP": "groups,manager,company,pay_group",
+                        "GROUPS,MANAGER,PAY_GROUP": "groups,manager,pay_group",
+                        "GROUPS,MANAGER,TEAM": "groups,manager,team",
+                        "GROUPS,MANAGER,TEAM,COMPANY": "groups,manager,team,company",
+                        "GROUPS,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,manager,team,company,pay_group",
+                        "GROUPS,MANAGER,TEAM,PAY_GROUP": "groups,manager,team,pay_group",
+                        "GROUPS,PAY_GROUP": "groups,pay_group",
+                        "GROUPS,TEAM": "groups,team",
+                        "GROUPS,TEAM,COMPANY": "groups,team,company",
+                        "GROUPS,TEAM,COMPANY,PAY_GROUP": "groups,team,company,pay_group",
+                        "GROUPS,TEAM,PAY_GROUP": "groups,team,pay_group",
+                        "GROUPS,WORK_LOCATION": "groups,work_location",
+                        "GROUPS,WORK_LOCATION,COMPANY": "groups,work_location,company",
+                        "GROUPS,WORK_LOCATION,COMPANY,PAY_GROUP": "groups,work_location,company,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER": "groups,work_location,manager",
+                        "GROUPS,WORK_LOCATION,MANAGER,COMPANY": "groups,work_location,manager,company",
+                        "GROUPS,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "groups,work_location,manager,company,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER,PAY_GROUP": "groups,work_location,manager,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM": "groups,work_location,manager,team",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "groups,work_location,manager,team,company",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,work_location,manager,team,company,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "groups,work_location,manager,team,pay_group",
+                        "GROUPS,WORK_LOCATION,PAY_GROUP": "groups,work_location,pay_group",
+                        "GROUPS,WORK_LOCATION,TEAM": "groups,work_location,team",
+                        "GROUPS,WORK_LOCATION,TEAM,COMPANY": "groups,work_location,team,company",
+                        "GROUPS,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "groups,work_location,team,company,pay_group",
+                        "GROUPS,WORK_LOCATION,TEAM,PAY_GROUP": "groups,work_location,team,pay_group",
                         "HOME_LOCATION": "home_location",
                         "HOME_LOCATION,COMPANY": "home_location,company",
                         "HOME_LOCATION,COMPANY,PAY_GROUP": "home_location,company,pay_group",
@@ -399,6 +818,125 @@ class EmployeesApi(object):
             callable=__employees_list
         )
 
+        def __employees_meta_post_retrieve(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """employees_meta_post_retrieve  # noqa: E501
+
+            Returns metadata for `Employee` POSTs.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.employees_meta_post_retrieve(x_account_token, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                MetaResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
+
+        self.employees_meta_post_retrieve = _Endpoint(
+            settings={
+                'response_type': (MetaResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/employees/meta/post',
+                'operation_id': 'employees_meta_post_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__employees_meta_post_retrieve
+        )
+
         def __employees_retrieve(
             self,
             x_account_token,
@@ -514,6 +1052,70 @@ class EmployeesApi(object):
                         "EMPLOYMENTS": "employments",
                         "EMPLOYMENTS,COMPANY": "employments,company",
                         "EMPLOYMENTS,COMPANY,PAY_GROUP": "employments,company,pay_group",
+                        "EMPLOYMENTS,GROUPS": "employments,groups",
+                        "EMPLOYMENTS,GROUPS,COMPANY": "employments,groups,company",
+                        "EMPLOYMENTS,GROUPS,COMPANY,PAY_GROUP": "employments,groups,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION": "employments,groups,home_location",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,COMPANY": "employments,groups,home_location,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,COMPANY,PAY_GROUP": "employments,groups,home_location,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER": "employments,groups,home_location,manager",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,COMPANY": "employments,groups,home_location,manager,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,COMPANY,PAY_GROUP": "employments,groups,home_location,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,PAY_GROUP": "employments,groups,home_location,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM": "employments,groups,home_location,manager,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "employments,groups,home_location,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,MANAGER,TEAM,PAY_GROUP": "employments,groups,home_location,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,PAY_GROUP": "employments,groups,home_location,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM": "employments,groups,home_location,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM,COMPANY": "employments,groups,home_location,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,TEAM,PAY_GROUP": "employments,groups,home_location,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION": "employments,groups,home_location,work_location",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY": "employments,groups,home_location,work_location,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER": "employments,groups,home_location,work_location,manager",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "employments,groups,home_location,work_location,manager,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,PAY_GROUP": "employments,groups,home_location,work_location,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "employments,groups,home_location,work_location,manager,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,groups,home_location,work_location,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "employments,groups,home_location,work_location,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,PAY_GROUP": "employments,groups,home_location,work_location,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM": "employments,groups,home_location,work_location,team",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "employments,groups,home_location,work_location,team,company",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,groups,home_location,work_location,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,PAY_GROUP": "employments,groups,home_location,work_location,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER": "employments,groups,manager",
+                        "EMPLOYMENTS,GROUPS,MANAGER,COMPANY": "employments,groups,manager,company",
+                        "EMPLOYMENTS,GROUPS,MANAGER,COMPANY,PAY_GROUP": "employments,groups,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER,PAY_GROUP": "employments,groups,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM": "employments,groups,manager,team",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM,COMPANY": "employments,groups,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,MANAGER,TEAM,PAY_GROUP": "employments,groups,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,PAY_GROUP": "employments,groups,pay_group",
+                        "EMPLOYMENTS,GROUPS,TEAM": "employments,groups,team",
+                        "EMPLOYMENTS,GROUPS,TEAM,COMPANY": "employments,groups,team,company",
+                        "EMPLOYMENTS,GROUPS,TEAM,COMPANY,PAY_GROUP": "employments,groups,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,TEAM,PAY_GROUP": "employments,groups,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION": "employments,groups,work_location",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,COMPANY": "employments,groups,work_location,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,COMPANY,PAY_GROUP": "employments,groups,work_location,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER": "employments,groups,work_location,manager",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,COMPANY": "employments,groups,work_location,manager,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "employments,groups,work_location,manager,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,PAY_GROUP": "employments,groups,work_location,manager,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM": "employments,groups,work_location,manager,team",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "employments,groups,work_location,manager,team,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "employments,groups,work_location,manager,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "employments,groups,work_location,manager,team,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,PAY_GROUP": "employments,groups,work_location,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM": "employments,groups,work_location,team",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM,COMPANY": "employments,groups,work_location,team,company",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,groups,work_location,team,company,pay_group",
+                        "EMPLOYMENTS,GROUPS,WORK_LOCATION,TEAM,PAY_GROUP": "employments,groups,work_location,team,pay_group",
                         "EMPLOYMENTS,HOME_LOCATION": "employments,home_location",
                         "EMPLOYMENTS,HOME_LOCATION,COMPANY": "employments,home_location,company",
                         "EMPLOYMENTS,HOME_LOCATION,COMPANY,PAY_GROUP": "employments,home_location,company,pay_group",
@@ -575,6 +1177,70 @@ class EmployeesApi(object):
                         "EMPLOYMENTS,WORK_LOCATION,TEAM,COMPANY": "employments,work_location,team,company",
                         "EMPLOYMENTS,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "employments,work_location,team,company,pay_group",
                         "EMPLOYMENTS,WORK_LOCATION,TEAM,PAY_GROUP": "employments,work_location,team,pay_group",
+                        "GROUPS": "groups",
+                        "GROUPS,COMPANY": "groups,company",
+                        "GROUPS,COMPANY,PAY_GROUP": "groups,company,pay_group",
+                        "GROUPS,HOME_LOCATION": "groups,home_location",
+                        "GROUPS,HOME_LOCATION,COMPANY": "groups,home_location,company",
+                        "GROUPS,HOME_LOCATION,COMPANY,PAY_GROUP": "groups,home_location,company,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER": "groups,home_location,manager",
+                        "GROUPS,HOME_LOCATION,MANAGER,COMPANY": "groups,home_location,manager,company",
+                        "GROUPS,HOME_LOCATION,MANAGER,COMPANY,PAY_GROUP": "groups,home_location,manager,company,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER,PAY_GROUP": "groups,home_location,manager,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM": "groups,home_location,manager,team",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY": "groups,home_location,manager,team,company",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,home_location,manager,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,MANAGER,TEAM,PAY_GROUP": "groups,home_location,manager,team,pay_group",
+                        "GROUPS,HOME_LOCATION,PAY_GROUP": "groups,home_location,pay_group",
+                        "GROUPS,HOME_LOCATION,TEAM": "groups,home_location,team",
+                        "GROUPS,HOME_LOCATION,TEAM,COMPANY": "groups,home_location,team,company",
+                        "GROUPS,HOME_LOCATION,TEAM,COMPANY,PAY_GROUP": "groups,home_location,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,TEAM,PAY_GROUP": "groups,home_location,team,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION": "groups,home_location,work_location",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY": "groups,home_location,work_location,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,COMPANY,PAY_GROUP": "groups,home_location,work_location,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER": "groups,home_location,work_location,manager",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY": "groups,home_location,work_location,manager,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "groups,home_location,work_location,manager,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,PAY_GROUP": "groups,home_location,work_location,manager,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM": "groups,home_location,work_location,manager,team",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY": "groups,home_location,work_location,manager,team,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,home_location,work_location,manager,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "groups,home_location,work_location,manager,team,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,PAY_GROUP": "groups,home_location,work_location,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM": "groups,home_location,work_location,team",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY": "groups,home_location,work_location,team,company",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "groups,home_location,work_location,team,company,pay_group",
+                        "GROUPS,HOME_LOCATION,WORK_LOCATION,TEAM,PAY_GROUP": "groups,home_location,work_location,team,pay_group",
+                        "GROUPS,MANAGER": "groups,manager",
+                        "GROUPS,MANAGER,COMPANY": "groups,manager,company",
+                        "GROUPS,MANAGER,COMPANY,PAY_GROUP": "groups,manager,company,pay_group",
+                        "GROUPS,MANAGER,PAY_GROUP": "groups,manager,pay_group",
+                        "GROUPS,MANAGER,TEAM": "groups,manager,team",
+                        "GROUPS,MANAGER,TEAM,COMPANY": "groups,manager,team,company",
+                        "GROUPS,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,manager,team,company,pay_group",
+                        "GROUPS,MANAGER,TEAM,PAY_GROUP": "groups,manager,team,pay_group",
+                        "GROUPS,PAY_GROUP": "groups,pay_group",
+                        "GROUPS,TEAM": "groups,team",
+                        "GROUPS,TEAM,COMPANY": "groups,team,company",
+                        "GROUPS,TEAM,COMPANY,PAY_GROUP": "groups,team,company,pay_group",
+                        "GROUPS,TEAM,PAY_GROUP": "groups,team,pay_group",
+                        "GROUPS,WORK_LOCATION": "groups,work_location",
+                        "GROUPS,WORK_LOCATION,COMPANY": "groups,work_location,company",
+                        "GROUPS,WORK_LOCATION,COMPANY,PAY_GROUP": "groups,work_location,company,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER": "groups,work_location,manager",
+                        "GROUPS,WORK_LOCATION,MANAGER,COMPANY": "groups,work_location,manager,company",
+                        "GROUPS,WORK_LOCATION,MANAGER,COMPANY,PAY_GROUP": "groups,work_location,manager,company,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER,PAY_GROUP": "groups,work_location,manager,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM": "groups,work_location,manager,team",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY": "groups,work_location,manager,team,company",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM,COMPANY,PAY_GROUP": "groups,work_location,manager,team,company,pay_group",
+                        "GROUPS,WORK_LOCATION,MANAGER,TEAM,PAY_GROUP": "groups,work_location,manager,team,pay_group",
+                        "GROUPS,WORK_LOCATION,PAY_GROUP": "groups,work_location,pay_group",
+                        "GROUPS,WORK_LOCATION,TEAM": "groups,work_location,team",
+                        "GROUPS,WORK_LOCATION,TEAM,COMPANY": "groups,work_location,team,company",
+                        "GROUPS,WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "groups,work_location,team,company,pay_group",
+                        "GROUPS,WORK_LOCATION,TEAM,PAY_GROUP": "groups,work_location,team,pay_group",
                         "HOME_LOCATION": "home_location",
                         "HOME_LOCATION,COMPANY": "home_location,company",
                         "HOME_LOCATION,COMPANY,PAY_GROUP": "home_location,company,pay_group",

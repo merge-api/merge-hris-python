@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.validation_problem_source import ValidationProblemSource
 globals()['ValidationProblemSource'] = ValidationProblemSource
 from MergeHRISClient.model.error_validation_problem import ErrorValidationProblem
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestErrorValidationProblem(unittest.TestCase):
@@ -31,7 +33,25 @@ class TestErrorValidationProblem(unittest.TestCase):
         """Test ErrorValidationProblem"""
         # FIXME: construct object with mandatory attributes with example values
         # model = ErrorValidationProblem()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for ErrorValidationProblem
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (ErrorValidationProblem,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.title is not None
+        assert deserialized.detail is not None
+        assert deserialized.problem_type is not None
 
 
 if __name__ == '__main__':

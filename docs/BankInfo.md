@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
-**employee** | **str, none_type** | The employee with this bank account. | [optional] 
+**employee** | **str, none_type** |  | [optional] 
 **account_number** | **str, none_type** | The account number. | [optional] 
 **routing_number** | **str, none_type** | The routing number. | [optional] 
 **bank_name** | **str, none_type** | The bank name. | [optional] 

@@ -82,7 +82,7 @@ class Benefit(ModelNormal):
             'remote_id': (str, none_type,),  # noqa: E501
             'employee': (str, none_type,),  # noqa: E501
             'provider_name': (str, none_type,),  # noqa: E501
-            'benefit_plan_type': (object, none_type,),  # noqa: E501
+            'benefit_plan_type': (str, none_type,),  # noqa: E501
             'employee_contribution': (float, none_type,),  # noqa: E501
             'company_contribution': (float, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
@@ -152,9 +152,9 @@ class Benefit(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): The employee on the plan.. [optional]  # noqa: E501
+            employee (str, none_type): [optional]  # noqa: E501
             provider_name (str, none_type): The name of the benefit provider.. [optional]  # noqa: E501
-            benefit_plan_type (object, none_type): The type of benefit plan. [optional]  # noqa: E501
+            benefit_plan_type (str, none_type): The type of benefit plan. [optional]  # noqa: E501
             employee_contribution (float, none_type): The employee's contribution.. [optional]  # noqa: E501
             company_contribution (float, none_type): The company's contribution.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501

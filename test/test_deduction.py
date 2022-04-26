@@ -14,6 +14,8 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeHRISClient
+from MergeHRISClient.model.remote_data import RemoteData
+globals()['RemoteData'] = RemoteData
 from MergeHRISClient.model.deduction import Deduction
 from MergeHRISClient.api_client import ApiClient
 

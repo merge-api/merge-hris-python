@@ -97,10 +97,11 @@ class Employee(ModelNormal):
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'display_full_name': (str, none_type,),  # noqa: E501
+            'groups': ([str, none_type],),  # noqa: E501
             'work_email': (str, none_type,),  # noqa: E501
             'personal_email': (str, none_type,),  # noqa: E501
             'mobile_phone_number': (str, none_type,),  # noqa: E501
-            'employments': ([str],),  # noqa: E501
+            'employments': ([str, none_type],),  # noqa: E501
             'home_location': (str, none_type,),  # noqa: E501
             'work_location': (str, none_type,),  # noqa: E501
             'manager': (str, none_type,),  # noqa: E501
@@ -133,6 +134,7 @@ class Employee(ModelNormal):
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'display_full_name': 'display_full_name',  # noqa: E501
+        'groups': 'groups',  # noqa: E501
         'work_email': 'work_email',  # noqa: E501
         'personal_email': 'personal_email',  # noqa: E501
         'mobile_phone_number': 'mobile_phone_number',  # noqa: E501
@@ -204,20 +206,21 @@ class Employee(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee_number (str, none_type): The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user.. [optional]  # noqa: E501
-            company (str, none_type): The ID of the employee's company.. [optional]  # noqa: E501
+            employee_number (str, none_type): The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.. [optional]  # noqa: E501
+            company (str, none_type): [optional]  # noqa: E501
             first_name (str, none_type): The employee's first name.. [optional]  # noqa: E501
             last_name (str, none_type): The employee's last name.. [optional]  # noqa: E501
             display_full_name (str, none_type): The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.. [optional]  # noqa: E501
+            groups ([str, none_type]): [optional]  # noqa: E501
             work_email (str, none_type): The employee's work email.. [optional]  # noqa: E501
             personal_email (str, none_type): The employee's personal email.. [optional]  # noqa: E501
             mobile_phone_number (str, none_type): The employee's mobile phone number.. [optional]  # noqa: E501
-            employments ([str]): Array of `Employment` IDs for this Employee.. [optional]  # noqa: E501
-            home_location (str, none_type): The employee's home address.. [optional]  # noqa: E501
-            work_location (str, none_type): The employee's work address.. [optional]  # noqa: E501
-            manager (str, none_type): The employee ID of the employee's manager.. [optional]  # noqa: E501
-            team (str, none_type): The employee's team.. [optional]  # noqa: E501
-            pay_group (str, none_type): The employee's pay group. [optional]  # noqa: E501
+            employments ([str, none_type]): Array of `Employment` IDs for this Employee.. [optional]  # noqa: E501
+            home_location (str, none_type): [optional]  # noqa: E501
+            work_location (str, none_type): [optional]  # noqa: E501
+            manager (str, none_type): [optional]  # noqa: E501
+            team (str, none_type): [optional]  # noqa: E501
+            pay_group (str, none_type): [optional]  # noqa: E501
             ssn (str, none_type): The employee's social security number.. [optional]  # noqa: E501
             gender (object, none_type): The employee's gender.. [optional]  # noqa: E501
             ethnicity (object, none_type): The employee's ethnicity.. [optional]  # noqa: E501

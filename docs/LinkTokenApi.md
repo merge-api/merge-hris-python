@@ -53,6 +53,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
             CategoriesEnum("hris"),
         ],
         integration="integration_example",
+        link_expiry_mins=30,
     ) # EndUserDetailsRequest | 
 
     # example passing only required values which don't have defaults set

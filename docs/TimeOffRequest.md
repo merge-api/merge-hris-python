@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
-**employee** | **str, none_type** | The employee requesting time off. | [optional] 
-**approver** | **str, none_type** | The employee approving the time off request. | [optional] 
+**employee** | **str, none_type** |  | [optional] 
+**approver** | **str, none_type** |  | [optional] 
 **status** | **object, none_type** | The status of this time off request. | [optional] 
 **employee_note** | **str, none_type** | The employee note for this time off request. | [optional] 
 **units** | **object, none_type** | The unit of time requested. | [optional] 

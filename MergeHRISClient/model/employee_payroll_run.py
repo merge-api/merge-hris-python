@@ -168,8 +168,8 @@ class EmployeePayrollRun(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): The employee whose payroll is being run.. [optional]  # noqa: E501
-            payroll_run (str, none_type): The payroll being run.. [optional]  # noqa: E501
+            employee (str, none_type): [optional]  # noqa: E501
+            payroll_run (str, none_type): [optional]  # noqa: E501
             gross_pay (float, none_type): The gross pay from the run.. [optional]  # noqa: E501
             net_pay (float, none_type): The net pay from the run.. [optional]  # noqa: E501
             start_date (datetime, none_type): The day and time the payroll run started.. [optional]  # noqa: E501

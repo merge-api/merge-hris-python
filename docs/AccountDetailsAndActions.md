@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **status** | **object** |  | 
 **end_user_organization_name** | **str** |  | 
 **end_user_email_address** | **str** |  | 
+**webhook_listener_url** | **str** |  | 
 **category** | **object** |  | [optional] 
 **status_detail** | **str** |  | [optional] 
 **end_user_origin_id** | **str** |  | [optional] 

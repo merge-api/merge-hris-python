@@ -13,8 +13,9 @@ Name | Type | Description | Notes
 **street_2** | **str, none_type** | Line 2 of the location&#39;s street address. | [optional] 
 **city** | **str, none_type** | The location&#39;s city. | [optional] 
 **state** | **str, none_type** | The location&#39;s state. Represents a region if outside of the US. | [optional] 
-**zip_code** | **str, none_type** | The location&#39;s zip code. | [optional] 
+**zip_code** | **str, none_type** | The location&#39;s zip code or postal code. | [optional] 
 **country** | **object, none_type** | The location&#39;s country. | [optional] 
+**location_type** | **object, none_type** | The location&#39;s type. Can be either WORK or HOME | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

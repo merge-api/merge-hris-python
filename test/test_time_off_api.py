@@ -36,6 +36,12 @@ class TestTimeOffApi(unittest.TestCase):
         """
         pass
 
+    def test_time_off_meta_post_retrieve(self):
+        """Test case for time_off_meta_post_retrieve
+
+        """
+        pass
+
     def test_time_off_retrieve(self):
         """Test case for time_off_retrieve
 

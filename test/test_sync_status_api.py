@@ -30,12 +30,6 @@ class TestSyncStatusApi(unittest.TestCase):
         """
         pass
 
-    def test_sync_status_resync_create(self):
-        """Test case for sync_status_resync_create
-
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

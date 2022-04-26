@@ -11,11 +11,13 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.time_off_request import TimeOffRequest
 globals()['TimeOffRequest'] = TimeOffRequest
 from MergeHRISClient.model.time_off_endpoint_request import TimeOffEndpointRequest
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestTimeOffEndpointRequest(unittest.TestCase):
@@ -31,7 +33,23 @@ class TestTimeOffEndpointRequest(unittest.TestCase):
         """Test TimeOffEndpointRequest"""
         # FIXME: construct object with mandatory attributes with example values
         # model = TimeOffEndpointRequest()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for TimeOffEndpointRequest
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (TimeOffEndpointRequest,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model is not None
 
 
 if __name__ == '__main__':
