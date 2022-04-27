@@ -28,9 +28,11 @@ from MergeHRISClient.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
+    from MergeHRISClient.model.debug_mode_log import DebugModeLog
     from MergeHRISClient.model.error_validation_problem import ErrorValidationProblem
     from MergeHRISClient.model.time_off import TimeOff
     from MergeHRISClient.model.warning_validation_problem import WarningValidationProblem
+    globals()['DebugModeLog'] = DebugModeLog
     globals()['ErrorValidationProblem'] = ErrorValidationProblem
     globals()['TimeOff'] = TimeOff
     globals()['WarningValidationProblem'] = WarningValidationProblem
@@ -85,6 +87,7 @@ class TimeOffResponse(ModelNormal):
             'model': (TimeOff,),  # noqa: E501
             'warnings': ([WarningValidationProblem],),  # noqa: E501
             'errors': ([ErrorValidationProblem],),  # noqa: E501
+            'logs': ([DebugModeLog],),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +99,7 @@ class TimeOffResponse(ModelNormal):
         'model': 'model',  # noqa: E501
         'warnings': 'warnings',  # noqa: E501
         'errors': 'errors',  # noqa: E501
+        'logs': 'logs',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -149,6 +153,7 @@ class TimeOffResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            logs ([DebugModeLog]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -113,6 +113,14 @@ class OpenApiModel(object):
 
         if name in self.openapi_types:
             required_types_mixed = self.openapi_types[name]
+            """
+        elif self.additional_properties_type is None:
+            raise ApiAttributeError(
+                "{0} has no attribute '{1}'".format(
+                    type(self).__name__, name),
+                path_to_item
+            )
+            """
         elif self.additional_properties_type is not None:
             required_types_mixed = self.additional_properties_type
 
@@ -129,11 +137,12 @@ class OpenApiModel(object):
                 valid_classes=(str,),
                 key_type=True
             )
-
-        '''if self._check_type:
+        """
+        if self._check_type:
             value = validate_and_convert_types(
                 value, required_types_mixed, path_to_item, self._spec_property_naming,
-                self._check_type, configuration=self._configuration)'''
+                self._check_type, configuration=self._configuration)
+        """
         if (name,) in self.allowed_values:
             check_allowed_values(
                 self.allowed_values,
@@ -148,6 +157,7 @@ class OpenApiModel(object):
                 self._configuration
             )
         self.__dict__['_data_store'][name] = value
+
 
     def __repr__(self):
         """For `print` and `pprint`"""
@@ -1476,6 +1486,9 @@ def model_to_dict(model_instance, serialize=True):
         serialize (bool): if True, the keys in the dict will be values from
             attribute_map
     """
+    if isinstance(model_instance, dict):
+        return model_instance
+
     result = {}
 
     model_instances = [model_instance]
@@ -1488,10 +1501,19 @@ def model_to_dict(model_instance, serialize=True):
                 # exist in attribute_map
                 attr = model_instance.attribute_map.get(attr, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: model_to_dict(x, serialize=serialize)
-                    if hasattr(x, '_data_store') else x, value
-                ))
+               if not value:
+                   # empty list or None
+                   result[attr] = value
+               else:
+                   res = []
+                   for v in value:
+                       if isinstance(v, PRIMITIVE_TYPES) or v is None:
+                           res.append(v)
+                       elif isinstance(v, ModelSimple):
+                           res.append(v.value)
+                       else:
+                           res.append(model_to_dict(v, serialize=serialize))
+                   result[attr] = res
             elif isinstance(value, dict):
                 result[attr] = dict(map(
                     lambda item: (item[0],
@@ -1551,11 +1573,16 @@ def get_valid_classes_phrase(input_classes):
 def convert_js_args_to_python_args(fn):
     from functools import wraps
     @wraps(fn)
-    def wrapped_init(self, *args, **kwargs):
+    def wrapped_init(_self, *args, **kwargs):
+        """
+        An attribute named `self` received from the api will conflicts with the reserved `self`
+        parameter of a class method. During generation, `self` attributes are mapped
+        to `_self` in models. Here, we name `_self` instead of `self` to avoid conflicts.
+        """
         spec_property_naming = kwargs.get('_spec_property_naming', False)
         if spec_property_naming:
-            kwargs = change_keys_js_to_python(kwargs, self.__class__)
-        return fn(self, *args, **kwargs)
+            kwargs = change_keys_js_to_python(kwargs, _self.__class__)
+        return fn(_self, *args, **kwargs)
     return wrapped_init
 
 

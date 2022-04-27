@@ -60,7 +60,7 @@ class EmploymentsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return employments for this employee.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "employee"
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
@@ -162,7 +162,9 @@ class EmploymentsApi(object):
                 'allowed_values': {
                     ('expand',): {
 
-                        "EMPLOYEE": "employee"
+                        "EMPLOYEE": "employee",
+                        "EMPLOYEE,PAY_GROUP": "employee,pay_group",
+                        "PAY_GROUP": "pay_group"
                     },
                     ('order_by',): {
 
@@ -261,7 +263,7 @@ class EmploymentsApi(object):
                 id (str):
 
             Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "employee"
+                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -349,7 +351,9 @@ class EmploymentsApi(object):
                 'allowed_values': {
                     ('expand',): {
 
-                        "EMPLOYEE": "employee"
+                        "EMPLOYEE": "employee",
+                        "EMPLOYEE,PAY_GROUP": "employee,pay_group",
+                        "PAY_GROUP": "pay_group"
                     },
                 },
                 'openapi_types': {

@@ -46,12 +46,11 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bank_info_api.BankInfoApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    account_type = "CHECKING" # str, none_type | The bank account type (optional)
-    bank_name = "bank_name_example" # str |  (optional)
+    account_type = "CHECKING" # str, none_type | If provided, will only return BankInfo's with this account type. Options: ('SAVINGS', 'CHECKING') (optional)
+    bank_name = "bank_name_example" # str, none_type | If provided, will only return BankInfo's with this bank name. (optional)
     created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
-    employee = "employee_example" # str | If provided, will only return bank accounts for this employee. (optional)
     employee_id = "employee_id_example" # str | If provided, will only return bank accounts for this employee. (optional)
     expand = "employee" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional) if omitted the server will use the default value of "employee"
     include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
@@ -60,7 +59,6 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
     order_by = "-remote_created_at" # str | Overrides the default ordering for this endpoint. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
-    remote_created_at = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime |  (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
 
     # example passing only required values which don't have defaults set
@@ -73,7 +71,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.bank_info_list(x_account_token, account_type=account_type, bank_name=bank_name, created_after=created_after, created_before=created_before, cursor=cursor, employee=employee, employee_id=employee_id, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, order_by=order_by, page_size=page_size, remote_created_at=remote_created_at, remote_id=remote_id)
+        api_response = api_instance.bank_info_list(x_account_token, account_type=account_type, bank_name=bank_name, created_after=created_after, created_before=created_before, cursor=cursor, employee_id=employee_id, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, order_by=order_by, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling BankInfoApi->bank_info_list: %s\n" % e)
@@ -85,12 +83,11 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **account_type** | **str, none_type**| The bank account type | [optional]
- **bank_name** | **str**|  | [optional]
+ **account_type** | **str, none_type**| If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) | [optional]
+ **bank_name** | **str, none_type**| If provided, will only return BankInfo&#39;s with this bank name. | [optional]
  **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
- **employee** | **str**| If provided, will only return bank accounts for this employee. | [optional]
  **employee_id** | **str**| If provided, will only return bank accounts for this employee. | [optional]
  **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] if omitted the server will use the default value of "employee"
  **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
@@ -99,7 +96,6 @@ Name | Type | Description  | Notes
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
  **order_by** | **str**| Overrides the default ordering for this endpoint. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
- **remote_created_at** | **datetime**|  | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type

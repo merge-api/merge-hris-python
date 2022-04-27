@@ -11,15 +11,19 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
+from MergeHRISClient.model.debug_mode_log import DebugModeLog
 from MergeHRISClient.model.error_validation_problem import ErrorValidationProblem
 from MergeHRISClient.model.time_off import TimeOff
 from MergeHRISClient.model.warning_validation_problem import WarningValidationProblem
+globals()['DebugModeLog'] = DebugModeLog
 globals()['ErrorValidationProblem'] = ErrorValidationProblem
 globals()['TimeOff'] = TimeOff
 globals()['WarningValidationProblem'] = WarningValidationProblem
 from MergeHRISClient.model.time_off_response import TimeOffResponse
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestTimeOffResponse(unittest.TestCase):
@@ -35,7 +39,25 @@ class TestTimeOffResponse(unittest.TestCase):
         """Test TimeOffResponse"""
         # FIXME: construct object with mandatory attributes with example values
         # model = TimeOffResponse()  # noqa: E501
-        pass
+
+        """
+        No test json responses were defined for TimeOffResponse
+        """
+        raw_json = None
+
+        if raw_json is None:
+            return
+
+        response_mock = MagicMock()
+        response_mock.data = raw_json
+
+        deserialized = ApiClient().deserialize(response_mock, (TimeOffResponse,), False)
+
+        assert deserialized is not None
+
+        assert deserialized.model is not None
+        assert deserialized.warnings is not None
+        assert deserialized.errors is not None
 
 
 if __name__ == '__main__':

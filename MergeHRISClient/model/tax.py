@@ -142,7 +142,7 @@ class Tax(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            employee_payroll_run (str, none_type): The tax's employee payroll run.. [optional]  # noqa: E501
+            employee_payroll_run (str, none_type): [optional]  # noqa: E501
             name (str, none_type): The tax's name.. [optional]  # noqa: E501
             amount (float, none_type): The tax amount.. [optional]  # noqa: E501
             employer_tax (bool, none_type): Whether or not the employer is responsible for paying the tax.. [optional]  # noqa: E501

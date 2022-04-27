@@ -49,8 +49,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     end_date = "end_date_example" # str | If included, will only include issues whose most recent action occurred before this time (optional)
     end_user_organization_name = "end_user_organization_name_example" # str |  (optional)
+    first_incident_time_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return issues whose first incident time was after this datetime. (optional)
+    first_incident_time_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return issues whose first incident time was before this datetime. (optional)
     include_muted = "include_muted_example" # str | If True, will include muted issues (optional)
     integration_name = "integration_name_example" # str |  (optional)
+    last_incident_time_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return issues whose first incident time was after this datetime. (optional)
+    last_incident_time_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return issues whose first incident time was before this datetime. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
     start_date = "start_date_example" # str | If included, will only include issues whose most recent action occurred after this time (optional)
     status = "ONGOING" # str |  (optional)
@@ -58,7 +62,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.issues_list(account_token=account_token, cursor=cursor, end_date=end_date, end_user_organization_name=end_user_organization_name, include_muted=include_muted, integration_name=integration_name, page_size=page_size, start_date=start_date, status=status)
+        api_response = api_instance.issues_list(account_token=account_token, cursor=cursor, end_date=end_date, end_user_organization_name=end_user_organization_name, first_incident_time_after=first_incident_time_after, first_incident_time_before=first_incident_time_before, include_muted=include_muted, integration_name=integration_name, last_incident_time_after=last_incident_time_after, last_incident_time_before=last_incident_time_before, page_size=page_size, start_date=start_date, status=status)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling IssuesApi->issues_list: %s\n" % e)
@@ -73,8 +77,12 @@ Name | Type | Description  | Notes
  **cursor** | **str**| The pagination cursor value. | [optional]
  **end_date** | **str**| If included, will only include issues whose most recent action occurred before this time | [optional]
  **end_user_organization_name** | **str**|  | [optional]
+ **first_incident_time_after** | **datetime, none_type**| If provided, will only return issues whose first incident time was after this datetime. | [optional]
+ **first_incident_time_before** | **datetime, none_type**| If provided, will only return issues whose first incident time was before this datetime. | [optional]
  **include_muted** | **str**| If True, will include muted issues | [optional]
  **integration_name** | **str**|  | [optional]
+ **last_incident_time_after** | **datetime, none_type**| If provided, will only return issues whose first incident time was after this datetime. | [optional]
+ **last_incident_time_before** | **datetime, none_type**| If provided, will only return issues whose first incident time was before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **start_date** | **str**| If included, will only include issues whose most recent action occurred after this time | [optional]
  **status** | **str**|  | [optional]

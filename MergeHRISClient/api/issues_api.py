@@ -57,8 +57,12 @@ class IssuesApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 end_date (str): If included, will only include issues whose most recent action occurred before this time. [optional]
                 end_user_organization_name (str): [optional]
+                first_incident_time_after (datetime, none_type): If provided, will only return issues whose first incident time was after this datetime.. [optional]
+                first_incident_time_before (datetime, none_type): If provided, will only return issues whose first incident time was before this datetime.. [optional]
                 include_muted (str): If True, will include muted issues. [optional]
                 integration_name (str): [optional]
+                last_incident_time_after (datetime, none_type): If provided, will only return issues whose first incident time was after this datetime.. [optional]
+                last_incident_time_before (datetime, none_type): If provided, will only return issues whose first incident time was before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 start_date (str): If included, will only include issues whose most recent action occurred after this time. [optional]
                 status (str): [optional]
@@ -125,14 +129,22 @@ class IssuesApi(object):
                     'cursor',
                     'end_date',
                     'end_user_organization_name',
+                    'first_incident_time_after',
+                    'first_incident_time_before',
                     'include_muted',
                     'integration_name',
+                    'last_incident_time_after',
+                    'last_incident_time_before',
                     'page_size',
                     'start_date',
                     'status',
                 ],
                 'required': [],
                 'nullable': [
+                    'first_incident_time_after',
+                    'first_incident_time_before',
+                    'last_incident_time_after',
+                    'last_incident_time_before',
                 ],
                 'enum': [
                     'status',
@@ -159,10 +171,18 @@ class IssuesApi(object):
                         (str,),
                     'end_user_organization_name':
                         (str,),
+                    'first_incident_time_after':
+                        (datetime, none_type,),
+                    'first_incident_time_before':
+                        (datetime, none_type,),
                     'include_muted':
                         (str,),
                     'integration_name':
                         (str,),
+                    'last_incident_time_after':
+                        (datetime, none_type,),
+                    'last_incident_time_before':
+                        (datetime, none_type,),
                     'page_size':
                         (int,),
                     'start_date':
@@ -175,8 +195,12 @@ class IssuesApi(object):
                     'cursor': 'cursor',
                     'end_date': 'end_date',
                     'end_user_organization_name': 'end_user_organization_name',
+                    'first_incident_time_after': 'first_incident_time_after',
+                    'first_incident_time_before': 'first_incident_time_before',
                     'include_muted': 'include_muted',
                     'integration_name': 'integration_name',
+                    'last_incident_time_after': 'last_incident_time_after',
+                    'last_incident_time_before': 'last_incident_time_before',
                     'page_size': 'page_size',
                     'start_date': 'start_date',
                     'status': 'status',
@@ -186,8 +210,12 @@ class IssuesApi(object):
                     'cursor': 'query',
                     'end_date': 'query',
                     'end_user_organization_name': 'query',
+                    'first_incident_time_after': 'query',
+                    'first_incident_time_before': 'query',
                     'include_muted': 'query',
                     'integration_name': 'query',
+                    'last_incident_time_after': 'query',
+                    'last_incident_time_before': 'query',
                     'page_size': 'query',
                     'start_date': 'query',
                     'status': 'query',

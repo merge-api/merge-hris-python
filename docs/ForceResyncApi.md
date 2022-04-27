@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **sync_status_resync_create**
-> SyncStatus sync_status_resync_create(x_account_token)
+> [SyncStatus] sync_status_resync_create(x_account_token)
 
 
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SyncStatus**](SyncStatus.md)
+[**[SyncStatus]**](SyncStatus.md)
 
 ### Authorization
 

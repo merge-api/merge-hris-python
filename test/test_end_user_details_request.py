@@ -52,6 +52,7 @@ class TestEndUserDetailsRequest(unittest.TestCase):
         assert deserialized.end_user_email_address is not None
         assert deserialized.end_user_organization_name is not None
         assert deserialized.end_user_origin_id is not None
+        assert deserialized.categories is not None
 
 
 if __name__ == '__main__':

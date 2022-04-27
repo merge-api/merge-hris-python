@@ -14,6 +14,8 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeHRISClient
+from MergeHRISClient.model.multipart_form_field_request import MultipartFormFieldRequest
+globals()['MultipartFormFieldRequest'] = MultipartFormFieldRequest
 from MergeHRISClient.model.data_passthrough_request import DataPassthroughRequest
 from MergeHRISClient.api_client import ApiClient
 

@@ -150,8 +150,8 @@ class TimeOffBalance(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): The employee the balance belongs to.. [optional]  # noqa: E501
-            balance (float, none_type): The current PTO balance in terms of hours.. [optional]  # noqa: E501
+            employee (str, none_type): [optional]  # noqa: E501
+            balance (float, none_type): The current remaining PTO balance in terms of hours. This does not represent the starting PTO balance. If the API provider only provides PTO balance in terms of days, we estimate 8 hours per day.. [optional]  # noqa: E501
             used (float, none_type): The amount of PTO used in terms of hours.. [optional]  # noqa: E501
             policy_type (object, none_type): The policy type of this time off balance.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501

@@ -154,7 +154,9 @@ class LinkedAccountsApi(object):
                         'None': None,
                         "ACCOUNTING": "accounting",
                         "ATS": "ats",
-                        "HRIS": "hris"
+                        "CRM": "crm",
+                        "HRIS": "hris",
+                        "TICKETING": "ticketing"
                     },
                 },
                 'openapi_types': {

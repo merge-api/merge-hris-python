@@ -91,22 +91,27 @@ class EmployeeRequest(ModelNormal):
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'display_full_name': (str, none_type,),  # noqa: E501
+            'groups': ([str, none_type],),  # noqa: E501
             'work_email': (str, none_type,),  # noqa: E501
             'personal_email': (str, none_type,),  # noqa: E501
             'mobile_phone_number': (str, none_type,),  # noqa: E501
+            'employments': ([str, none_type],),  # noqa: E501
             'home_location': (str, none_type,),  # noqa: E501
             'work_location': (str, none_type,),  # noqa: E501
             'manager': (str, none_type,),  # noqa: E501
             'team': (str, none_type,),  # noqa: E501
+            'pay_group': (str, none_type,),  # noqa: E501
             'ssn': (str, none_type,),  # noqa: E501
             'gender': (object, none_type,),  # noqa: E501
             'ethnicity': (object, none_type,),  # noqa: E501
             'marital_status': (object, none_type,),  # noqa: E501
             'date_of_birth': (datetime, none_type,),  # noqa: E501
             'hire_date': (datetime, none_type,),  # noqa: E501
+            'start_date': (datetime, none_type,),  # noqa: E501
             'employment_status': (object, none_type,),  # noqa: E501
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
+            'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -121,22 +126,27 @@ class EmployeeRequest(ModelNormal):
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'display_full_name': 'display_full_name',  # noqa: E501
+        'groups': 'groups',  # noqa: E501
         'work_email': 'work_email',  # noqa: E501
         'personal_email': 'personal_email',  # noqa: E501
         'mobile_phone_number': 'mobile_phone_number',  # noqa: E501
+        'employments': 'employments',  # noqa: E501
         'home_location': 'home_location',  # noqa: E501
         'work_location': 'work_location',  # noqa: E501
         'manager': 'manager',  # noqa: E501
         'team': 'team',  # noqa: E501
+        'pay_group': 'pay_group',  # noqa: E501
         'ssn': 'ssn',  # noqa: E501
         'gender': 'gender',  # noqa: E501
         'ethnicity': 'ethnicity',  # noqa: E501
         'marital_status': 'marital_status',  # noqa: E501
         'date_of_birth': 'date_of_birth',  # noqa: E501
         'hire_date': 'hire_date',  # noqa: E501
+        'start_date': 'start_date',  # noqa: E501
         'employment_status': 'employment_status',  # noqa: E501
         'termination_date': 'termination_date',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
+        'custom_fields': 'custom_fields',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -186,27 +196,32 @@ class EmployeeRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee_number (str, none_type): The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user.. [optional]  # noqa: E501
-            company (str, none_type): The ID of the employee's company.. [optional]  # noqa: E501
+            employee_number (str, none_type): The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.. [optional]  # noqa: E501
+            company (str, none_type): [optional]  # noqa: E501
             first_name (str, none_type): The employee's first name.. [optional]  # noqa: E501
             last_name (str, none_type): The employee's last name.. [optional]  # noqa: E501
-            display_full_name (str, none_type): The employee's full name, to use for display purposes.. [optional]  # noqa: E501
+            display_full_name (str, none_type): The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.. [optional]  # noqa: E501
+            groups ([str, none_type]): [optional]  # noqa: E501
             work_email (str, none_type): The employee's work email.. [optional]  # noqa: E501
             personal_email (str, none_type): The employee's personal email.. [optional]  # noqa: E501
             mobile_phone_number (str, none_type): The employee's mobile phone number.. [optional]  # noqa: E501
-            home_location (str, none_type): The employee's home address.. [optional]  # noqa: E501
-            work_location (str, none_type): The employee's work address.. [optional]  # noqa: E501
-            manager (str, none_type): The employee ID of the employee's manager.. [optional]  # noqa: E501
-            team (str, none_type): The employee's team.. [optional]  # noqa: E501
+            employments ([str, none_type]): Array of `Employment` IDs for this Employee.. [optional]  # noqa: E501
+            home_location (str, none_type): [optional]  # noqa: E501
+            work_location (str, none_type): [optional]  # noqa: E501
+            manager (str, none_type): [optional]  # noqa: E501
+            team (str, none_type): [optional]  # noqa: E501
+            pay_group (str, none_type): [optional]  # noqa: E501
             ssn (str, none_type): The employee's social security number.. [optional]  # noqa: E501
             gender (object, none_type): The employee's gender.. [optional]  # noqa: E501
             ethnicity (object, none_type): The employee's ethnicity.. [optional]  # noqa: E501
             marital_status (object, none_type): The employee's marital status.. [optional]  # noqa: E501
             date_of_birth (datetime, none_type): The employee's date of birth.. [optional]  # noqa: E501
-            hire_date (datetime, none_type): The employee's hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date.. [optional]  # noqa: E501
+            hire_date (datetime, none_type): The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you're looking for the employee's start date, refer to the start_date field.. [optional]  # noqa: E501
+            start_date (datetime, none_type): The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.. [optional]  # noqa: E501
             employment_status (object, none_type): The employment status of the employee.. [optional]  # noqa: E501
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501
+            custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

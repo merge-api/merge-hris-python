@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.0.0"
+__version__ = "1.2.2"
 
 # import ApiClient
 from MergeHRISClient.api_client import ApiClient

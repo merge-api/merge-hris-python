@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
-**employee_payroll_run** | **str, none_type** | The earning&#39;s employee payroll run. | [optional] 
+**employee_payroll_run** | **str, none_type** |  | [optional] 
 **amount** | **float, none_type** | The amount earned. | [optional] 
 **type** | **object, none_type** | The type of earning. | [optional] 
 **remote_data** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type], none_type** |  | [optional] 

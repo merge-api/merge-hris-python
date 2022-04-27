@@ -170,9 +170,7 @@ class PayrollRunsApi(object):
                 'allowed_values': {
                     ('run_type',): {
                         'None': None,
-                        "EMPTY": "",
                         "CORRECTION": "CORRECTION",
-                        "NULL": "null",
                         "OFF_CYCLE": "OFF_CYCLE",
                         "REGULAR": "REGULAR",
                         "SIGN_ON_BONUS": "SIGN_ON_BONUS",

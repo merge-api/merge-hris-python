@@ -11,9 +11,11 @@
 
 import sys
 import unittest
+from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.account_type_enum import AccountTypeEnum
+from MergeHRISClient.api_client import ApiClient
 
 
 class TestAccountTypeEnum(unittest.TestCase):
@@ -29,8 +31,9 @@ class TestAccountTypeEnum(unittest.TestCase):
         """Test AccountTypeEnum"""
         # FIXME: construct object with mandatory attributes with example values
         # model = AccountTypeEnum()  # noqa: E501
-        pass
 
+        # no tests for enums
+        pass
 
 if __name__ == '__main__':
     unittest.main()

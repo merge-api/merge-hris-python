@@ -24,8 +24,26 @@ class TestEmployeesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_employees_create(self):
+        """Test case for employees_create
+
+        """
+        pass
+
+    def test_employees_ignore_create(self):
+        """Test case for employees_ignore_create
+
+        """
+        pass
+
     def test_employees_list(self):
         """Test case for employees_list
+
+        """
+        pass
+
+    def test_employees_meta_post_retrieve(self):
+        """Test case for employees_meta_post_retrieve
 
         """
         pass

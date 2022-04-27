@@ -157,7 +157,7 @@ class BankInfo(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): The employee with this bank account.. [optional]  # noqa: E501
+            employee (str, none_type): [optional]  # noqa: E501
             account_number (str, none_type): The account number.. [optional]  # noqa: E501
             routing_number (str, none_type): The routing number.. [optional]  # noqa: E501
             bank_name (str, none_type): The bank name.. [optional]  # noqa: E501

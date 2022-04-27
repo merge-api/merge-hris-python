@@ -82,6 +82,7 @@ class AccountDetailsAndActions(ModelNormal):
             'status': (object,),  # noqa: E501
             'end_user_organization_name': (str,),  # noqa: E501
             'end_user_email_address': (str,),  # noqa: E501
+            'webhook_listener_url': (str,),  # noqa: E501
             'category': (object,),  # noqa: E501
             'status_detail': (str,),  # noqa: E501
             'end_user_origin_id': (str,),  # noqa: E501
@@ -98,6 +99,7 @@ class AccountDetailsAndActions(ModelNormal):
         'status': 'status',  # noqa: E501
         'end_user_organization_name': 'end_user_organization_name',  # noqa: E501
         'end_user_email_address': 'end_user_email_address',  # noqa: E501
+        'webhook_listener_url': 'webhook_listener_url',  # noqa: E501
         'category': 'category',  # noqa: E501
         'status_detail': 'status_detail',  # noqa: E501
         'end_user_origin_id': 'end_user_origin_id',  # noqa: E501
@@ -116,7 +118,7 @@ class AccountDetailsAndActions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, status, end_user_organization_name, end_user_email_address, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, status, end_user_organization_name, end_user_email_address, webhook_listener_url, *args, **kwargs):  # noqa: E501
         """AccountDetailsAndActions - a model defined in OpenAPI
 
         Args:
@@ -124,6 +126,7 @@ class AccountDetailsAndActions(ModelNormal):
             status (object):
             end_user_organization_name (str):
             end_user_email_address (str):
+            webhook_listener_url (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -189,6 +192,7 @@ class AccountDetailsAndActions(ModelNormal):
         self.status = status
         self.end_user_organization_name = end_user_organization_name
         self.end_user_email_address = end_user_email_address
+        self.webhook_listener_url = webhook_listener_url
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -61,16 +61,23 @@ class EndUserDetailsRequest(ModelNormal):
 
     validations = {
         ('end_user_email_address',): {
+            'max_length': 100,
             'min_length': 1,
         },
         ('end_user_organization_name',): {
+            'max_length': 100,
             'min_length': 1,
         },
         ('end_user_origin_id',): {
+            'max_length': 100,
             'min_length': 1,
         },
         ('integration',): {
             'min_length': 1,
+        },
+        ('link_expiry_mins',): {
+            'inclusive_maximum': 720,
+            'inclusive_minimum': 30,
         },
     }
 
@@ -95,6 +102,7 @@ class EndUserDetailsRequest(ModelNormal):
             'end_user_origin_id': (str,),  # noqa: E501
             'categories': ([CategoriesEnum],),  # noqa: E501
             'integration': (str, none_type,),  # noqa: E501
+            'link_expiry_mins': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +116,7 @@ class EndUserDetailsRequest(ModelNormal):
         'end_user_origin_id': 'end_user_origin_id',  # noqa: E501
         'categories': 'categories',  # noqa: E501
         'integration': 'integration',  # noqa: E501
+        'link_expiry_mins': 'link_expiry_mins',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -122,13 +131,14 @@ class EndUserDetailsRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, end_user_email_address, end_user_organization_name, end_user_origin_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, end_user_email_address, end_user_organization_name, end_user_origin_id, categories, *args, **kwargs):  # noqa: E501
         """EndUserDetailsRequest - a model defined in OpenAPI
 
         Args:
             end_user_email_address (str):
             end_user_organization_name (str):
             end_user_origin_id (str):
+            categories ([CategoriesEnum]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -161,8 +171,8 @@ class EndUserDetailsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            categories ([CategoriesEnum]): [optional]  # noqa: E501
-            integration (str, none_type): [optional]  # noqa: E501
+            integration (str, none_type): The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata. [optional]  # noqa: E501
+            link_expiry_mins (int): An integer number of minutes between [30, 720] for how long this token is valid. Defaults to 30. [optional] if omitted the server will use the default value of 30  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -191,6 +201,7 @@ class EndUserDetailsRequest(ModelNormal):
         self.end_user_email_address = end_user_email_address
         self.end_user_organization_name = end_user_organization_name
         self.end_user_origin_id = end_user_origin_id
+        self.categories = categories
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
