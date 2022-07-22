@@ -44,7 +44,7 @@ class SyncStatusApi(object):
         ):
             """sync_status_list  # noqa: E501
 
-            Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`, `SYNCING`  # noqa: E501
+            Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`, `PAUSED`, `SYNCING`  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

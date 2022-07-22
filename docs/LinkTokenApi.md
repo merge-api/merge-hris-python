@@ -54,6 +54,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
         ],
         integration="integration_example",
         link_expiry_mins=30,
+        should_create_magic_link_url=False,
     ) # EndUserDetailsRequest | 
 
     # example passing only required values which don't have defaults set

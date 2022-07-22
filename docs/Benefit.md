@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **employee_contribution** | **float, none_type** | The employee&#39;s contribution. | [optional] 
 **company_contribution** | **float, none_type** | The company&#39;s contribution. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

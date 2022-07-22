@@ -75,6 +75,7 @@ class LinkToken(ModelNormal):
         return {
             'link_token': (str,),  # noqa: E501
             'integration_name': (str,),  # noqa: E501
+            'magic_link_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -85,6 +86,7 @@ class LinkToken(ModelNormal):
     attribute_map = {
         'link_token': 'link_token',  # noqa: E501
         'integration_name': 'integration_name',  # noqa: E501
+        'magic_link_url': 'magic_link_url',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -137,6 +139,7 @@ class LinkToken(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            magic_link_url (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

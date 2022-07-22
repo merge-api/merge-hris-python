@@ -61,7 +61,7 @@ class BenefitsApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return time off for this employee.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "employee"
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]

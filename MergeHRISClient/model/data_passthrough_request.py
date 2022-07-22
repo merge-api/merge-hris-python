@@ -94,6 +94,7 @@ class DataPassthroughRequest(ModelNormal):
             'multipart_form_data': ([MultipartFormFieldRequest], none_type,),  # noqa: E501
             'headers': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'request_format': (object, none_type,),  # noqa: E501
+            'normalize_response': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +110,7 @@ class DataPassthroughRequest(ModelNormal):
         'multipart_form_data': 'multipart_form_data',  # noqa: E501
         'headers': 'headers',  # noqa: E501
         'request_format': 'request_format',  # noqa: E501
+        'normalize_response': 'normalize_response',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -166,6 +168,7 @@ class DataPassthroughRequest(ModelNormal):
             multipart_form_data ([MultipartFormFieldRequest], none_type): Pass an array of `MultipartFormField` objects in here instead of using the `data` param if `request_format` is set to `MULTIPART`.. [optional]  # noqa: E501
             headers ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): The headers to use for the request (Merge will handle the account's authorization headers). `Content-Type` header is required for passthrough. Choose content type corresponding to expected format of receiving server.. [optional]  # noqa: E501
             request_format (object, none_type): [optional]  # noqa: E501
+            normalize_response (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

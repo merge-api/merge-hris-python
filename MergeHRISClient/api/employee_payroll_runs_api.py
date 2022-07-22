@@ -63,7 +63,7 @@ class EmployeePayrollRunsApi(object):
                 ended_after (datetime, none_type): If provided, will only return employee payroll runs ended after this datetime.. [optional]
                 ended_before (datetime, none_type): If provided, will only return employee payroll runs ended before this datetime.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]

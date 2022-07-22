@@ -351,16 +351,21 @@ class EmployeesApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
+                display_full_name (str, none_type): If provided, will only return employees with this display name.. [optional]
+                employment_status (str, none_type): If provided, will only return employees with this employment status.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                first_name (str, none_type): If provided, will only return employees with this first name.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 include_sensitive_fields (bool): Whether to include sensitive fields (such as social security numbers) in the response.. [optional]
+                last_name (str, none_type): If provided, will only return employees with this last name.. [optional]
                 manager_id (str): If provided, will only return employees for this manager.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
                 pay_group_id (str): If provided, will only return employees for this pay group. [optional]
                 personal_email (str, none_type): If provided, will only return Employees with this personal email. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 team_id (str): If provided, will only return employees for this team.. [optional]
                 work_email (str, none_type): If provided, will only return Employees with this work email. [optional]
@@ -431,16 +436,21 @@ class EmployeesApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
+                    'display_full_name',
+                    'employment_status',
                     'expand',
+                    'first_name',
                     'include_deleted_data',
                     'include_remote_data',
                     'include_sensitive_fields',
+                    'last_name',
                     'manager_id',
                     'modified_after',
                     'modified_before',
                     'page_size',
                     'pay_group_id',
                     'personal_email',
+                    'remote_fields',
                     'remote_id',
                     'team_id',
                     'work_email',
@@ -450,12 +460,18 @@ class EmployeesApi(object):
                     'x_account_token',
                 ],
                 'nullable': [
+                    'display_full_name',
+                    'employment_status',
+                    'first_name',
+                    'last_name',
                     'personal_email',
                     'remote_id',
                     'work_email',
                 ],
                 'enum': [
+                    'employment_status',
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -464,6 +480,12 @@ class EmployeesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('employment_status',): {
+                        'None': None,
+                        "ACTIVE": "ACTIVE",
+                        "INACTIVE": "INACTIVE",
+                        "PENDING": "PENDING"
+                    },
                     ('expand',): {
 
                         "COMPANY": "company",
@@ -722,6 +744,24 @@ class EmployeesApi(object):
                         "WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "work_location,team,company,pay_group",
                         "WORK_LOCATION,TEAM,PAY_GROUP": "work_location,team,pay_group"
                     },
+                    ('remote_fields',): {
+
+                        "EMPLOYMENT_STATUS": "employment_status",
+                        "EMPLOYMENT_STATUS,ETHNICITY": "employment_status,ethnicity",
+                        "EMPLOYMENT_STATUS,ETHNICITY,GENDER": "employment_status,ethnicity,gender",
+                        "EMPLOYMENT_STATUS,ETHNICITY,GENDER,MARITAL_STATUS": "employment_status,ethnicity,gender,marital_status",
+                        "EMPLOYMENT_STATUS,ETHNICITY,MARITAL_STATUS": "employment_status,ethnicity,marital_status",
+                        "EMPLOYMENT_STATUS,GENDER": "employment_status,gender",
+                        "EMPLOYMENT_STATUS,GENDER,MARITAL_STATUS": "employment_status,gender,marital_status",
+                        "EMPLOYMENT_STATUS,MARITAL_STATUS": "employment_status,marital_status",
+                        "ETHNICITY": "ethnicity",
+                        "ETHNICITY,GENDER": "ethnicity,gender",
+                        "ETHNICITY,GENDER,MARITAL_STATUS": "ethnicity,gender,marital_status",
+                        "ETHNICITY,MARITAL_STATUS": "ethnicity,marital_status",
+                        "GENDER": "gender",
+                        "GENDER,MARITAL_STATUS": "gender,marital_status",
+                        "MARITAL_STATUS": "marital_status"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -734,14 +774,22 @@ class EmployeesApi(object):
                         (datetime,),
                     'cursor':
                         (str,),
+                    'display_full_name':
+                        (str, none_type,),
+                    'employment_status':
+                        (str, none_type,),
                     'expand':
                         (str,),
+                    'first_name':
+                        (str, none_type,),
                     'include_deleted_data':
                         (bool,),
                     'include_remote_data':
                         (bool,),
                     'include_sensitive_fields':
                         (bool,),
+                    'last_name':
+                        (str, none_type,),
                     'manager_id':
                         (str,),
                     'modified_after':
@@ -754,6 +802,8 @@ class EmployeesApi(object):
                         (str,),
                     'personal_email':
                         (str, none_type,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                     'team_id':
@@ -769,16 +819,21 @@ class EmployeesApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
+                    'display_full_name': 'display_full_name',
+                    'employment_status': 'employment_status',
                     'expand': 'expand',
+                    'first_name': 'first_name',
                     'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'include_sensitive_fields': 'include_sensitive_fields',
+                    'last_name': 'last_name',
                     'manager_id': 'manager_id',
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
                     'pay_group_id': 'pay_group_id',
                     'personal_email': 'personal_email',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                     'team_id': 'team_id',
                     'work_email': 'work_email',
@@ -790,16 +845,21 @@ class EmployeesApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
+                    'display_full_name': 'query',
+                    'employment_status': 'query',
                     'expand': 'query',
+                    'first_name': 'query',
                     'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'include_sensitive_fields': 'query',
+                    'last_name': 'query',
                     'manager_id': 'query',
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
                     'pay_group_id': 'query',
                     'personal_email': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                     'team_id': 'query',
                     'work_email': 'query',
@@ -960,6 +1020,7 @@ class EmployeesApi(object):
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 include_sensitive_fields (bool): Whether to include sensitive fields (such as social security numbers) in the response.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1028,6 +1089,7 @@ class EmployeesApi(object):
                     'expand',
                     'include_remote_data',
                     'include_sensitive_fields',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -1037,6 +1099,7 @@ class EmployeesApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -1303,6 +1366,24 @@ class EmployeesApi(object):
                         "WORK_LOCATION,TEAM,COMPANY,PAY_GROUP": "work_location,team,company,pay_group",
                         "WORK_LOCATION,TEAM,PAY_GROUP": "work_location,team,pay_group"
                     },
+                    ('remote_fields',): {
+
+                        "EMPLOYMENT_STATUS": "employment_status",
+                        "EMPLOYMENT_STATUS,ETHNICITY": "employment_status,ethnicity",
+                        "EMPLOYMENT_STATUS,ETHNICITY,GENDER": "employment_status,ethnicity,gender",
+                        "EMPLOYMENT_STATUS,ETHNICITY,GENDER,MARITAL_STATUS": "employment_status,ethnicity,gender,marital_status",
+                        "EMPLOYMENT_STATUS,ETHNICITY,MARITAL_STATUS": "employment_status,ethnicity,marital_status",
+                        "EMPLOYMENT_STATUS,GENDER": "employment_status,gender",
+                        "EMPLOYMENT_STATUS,GENDER,MARITAL_STATUS": "employment_status,gender,marital_status",
+                        "EMPLOYMENT_STATUS,MARITAL_STATUS": "employment_status,marital_status",
+                        "ETHNICITY": "ethnicity",
+                        "ETHNICITY,GENDER": "ethnicity,gender",
+                        "ETHNICITY,GENDER,MARITAL_STATUS": "ethnicity,gender,marital_status",
+                        "ETHNICITY,MARITAL_STATUS": "ethnicity,marital_status",
+                        "GENDER": "gender",
+                        "GENDER,MARITAL_STATUS": "gender,marital_status",
+                        "MARITAL_STATUS": "marital_status"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -1315,6 +1396,8 @@ class EmployeesApi(object):
                         (bool,),
                     'include_sensitive_fields':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
@@ -1322,6 +1405,7 @@ class EmployeesApi(object):
                     'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                     'include_sensitive_fields': 'include_sensitive_fields',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
@@ -1329,6 +1413,7 @@ class EmployeesApi(object):
                     'expand': 'query',
                     'include_remote_data': 'query',
                     'include_sensitive_fields': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

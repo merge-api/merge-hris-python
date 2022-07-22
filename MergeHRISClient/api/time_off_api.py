@@ -209,11 +209,12 @@ class TimeOffApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return time off for this employee.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 request_type (str, none_type): If provided, will only return TimeOff with this request type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT'). [optional]
                 status (str, none_type): If provided, will only return TimeOff with this status. Options: ('REQUESTED', 'APPROVED', 'DECLINED', 'CANCELLED', 'DELETED'). [optional]
@@ -290,6 +291,7 @@ class TimeOffApi(object):
                     'modified_after',
                     'modified_before',
                     'page_size',
+                    'remote_fields',
                     'remote_id',
                     'request_type',
                     'status',
@@ -304,6 +306,7 @@ class TimeOffApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                     'request_type',
                     'status',
                 ],
@@ -319,6 +322,16 @@ class TimeOffApi(object):
                         "APPROVER": "approver",
                         "EMPLOYEE": "employee",
                         "EMPLOYEE,APPROVER": "employee,approver"
+                    },
+                    ('remote_fields',): {
+
+                        "REQUEST_TYPE": "request_type",
+                        "REQUEST_TYPE,STATUS": "request_type,status",
+                        "REQUEST_TYPE,STATUS,UNITS": "request_type,status,units",
+                        "REQUEST_TYPE,UNITS": "request_type,units",
+                        "STATUS": "status",
+                        "STATUS,UNITS": "status,units",
+                        "UNITS": "units"
                     },
                     ('request_type',): {
                         'None': None,
@@ -363,6 +376,8 @@ class TimeOffApi(object):
                         (datetime,),
                     'page_size':
                         (int,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                     'request_type':
@@ -383,6 +398,7 @@ class TimeOffApi(object):
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                     'request_type': 'request_type',
                     'status': 'status',
@@ -400,6 +416,7 @@ class TimeOffApi(object):
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                     'request_type': 'query',
                     'status': 'query',
@@ -558,6 +575,7 @@ class TimeOffApi(object):
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -625,6 +643,7 @@ class TimeOffApi(object):
                     'id',
                     'expand',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -634,6 +653,7 @@ class TimeOffApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -648,6 +668,16 @@ class TimeOffApi(object):
                         "EMPLOYEE": "employee",
                         "EMPLOYEE,APPROVER": "employee,approver"
                     },
+                    ('remote_fields',): {
+
+                        "REQUEST_TYPE": "request_type",
+                        "REQUEST_TYPE,STATUS": "request_type,status",
+                        "REQUEST_TYPE,STATUS,UNITS": "request_type,status,units",
+                        "REQUEST_TYPE,UNITS": "request_type,units",
+                        "STATUS": "status",
+                        "STATUS,UNITS": "status,units",
+                        "UNITS": "units"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -658,18 +688,22 @@ class TimeOffApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'expand': 'query',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

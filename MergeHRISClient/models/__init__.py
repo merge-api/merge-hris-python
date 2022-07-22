@@ -84,7 +84,6 @@ from MergeHRISClient.model.payroll_run import PayrollRun
 from MergeHRISClient.model.policy_type_enum import PolicyTypeEnum
 from MergeHRISClient.model.reason_enum import ReasonEnum
 from MergeHRISClient.model.remote_data import RemoteData
-from MergeHRISClient.model.remote_data_request import RemoteDataRequest
 from MergeHRISClient.model.remote_key import RemoteKey
 from MergeHRISClient.model.remote_key_for_regeneration_request import RemoteKeyForRegenerationRequest
 from MergeHRISClient.model.remote_response import RemoteResponse

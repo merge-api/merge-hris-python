@@ -76,7 +76,7 @@ class EndUserDetailsRequest(ModelNormal):
             'min_length': 1,
         },
         ('link_expiry_mins',): {
-            'inclusive_maximum': 720,
+            'inclusive_maximum': 10080,
             'inclusive_minimum': 30,
         },
     }
@@ -103,6 +103,7 @@ class EndUserDetailsRequest(ModelNormal):
             'categories': ([CategoriesEnum],),  # noqa: E501
             'integration': (str, none_type,),  # noqa: E501
             'link_expiry_mins': (int,),  # noqa: E501
+            'should_create_magic_link_url': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -117,6 +118,7 @@ class EndUserDetailsRequest(ModelNormal):
         'categories': 'categories',  # noqa: E501
         'integration': 'integration',  # noqa: E501
         'link_expiry_mins': 'link_expiry_mins',  # noqa: E501
+        'should_create_magic_link_url': 'should_create_magic_link_url',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -172,7 +174,8 @@ class EndUserDetailsRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             integration (str, none_type): The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata. [optional]  # noqa: E501
-            link_expiry_mins (int): An integer number of minutes between [30, 720] for how long this token is valid. Defaults to 30. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            link_expiry_mins (int): An integer number of minutes between [30, 720 or 10080 if for a Magic Link URL] for how long this token is valid. Defaults to 30. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            should_create_magic_link_url (bool): Whether to generate a Magic Link URL. Defaults to false. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

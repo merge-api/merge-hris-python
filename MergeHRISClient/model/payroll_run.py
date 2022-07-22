@@ -86,6 +86,7 @@ class PayrollRun(ModelNormal):
             'end_date': (datetime, none_type,),  # noqa: E501
             'check_date': (datetime, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class PayrollRun(ModelNormal):
         'end_date': 'end_date',  # noqa: E501
         'check_date': 'check_date',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -158,6 +160,7 @@ class PayrollRun(ModelNormal):
             end_date (datetime, none_type): The day and time the payroll run ended.. [optional]  # noqa: E501
             check_date (datetime, none_type): The day and time the payroll run was checked.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

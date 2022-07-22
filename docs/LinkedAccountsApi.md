@@ -46,14 +46,14 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     api_instance = linked_accounts_api.LinkedAccountsApi(api_client)
     category = "accounting" # str, none_type |  (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
-    end_user_email_address = "end_user_email_address_example" # str |  (optional)
-    end_user_organization_name = "end_user_organization_name_example" # str |  (optional)
-    end_user_origin_id = "end_user_origin_id_example" # str |  (optional)
-    end_user_origin_ids = "end_user_origin_ids_example" # str | Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
+    end_user_email_address = "end_user_email_address_example" # str | If provided, will only return linked accounts associated with the given email address. (optional)
+    end_user_organization_name = "end_user_organization_name_example" # str | If provided, will only return linked accounts associated with the given organization name. (optional)
+    end_user_origin_id = "end_user_origin_id_example" # str | If provided, will only return linked accounts associated with the given origin ID. (optional)
+    end_user_origin_ids = "end_user_origin_ids_example" # str | Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. (optional)
     id = "id_example" # str |  (optional)
-    ids = "ids_example" # str | Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-    integration_name = "integration_name_example" # str |  (optional)
-    is_test_account = "is_test_account_example" # str | If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
+    ids = "ids_example" # str | Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. (optional)
+    integration_name = "integration_name_example" # str | If provided, will only return linked accounts associated with the given integration name. (optional)
+    is_test_account = "is_test_account_example" # str | If included, will only include test linked accounts. If not included, will only include non-test linked accounts. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
     status = "status_example" # str | Filter by status. Options: `COMPLETE`, `INCOMPLETE`, `RELINK_NEEDED` (optional)
 
@@ -73,14 +73,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **category** | **str, none_type**|  | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
- **end_user_email_address** | **str**|  | [optional]
- **end_user_organization_name** | **str**|  | [optional]
- **end_user_origin_id** | **str**|  | [optional]
- **end_user_origin_ids** | **str**| Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once | [optional]
+ **end_user_email_address** | **str**| If provided, will only return linked accounts associated with the given email address. | [optional]
+ **end_user_organization_name** | **str**| If provided, will only return linked accounts associated with the given organization name. | [optional]
+ **end_user_origin_id** | **str**| If provided, will only return linked accounts associated with the given origin ID. | [optional]
+ **end_user_origin_ids** | **str**| Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. | [optional]
  **id** | **str**|  | [optional]
- **ids** | **str**| Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once | [optional]
- **integration_name** | **str**|  | [optional]
- **is_test_account** | **str**| If included, will only include test linked accounts. If not included, will only include non-test linked accounts | [optional]
+ **ids** | **str**| Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. | [optional]
+ **integration_name** | **str**| If provided, will only return linked accounts associated with the given integration name. | [optional]
+ **is_test_account** | **str**| If included, will only include test linked accounts. If not included, will only include non-test linked accounts. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **status** | **str**| Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; | [optional]
 

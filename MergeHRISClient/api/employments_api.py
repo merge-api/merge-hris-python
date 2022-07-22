@@ -61,12 +61,13 @@ class EmploymentsApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return employments for this employee.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 order_by (str): Overrides the default ordering for this endpoint.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -141,6 +142,7 @@ class EmploymentsApi(object):
                     'modified_before',
                     'order_by',
                     'page_size',
+                    'remote_fields',
                     'remote_id',
                 ],
                 'required': [
@@ -152,6 +154,7 @@ class EmploymentsApi(object):
                 'enum': [
                     'expand',
                     'order_by',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -170,6 +173,24 @@ class EmploymentsApi(object):
 
                         "-EFFECTIVE_DATE": "-effective_date",
                         "EFFECTIVE_DATE": "effective_date"
+                    },
+                    ('remote_fields',): {
+
+                        "EMPLOYMENT_TYPE": "employment_type",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS": "employment_type,flsa_status",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY": "employment_type,flsa_status,pay_frequency",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "employment_type,flsa_status,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_PERIOD": "employment_type,flsa_status,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY": "employment_type,pay_frequency",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY,PAY_PERIOD": "employment_type,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_PERIOD": "employment_type,pay_period",
+                        "FLSA_STATUS": "flsa_status",
+                        "FLSA_STATUS,PAY_FREQUENCY": "flsa_status,pay_frequency",
+                        "FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "flsa_status,pay_frequency,pay_period",
+                        "FLSA_STATUS,PAY_PERIOD": "flsa_status,pay_period",
+                        "PAY_FREQUENCY": "pay_frequency",
+                        "PAY_FREQUENCY,PAY_PERIOD": "pay_frequency,pay_period",
+                        "PAY_PERIOD": "pay_period"
                     },
                 },
                 'openapi_types': {
@@ -197,6 +218,8 @@ class EmploymentsApi(object):
                         (str,),
                     'page_size':
                         (int,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                 },
@@ -213,6 +236,7 @@ class EmploymentsApi(object):
                     'modified_before': 'modified_before',
                     'order_by': 'order_by',
                     'page_size': 'page_size',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                 },
                 'location_map': {
@@ -228,6 +252,7 @@ class EmploymentsApi(object):
                     'modified_before': 'query',
                     'order_by': 'query',
                     'page_size': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                 },
                 'collection_format_map': {
@@ -265,6 +290,7 @@ class EmploymentsApi(object):
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -332,6 +358,7 @@ class EmploymentsApi(object):
                     'id',
                     'expand',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -341,6 +368,7 @@ class EmploymentsApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -355,6 +383,24 @@ class EmploymentsApi(object):
                         "EMPLOYEE,PAY_GROUP": "employee,pay_group",
                         "PAY_GROUP": "pay_group"
                     },
+                    ('remote_fields',): {
+
+                        "EMPLOYMENT_TYPE": "employment_type",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS": "employment_type,flsa_status",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY": "employment_type,flsa_status,pay_frequency",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "employment_type,flsa_status,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_PERIOD": "employment_type,flsa_status,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY": "employment_type,pay_frequency",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY,PAY_PERIOD": "employment_type,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_PERIOD": "employment_type,pay_period",
+                        "FLSA_STATUS": "flsa_status",
+                        "FLSA_STATUS,PAY_FREQUENCY": "flsa_status,pay_frequency",
+                        "FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "flsa_status,pay_frequency,pay_period",
+                        "FLSA_STATUS,PAY_PERIOD": "flsa_status,pay_period",
+                        "PAY_FREQUENCY": "pay_frequency",
+                        "PAY_FREQUENCY,PAY_PERIOD": "pay_frequency,pay_period",
+                        "PAY_PERIOD": "pay_period"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -365,18 +411,22 @@ class EmploymentsApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'expand': 'query',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

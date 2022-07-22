@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **employee_deduction** | **float, none_type** | The amount the employee is deducting. | [optional] 
 **company_deduction** | **float, none_type** | The amount the company is deducting. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
