@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 
-Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`, `SYNCING`
+Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`, `PAUSED`, `SYNCING`
 
 ### Example
 

@@ -84,6 +84,7 @@ class Deduction(ModelNormal):
             'employee_deduction': (float, none_type,),  # noqa: E501
             'company_deduction': (float, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class Deduction(ModelNormal):
         'employee_deduction': 'employee_deduction',  # noqa: E501
         'company_deduction': 'company_deduction',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -152,6 +154,7 @@ class Deduction(ModelNormal):
             employee_deduction (float, none_type): The amount the employee is deducting.. [optional]  # noqa: E501
             company_deduction (float, none_type): The amount the company is deducting.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

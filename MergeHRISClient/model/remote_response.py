@@ -77,6 +77,7 @@ class RemoteResponse(ModelNormal):
             'path': (str,),  # noqa: E501
             'status': (int,),  # noqa: E501
             'response': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'response_headers': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'headers': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
@@ -90,6 +91,7 @@ class RemoteResponse(ModelNormal):
         'path': 'path',  # noqa: E501
         'status': 'status',  # noqa: E501
         'response': 'response',  # noqa: E501
+        'response_headers': 'response_headers',  # noqa: E501
         'headers': 'headers',  # noqa: E501
     }
 
@@ -145,6 +147,7 @@ class RemoteResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            response_headers ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             headers ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 

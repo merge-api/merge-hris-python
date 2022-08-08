@@ -97,6 +97,7 @@ class Employee(ModelNormal):
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'display_full_name': (str, none_type,),  # noqa: E501
+            'username': (str, none_type,),  # noqa: E501
             'groups': ([str, none_type],),  # noqa: E501
             'work_email': (str, none_type,),  # noqa: E501
             'personal_email': (str, none_type,),  # noqa: E501
@@ -114,11 +115,13 @@ class Employee(ModelNormal):
             'date_of_birth': (datetime, none_type,),  # noqa: E501
             'hire_date': (datetime, none_type,),  # noqa: E501
             'start_date': (datetime, none_type,),  # noqa: E501
+            'remote_created_at': (datetime, none_type,),  # noqa: E501
             'employment_status': (object, none_type,),  # noqa: E501
             'termination_date': (datetime, none_type,),  # noqa: E501
             'avatar': (str, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'custom_fields': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -134,6 +137,7 @@ class Employee(ModelNormal):
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'display_full_name': 'display_full_name',  # noqa: E501
+        'username': 'username',  # noqa: E501
         'groups': 'groups',  # noqa: E501
         'work_email': 'work_email',  # noqa: E501
         'personal_email': 'personal_email',  # noqa: E501
@@ -151,11 +155,13 @@ class Employee(ModelNormal):
         'date_of_birth': 'date_of_birth',  # noqa: E501
         'hire_date': 'hire_date',  # noqa: E501
         'start_date': 'start_date',  # noqa: E501
+        'remote_created_at': 'remote_created_at',  # noqa: E501
         'employment_status': 'employment_status',  # noqa: E501
         'termination_date': 'termination_date',  # noqa: E501
         'avatar': 'avatar',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -211,6 +217,7 @@ class Employee(ModelNormal):
             first_name (str, none_type): The employee's first name.. [optional]  # noqa: E501
             last_name (str, none_type): The employee's last name.. [optional]  # noqa: E501
             display_full_name (str, none_type): The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.. [optional]  # noqa: E501
+            username (str, none_type): The employee's username that appears in the remote UI.. [optional]  # noqa: E501
             groups ([str, none_type]): [optional]  # noqa: E501
             work_email (str, none_type): The employee's work email.. [optional]  # noqa: E501
             personal_email (str, none_type): The employee's personal email.. [optional]  # noqa: E501
@@ -228,11 +235,13 @@ class Employee(ModelNormal):
             date_of_birth (datetime, none_type): The employee's date of birth.. [optional]  # noqa: E501
             hire_date (datetime, none_type): The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you're looking for the employee's start date, refer to the start_date field.. [optional]  # noqa: E501
             start_date (datetime, none_type): The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.. [optional]  # noqa: E501
+            remote_created_at (datetime, none_type): When the third party's employee was created.. [optional]  # noqa: E501
             employment_status (object, none_type): The employment status of the employee.. [optional]  # noqa: E501
             termination_date (datetime, none_type): The employee's termination date.. [optional]  # noqa: E501
             avatar (str, none_type): The URL of the employee's avatar image.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             custom_fields ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): Custom fields configured for a given model.. [optional]  # noqa: E501
+            remote_was_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

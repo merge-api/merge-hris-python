@@ -97,6 +97,7 @@ class EmployeePayrollRun(ModelNormal):
             'deductions': ([Deduction],),  # noqa: E501
             'taxes': ([Tax],),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +119,7 @@ class EmployeePayrollRun(ModelNormal):
         'deductions': 'deductions',  # noqa: E501
         'taxes': 'taxes',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -179,6 +181,7 @@ class EmployeePayrollRun(ModelNormal):
             deductions ([Deduction]): [optional]  # noqa: E501
             taxes ([Tax]): [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **employee_payroll_run** | **str, none_type** |  | [optional] 
 **amount** | **float, none_type** | The amount earned. | [optional] 
 **type** | **object, none_type** | The type of earning. | [optional] 
-**remote_data** | **[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type], none_type** |  | [optional] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

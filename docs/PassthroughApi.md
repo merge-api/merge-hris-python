@@ -64,6 +64,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
             "key": None,
         },
         request_format=,
+        normalize_response=True,
     ) # DataPassthroughRequest | 
 
     # example passing only required values which don't have defaults set

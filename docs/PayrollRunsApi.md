@@ -51,11 +51,12 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     ended_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return payroll runs ended after this datetime. (optional)
     ended_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return payroll runs ended before this datetime. (optional)
-    include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
+    include_deleted_data = True # bool | Whether to include data that was marked as deleted by third party webhooks. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
     modified_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified before this datetime. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
+    remote_fields = "run_state,run_type" # str | Which fields should be returned in non-normalized form. (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
     run_type = "CORRECTION" # str, none_type | If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS') (optional)
     started_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | If provided, will only return payroll runs started after this datetime. (optional)
@@ -71,7 +72,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, ended_after=ended_after, ended_before=ended_before, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id, run_type=run_type, started_after=started_after, started_before=started_before)
+        api_response = api_instance.payroll_runs_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, ended_after=ended_after, ended_before=ended_before, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_fields=remote_fields, remote_id=remote_id, run_type=run_type, started_after=started_after, started_before=started_before)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling PayrollRunsApi->payroll_runs_list: %s\n" % e)
@@ -88,11 +89,12 @@ Name | Type | Description  | Notes
  **cursor** | **str**| The pagination cursor value. | [optional]
  **ended_after** | **datetime, none_type**| If provided, will only return payroll runs ended after this datetime. | [optional]
  **ended_before** | **datetime, none_type**| If provided, will only return payroll runs ended before this datetime. | [optional]
- **include_deleted_data** | **bool**| Whether to include data that was deleted in the third-party service. | [optional]
+ **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **datetime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **datetime**| If provided, will only return objects modified before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
+ **remote_fields** | **str**| Which fields should be returned in non-normalized form. | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
  **run_type** | **str, none_type**| If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) | [optional]
  **started_after** | **datetime, none_type**| If provided, will only return payroll runs started after this datetime. | [optional]
@@ -159,6 +161,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+    remote_fields = "run_state,run_type" # str | Which fields should be returned in non-normalized form. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -170,7 +173,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.payroll_runs_retrieve(x_account_token, id, include_remote_data=include_remote_data)
+        api_response = api_instance.payroll_runs_retrieve(x_account_token, id, include_remote_data=include_remote_data, remote_fields=remote_fields)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling PayrollRunsApi->payroll_runs_retrieve: %s\n" % e)
@@ -184,6 +187,7 @@ Name | Type | Description  | Notes
  **x_account_token** | **str**| Token identifying the end user. |
  **id** | **str**|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
+ **remote_fields** | **str**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 

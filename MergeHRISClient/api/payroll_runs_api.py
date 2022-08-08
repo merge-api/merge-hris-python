@@ -61,11 +61,12 @@ class PayrollRunsApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 ended_after (datetime, none_type): If provided, will only return payroll runs ended after this datetime.. [optional]
                 ended_before (datetime, none_type): If provided, will only return payroll runs ended before this datetime.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 run_type (str, none_type): If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS'). [optional]
                 started_after (datetime, none_type): If provided, will only return payroll runs started after this datetime.. [optional]
@@ -142,6 +143,7 @@ class PayrollRunsApi(object):
                     'modified_after',
                     'modified_before',
                     'page_size',
+                    'remote_fields',
                     'remote_id',
                     'run_type',
                     'started_after',
@@ -159,6 +161,7 @@ class PayrollRunsApi(object):
                     'started_before',
                 ],
                 'enum': [
+                    'remote_fields',
                     'run_type',
                 ],
                 'validation': [
@@ -168,6 +171,12 @@ class PayrollRunsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('remote_fields',): {
+
+                        "STATE": "run_state",
+                        "STATE,RUN_TYPE": "run_state,run_type",
+                        "TYPE": "run_type"
+                    },
                     ('run_type',): {
                         'None': None,
                         "CORRECTION": "CORRECTION",
@@ -200,6 +209,8 @@ class PayrollRunsApi(object):
                         (datetime,),
                     'page_size':
                         (int,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                     'run_type':
@@ -221,6 +232,7 @@ class PayrollRunsApi(object):
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                     'run_type': 'run_type',
                     'started_after': 'started_after',
@@ -238,6 +250,7 @@ class PayrollRunsApi(object):
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                     'run_type': 'query',
                     'started_after': 'query',
@@ -277,6 +290,7 @@ class PayrollRunsApi(object):
 
             Keyword Args:
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -343,6 +357,7 @@ class PayrollRunsApi(object):
                     'x_account_token',
                     'id',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -351,6 +366,7 @@ class PayrollRunsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -359,6 +375,12 @@ class PayrollRunsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('remote_fields',): {
+
+                        "STATE": "run_state",
+                        "STATE,RUN_TYPE": "run_state,run_type",
+                        "TYPE": "run_type"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -367,16 +389,20 @@ class PayrollRunsApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

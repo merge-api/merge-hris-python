@@ -63,12 +63,13 @@ class BankInfoApi(object):
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return bank accounts for this employee.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "employee"
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 order_by (str): Overrides the default ordering for this endpoint.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "account_type"
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -145,6 +146,7 @@ class BankInfoApi(object):
                     'modified_before',
                     'order_by',
                     'page_size',
+                    'remote_fields',
                     'remote_id',
                 ],
                 'required': [
@@ -159,6 +161,7 @@ class BankInfoApi(object):
                     'account_type',
                     'expand',
                     'order_by',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -180,6 +183,10 @@ class BankInfoApi(object):
 
                         "-REMOTE_CREATED_AT": "-remote_created_at",
                         "REMOTE_CREATED_AT": "remote_created_at"
+                    },
+                    ('remote_fields',): {
+
+                        "ACCOUNT_TYPE": "account_type"
                     },
                 },
                 'openapi_types': {
@@ -211,6 +218,8 @@ class BankInfoApi(object):
                         (str,),
                     'page_size':
                         (int,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                 },
@@ -229,6 +238,7 @@ class BankInfoApi(object):
                     'modified_before': 'modified_before',
                     'order_by': 'order_by',
                     'page_size': 'page_size',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                 },
                 'location_map': {
@@ -246,6 +256,7 @@ class BankInfoApi(object):
                     'modified_before': 'query',
                     'order_by': 'query',
                     'page_size': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                 },
                 'collection_format_map': {
@@ -283,6 +294,7 @@ class BankInfoApi(object):
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "employee"
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "account_type"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -350,6 +362,7 @@ class BankInfoApi(object):
                     'id',
                     'expand',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -359,6 +372,7 @@ class BankInfoApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -371,6 +385,10 @@ class BankInfoApi(object):
 
                         "EMPLOYEE": "employee"
                     },
+                    ('remote_fields',): {
+
+                        "ACCOUNT_TYPE": "account_type"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -381,18 +399,22 @@ class BankInfoApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'expand': 'query',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

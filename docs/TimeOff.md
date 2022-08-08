@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **start_time** | **datetime, none_type** | The day and time of the start of the time requested off. | [optional] 
 **end_time** | **datetime, none_type** | The day and time of the end of the time requested off. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
