@@ -55,6 +55,17 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
         integration="integration_example",
         link_expiry_mins=30,
         should_create_magic_link_url=False,
+        common_models=[
+            CommonModelScopesBodyRequest(
+                model_id="hris.Employee",
+                enabled_actions=[
+                    EnabledActionsA91Enum("["READ","WRITE"]"),
+                ],
+                disabled_fields=[
+                    "disabled_fields_example",
+                ],
+            ),
+        ],
     ) # EndUserDetailsRequest | 
 
     # example passing only required values which don't have defaults set

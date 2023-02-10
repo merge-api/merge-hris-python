@@ -155,7 +155,7 @@ class AccountIntegration(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            categories ([CategoriesEnum]): Category or categories this integration belongs to. Multiple categories should be comma separated.<br/><br>Example: For [ats, hris], enter <i>ats,hris</i>. [optional]  # noqa: E501
+            categories ([CategoriesEnum]): Category or categories this integration belongs to. Multiple categories should be comma separated, i.e. [ats, hris].. [optional]  # noqa: E501
             image (str, none_type): Company logo in rectangular shape. <b>Upload an image with a clear background.</b>. [optional]  # noqa: E501
             square_image (str, none_type): Company logo in square shape. <b>Upload an image with a white background.</b>. [optional]  # noqa: E501
             color (str): The color of this integration used for buttons and text throughout the app and landing pages. <b>Choose a darker, saturated color.</b>. [optional]  # noqa: E501

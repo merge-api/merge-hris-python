@@ -7,10 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_name** | **str** |  | 
 **model_id** | **str** |  | 
-**last_sync_start** | **datetime** |  | 
-**next_sync_start** | **datetime** |  | 
 **status** | **object** |  | 
 **is_initial_sync** | **bool** |  | 
+**last_sync_start** | **datetime** |  | [optional] 
+**next_sync_start** | **datetime** |  | [optional] 
+**selective_sync_configurations_usage** | **object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

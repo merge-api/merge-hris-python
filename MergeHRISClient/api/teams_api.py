@@ -59,7 +59,6 @@ class TeamsApi(object):
                 created_after (datetime): If provided, will only return objects created after this datetime.. [optional]
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "parent_team"
                 include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
@@ -132,7 +131,6 @@ class TeamsApi(object):
                     'created_after',
                     'created_before',
                     'cursor',
-                    'expand',
                     'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
@@ -148,7 +146,6 @@ class TeamsApi(object):
                     'remote_id',
                 ],
                 'enum': [
-                    'expand',
                 ],
                 'validation': [
                 ]
@@ -157,10 +154,6 @@ class TeamsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "PARENT_TEAM": "parent_team"
-                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -170,8 +163,6 @@ class TeamsApi(object):
                     'created_before':
                         (datetime,),
                     'cursor':
-                        (str,),
-                    'expand':
                         (str,),
                     'include_deleted_data':
                         (bool,),
@@ -193,7 +184,6 @@ class TeamsApi(object):
                     'created_after': 'created_after',
                     'created_before': 'created_before',
                     'cursor': 'cursor',
-                    'expand': 'expand',
                     'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
@@ -207,7 +197,6 @@ class TeamsApi(object):
                     'created_after': 'query',
                     'created_before': 'query',
                     'cursor': 'query',
-                    'expand': 'query',
                     'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
@@ -249,7 +238,6 @@ class TeamsApi(object):
                 id (str):
 
             Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional] if omitted the server will use the default value of "parent_team"
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -316,7 +304,6 @@ class TeamsApi(object):
                 'all': [
                     'x_account_token',
                     'id',
-                    'expand',
                     'include_remote_data',
                 ],
                 'required': [
@@ -326,7 +313,6 @@ class TeamsApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'expand',
                 ],
                 'validation': [
                 ]
@@ -335,17 +321,11 @@ class TeamsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "PARENT_TEAM": "parent_team"
-                    },
                 },
                 'openapi_types': {
                     'x_account_token':
                         (str,),
                     'id':
-                        (str,),
-                    'expand':
                         (str,),
                     'include_remote_data':
                         (bool,),
@@ -353,13 +333,11 @@ class TeamsApi(object):
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
-                    'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
-                    'expand': 'query',
                     'include_remote_data': 'query',
                 },
                 'collection_format_map': {

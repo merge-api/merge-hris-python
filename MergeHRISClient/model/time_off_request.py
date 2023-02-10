@@ -73,7 +73,6 @@ class TimeOffRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'remote_id': (str, none_type,),  # noqa: E501
             'employee': (str, none_type,),  # noqa: E501
             'approver': (str, none_type,),  # noqa: E501
             'status': (object, none_type,),  # noqa: E501
@@ -83,6 +82,8 @@ class TimeOffRequest(ModelNormal):
             'request_type': (object, none_type,),  # noqa: E501
             'start_time': (datetime, none_type,),  # noqa: E501
             'end_time': (datetime, none_type,),  # noqa: E501
+            'integration_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
+            'linked_account_params': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -91,7 +92,6 @@ class TimeOffRequest(ModelNormal):
 
 
     attribute_map = {
-        'remote_id': 'remote_id',  # noqa: E501
         'employee': 'employee',  # noqa: E501
         'approver': 'approver',  # noqa: E501
         'status': 'status',  # noqa: E501
@@ -101,6 +101,8 @@ class TimeOffRequest(ModelNormal):
         'request_type': 'request_type',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
         'end_time': 'end_time',  # noqa: E501
+        'integration_params': 'integration_params',  # noqa: E501
+        'linked_account_params': 'linked_account_params',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -149,16 +151,17 @@ class TimeOffRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): [optional]  # noqa: E501
-            approver (str, none_type): [optional]  # noqa: E501
+            employee (str, none_type): The employee requesting time off.. [optional]  # noqa: E501
+            approver (str, none_type): The Merge ID of the employee with the ability to approve the time off request.. [optional]  # noqa: E501
             status (object, none_type): The status of this time off request.. [optional]  # noqa: E501
             employee_note (str, none_type): The employee note for this time off request.. [optional]  # noqa: E501
-            units (object, none_type): The unit of time requested.. [optional]  # noqa: E501
-            amount (float, none_type): The number of time off units requested.. [optional]  # noqa: E501
+            units (object, none_type): The measurement that the third-party integration uses to count time requested.. [optional]  # noqa: E501
+            amount (float, none_type): The time off quantity measured by the prescribed “units”.. [optional]  # noqa: E501
             request_type (object, none_type): The type of time off request.. [optional]  # noqa: E501
             start_time (datetime, none_type): The day and time of the start of the time requested off.. [optional]  # noqa: E501
             end_time (datetime, none_type): The day and time of the end of the time requested off.. [optional]  # noqa: E501
+            integration_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
+            linked_account_params ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

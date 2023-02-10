@@ -82,6 +82,7 @@ class AccountDetails(ModelNormal):
             'end_user_email_address': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'webhook_listener_url': (str,),  # noqa: E501
+            'is_duplicate': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +100,7 @@ class AccountDetails(ModelNormal):
         'end_user_email_address': 'end_user_email_address',  # noqa: E501
         'status': 'status',  # noqa: E501
         'webhook_listener_url': 'webhook_listener_url',  # noqa: E501
+        'is_duplicate': 'is_duplicate',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -156,6 +158,7 @@ class AccountDetails(ModelNormal):
             end_user_email_address (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
             webhook_listener_url (str): [optional]  # noqa: E501
+            is_duplicate (bool, none_type): Whether a Production Linked Account's credentials match another existing Production Linked Account. This field is `null` for Test Linked Accounts, incomplete Production Linked Accounts, and ignored duplicate Production Linked Account sets.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

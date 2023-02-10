@@ -64,8 +64,9 @@ class LocationsApi(object):
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
-                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "location_type"
+                remote_fields (str): Deprecated. Use show_enum_origins.. [optional] if omitted the server will use the default value of "location_type"
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                show_enum_origins (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "location_type"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -138,6 +139,7 @@ class LocationsApi(object):
                     'page_size',
                     'remote_fields',
                     'remote_id',
+                    'show_enum_origins',
                 ],
                 'required': [
                     'x_account_token',
@@ -147,6 +149,7 @@ class LocationsApi(object):
                 ],
                 'enum': [
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'validation': [
                 ]
@@ -156,6 +159,10 @@ class LocationsApi(object):
                 },
                 'allowed_values': {
                     ('remote_fields',): {
+
+                        "LOCATION_TYPE": "location_type"
+                    },
+                    ('show_enum_origins',): {
 
                         "LOCATION_TYPE": "location_type"
                     },
@@ -183,6 +190,8 @@ class LocationsApi(object):
                         (str,),
                     'remote_id':
                         (str, none_type,),
+                    'show_enum_origins':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
@@ -196,6 +205,7 @@ class LocationsApi(object):
                     'page_size': 'page_size',
                     'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
+                    'show_enum_origins': 'show_enum_origins',
                 },
                 'location_map': {
                     'x_account_token': 'header',
@@ -209,6 +219,7 @@ class LocationsApi(object):
                     'page_size': 'query',
                     'remote_fields': 'query',
                     'remote_id': 'query',
+                    'show_enum_origins': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -244,7 +255,8 @@ class LocationsApi(object):
 
             Keyword Args:
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "location_type"
+                remote_fields (str): Deprecated. Use show_enum_origins.. [optional] if omitted the server will use the default value of "location_type"
+                show_enum_origins (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "location_type"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -312,6 +324,7 @@ class LocationsApi(object):
                     'id',
                     'include_remote_data',
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'required': [
                     'x_account_token',
@@ -321,6 +334,7 @@ class LocationsApi(object):
                 ],
                 'enum': [
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'validation': [
                 ]
@@ -330,6 +344,10 @@ class LocationsApi(object):
                 },
                 'allowed_values': {
                     ('remote_fields',): {
+
+                        "LOCATION_TYPE": "location_type"
+                    },
+                    ('show_enum_origins',): {
 
                         "LOCATION_TYPE": "location_type"
                     },
@@ -343,18 +361,22 @@ class LocationsApi(object):
                         (bool,),
                     'remote_fields':
                         (str,),
+                    'show_enum_origins':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'include_remote_data': 'include_remote_data',
                     'remote_fields': 'remote_fields',
+                    'show_enum_origins': 'show_enum_origins',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'include_remote_data': 'query',
                     'remote_fields': 'query',
+                    'show_enum_origins': 'query',
                 },
                 'collection_format_map': {
                 }

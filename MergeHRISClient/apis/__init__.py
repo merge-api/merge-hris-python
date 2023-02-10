@@ -19,8 +19,8 @@ from MergeHRISClient.api.account_token_api import AccountTokenApi
 from MergeHRISClient.api.available_actions_api import AvailableActionsApi
 from MergeHRISClient.api.bank_info_api import BankInfoApi
 from MergeHRISClient.api.benefits_api import BenefitsApi
+from MergeHRISClient.api.common_model_scopes_api import CommonModelScopesApi
 from MergeHRISClient.api.companies_api import CompaniesApi
-from MergeHRISClient.api.deductions_api import DeductionsApi
 from MergeHRISClient.api.delete_account_api import DeleteAccountApi
 from MergeHRISClient.api.employee_payroll_runs_api import EmployeePayrollRunsApi
 from MergeHRISClient.api.employees_api import EmployeesApi
@@ -36,6 +36,7 @@ from MergeHRISClient.api.passthrough_api import PassthroughApi
 from MergeHRISClient.api.pay_groups_api import PayGroupsApi
 from MergeHRISClient.api.payroll_runs_api import PayrollRunsApi
 from MergeHRISClient.api.regenerate_key_api import RegenerateKeyApi
+from MergeHRISClient.api.selective_sync_api import SelectiveSyncApi
 from MergeHRISClient.api.sync_status_api import SyncStatusApi
 from MergeHRISClient.api.teams_api import TeamsApi
 from MergeHRISClient.api.time_off_api import TimeOffApi

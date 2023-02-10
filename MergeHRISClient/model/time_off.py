@@ -91,6 +91,7 @@ class TimeOff(ModelNormal):
             'end_time': (datetime, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'remote_was_deleted': (bool,),  # noqa: E501
+            'field_mappings': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +113,7 @@ class TimeOff(ModelNormal):
         'end_time': 'end_time',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
+        'field_mappings': 'field_mappings',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -162,17 +164,18 @@ class TimeOff(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): [optional]  # noqa: E501
-            approver (str, none_type): [optional]  # noqa: E501
+            employee (str, none_type): The employee requesting time off.. [optional]  # noqa: E501
+            approver (str, none_type): The Merge ID of the employee with the ability to approve the time off request.. [optional]  # noqa: E501
             status (object, none_type): The status of this time off request.. [optional]  # noqa: E501
             employee_note (str, none_type): The employee note for this time off request.. [optional]  # noqa: E501
-            units (object, none_type): The unit of time requested.. [optional]  # noqa: E501
-            amount (float, none_type): The number of time off units requested.. [optional]  # noqa: E501
+            units (object, none_type): The measurement that the third-party integration uses to count time requested.. [optional]  # noqa: E501
+            amount (float, none_type): The time off quantity measured by the prescribed “units”.. [optional]  # noqa: E501
             request_type (object, none_type): The type of time off request.. [optional]  # noqa: E501
             start_time (datetime, none_type): The day and time of the start of the time requested off.. [optional]  # noqa: E501
             end_time (datetime, none_type): The day and time of the end of the time requested off.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             remote_was_deleted (bool): [optional]  # noqa: E501
+            field_mappings ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

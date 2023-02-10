@@ -14,8 +14,6 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeHRISClient
-from MergeHRISClient.model.issue_status_enum import IssueStatusEnum
-globals()['IssueStatusEnum'] = IssueStatusEnum
 from MergeHRISClient.model.issue import Issue
 from MergeHRISClient.api_client import ApiClient
 

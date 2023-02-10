@@ -48,8 +48,6 @@ class TestSyncStatus(unittest.TestCase):
 
         assert deserialized.model_name is not None
         assert deserialized.model_id is not None
-        assert deserialized.last_sync_start is not None
-        assert deserialized.next_sync_start is not None
         assert deserialized.status is not None
         assert deserialized.is_initial_sync is not None
 

@@ -86,6 +86,7 @@ class TimeOffBalance(ModelNormal):
             'policy_type': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'remote_was_deleted': (bool,),  # noqa: E501
+            'field_mappings': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class TimeOffBalance(ModelNormal):
         'policy_type': 'policy_type',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
+        'field_mappings': 'field_mappings',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -152,12 +154,13 @@ class TimeOffBalance(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): [optional]  # noqa: E501
-            balance (float, none_type): The current remaining PTO balance in terms of hours. This does not represent the starting PTO balance. If the API provider only provides PTO balance in terms of days, we estimate 8 hours per day.. [optional]  # noqa: E501
+            employee (str, none_type): The employee the balance belongs to.. [optional]  # noqa: E501
+            balance (float, none_type): The current remaining PTO balance, always measured in terms of hours.. [optional]  # noqa: E501
             used (float, none_type): The amount of PTO used in terms of hours.. [optional]  # noqa: E501
             policy_type (object, none_type): The policy type of this time off balance.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
+            field_mappings ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

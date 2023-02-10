@@ -92,6 +92,7 @@ class Employment(ModelNormal):
             'employment_type': (object, none_type,),  # noqa: E501
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'remote_was_deleted': (bool,),  # noqa: E501
+            'field_mappings': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class Employment(ModelNormal):
         'employment_type': 'employment_type',  # noqa: E501
         'remote_data': 'remote_data',  # noqa: E501
         'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
+        'field_mappings': 'field_mappings',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -164,18 +166,19 @@ class Employment(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             remote_id (str, none_type): The third-party API ID of the matching object.. [optional]  # noqa: E501
-            employee (str, none_type): [optional]  # noqa: E501
+            employee (str, none_type): The employee holding this position.. [optional]  # noqa: E501
             job_title (str, none_type): The position's title.. [optional]  # noqa: E501
             pay_rate (float, none_type): The position's pay rate in dollars.. [optional]  # noqa: E501
             pay_period (object, none_type): The time period this pay rate encompasses.. [optional]  # noqa: E501
             pay_frequency (object, none_type): The position's pay frequency.. [optional]  # noqa: E501
             pay_currency (object, none_type): The position's currency code.. [optional]  # noqa: E501
-            pay_group (str, none_type): [optional]  # noqa: E501
+            pay_group (str, none_type): The employment's pay group. [optional]  # noqa: E501
             flsa_status (object, none_type): The position's FLSA status.. [optional]  # noqa: E501
             effective_date (datetime, none_type): The position's effective date.. [optional]  # noqa: E501
             employment_type (object, none_type): The position's type of employment.. [optional]  # noqa: E501
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
+            field_mappings ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
