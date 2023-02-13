@@ -28,8 +28,8 @@ from MergeHRISClient.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
-    from MergeHRISClient.model.enabled_actions_a91_enum import EnabledActionsA91Enum
-    globals()['EnabledActionsA91Enum'] = EnabledActionsA91Enum
+    from MergeHRISClient.model.enabled_actions_enum import EnabledActionsEnum
+    globals()['EnabledActionsEnum'] = EnabledActionsEnum
 
 
 class CommonModelScopesBodyRequest(ModelNormal):
@@ -82,7 +82,7 @@ class CommonModelScopesBodyRequest(ModelNormal):
         lazy_import()
         return {
             'model_id': (str,),  # noqa: E501
-            'enabled_actions': ([EnabledActionsA91Enum],),  # noqa: E501
+            'enabled_actions': ([EnabledActionsEnum],),  # noqa: E501
             'disabled_fields': ([str],),  # noqa: E501
         }
 
@@ -114,7 +114,7 @@ class CommonModelScopesBodyRequest(ModelNormal):
 
         Args:
             model_id (str):
-            enabled_actions ([EnabledActionsA91Enum]):
+            enabled_actions ([EnabledActionsEnum]):
             disabled_fields ([str]):
 
         Keyword Args:

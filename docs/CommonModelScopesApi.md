@@ -51,7 +51,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
             CommonModelScopesPostInnerDeserializerRequest(
                 model_id="hris.Employee",
                 enabled_actions=[
-                    EnabledActionsA91Enum("["READ","WRITE"]"),
+                    EnabledActionsEnum("["READ","WRITE"]"),
                 ],
                 disabled_fields=[
                     "disabled_fields_example",

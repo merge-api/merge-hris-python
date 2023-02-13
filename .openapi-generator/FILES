@@ -53,7 +53,6 @@ MergeHRISClient/model/common_model_scope_data.py
 MergeHRISClient/model/common_model_scopes.py
 MergeHRISClient/model/common_model_scopes_body_request.py
 MergeHRISClient/model/common_model_scopes_disabled_models.py
-MergeHRISClient/model/common_model_scopes_disabled_models_enabled_actions_enum.py
 MergeHRISClient/model/common_model_scopes_post_inner_deserializer_request.py
 MergeHRISClient/model/common_model_scopes_update_serializer.py
 MergeHRISClient/model/company.py
@@ -74,7 +73,7 @@ MergeHRISClient/model/employee_response.py
 MergeHRISClient/model/employment.py
 MergeHRISClient/model/employment_status_enum.py
 MergeHRISClient/model/employment_type_enum.py
-MergeHRISClient/model/enabled_actions_a91_enum.py
+MergeHRISClient/model/enabled_actions_enum.py
 MergeHRISClient/model/encoding_enum.py
 MergeHRISClient/model/end_user_details_request.py
 MergeHRISClient/model/error_validation_problem.py
@@ -178,7 +177,6 @@ docs/CommonModelScopes.md
 docs/CommonModelScopesApi.md
 docs/CommonModelScopesBodyRequest.md
 docs/CommonModelScopesDisabledModels.md
-docs/CommonModelScopesDisabledModelsEnabledActionsEnum.md
 docs/CommonModelScopesPostInnerDeserializerRequest.md
 docs/CommonModelScopesUpdateSerializer.md
 docs/CompaniesApi.md
@@ -204,7 +202,7 @@ docs/Employment.md
 docs/EmploymentStatusEnum.md
 docs/EmploymentTypeEnum.md
 docs/EmploymentsApi.md
-docs/EnabledActionsA91Enum.md
+docs/EnabledActionsEnum.md
 docs/EncodingEnum.md
 docs/EndUserDetailsRequest.md
 docs/ErrorValidationProblem.md
@@ -327,7 +325,6 @@ test/test_common_model_scopes.py
 test/test_common_model_scopes_api.py
 test/test_common_model_scopes_body_request.py
 test/test_common_model_scopes_disabled_models.py
-test/test_common_model_scopes_disabled_models_enabled_actions_enum.py
 test/test_common_model_scopes_post_inner_deserializer_request.py
 test/test_common_model_scopes_update_serializer.py
 test/test_companies_api.py
@@ -353,7 +350,7 @@ test/test_employment.py
 test/test_employment_status_enum.py
 test/test_employment_type_enum.py
 test/test_employments_api.py
-test/test_enabled_actions_a91_enum.py
+test/test_enabled_actions_enum.py
 test/test_encoding_enum.py
 test/test_end_user_details_request.py
 test/test_error_validation_problem.py

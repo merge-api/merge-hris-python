@@ -14,8 +14,8 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeHRISClient
-from MergeHRISClient.model.enabled_actions_a91_enum import EnabledActionsA91Enum
-globals()['EnabledActionsA91Enum'] = EnabledActionsA91Enum
+from MergeHRISClient.model.enabled_actions_enum import EnabledActionsEnum
+globals()['EnabledActionsEnum'] = EnabledActionsEnum
 from MergeHRISClient.model.common_model_scopes_post_inner_deserializer_request import CommonModelScopesPostInnerDeserializerRequest
 from MergeHRISClient.api_client import ApiClient
 

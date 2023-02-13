@@ -59,7 +59,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
             CommonModelScopesBodyRequest(
                 model_id="hris.Employee",
                 enabled_actions=[
-                    EnabledActionsA91Enum("["READ","WRITE"]"),
+                    EnabledActionsEnum("["READ","WRITE"]"),
                 ],
                 disabled_fields=[
                     "disabled_fields_example",

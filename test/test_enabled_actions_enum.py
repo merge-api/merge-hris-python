@@ -14,12 +14,12 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeHRISClient
-from MergeHRISClient.model.type_enum import TypeEnum
+from MergeHRISClient.model.enabled_actions_enum import EnabledActionsEnum
 from MergeHRISClient.api_client import ApiClient
 
 
-class TestTypeEnum(unittest.TestCase):
-    """TypeEnum unit test stubs"""
+class TestEnabledActionsEnum(unittest.TestCase):
+    """EnabledActionsEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestTypeEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testTypeEnum(self):
-        """Test TypeEnum"""
+    def testEnabledActionsEnum(self):
+        """Test EnabledActionsEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = TypeEnum()  # noqa: E501
+        # model = EnabledActionsEnum()  # noqa: E501
 
         # no tests for enums
         pass

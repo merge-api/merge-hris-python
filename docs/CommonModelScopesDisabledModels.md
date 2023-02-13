@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model_name** | **str** |  | 
 **model_id** | **str** |  | 
-**enabled_actions** | [**[CommonModelScopesDisabledModelsEnabledActionsEnum]**](CommonModelScopesDisabledModelsEnabledActionsEnum.md) |  | 
+**enabled_actions** | [**[EnabledActionsEnum]**](EnabledActionsEnum.md) |  | 
 **is_disabled** | **bool** |  | 
 **disabled_fields** | **[str]** |  | 
 
