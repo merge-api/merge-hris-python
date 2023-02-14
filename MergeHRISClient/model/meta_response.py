@@ -81,6 +81,7 @@ class MetaResponse(ModelNormal):
             'request_schema': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'has_conditional_params': (bool,),  # noqa: E501
             'has_required_linked_account_params': (bool,),  # noqa: E501
+            'remote_field_classes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'status': (LinkedAccountStatus,),  # noqa: E501
         }
 
@@ -93,6 +94,7 @@ class MetaResponse(ModelNormal):
         'request_schema': 'request_schema',  # noqa: E501
         'has_conditional_params': 'has_conditional_params',  # noqa: E501
         'has_required_linked_account_params': 'has_required_linked_account_params',  # noqa: E501
+        'remote_field_classes': 'remote_field_classes',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
 
@@ -147,6 +149,7 @@ class MetaResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            remote_field_classes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
             status (LinkedAccountStatus): [optional]  # noqa: E501
         """
 

@@ -48,7 +48,6 @@ class TestLinkToken(unittest.TestCase):
         assert deserialized is not None
 
         assert deserialized.link_token is not None
-        assert deserialized.integration_name is not None
 
 
 if __name__ == '__main__':

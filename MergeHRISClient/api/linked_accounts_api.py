@@ -60,6 +60,7 @@ class LinkedAccountsApi(object):
                 end_user_origin_ids (str): Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once.. [optional]
                 id (str): [optional]
                 ids (str): Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once.. [optional]
+                include_duplicates (bool): If `true`, will include complete production duplicates of the account specified by the `id` query parameter in the response. `id` must be for a complete production linked account.. [optional]
                 integration_name (str): If provided, will only return linked accounts associated with the given integration name.. [optional]
                 is_test_account (str): If included, will only include test linked accounts. If not included, will only include non-test linked accounts.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
@@ -131,6 +132,7 @@ class LinkedAccountsApi(object):
                     'end_user_origin_ids',
                     'id',
                     'ids',
+                    'include_duplicates',
                     'integration_name',
                     'is_test_account',
                     'page_size',
@@ -156,6 +158,7 @@ class LinkedAccountsApi(object):
                         "ATS": "ats",
                         "CRM": "crm",
                         "HRIS": "hris",
+                        "MKTG": "mktg",
                         "TICKETING": "ticketing"
                     },
                 },
@@ -176,6 +179,8 @@ class LinkedAccountsApi(object):
                         (str,),
                     'ids':
                         (str,),
+                    'include_duplicates':
+                        (bool,),
                     'integration_name':
                         (str,),
                     'is_test_account':
@@ -194,6 +199,7 @@ class LinkedAccountsApi(object):
                     'end_user_origin_ids': 'end_user_origin_ids',
                     'id': 'id',
                     'ids': 'ids',
+                    'include_duplicates': 'include_duplicates',
                     'integration_name': 'integration_name',
                     'is_test_account': 'is_test_account',
                     'page_size': 'page_size',
@@ -208,6 +214,7 @@ class LinkedAccountsApi(object):
                     'end_user_origin_ids': 'query',
                     'id': 'query',
                     'ids': 'query',
+                    'include_duplicates': 'query',
                     'integration_name': 'query',
                     'is_test_account': 'query',
                     'page_size': 'query',

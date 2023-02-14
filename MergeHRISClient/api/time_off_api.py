@@ -208,15 +208,15 @@ class TimeOffApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return time off for this employee.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
-                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
+                remote_fields (str): Deprecated. Use show_enum_origins.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 request_type (str, none_type): If provided, will only return TimeOff with this request type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT'). [optional]
+                show_enum_origins (str): Which fields should be returned in non-normalized form.. [optional]
                 status (str, none_type): If provided, will only return TimeOff with this status. Options: ('REQUESTED', 'APPROVED', 'DECLINED', 'CANCELLED', 'DELETED'). [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -285,7 +285,6 @@ class TimeOffApi(object):
                     'created_before',
                     'cursor',
                     'employee_id',
-                    'expand',
                     'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
@@ -294,6 +293,7 @@ class TimeOffApi(object):
                     'remote_fields',
                     'remote_id',
                     'request_type',
+                    'show_enum_origins',
                     'status',
                 ],
                 'required': [
@@ -305,9 +305,9 @@ class TimeOffApi(object):
                     'status',
                 ],
                 'enum': [
-                    'expand',
                     'remote_fields',
                     'request_type',
+                    'show_enum_origins',
                     'status',
                 ],
                 'validation': [
@@ -317,12 +317,6 @@ class TimeOffApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "APPROVER": "approver",
-                        "EMPLOYEE": "employee",
-                        "EMPLOYEE,APPROVER": "employee,approver"
-                    },
                     ('remote_fields',): {
 
                         "REQUEST_TYPE": "request_type",
@@ -341,6 +335,16 @@ class TimeOffApi(object):
                         "SICK": "SICK",
                         "VACATION": "VACATION",
                         "VOLUNTEER": "VOLUNTEER"
+                    },
+                    ('show_enum_origins',): {
+
+                        "REQUEST_TYPE": "request_type",
+                        "REQUEST_TYPE,STATUS": "request_type,status",
+                        "REQUEST_TYPE,STATUS,UNITS": "request_type,status,units",
+                        "REQUEST_TYPE,UNITS": "request_type,units",
+                        "STATUS": "status",
+                        "STATUS,UNITS": "status,units",
+                        "UNITS": "units"
                     },
                     ('status',): {
                         'None': None,
@@ -364,8 +368,6 @@ class TimeOffApi(object):
                         (str,),
                     'employee_id':
                         (str,),
-                    'expand':
-                        (str,),
                     'include_deleted_data':
                         (bool,),
                     'include_remote_data':
@@ -382,6 +384,8 @@ class TimeOffApi(object):
                         (str, none_type,),
                     'request_type':
                         (str, none_type,),
+                    'show_enum_origins':
+                        (str,),
                     'status':
                         (str, none_type,),
                 },
@@ -392,7 +396,6 @@ class TimeOffApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'employee_id': 'employee_id',
-                    'expand': 'expand',
                     'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
@@ -401,6 +404,7 @@ class TimeOffApi(object):
                     'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                     'request_type': 'request_type',
+                    'show_enum_origins': 'show_enum_origins',
                     'status': 'status',
                 },
                 'location_map': {
@@ -410,7 +414,6 @@ class TimeOffApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'employee_id': 'query',
-                    'expand': 'query',
                     'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
@@ -419,6 +422,7 @@ class TimeOffApi(object):
                     'remote_fields': 'query',
                     'remote_id': 'query',
                     'request_type': 'query',
+                    'show_enum_origins': 'query',
                     'status': 'query',
                 },
                 'collection_format_map': {
@@ -573,9 +577,9 @@ class TimeOffApi(object):
                 id (str):
 
             Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
+                remote_fields (str): Deprecated. Use show_enum_origins.. [optional]
+                show_enum_origins (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -641,9 +645,9 @@ class TimeOffApi(object):
                 'all': [
                     'x_account_token',
                     'id',
-                    'expand',
                     'include_remote_data',
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'required': [
                     'x_account_token',
@@ -652,8 +656,8 @@ class TimeOffApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'expand',
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'validation': [
                 ]
@@ -662,13 +666,17 @@ class TimeOffApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "APPROVER": "approver",
-                        "EMPLOYEE": "employee",
-                        "EMPLOYEE,APPROVER": "employee,approver"
-                    },
                     ('remote_fields',): {
+
+                        "REQUEST_TYPE": "request_type",
+                        "REQUEST_TYPE,STATUS": "request_type,status",
+                        "REQUEST_TYPE,STATUS,UNITS": "request_type,status,units",
+                        "REQUEST_TYPE,UNITS": "request_type,units",
+                        "STATUS": "status",
+                        "STATUS,UNITS": "status,units",
+                        "UNITS": "units"
+                    },
+                    ('show_enum_origins',): {
 
                         "REQUEST_TYPE": "request_type",
                         "REQUEST_TYPE,STATUS": "request_type,status",
@@ -684,26 +692,26 @@ class TimeOffApi(object):
                         (str,),
                     'id':
                         (str,),
-                    'expand':
-                        (str,),
                     'include_remote_data':
                         (bool,),
                     'remote_fields':
+                        (str,),
+                    'show_enum_origins':
                         (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
-                    'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                     'remote_fields': 'remote_fields',
+                    'show_enum_origins': 'show_enum_origins',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
-                    'expand': 'query',
                     'include_remote_data': 'query',
                     'remote_fields': 'query',
+                    'show_enum_origins': 'query',
                 },
                 'collection_format_map': {
                 }

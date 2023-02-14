@@ -1,6 +1,6 @@
 # PayrollRun
 
-# The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run. This payroll run is not specific to an employee.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
+# The PayrollRun Object ### Description The `PayrollRun` object is used to represent a group of pay statements for a specific pay schedule.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
 
 ## Properties
 Name | Type | Description | Notes
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **check_date** | **datetime, none_type** | The day and time the payroll run was checked. | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 **remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
+**field_mappings** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

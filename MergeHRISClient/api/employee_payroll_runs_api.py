@@ -62,7 +62,6 @@ class EmployeePayrollRunsApi(object):
                 employee_id (str): If provided, will only return employee payroll runs for this employee.. [optional]
                 ended_after (datetime, none_type): If provided, will only return employee payroll runs ended after this datetime.. [optional]
                 ended_before (datetime, none_type): If provided, will only return employee payroll runs ended before this datetime.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
@@ -140,7 +139,6 @@ class EmployeePayrollRunsApi(object):
                     'employee_id',
                     'ended_after',
                     'ended_before',
-                    'expand',
                     'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
@@ -162,7 +160,6 @@ class EmployeePayrollRunsApi(object):
                     'started_before',
                 ],
                 'enum': [
-                    'expand',
                 ],
                 'validation': [
                 ]
@@ -171,12 +168,6 @@ class EmployeePayrollRunsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "EMPLOYEE": "employee",
-                        "EMPLOYEE,PAYROLL_RUN": "employee,payroll_run",
-                        "PAYROLL_RUN": "payroll_run"
-                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -193,8 +184,6 @@ class EmployeePayrollRunsApi(object):
                         (datetime, none_type,),
                     'ended_before':
                         (datetime, none_type,),
-                    'expand':
-                        (str,),
                     'include_deleted_data':
                         (bool,),
                     'include_remote_data':
@@ -222,7 +211,6 @@ class EmployeePayrollRunsApi(object):
                     'employee_id': 'employee_id',
                     'ended_after': 'ended_after',
                     'ended_before': 'ended_before',
-                    'expand': 'expand',
                     'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
@@ -241,7 +229,6 @@ class EmployeePayrollRunsApi(object):
                     'employee_id': 'query',
                     'ended_after': 'query',
                     'ended_before': 'query',
-                    'expand': 'query',
                     'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
@@ -285,7 +272,6 @@ class EmployeePayrollRunsApi(object):
                 id (str):
 
             Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -352,7 +338,6 @@ class EmployeePayrollRunsApi(object):
                 'all': [
                     'x_account_token',
                     'id',
-                    'expand',
                     'include_remote_data',
                 ],
                 'required': [
@@ -362,7 +347,6 @@ class EmployeePayrollRunsApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'expand',
                 ],
                 'validation': [
                 ]
@@ -371,19 +355,11 @@ class EmployeePayrollRunsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "EMPLOYEE": "employee",
-                        "EMPLOYEE,PAYROLL_RUN": "employee,payroll_run",
-                        "PAYROLL_RUN": "payroll_run"
-                    },
                 },
                 'openapi_types': {
                     'x_account_token':
                         (str,),
                     'id':
-                        (str,),
-                    'expand':
                         (str,),
                     'include_remote_data':
                         (bool,),
@@ -391,13 +367,11 @@ class EmployeePayrollRunsApi(object):
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
-                    'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
-                    'expand': 'query',
                     'include_remote_data': 'query',
                 },
                 'collection_format_map': {

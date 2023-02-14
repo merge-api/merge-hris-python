@@ -101,12 +101,11 @@ class LinkToken(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, link_token, integration_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, link_token, *args, **kwargs):  # noqa: E501
         """LinkToken - a model defined in OpenAPI
 
         Args:
             link_token (str):
-            integration_name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,6 +138,7 @@ class LinkToken(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            integration_name (str): [optional]  # noqa: E501
             magic_link_url (str): [optional]  # noqa: E501
         """
 
@@ -166,7 +166,6 @@ class LinkToken(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.link_token = link_token
-        self.integration_name = integration_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

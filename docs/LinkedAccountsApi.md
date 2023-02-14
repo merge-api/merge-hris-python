@@ -52,6 +52,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     end_user_origin_ids = "end_user_origin_ids_example" # str | Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. (optional)
     id = "id_example" # str |  (optional)
     ids = "ids_example" # str | Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. (optional)
+    include_duplicates = True # bool | If `true`, will include complete production duplicates of the account specified by the `id` query parameter in the response. `id` must be for a complete production linked account. (optional)
     integration_name = "integration_name_example" # str | If provided, will only return linked accounts associated with the given integration name. (optional)
     is_test_account = "is_test_account_example" # str | If included, will only include test linked accounts. If not included, will only include non-test linked accounts. (optional)
     page_size = 1 # int | Number of results to return per page. (optional)
@@ -60,7 +61,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.linked_accounts_list(category=category, cursor=cursor, end_user_email_address=end_user_email_address, end_user_organization_name=end_user_organization_name, end_user_origin_id=end_user_origin_id, end_user_origin_ids=end_user_origin_ids, id=id, ids=ids, integration_name=integration_name, is_test_account=is_test_account, page_size=page_size, status=status)
+        api_response = api_instance.linked_accounts_list(category=category, cursor=cursor, end_user_email_address=end_user_email_address, end_user_organization_name=end_user_organization_name, end_user_origin_id=end_user_origin_id, end_user_origin_ids=end_user_origin_ids, id=id, ids=ids, include_duplicates=include_duplicates, integration_name=integration_name, is_test_account=is_test_account, page_size=page_size, status=status)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling LinkedAccountsApi->linked_accounts_list: %s\n" % e)
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
  **end_user_origin_ids** | **str**| Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once. | [optional]
  **id** | **str**|  | [optional]
  **ids** | **str**| Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once. | [optional]
+ **include_duplicates** | **bool**| If &#x60;true&#x60;, will include complete production duplicates of the account specified by the &#x60;id&#x60; query parameter in the response. &#x60;id&#x60; must be for a complete production linked account. | [optional]
  **integration_name** | **str**| If provided, will only return linked accounts associated with the given integration name. | [optional]
  **is_test_account** | **str**| If included, will only include test linked accounts. If not included, will only include non-test linked accounts. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]

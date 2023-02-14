@@ -15,7 +15,9 @@ from unittest.mock import MagicMock
 
 import MergeHRISClient
 from MergeHRISClient.model.categories_enum import CategoriesEnum
+from MergeHRISClient.model.common_model_scopes_body_request import CommonModelScopesBodyRequest
 globals()['CategoriesEnum'] = CategoriesEnum
+globals()['CommonModelScopesBodyRequest'] = CommonModelScopesBodyRequest
 from MergeHRISClient.model.end_user_details_request import EndUserDetailsRequest
 from MergeHRISClient.api_client import ApiClient
 

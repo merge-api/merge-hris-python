@@ -32,10 +32,9 @@ class TestDebugModelLogSummary(unittest.TestCase):
         # FIXME: construct object with mandatory attributes with example values
         # model = DebugModelLogSummary()  # noqa: E501
 
+        raw_json = """
+            {"url": "https://harvest.greenhouse.io/v1/candidates/", "method": "POST", "status_code": 200}
         """
-        No test json responses were defined for DebugModelLogSummary
-        """
-        raw_json = None
 
         if raw_json is None:
             return

@@ -86,6 +86,7 @@ class AccountDetailsAndActions(ModelNormal):
             'category': (object,),  # noqa: E501
             'status_detail': (str,),  # noqa: E501
             'end_user_origin_id': (str,),  # noqa: E501
+            'is_duplicate': (bool, none_type,),  # noqa: E501
             'integration': (AccountDetailsAndActionsIntegration,),  # noqa: E501
         }
 
@@ -103,6 +104,7 @@ class AccountDetailsAndActions(ModelNormal):
         'category': 'category',  # noqa: E501
         'status_detail': 'status_detail',  # noqa: E501
         'end_user_origin_id': 'end_user_origin_id',  # noqa: E501
+        'is_duplicate': 'is_duplicate',  # noqa: E501
         'integration': 'integration',  # noqa: E501
     }
 
@@ -162,6 +164,7 @@ class AccountDetailsAndActions(ModelNormal):
             category (object): [optional]  # noqa: E501
             status_detail (str): [optional]  # noqa: E501
             end_user_origin_id (str): [optional]  # noqa: E501
+            is_duplicate (bool, none_type): Whether a Production Linked Account's credentials match another existing Production Linked Account. This field is `null` for Test Linked Accounts, incomplete Production Linked Accounts, and ignored duplicate Production Linked Account sets.. [optional]  # noqa: E501
             integration (AccountDetailsAndActionsIntegration): [optional]  # noqa: E501
         """
 

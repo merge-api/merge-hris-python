@@ -75,10 +75,11 @@ class SyncStatus(ModelNormal):
         return {
             'model_name': (str,),  # noqa: E501
             'model_id': (str,),  # noqa: E501
-            'last_sync_start': (datetime,),  # noqa: E501
-            'next_sync_start': (datetime,),  # noqa: E501
             'status': (object,),  # noqa: E501
             'is_initial_sync': (bool,),  # noqa: E501
+            'last_sync_start': (datetime,),  # noqa: E501
+            'next_sync_start': (datetime,),  # noqa: E501
+            'selective_sync_configurations_usage': (object,),  # noqa: E501
         }
 
     @cached_property
@@ -89,10 +90,11 @@ class SyncStatus(ModelNormal):
     attribute_map = {
         'model_name': 'model_name',  # noqa: E501
         'model_id': 'model_id',  # noqa: E501
-        'last_sync_start': 'last_sync_start',  # noqa: E501
-        'next_sync_start': 'next_sync_start',  # noqa: E501
         'status': 'status',  # noqa: E501
         'is_initial_sync': 'is_initial_sync',  # noqa: E501
+        'last_sync_start': 'last_sync_start',  # noqa: E501
+        'next_sync_start': 'next_sync_start',  # noqa: E501
+        'selective_sync_configurations_usage': 'selective_sync_configurations_usage',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -107,14 +109,12 @@ class SyncStatus(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, model_name, model_id, last_sync_start, next_sync_start, status, is_initial_sync, *args, **kwargs):  # noqa: E501
+    def __init__(self, model_name, model_id, status, is_initial_sync, *args, **kwargs):  # noqa: E501
         """SyncStatus - a model defined in OpenAPI
 
         Args:
             model_name (str):
             model_id (str):
-            last_sync_start (datetime):
-            next_sync_start (datetime):
             status (object):
             is_initial_sync (bool):
 
@@ -149,6 +149,9 @@ class SyncStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            last_sync_start (datetime): [optional]  # noqa: E501
+            next_sync_start (datetime): [optional]  # noqa: E501
+            selective_sync_configurations_usage (object): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -176,8 +179,6 @@ class SyncStatus(ModelNormal):
 
         self.model_name = model_name
         self.model_id = model_id
-        self.last_sync_start = last_sync_start
-        self.next_sync_start = next_sync_start
         self.status = status
         self.is_initial_sync = is_initial_sync
         for var_name, var_value in kwargs.items():

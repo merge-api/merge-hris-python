@@ -60,15 +60,15 @@ class EmploymentsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 employee_id (str): If provided, will only return employments for this employee.. [optional]
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 order_by (str): Overrides the default ordering for this endpoint.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
-                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
+                remote_fields (str): Deprecated. Use show_enum_origins.. [optional]
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
+                show_enum_origins (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -135,7 +135,6 @@ class EmploymentsApi(object):
                     'created_before',
                     'cursor',
                     'employee_id',
-                    'expand',
                     'include_deleted_data',
                     'include_remote_data',
                     'modified_after',
@@ -144,6 +143,7 @@ class EmploymentsApi(object):
                     'page_size',
                     'remote_fields',
                     'remote_id',
+                    'show_enum_origins',
                 ],
                 'required': [
                     'x_account_token',
@@ -152,9 +152,9 @@ class EmploymentsApi(object):
                     'remote_id',
                 ],
                 'enum': [
-                    'expand',
                     'order_by',
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'validation': [
                 ]
@@ -163,18 +163,30 @@ class EmploymentsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "EMPLOYEE": "employee",
-                        "EMPLOYEE,PAY_GROUP": "employee,pay_group",
-                        "PAY_GROUP": "pay_group"
-                    },
                     ('order_by',): {
 
                         "-EFFECTIVE_DATE": "-effective_date",
                         "EFFECTIVE_DATE": "effective_date"
                     },
                     ('remote_fields',): {
+
+                        "EMPLOYMENT_TYPE": "employment_type",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS": "employment_type,flsa_status",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY": "employment_type,flsa_status,pay_frequency",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "employment_type,flsa_status,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_PERIOD": "employment_type,flsa_status,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY": "employment_type,pay_frequency",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY,PAY_PERIOD": "employment_type,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_PERIOD": "employment_type,pay_period",
+                        "FLSA_STATUS": "flsa_status",
+                        "FLSA_STATUS,PAY_FREQUENCY": "flsa_status,pay_frequency",
+                        "FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "flsa_status,pay_frequency,pay_period",
+                        "FLSA_STATUS,PAY_PERIOD": "flsa_status,pay_period",
+                        "PAY_FREQUENCY": "pay_frequency",
+                        "PAY_FREQUENCY,PAY_PERIOD": "pay_frequency,pay_period",
+                        "PAY_PERIOD": "pay_period"
+                    },
+                    ('show_enum_origins',): {
 
                         "EMPLOYMENT_TYPE": "employment_type",
                         "EMPLOYMENT_TYPE,FLSA_STATUS": "employment_type,flsa_status",
@@ -204,8 +216,6 @@ class EmploymentsApi(object):
                         (str,),
                     'employee_id':
                         (str,),
-                    'expand':
-                        (str,),
                     'include_deleted_data':
                         (bool,),
                     'include_remote_data':
@@ -222,6 +232,8 @@ class EmploymentsApi(object):
                         (str,),
                     'remote_id':
                         (str, none_type,),
+                    'show_enum_origins':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
@@ -229,7 +241,6 @@ class EmploymentsApi(object):
                     'created_before': 'created_before',
                     'cursor': 'cursor',
                     'employee_id': 'employee_id',
-                    'expand': 'expand',
                     'include_deleted_data': 'include_deleted_data',
                     'include_remote_data': 'include_remote_data',
                     'modified_after': 'modified_after',
@@ -238,6 +249,7 @@ class EmploymentsApi(object):
                     'page_size': 'page_size',
                     'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
+                    'show_enum_origins': 'show_enum_origins',
                 },
                 'location_map': {
                     'x_account_token': 'header',
@@ -245,7 +257,6 @@ class EmploymentsApi(object):
                     'created_before': 'query',
                     'cursor': 'query',
                     'employee_id': 'query',
-                    'expand': 'query',
                     'include_deleted_data': 'query',
                     'include_remote_data': 'query',
                     'modified_after': 'query',
@@ -254,6 +265,7 @@ class EmploymentsApi(object):
                     'page_size': 'query',
                     'remote_fields': 'query',
                     'remote_id': 'query',
+                    'show_enum_origins': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -288,9 +300,9 @@ class EmploymentsApi(object):
                 id (str):
 
             Keyword Args:
-                expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
-                remote_fields (str): Which fields should be returned in non-normalized form.. [optional]
+                remote_fields (str): Deprecated. Use show_enum_origins.. [optional]
+                show_enum_origins (str): Which fields should be returned in non-normalized form.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -356,9 +368,9 @@ class EmploymentsApi(object):
                 'all': [
                     'x_account_token',
                     'id',
-                    'expand',
                     'include_remote_data',
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'required': [
                     'x_account_token',
@@ -367,8 +379,8 @@ class EmploymentsApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'expand',
                     'remote_fields',
+                    'show_enum_origins',
                 ],
                 'validation': [
                 ]
@@ -377,13 +389,25 @@ class EmploymentsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('expand',): {
-
-                        "EMPLOYEE": "employee",
-                        "EMPLOYEE,PAY_GROUP": "employee,pay_group",
-                        "PAY_GROUP": "pay_group"
-                    },
                     ('remote_fields',): {
+
+                        "EMPLOYMENT_TYPE": "employment_type",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS": "employment_type,flsa_status",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY": "employment_type,flsa_status,pay_frequency",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "employment_type,flsa_status,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,FLSA_STATUS,PAY_PERIOD": "employment_type,flsa_status,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY": "employment_type,pay_frequency",
+                        "EMPLOYMENT_TYPE,PAY_FREQUENCY,PAY_PERIOD": "employment_type,pay_frequency,pay_period",
+                        "EMPLOYMENT_TYPE,PAY_PERIOD": "employment_type,pay_period",
+                        "FLSA_STATUS": "flsa_status",
+                        "FLSA_STATUS,PAY_FREQUENCY": "flsa_status,pay_frequency",
+                        "FLSA_STATUS,PAY_FREQUENCY,PAY_PERIOD": "flsa_status,pay_frequency,pay_period",
+                        "FLSA_STATUS,PAY_PERIOD": "flsa_status,pay_period",
+                        "PAY_FREQUENCY": "pay_frequency",
+                        "PAY_FREQUENCY,PAY_PERIOD": "pay_frequency,pay_period",
+                        "PAY_PERIOD": "pay_period"
+                    },
+                    ('show_enum_origins',): {
 
                         "EMPLOYMENT_TYPE": "employment_type",
                         "EMPLOYMENT_TYPE,FLSA_STATUS": "employment_type,flsa_status",
@@ -407,26 +431,26 @@ class EmploymentsApi(object):
                         (str,),
                     'id':
                         (str,),
-                    'expand':
-                        (str,),
                     'include_remote_data':
                         (bool,),
                     'remote_fields':
+                        (str,),
+                    'show_enum_origins':
                         (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
-                    'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
                     'remote_fields': 'remote_fields',
+                    'show_enum_origins': 'show_enum_origins',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
-                    'expand': 'query',
                     'include_remote_data': 'query',
                     'remote_fields': 'query',
+                    'show_enum_origins': 'query',
                 },
                 'collection_format_map': {
                 }

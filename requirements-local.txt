@@ -1,3 +1,3 @@
 -r ./requirements.txt
 
-pytest == 5.3.5  # https://github.com/pytest-dev/pytest
+pytest == 6.2.5  # https://github.com/pytest-dev/pytest/discussions/9195

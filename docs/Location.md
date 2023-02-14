@@ -1,6 +1,6 @@
 # Location
 
-# The Location Object ### Description The `Location` object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.
+# The Location Object ### Description The `Location` object is used to represent an address that can be associated with an employee.  ### Usage Example Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.
 
 ## Properties
 Name | Type | Description | Notes
@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **location_type** | **object, none_type** | The location&#39;s type. Can be either WORK or HOME | [optional] 
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 **remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
+**field_mappings** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

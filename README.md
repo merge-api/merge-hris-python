@@ -96,10 +96,10 @@ Class | Method | HTTP request | Description
 *BankInfoApi* | [**bank_info_retrieve**](docs/BankInfoApi.md#bank_info_retrieve) | **GET** /bank-info/{id} | 
 *BenefitsApi* | [**benefits_list**](docs/BenefitsApi.md#benefits_list) | **GET** /benefits | 
 *BenefitsApi* | [**benefits_retrieve**](docs/BenefitsApi.md#benefits_retrieve) | **GET** /benefits/{id} | 
+*CommonModelScopesApi* | [**common_model_scopes_create**](docs/CommonModelScopesApi.md#common_model_scopes_create) | **POST** /common-model-scopes | 
+*CommonModelScopesApi* | [**common_model_scopes_retrieve**](docs/CommonModelScopesApi.md#common_model_scopes_retrieve) | **GET** /common-model-scopes | 
 *CompaniesApi* | [**companies_list**](docs/CompaniesApi.md#companies_list) | **GET** /companies | 
 *CompaniesApi* | [**companies_retrieve**](docs/CompaniesApi.md#companies_retrieve) | **GET** /companies/{id} | 
-*DeductionsApi* | [**deductions_list**](docs/DeductionsApi.md#deductions_list) | **GET** /deductions | 
-*DeductionsApi* | [**deductions_retrieve**](docs/DeductionsApi.md#deductions_retrieve) | **GET** /deductions/{id} | 
 *DeleteAccountApi* | [**delete_account_create**](docs/DeleteAccountApi.md#delete_account_create) | **POST** /delete-account | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_list**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_list) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employee_payroll_runs_retrieve**](docs/EmployeePayrollRunsApi.md#employee_payroll_runs_retrieve) | **GET** /employee-payroll-runs/{id} | 
@@ -126,6 +126,9 @@ Class | Method | HTTP request | Description
 *PayrollRunsApi* | [**payroll_runs_list**](docs/PayrollRunsApi.md#payroll_runs_list) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payroll_runs_retrieve**](docs/PayrollRunsApi.md#payroll_runs_retrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerate_key_create**](docs/RegenerateKeyApi.md#regenerate_key_create) | **POST** /regenerate-key | 
+*SelectiveSyncApi* | [**selective_sync_configurations_list**](docs/SelectiveSyncApi.md#selective_sync_configurations_list) | **GET** /selective-sync/configurations | 
+*SelectiveSyncApi* | [**selective_sync_configurations_update**](docs/SelectiveSyncApi.md#selective_sync_configurations_update) | **PUT** /selective-sync/configurations | 
+*SelectiveSyncApi* | [**selective_sync_meta_list**](docs/SelectiveSyncApi.md#selective_sync_meta_list) | **GET** /selective-sync/meta | 
 *SyncStatusApi* | [**sync_status_list**](docs/SyncStatusApi.md#sync_status_list) | **GET** /sync-status | 
 *TeamsApi* | [**teams_list**](docs/TeamsApi.md#teams_list) | **GET** /teams | 
 *TeamsApi* | [**teams_retrieve**](docs/TeamsApi.md#teams_retrieve) | **GET** /teams/{id} | 
@@ -153,7 +156,15 @@ Class | Method | HTTP request | Description
  - [Benefit](docs/Benefit.md)
  - [CategoriesEnum](docs/CategoriesEnum.md)
  - [CategoryEnum](docs/CategoryEnum.md)
+ - [CommonModelScopeData](docs/CommonModelScopeData.md)
+ - [CommonModelScopes](docs/CommonModelScopes.md)
+ - [CommonModelScopesBodyRequest](docs/CommonModelScopesBodyRequest.md)
+ - [CommonModelScopesDisabledModels](docs/CommonModelScopesDisabledModels.md)
+ - [CommonModelScopesPostInnerDeserializerRequest](docs/CommonModelScopesPostInnerDeserializerRequest.md)
+ - [CommonModelScopesUpdateSerializer](docs/CommonModelScopesUpdateSerializer.md)
  - [Company](docs/Company.md)
+ - [ConditionSchema](docs/ConditionSchema.md)
+ - [ConditionTypeEnum](docs/ConditionTypeEnum.md)
  - [CountryEnum](docs/CountryEnum.md)
  - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [DebugModeLog](docs/DebugModeLog.md)
@@ -169,6 +180,7 @@ Class | Method | HTTP request | Description
  - [Employment](docs/Employment.md)
  - [EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
  - [EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
+ - [EnabledActionsEnum](docs/EnabledActionsEnum.md)
  - [EncodingEnum](docs/EncodingEnum.md)
  - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [ErrorValidationProblem](docs/ErrorValidationProblem.md)
@@ -183,6 +195,11 @@ Class | Method | HTTP request | Description
  - [Issue](docs/Issue.md)
  - [IssueStatusEnum](docs/IssueStatusEnum.md)
  - [LinkToken](docs/LinkToken.md)
+ - [LinkedAccountCondition](docs/LinkedAccountCondition.md)
+ - [LinkedAccountConditionRequest](docs/LinkedAccountConditionRequest.md)
+ - [LinkedAccountSelectiveSyncConfiguration](docs/LinkedAccountSelectiveSyncConfiguration.md)
+ - [LinkedAccountSelectiveSyncConfigurationListRequest](docs/LinkedAccountSelectiveSyncConfigurationListRequest.md)
+ - [LinkedAccountSelectiveSyncConfigurationRequest](docs/LinkedAccountSelectiveSyncConfigurationRequest.md)
  - [LinkedAccountStatus](docs/LinkedAccountStatus.md)
  - [Location](docs/Location.md)
  - [LocationTypeEnum](docs/LocationTypeEnum.md)
@@ -191,11 +208,12 @@ Class | Method | HTTP request | Description
  - [MethodEnum](docs/MethodEnum.md)
  - [ModelOperation](docs/ModelOperation.md)
  - [MultipartFormFieldRequest](docs/MultipartFormFieldRequest.md)
+ - [OperatorSchema](docs/OperatorSchema.md)
  - [PaginatedAccountDetailsAndActionsList](docs/PaginatedAccountDetailsAndActionsList.md)
  - [PaginatedBankInfoList](docs/PaginatedBankInfoList.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
- - [PaginatedDeductionList](docs/PaginatedDeductionList.md)
+ - [PaginatedConditionSchemaList](docs/PaginatedConditionSchemaList.md)
  - [PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
@@ -221,8 +239,10 @@ Class | Method | HTTP request | Description
  - [RemoteResponse](docs/RemoteResponse.md)
  - [RequestFormatEnum](docs/RequestFormatEnum.md)
  - [RequestTypeEnum](docs/RequestTypeEnum.md)
+ - [ResponseTypeEnum](docs/ResponseTypeEnum.md)
  - [RunStateEnum](docs/RunStateEnum.md)
  - [RunTypeEnum](docs/RunTypeEnum.md)
+ - [SelectiveSyncConfigurationsUsageEnum](docs/SelectiveSyncConfigurationsUsageEnum.md)
  - [SyncStatus](docs/SyncStatus.md)
  - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tax](docs/Tax.md)

@@ -52,7 +52,6 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     employee_endpoint_request = EmployeeEndpointRequest(
         model=EmployeeRequest(
-            remote_id="19202938",
             employee_number="2",
             company="8d9fd929-436c-4fd4-a48b-0c61f68d6178",
             first_name="Greg",
@@ -76,11 +75,13 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
             date_of_birth=dateutil_parser('1990-11-10T00:00:00Z'),
             hire_date=dateutil_parser('2020-10-10T00:00:00Z'),
             start_date=dateutil_parser('2020-10-11T00:00:00Z'),
-            remote_created_at=dateutil_parser('2020-10-11T00:00:00Z'),
             employment_status=,
             termination_date=dateutil_parser('2021-10-12T00:00:00Z'),
             avatar="http://alturl.com/h2h8m",
-            custom_fields={
+            integration_params={
+                "key": None,
+            },
+            linked_account_params={
                 "key": None,
             },
         ),
@@ -262,8 +263,8 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
     display_full_name = "display_full_name_example" # str, none_type | If provided, will only return employees with this display name. (optional)
     employment_status = "ACTIVE" # str, none_type | If provided, will only return employees with this employment status. (optional)
-    expand = "employments,groups,home_location,work_location,manager,team,company,pay_group" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     first_name = "first_name_example" # str, none_type | If provided, will only return employees with this first name. (optional)
+    groups = "groups_example" # str | If provided, will only return employees matching the group ids; multiple groups can be separated by commas. (optional)
     include_deleted_data = True # bool | Whether to include data that was marked as deleted by third party webhooks. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     include_sensitive_fields = True # bool | Whether to include sensitive fields (such as social security numbers) in the response. (optional)
@@ -274,8 +275,9 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     page_size = 1 # int | Number of results to return per page. (optional)
     pay_group_id = "pay_group_id_example" # str | If provided, will only return employees for this pay group (optional)
     personal_email = "personal_email_example" # str, none_type | If provided, will only return Employees with this personal email (optional)
-    remote_fields = "employment_status,ethnicity,gender,marital_status" # str | Which fields should be returned in non-normalized form. (optional)
+    remote_fields = "employment_status,ethnicity,gender,marital_status" # str | Deprecated. Use show_enum_origins. (optional)
     remote_id = "remote_id_example" # str, none_type | The API provider's ID for the given object. (optional)
+    show_enum_origins = "employment_status,ethnicity,gender,marital_status" # str | Which fields should be returned in non-normalized form. (optional)
     team_id = "team_id_example" # str | If provided, will only return employees for this team. (optional)
     work_email = "work_email_example" # str, none_type | If provided, will only return Employees with this work email (optional)
     work_location_id = "work_location_id_example" # str | If provided, will only return employees for this location. (optional)
@@ -290,7 +292,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.employees_list(x_account_token, company_id=company_id, created_after=created_after, created_before=created_before, cursor=cursor, display_full_name=display_full_name, employment_status=employment_status, expand=expand, first_name=first_name, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, include_sensitive_fields=include_sensitive_fields, last_name=last_name, manager_id=manager_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, pay_group_id=pay_group_id, personal_email=personal_email, remote_fields=remote_fields, remote_id=remote_id, team_id=team_id, work_email=work_email, work_location_id=work_location_id)
+        api_response = api_instance.employees_list(x_account_token, company_id=company_id, created_after=created_after, created_before=created_before, cursor=cursor, display_full_name=display_full_name, employment_status=employment_status, first_name=first_name, groups=groups, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, include_sensitive_fields=include_sensitive_fields, last_name=last_name, manager_id=manager_id, modified_after=modified_after, modified_before=modified_before, page_size=page_size, pay_group_id=pay_group_id, personal_email=personal_email, remote_fields=remote_fields, remote_id=remote_id, show_enum_origins=show_enum_origins, team_id=team_id, work_email=work_email, work_location_id=work_location_id)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling EmployeesApi->employees_list: %s\n" % e)
@@ -308,8 +310,8 @@ Name | Type | Description  | Notes
  **cursor** | **str**| The pagination cursor value. | [optional]
  **display_full_name** | **str, none_type**| If provided, will only return employees with this display name. | [optional]
  **employment_status** | **str, none_type**| If provided, will only return employees with this employment status. | [optional]
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **first_name** | **str, none_type**| If provided, will only return employees with this first name. | [optional]
+ **groups** | **str**| If provided, will only return employees matching the group ids; multiple groups can be separated by commas. | [optional]
  **include_deleted_data** | **bool**| Whether to include data that was marked as deleted by third party webhooks. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **include_sensitive_fields** | **bool**| Whether to include sensitive fields (such as social security numbers) in the response. | [optional]
@@ -320,8 +322,9 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Number of results to return per page. | [optional]
  **pay_group_id** | **str**| If provided, will only return employees for this pay group | [optional]
  **personal_email** | **str, none_type**| If provided, will only return Employees with this personal email | [optional]
- **remote_fields** | **str**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **str**| Deprecated. Use show_enum_origins. | [optional]
  **remote_id** | **str, none_type**| The API provider&#39;s ID for the given object. | [optional]
+ **show_enum_origins** | **str**| Which fields should be returned in non-normalized form. | [optional]
  **team_id** | **str**| If provided, will only return employees for this team. | [optional]
  **work_email** | **str, none_type**| If provided, will only return Employees with this work email | [optional]
  **work_location_id** | **str**| If provided, will only return employees for this location. | [optional]
@@ -461,10 +464,10 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     api_instance = employees_api.EmployeesApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    expand = "employments,groups,home_location,work_location,manager,team,company,pay_group" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     include_sensitive_fields = True # bool | Whether to include sensitive fields (such as social security numbers) in the response. (optional)
-    remote_fields = "employment_status,ethnicity,gender,marital_status" # str | Which fields should be returned in non-normalized form. (optional)
+    remote_fields = "employment_status,ethnicity,gender,marital_status" # str | Deprecated. Use show_enum_origins. (optional)
+    show_enum_origins = "employment_status,ethnicity,gender,marital_status" # str | Which fields should be returned in non-normalized form. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -476,7 +479,7 @@ with MergeHRISClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.employees_retrieve(x_account_token, id, expand=expand, include_remote_data=include_remote_data, include_sensitive_fields=include_sensitive_fields, remote_fields=remote_fields)
+        api_response = api_instance.employees_retrieve(x_account_token, id, include_remote_data=include_remote_data, include_sensitive_fields=include_sensitive_fields, remote_fields=remote_fields, show_enum_origins=show_enum_origins)
         pprint(api_response)
     except MergeHRISClient.ApiException as e:
         print("Exception when calling EmployeesApi->employees_retrieve: %s\n" % e)
@@ -489,10 +492,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
  **id** | **str**|  |
- **expand** | **str**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **include_sensitive_fields** | **bool**| Whether to include sensitive fields (such as social security numbers) in the response. | [optional]
- **remote_fields** | **str**| Which fields should be returned in non-normalized form. | [optional]
+ **remote_fields** | **str**| Deprecated. Use show_enum_origins. | [optional]
+ **show_enum_origins** | **str**| Which fields should be returned in non-normalized form. | [optional]
 
 ### Return type
 
