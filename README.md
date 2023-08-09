@@ -1,3 +1,15 @@
+## Deprecation Notice
+
+Merge has released a new version of our [Python SDK](https://github.com/merge-api/merge-python-client/). As part of that release, we are providing a deprecation notice of our legacy SDKs.
+
+To help give you time to plan your migration to our latest SDK:
+
+- August 2023: SDK deprecation notice on our legacy Python SDKs.
+- Until February 2024: we’ll support updates as needed and address bugs in priority order
+- After February 2024: we’ll no longer make updates or bug fixes to the deprecated SDKs
+
+For information about the deprecation notice see our [help center](https://help.merge.dev/en/collections/4258952-sdks) and for information about migrating to the Python SDK, see the [Python Migration Guide](https://help.merge.dev/en/articles/8229265-advanced-python-sdk-migration-guide).
+
 # MergeHRISClient
 The unified API for building rich integrations with multiple HR Information System platforms.
 
